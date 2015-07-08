@@ -1,0 +1,100 @@
+
+/*
+site: RonakWeb.com
+
+*/
+
+
+@font-face {
+    font-family: 'BMitra';
+    src: url('BMitra.eot');
+    src: url('BMitra.eot?#iefix') format('embedded-opentype'),
+         url('BMitra.woff') format('woff'),
+         url('BMitra.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BMitraBold';
+    src: url('BMitraBold.eot');
+    src: url('BMitraBold.eot?#iefix') format('embedded-opentype'),
+         url('BMitraBold.woff') format('woff'),
+         url('BMitraBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BRoya';
+    src: url('BRoya.eot');
+    src: url('BRoya.eot?#iefix') format('embedded-opentype'),
+         url('BRoya.woff') format('woff'),
+         url('BRoya.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BTabassom';
+    src: url('BTabassom.eot');
+    src: url('BTabassom.eot?#iefix') format('embedded-opentype'),
+         url('BTabassom.woff') format('woff'),
+         url('BTabassom.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'BTitr';
+    src: url('BTitr.eot');
+    src: url('BTitr.eot?#iefix') format('embedded-opentype'),
+         url('BTitr.woff') format('woff'),
+         url('BTitr.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BTitrTGE';
+    src: url('BTitrTGE.eot');
+    src: url('BTitrTGE.eot?#iefix') format('embedded-opentype'),
+         url('BTitrTGE.woff') format('woff'), 
+         url('BTitrTGE.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'BYekan';
+    src: url('BYekan.eot');
+    src: url('BYekan.eot?#iefix') format('embedded-opentype'),
+         url('BYekan.woff') format('woff'),
+         url('BYekan.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'BTraffic';
+    src: url('BTraffic.eot');
+    src: url('BTraffic.eot?#iefix') format('embedded-opentype'),
+         url('BTraffic.woff') format('woff'),
+         url('BTraffic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+ @font-face {
+    font-family: 'BNasim';
+    src: url('BNasim.eot');
+    src: url('BNasim.eot?#iefix') format('embedded-opentype'),
+         url('BNasim.woff') format('woff'),
+         url('BNasim.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
