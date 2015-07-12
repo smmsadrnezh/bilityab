@@ -1,27 +1,29 @@
+{% load staticfiles %}
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>خانه</title>
-    <link rel="stylesheet" href="static/css/font.css"/>
-    <link rel="stylesheet" href="static/css/font-awesome.css"/>
-    <link rel="stylesheet" href="static/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="static/css/sport-event.css"/>
-    <link rel="stylesheet" href="static/css/login-register.css"/>
+    <link rel="stylesheet" href="{% static "css/font.css" %}"/>
+    <link rel="stylesheet" href="{% static "css/font-awesome.css" %}"/>
+    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}"/>
+    <link rel="stylesheet" href="{% static "css/sport-event.css" %}"/>
+    <link rel="stylesheet" href="{% static "css/login-register.css" %}"/>
 </head>
-<body style="background-image: url('static/img/te-nflpromo.jpg')">
-<script src="static/js/resize_text.js"></script>
+<body style="background-image: url('{% static "img/te-nflpromo.jpg" %}')">
+<script src="{% static "js/resize_text.js" %}"></script>
 <header id="top-header">
     <div class="holder">
         <ul class="col col-md-6">
-            <li class="active"><a href="index.html"><i class="fa fa-home"></i>خانه</a></li>
-            <li><a href="profile.html"><i class="fa fa-user"></i>حساب کاربری</a></li>
-            <li><a href="history.html"><i class="fa fa-list"></i>سفارشات</a></li>
-            <li><a href="contact.html"><i class="fa fa-phone"></i>تماس با ما</a></li>
+            <li class="active"><a href="#"><i class="fa fa-home"></i>خانه</a></li>
+            <li><a href="profile"><i class="fa fa-user"></i>حساب کاربری</a></li>
+            <li><a href="history"><i class="fa fa-list"></i>سفارشات</a></li>
+            <li><a href="contact"><i class="fa fa-phone"></i>تماس با ما</a></li>
         </ul>
         <div id="left-bar" class="col col-md-6">
             <input type="text" name="search" placeholder="جستجوی رویداد ...">
-            <a href="/search" id="search-btn"><i class="fa fa-search"></i></a>
+            <a href="search" id="search-btn"><i class="fa fa-search"></i></a>
         </div>
     </div>
 </header>
@@ -29,8 +31,8 @@
     <div class="col col-md-12">
         <div class="col col-md-12" id="ticket">
             <div class="col col-md-12" id="ticket-info">
-                    <div class="image home" style="background-image: url('static/img/Flag_of_Iran.svg.png')"></div>
-                    <div class="image away" style="background-image: url('static/img/usa-flag-wallpaper-01.jpg')"></div>
+                    <div class="image home" style="background-image: url('{% static "img/Flag_of_Iran.svg.png" %}')"></div>
+                    <div class="image away" style="background-image: url('{% static "img/usa-flag-wallpaper-01.jpg" %}')"></div>
                     <div id="main-info">
                         یکشنبه ۱۲ تیر ۹۴ | مجموعه ورزشی آزادی | ساعت ۲۱:۰۰
                     </div>
@@ -86,43 +88,43 @@
                                 <td>B4</td>
                                 <td>6</td>
                                 <td>۱۲۰۰۰۰ ریال</td>
-                                <td><a href="#" data-toggle="tooltip" data-placement="left" data-template='<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div style="font-family:BYekan " class="tooltip-inner"></div></div>' title="افزودن به سبد خرید"><img style="width: 40px" src="static/img/add_to_shopping_cart.png"></a><td>
+                                <td><a href="#" data-toggle="tooltip" data-placement="left" data-template='<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div style="font-family:BYekan " class="tooltip-inner"></div></div>' title="افزودن به سبد خرید"><img style="width: 40px" src="{% static "img/add_to_shopping_cart.png" %}"></a><td>
                             </tr>
                             <tr>
                                 <td>D1</td>
                                 <td>12</td>
                                 <td>۱۵۰۰۰۰ ریال</td>
-                                <td><a href="#" data-toggle="tooltip" data-placement="left" data-template='<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div style="font-family:BYekan " class="tooltip-inner"></div></div>' title="افزودن به سبد خرید"><img style="width: 40px" src="static/img/add_to_shopping_cart.png"></a><td>
+                                <td><a href="#" data-toggle="tooltip" data-placement="left" data-template='<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div style="font-family:BYekan " class="tooltip-inner"></div></div>' title="افزودن به سبد خرید"><img style="width: 40px" src="{% static "img/add_to_shopping_cart.png" %}"></a><td>
                             </tr>
                             <tr>
                                 <td>C1</td>
                                 <td>5</td>
                                 <td>۱۸۰۰۰۰ ریال</td>
-                                <td><a href="#" data-toggle="tooltip" data-placement="left" data-template='<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div style="font-family:BYekan " class="tooltip-inner"></div></div>' title="افزودن به سبد خرید"><img style="width: 40px" src="static/img/add_to_shopping_cart.png"></a><td>
+                                <td><a href="#" data-toggle="tooltip" data-placement="left" data-template='<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div style="font-family:BYekan " class="tooltip-inner"></div></div>' title="افزودن به سبد خرید"><img style="width: 40px" src="{% static "img/add_to_shopping_cart.png" %}"></a><td>
                             </tr>
                             <tr>
                                 <td>C1</td>
                                 <td>5</td>
                                 <td>۱۸۰۰۰۰ ریال</td>
-                                <td><a href="#" data-toggle="tooltip" data-placement="left" data-template='<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div style="font-family:BYekan " class="tooltip-inner"></div></div>' title="افزودن به سبد خرید"><img style="width: 40px" src="static/img/add_to_shopping_cart.png"></a><td>
+                                <td><a href="#" data-toggle="tooltip" data-placement="left" data-template='<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div style="font-family:BYekan " class="tooltip-inner"></div></div>' title="افزودن به سبد خرید"><img style="width: 40px" src="{% static "img/add_to_shopping_cart.png" %}"></a><td>
                             </tr>
                             <tr>
                                 <td>C1</td>
                                 <td>5</td>
                                 <td>۱۸۰۰۰۰ ریال</td>
-                                <td><a href="#" data-toggle="tooltip" data-placement="left" data-template='<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div style="font-family:BYekan " class="tooltip-inner"></div></div>' title="افزودن به سبد خرید"><img style="width: 40px" src="static/img/add_to_shopping_cart.png"></a><td>
+                                <td><a href="#" data-toggle="tooltip" data-placement="left" data-template='<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div style="font-family:BYekan " class="tooltip-inner"></div></div>' title="افزودن به سبد خرید"><img style="width: 40px" src="{% static "img/add_to_shopping_cart.png" %}"></a><td>
                             </tr>
                             <tr>
                                 <td>C1</td>
                                 <td>5</td>
                                 <td>۱۸۰۰۰۰ ریال</td>
-                                <td><a href="#" data-toggle="tooltip" data-placement="left" data-template='<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div style="font-family:BYekan " class="tooltip-inner"></div></div>' title="افزودن به سبد خرید"><img style="width: 40px" src="static/img/add_to_shopping_cart.png"></a><td>
+                                <td><a href="#" data-toggle="tooltip" data-placement="left" data-template='<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div style="font-family:BYekan " class="tooltip-inner"></div></div>' title="افزودن به سبد خرید"><img style="width: 40px" src="{% static "img/add_to_shopping_cart.png" %}"></a><td>
                             </tr>
                             <tr>
                                 <td>C1</td>
                                 <td>5</td>
                                 <td>۱۸۰۰۰۰ ریال</td>
-                                <td><a href="#" data-toggle="tooltip" data-placement="left" data-template='<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div style="font-family:BYekan " class="tooltip-inner"></div></div>' title="افزودن به سبد خرید"><img style="width: 40px" src="static/img/add_to_shopping_cart.png"></a><td>
+                                <td><a href="#" data-toggle="tooltip" data-placement="left" data-template='<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div style="font-family:BYekan " class="tooltip-inner"></div></div>' title="افزودن به سبد خرید"><img style="width: 40px" src="{% static "img/add_to_shopping_cart.png" %}"></a><td>
                             </tr>
                         </tbody>
                     </table>
@@ -135,7 +137,7 @@
                     <textarea placeholder="نظر شما ..."></textarea>
                     <input type="button" class="btn btn-primary" value="ثبت نظر" id="submit-comment"/>
                 </div>
-                <div class="col col-md-1 image" style="background-image: url('static/img/default_profile_large.jpg')"></div>
+                <div class="col col-md-1 image" style="background-image: url('{% static "img/default_profile_large.jpg" %}')"></div>
             </div>
             <div class="comment col col-md-12">
                 <div class="col col-md-11">
@@ -252,9 +254,9 @@
         <a href="#0" class="cd-close-form">بستن</a>
     </div> <!-- cd-user-modal-container -->
 </div>
-<script src="static/js/jquery-1.11.2.min.js"></script>
-<script src="static/js/bootstrap.min.js"></script>
-<script src="static/js/sport-event.js"></script>
-<script src="static/js/login-register.js"></script>
+<script src="{% static "js/jquery-1.11.2.min.js" %}"></script>
+<script src="{% static "js/bootstrap.min.js" %}"></script>
+<script src="{% static "js/sport-event.js" %}"></script>
+<script src="{% static "js/login-register.js" %}"></script>
 </body>
 </html>

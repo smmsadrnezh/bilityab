@@ -1,20 +1,22 @@
+{% load staticfiles %}
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>خانه</title>
-    <link rel="stylesheet" href="static/css/font.css"/>
-    <link rel="stylesheet" href="static/css/font-awesome.css"/>
-    <link rel="stylesheet" href="static/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="static/css/style.css"/>
-    <link rel="stylesheet" href="static/css/login-register.css"/>
+    <link rel="stylesheet" href="{% static "css/font.css" %}"/>
+    <link rel="stylesheet" href="{% static "css/font-awesome.css" %}"/>
+    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}"/>
+    <link rel="stylesheet" href="{% static "css/style.css" %}"/>
+    <link rel="stylesheet" href="{% static "css/login-register.css" %}"/>
 </head>
 <body>
-<script src="static/js/resize_text.js"></script>
+<script src="{% static "js/resize_text.js" %}"></script>
 <header id="top-header">
     <div class="holder">
         <ul class="col col-md-6">
-            <li class="active"><a href="index.html"><i class="fa fa-home"></i>خانه</a></li>
+            <li class="active"><a href="home.html"><i class="fa fa-home"></i>خانه</a></li>
             <li><a href="profile.html"><i class="fa fa-user"></i>حساب کاربری</a></li>
             <li><a href="history.html"><i class="fa fa-list"></i>سفارشات</a></li>
             <li><a href="contact.html"><i class="fa fa-phone"></i>تماس با ما</a></li>
@@ -33,7 +35,7 @@
     </ol>
     <div class="carousel-inner" role="listbox">
         <div class="item active">
-            <img src="static/img/te-greatamericanpark.jpg">
+            <img src="{% static "img/te-greatamericanpark.jpg" %}">
             <div class="carousel-caption">
                 <div class="title">مسابقه فوتبال ایران-ترکیه</div>
                 <br/>
@@ -41,12 +43,12 @@
             </div>
         </div>
         <div class="item">
-            <img src="static/img/te-nflpromo.jpg">
+            <img src="{% static "img/te-nflpromo.jpg" %}">
             <div class="carousel-caption">
             </div>
         </div>
         <div class="item">
-            <img src="static/img/te-concert.jpg">
+            <img src="{% static "img/te-concert.jpg" %}">
             <div class="carousel-caption">
             </div>
         </div>
@@ -376,9 +378,9 @@
         <a href="#0" class="cd-close-form">بستن</a>
     </div> <!-- cd-user-modal-container -->
 </div>
-<script src="static/js/jquery-1.11.2.min.js"></script>
-<script src="static/js/bootstrap.min.js"></script>
-<script src="static/js/index.js"></script>
-<script src="static/js/login-register.js"></script>
+<script src="{% static "js/jquery-1.11.2.min.js" %}"></script>
+<script src="{% static "js/bootstrap.min.js" %}"></script>
+<script src="{% static "js/index.js" %}"></script>
+<script src="{% static "js/login-register.js" %}"></script>
 </body>
 </html>
