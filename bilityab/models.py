@@ -1,19 +1,24 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, UserManager
 
 
 class CustomUser(User):
+    """Consider that this class inherit django user class.
+    user class fields:  username, email, password, is_staff, is_active, date_joined and much more. """
+
     registration_date = models.DateField()
     balance = models.FloatField()
-    is_admin = models.BooleanField()
+
+    # Use UserManager to get the create_user method, etc.
+    objects = UserManager()
 
 
 class Event(models.Model):
     type = models.CharField(max_length=100)
     title = models.CharField(max_length=100)
     date = models.DateTimeField()
-    capacity = models.IntegerField()
-    event_organizer_id = models.ForeignKey(EventOrganizer)
+    capacity = models.PositiveIntegerField()
+    event_organizer = models.ForeignKey(EventOrganizer)
     address = models.TextField
 
     def __str__(self):
@@ -28,46 +33,56 @@ class EventOrganizer(models.Model):
         return "%s" % self.title
 
 
-class CommentEventOrganizer(models.Model):
-    comment_id = models.ForeignKey(Comment)
-    event_organizer_id = models.ForeignKey(EventOrganizer)
-
-
 class Comment(models.Model):
-    user_id = models.ForeignKey(CustomUser)
+    user = models.ForeignKey(CustomUser)
     time = models.DateTimeField()
     text = models.TimeField()
-    reply_id = models.ForeignKey(Comment)
 
 
 class CommentEvent(models.Model):
-    comment_id = models.ForeignKey(Comment)
-    event_id = models.ForeignKey(Event)
+    comment = models.ForeignKey(Comment)
+    event = models.ForeignKey(Event)
+
+
+class CommentEventOrganizer(models.Model):
+    comment = models.ForeignKey(Comment)
+    event_organizer = models.ForeignKey(EventOrganizer)
+
+
+class ReplyComment(models.Model):
+    comment = models.ForeignKey(Comment)
+    reply_to = models.ForeignKey(Comment)
 
 
 class PurchasedTicket(models.Model):
-    event_id = models.ForeignKey(Event)
-    user_id = models.ForeignKey(CustomUser)
-    quantity = models.IntegerField()
+    event = models.ForeignKey(Event)
+    user = models.ForeignKey(CustomUser)
+    quantity = models.PositiveSmallIntegerField()
     purchased_date = models.DateTimeField()
     price = models.FloatField()
 
 
 class TicketPosition(models.Model):
-    user_id = models.ForeignKey(CustomUser)
-    event_id = models.ForeignKey(Event)
-    row = models.IntegerField()
-    column = models.IntegerField()
-
-
-class TicketPromotion(models.Model):
-    promotion_id = models.ForeignKey(Promotion)
-    user_id = models.ForeignKey(CustomUser)
-    event_id = models.ForeignKey(Event)
-    issued_time = models.DateTimeField()
+    user = models.ForeignKey(CustomUser)
+    event = models.ForeignKey(Event)
+    row = models.PositiveSmallIntegerField()
+    column = models.PositiveSmallIntegerField()
 
 
 class Promotion(models.Model):
-    remaining = models.IntegerField()
-    discount  = models.IntegerField()
+    plan_name = models.CharField(unique=True, max_length=20)
+    discount = models.PositiveSmallIntegerField()
+    remaining = models.PositiveSmallIntegerField()
 
+    def __str__(self):
+        return "%s" % self.plan_name
+
+
+class TicketPromotion(models.Model):
+    promotion = models.ForeignKey(Promotion)
+    user = models.ForeignKey(CustomUser)
+    event = models.ForeignKey(Event)
+    issued_time = models.DateTimeField()
+
+    def __str__(self):
+        return "promotion: %s \n event: %s" % (self.remaining, self.discount)
