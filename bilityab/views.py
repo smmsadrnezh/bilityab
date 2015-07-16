@@ -6,7 +6,12 @@ def home(request):
         # 'PageTitle': "bilityab",
     })
 
+
 def events(request):
     return render(request, 'sport-event.html', {
         # 'PageTitle': "bilityab",
     })
+
+
+def organizer(request):
+    return render(request, 'organizer.html', {})

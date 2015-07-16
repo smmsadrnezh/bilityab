@@ -13,6 +13,14 @@ class CustomUser(User):
     objects = UserManager()
 
 
+class EventOrganizer(models.Model):
+    title = models.CharField(max_length=100)
+    address = models.TextField()
+
+    def __str__(self):
+        return "%s" % self.title
+
+
 class Event(models.Model):
     type = models.CharField(max_length=100)
     title = models.CharField(max_length=100)
@@ -20,14 +28,6 @@ class Event(models.Model):
     capacity = models.PositiveIntegerField()
     event_organizer = models.ForeignKey(EventOrganizer)
     address = models.TextField
-
-    def __str__(self):
-        return "%s" % self.title
-
-
-class EventOrganizer(models.Model):
-    title = models.CharField(max_length=100)
-    address = models.TextField()
 
     def __str__(self):
         return "%s" % self.title
@@ -49,9 +49,9 @@ class CommentEventOrganizer(models.Model):
     event_organizer = models.ForeignKey(EventOrganizer)
 
 
-class ReplyComment(models.Model):
-    comment = models.ForeignKey(Comment)
-    reply_to = models.ForeignKey(Comment)
+# class ReplyComment(models.Model):
+#     comment = models.ForeignKey(Comment)
+#     reply_to = models.ForeignKey(Comment)
 
 
 class PurchasedTicket(models.Model):
