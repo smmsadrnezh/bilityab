@@ -14,7 +14,7 @@ class CustomUser(User):
 
 
 class EventOrganizer(models.Model):
-    title = models.CharField(max_length=50)
+    title = models.CharField(max_length=50, unique=True)
     address = models.TextField()
 
     def __str__(self):
