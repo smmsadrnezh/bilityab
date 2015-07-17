@@ -203,8 +203,8 @@ body > .holder > div.col
     margin-top: 4vh;
     margin-bottom: 4vh;
     background-color: #FFFFFF;
-    height: 23vh;
     padding: 1em 2em;
+
 }
 
 #ticket-info .image
@@ -487,4 +487,35 @@ body > .holder > div.col
     padding: 1em;
     font-family: 'BYekan', sans-serif;
     font-size: 0.7em;
+}
+
+.organizer-image{
+    float: right;
+    /*margin-left: 10px;*/
+    height: 150px;
+}
+
+.organizer-details{
+    line-height: 40px;
+    margin-bottom: 10px;
+    border-bottom: 1px dotted;
+    margin-right: 180px;
+}
+
+.event-image{
+    height: 70px;
+    width: 115px;
+    /*width: 100px;*/
+    float: right;
+    margin-left: 30px;
+}
+
+.event-info{
+    font-size: 19px;
+    margin:5px;
+}
+
+.my-divider{
+    border-bottom: 1px solid;
+    margin :20px 0;
 }
