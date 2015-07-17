@@ -15,3 +15,7 @@ def events(request):
 
 def organizer(request):
     return render(request, 'organizer.html', {})
+
+
+def contact(request):
+    return render(request, 'contact.html', {})

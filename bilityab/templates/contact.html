@@ -1,0 +1,83 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="{% static "css/font-awesome.css" %}"/>
+    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}"/>
+    <link rel="stylesheet" href="{% static "css/contact.css" %}"/>
+
+    <script src="{% static "js/jquery-1.11.2.min.js" %}"></script>
+    <script src="{% static "js/bootstrap.min.js" %}"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="well well-sm">
+                <form class="form-horizontal" method="post">
+                    <fieldset>
+                        <legend class="text-center header">ارتباط با ما</legend>
+
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+                            <div class="col-md-8 " >
+                                <input id="fname" name="name" type="text" placeholder="نام" class="form-control contact-item">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+                            <div class="col-md-8">
+                                <input id="lname" name="name" type="text" placeholder="نام خانوادگی" class="form-control contact-item">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
+                            <div class="col-md-8">
+                                <input id="email" name="email" type="text" placeholder="پست الکترونیکی" class="form-control contact-item">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center "><i class="fa fa-phone-square bigicon"></i></span>
+                            <div class="col-md-8 ">
+                                <input id="phone" name="phone" type="text" placeholder="شماره تلفن" class="form-control contact-item">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center "><i class="fa fa-pencil-square-o bigicon "></i></span>
+                            <div class="col-md-8">
+                                <textarea class="form-control contact-item" id="message" name="message" placeholder="پیغام خود را اینجا وارد کنید ..." rows="7"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-12 text-center">
+                                <button type="submit" class="btn btn-primary btn-lg">ارسال</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .header {
+        color: #36A0FF;
+        font-size: 27px;
+        padding: 10px;
+    }
+
+    .bigicon {
+        font-size: 35px;
+        color: #36A0FF;
+    }
+</style>
+</body>
+</html>
