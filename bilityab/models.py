@@ -14,7 +14,7 @@ class CustomUser(User):
 
 
 class EventOrganizer(models.Model):
-    title = models.CharField(max_length=50, unique=True)
+    title = models.CharField(max_length=60, unique=True)
     address = models.TextField()
 
     def __str__(self):
@@ -22,9 +22,9 @@ class EventOrganizer(models.Model):
 
 
 class Event(models.Model):
-    title = models.CharField(max_length=80)
-    type = models.CharField(max_length=30)
-    category = models.CharField(max_length=40)
+    title = models.CharField(max_length=90)
+    type = models.CharField(max_length=40)
+    category = models.CharField(max_length=50)
     date = models.DateTimeField()
     capacity = models.PositiveIntegerField()
     event_organizer = models.ForeignKey(EventOrganizer)
@@ -106,7 +106,7 @@ class TicketPosition(models.Model):
 
 
 class Promotion(models.Model):
-    plan_name = models.CharField(unique=True, max_length=20)
+    plan_name = models.CharField(unique=True, max_length=30)
     discount = models.PositiveSmallIntegerField()
     remaining = models.PositiveSmallIntegerField()
 
