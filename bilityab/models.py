@@ -12,25 +12,34 @@ class CustomUser(User):
     # Use UserManager to get the create_user method, etc.
     objects = UserManager()
 
-
 class EventOrganizer(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=50)
     address = models.TextField()
 
     def __str__(self):
         return "%s" % self.title
 
-
 class Event(models.Model):
-    type = models.CharField(max_length=100)
-    title = models.CharField(max_length=100)
+    type = models.CharField(max_length=30)
+    title = models.CharField(max_length=80)
     date = models.DateTimeField()
     capacity = models.PositiveIntegerField()
     event_organizer = models.ForeignKey(EventOrganizer)
-    address = models.TextField
+    address = models.CharField(max_length=300)
+
+    class Meta:
+        unique_together = (("title", "date", "address"),)
 
     def __str__(self):
         return "%s" % self.title
+
+
+class EventRating(models.Model):
+    rate = models.PositiveSmallIntegerField()
+    event = models.ForeignKey(Event)
+
+    def __str__(self):
+        return "%d" % (self.event, self.rate)
 
 
 class Comment(models.Model):
@@ -38,20 +47,35 @@ class Comment(models.Model):
     time = models.DateTimeField()
     text = models.TimeField()
 
+    class Meta:
+        unique_together = (("user", "time"),)
+
+    def __str__(self):
+        return "%s -- %s" % (self.text, self.user)
+
 
 class CommentEvent(models.Model):
     comment = models.ForeignKey(Comment)
     event = models.ForeignKey(Event)
+
+    def __str__(self):
+        return "%s -- %s" % (self.comment, self.event)
 
 
 class CommentEventOrganizer(models.Model):
     comment = models.ForeignKey(Comment)
     event_organizer = models.ForeignKey(EventOrganizer)
 
+    def __str__(self):
+        return "%s -- %s" % (self.comment, self.event_organizer)
 
-# class ReplyComment(models.Model):
-#     comment = models.ForeignKey(Comment)
-#     reply_to = models.ForeignKey(Comment)
+
+class ReplyComment(models.Model):
+    comment = models.ForeignKey(Comment, related_name='+')
+    reply_to = models.ForeignKey(Comment, related_name='+')
+
+    def __str__(self):
+        return "%s -- %s" % (self.comment, self.reply_to)
 
 
 class PurchasedTicket(models.Model):
@@ -61,12 +85,21 @@ class PurchasedTicket(models.Model):
     purchased_date = models.DateTimeField()
     price = models.FloatField()
 
+    class Meta:
+        unique_together = (("event", "user"),)
+
+    def __str__(self):
+        return "%s -- purchased by %s" % (self.event, self.user)
+
 
 class TicketPosition(models.Model):
-    user = models.ForeignKey(CustomUser)
-    event = models.ForeignKey(Event)
+    ticket = models.ForeignKey(PurchasedTicket)
+    section = models.PositiveSmallIntegerField(null=True)
     row = models.PositiveSmallIntegerField()
     column = models.PositiveSmallIntegerField()
+
+    def __str__(self):
+        return "%s -- purchased by %s \n row: %s column: %s" % (self.event, self.user)
 
 
 class Promotion(models.Model):
@@ -84,5 +117,8 @@ class TicketPromotion(models.Model):
     event = models.ForeignKey(Event)
     issued_time = models.DateTimeField()
 
+    class Meta:
+        unique_together = (("promotion", "user", "event"),)
+
     def __str__(self):
-        return "promotion: %s \n event: %s" % (self.remaining, self.discount)
+        return "promotion: %d \n event: %d" % (self.remaining, self.discount)
