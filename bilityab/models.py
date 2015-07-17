@@ -22,9 +22,9 @@ class EventOrganizer(models.Model):
 
 
 class Event(models.Model):
+    title = models.CharField(max_length=80)
     type = models.CharField(max_length=30)
     category = models.CharField(max_length=40)
-    title = models.CharField(max_length=80)
     date = models.DateTimeField()
     capacity = models.PositiveIntegerField()
     event_organizer = models.ForeignKey(EventOrganizer)
