@@ -12,6 +12,7 @@ class CustomUser(User):
     # Use UserManager to get the create_user method, etc.
     objects = UserManager()
 
+
 class EventOrganizer(models.Model):
     title = models.CharField(max_length=50)
     address = models.TextField()
@@ -19,8 +20,10 @@ class EventOrganizer(models.Model):
     def __str__(self):
         return "%s" % self.title
 
+
 class Event(models.Model):
     type = models.CharField(max_length=30)
+    category = models.CharField(max_length=40)
     title = models.CharField(max_length=80)
     date = models.DateTimeField()
     capacity = models.PositiveIntegerField()
