@@ -13,6 +13,12 @@ def events(request):
     })
 
 
+def about(request):
+    return render(request, 'about.html', {
+        # 'PageTitle': "bilityab",
+    })
+
+
 def organizer(request):
     return render(request, 'organizer.html', {})
 
