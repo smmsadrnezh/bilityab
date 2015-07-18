@@ -8,6 +8,7 @@ class CustomUser(User):
 
     registration_date = models.DateField()
     balance = models.FloatField()
+    is_organizer = models.BooleanField(default=0)
 
     # Use UserManager to get the create_user method, etc.
     objects = UserManager()
@@ -16,6 +17,7 @@ class CustomUser(User):
 class EventOrganizer(models.Model):
     title = models.CharField(max_length=60, unique=True)
     address = models.TextField()
+    user = models.ForeignKey(CustomUser)
 
     def __str__(self):
         return "%s" % self.title
