@@ -1,0 +1,154 @@
+/* general */
+
+html
+{
+    font-size: 13px;
+}
+
+*
+{
+    box-sizing: border-box;
+}
+
+body
+{
+    background-color: rgba(8, 8, 8, 0.08);
+    font-family: 'BMitra', sans-serif;
+}
+
+img
+{
+    max-height: 100%;
+    max-width: 100%;
+}
+
+ul
+{
+    padding-right: 0;
+    list-style: none;
+    margin-bottom: 0;
+}
+
+a:hover
+{
+    text-decoration: none;
+}
+
+.col
+{
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+.vertical-center
+{
+    position: relative;
+    top: 50%;
+    transform: translate(0 , -50%);
+}
+
+.holder
+{
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    height: 100%;
+}
+
+/* top-header */
+
+#top-header
+{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 16;
+    height: 2em;
+    background-color: #2981b2;
+}
+
+#top-header > .container-fluid
+{
+    height: 100%;
+}
+
+#top-header ul
+{
+    font-family: 'BYekan', sans-serif;
+    font-size: 0.65em;
+    position: relative;
+    float: right;
+    height: 100%;
+}
+
+#top-header ul li
+{
+    margin-left: -0.25em;
+    transition: all 1s;
+    position: relative;
+    padding: 0.8em 0.4em 0;
+    height: 100%;
+    display: inline-block;
+}
+
+#top-header ul li a
+{
+    color: #ffffff;
+}
+
+#top-header ul li i.fa
+{
+    transition: all 0.5s;
+    margin-left: 0.3em;
+}
+
+#top-header ul li:hover i.fa
+{
+    transform: scale(1.3);
+}
+
+#top-header ul li.active, #top-header ul li:hover
+{
+    box-shadow: inset 0 0 0 50px #080808;
+}
+
+#left-bar
+{
+    height: 100%;
+    text-align: left;
+}
+
+#left-bar input
+{
+    font-family: 'BYekan', sans-serif;
+    font-size: 0.6em;
+    border-radius: 5px;
+    height: 60%;
+    top: 10%;
+    position: relative;
+    width: 28em;
+    padding-right: 0.8em;
+    padding-left: 2em;
+    border: none;
+    outline: none;
+    transition: all 1s;
+}
+
+#search-btn
+{
+    position: absolute;
+    left: 0.2em;
+    top: 50%;
+    height: 63%;
+    transform: translate(0, -50%);
+    display: inline-block;
+    width: 2em;
+}
+
+#search-btn i
+{
+    position: relative;
+    font-size: 0.88em;
+    left: 0.7em;
+    top: 0.05em;
+}
