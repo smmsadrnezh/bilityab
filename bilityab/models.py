@@ -23,18 +23,60 @@ class EventOrganizer(models.Model):
 
 class Event(models.Model):
     title = models.CharField(max_length=90)
+    description = models.CharField(max_length=300, null=True)
     type = models.CharField(max_length=40)
     category = models.CharField(max_length=50)
-    date = models.DateTimeField()
     capacity = models.PositiveIntegerField()
     event_organizer = models.ForeignKey(EventOrganizer)
     address = models.CharField(max_length=300)
+    price = models.FloatField(default=0)
+    photo = models.ImageField(null=True, default="default.jpg")
 
     class Meta:
-        unique_together = (("title", "date", "address"),)
+        unique_together = (("title", "event_organizer", "address"),)
 
     def __str__(self):
         return "%s" % self.title
+
+
+class Showtime(models.Model):
+    event = models.ForeignKey(Event)
+    date = models.DateField()
+    from_time = models.TimeField()
+    to_time = models.TimeField()
+
+    def __str__(self):
+        return "%s -> %s to %s" % (self.date, self.from_time, self.to_time)
+
+
+class Concert(models.Model):
+    event = models.OneToOneField(Event, primary_key=True)
+    group_name = models.CharField(unique=True, max_length=40)
+    vocalist = models.CharField(null=True, max_length=30)
+    musicians = models.TimeField(max_length=1000)
+
+    def __str__(self):
+        return "%s -> %s" % (self.group_name, self.vocalist)
+
+
+class Movie(models.Model):
+    event = models.OneToOneField(Event, primary_key=True)
+    director = models.CharField(max_length=40)
+    actors = models.CharField(max_length=1000)
+    year = models.PositiveSmallIntegerField()
+    story_summary = models.CharField(max_length=300)
+
+    def __str__(self):
+        return "%s (%s) \n %s" % (self.director, self.year, self.story_summary)
+
+
+class Sport(models.Model):
+    event = models.OneToOneField(Event, primary_key=True)
+    country1 = models.CharField(max_length=30)
+    country2 = models.CharField(max_length=30)
+
+    def __str__(self):
+        return "%s %s" % (self.country1, self.country2)
 
 
 class EventRating(models.Model):
@@ -42,7 +84,7 @@ class EventRating(models.Model):
     event = models.ForeignKey(Event)
 
     def __str__(self):
-        return "%d" % (self.event, self.rate)
+        return "%d" % self.rate
 
 
 class Comment(models.Model):
