@@ -129,6 +129,7 @@ class PurchasedTicket(models.Model):
     quantity = models.PositiveSmallIntegerField()
     purchased_date = models.DateTimeField()
     price = models.FloatField()
+    receipt = models.CharField(max_length=50)
 
     class Meta:
         unique_together = (("event", "user"),)
