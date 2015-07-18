@@ -1,0 +1,62 @@
+/* body */
+
+body
+{
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+body > .holder
+{
+    padding-top: 2em;
+}
+
+body > .holder > div.col > div.col
+{
+    padding-right: 3%;
+    padding-left: 3%;
+    background-color: rgba(249, 249, 249, 0.95);
+}
+
+/* accordion */
+
+body > .holder > div.col
+{
+    background-color: rgba(221, 221, 221, 0.39);
+}
+
+#center-head
+{
+    font-family: 'BYekan', sans-serif;
+    font-size: 1.8em;
+    margin-top: 0.4em;
+    text-align: center;
+}
+
+.center-title
+{
+    font-family: 'BYekan', sans-serif;
+    font-size: 0.8em;
+    margin-top: 0.4em;
+    text-align: center;
+}
+
+.person-title
+{
+    color: #999999;
+    margin-bottom: 3em;
+}
+
+#box-head
+{
+    border-radius: 25px;
+    box-shadow: 1px 3px 1px #dfdfe0,-1px -1px 0 #f2f2f2;
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+    background-color: #FFFFFF;
+    padding: 1em 2em;
+    background-image: url('/static/img/online-ticket.jpg');
+    background-repeat: no-repeat;
+
+}
