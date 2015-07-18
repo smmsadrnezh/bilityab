@@ -1,33 +1,6 @@
-{% load static %}
-
-<!DOCTYPE html>
-<html lang="fa" dir="rtl" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>برگزار کننده</title>
-    <link rel="stylesheet" href="{% static "css/font.css" %}"/>
-    <link rel="stylesheet" href="{% static "css/font-awesome.css" %}"/>
-    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}"/>
-    <link rel="stylesheet" href="{% static "css/sport-event.css" %}"/>
-    <link rel="stylesheet" href="{% static "css/login-register.css" %}"/>
-    <link rel="stylesheet" href="{% static "css/style.css" %}"/>
-</head>
-<header id="top-header">
-    <div class="holder">
-        <ul class="col col-md-6">
-            <li class="active"><a href="#"><i class="fa fa-home"></i>خانه</a></li>
-            <li><a href="profile"><i class="fa fa-user"></i>حساب کاربری</a></li>
-            <li><a href="history"><i class="fa fa-list"></i>سفارشات</a></li>
-            <li><a href="contact"><i class="fa fa-phone"></i>تماس با ما</a></li>
-        </ul>
-        <div id="left-bar" class="col col-md-6">
-            <input type="text" name="search" placeholder="جستجوی رویداد ...">
-            <a href="search" id="search-btn"><i class="fa fa-search"></i></a>
-        </div>
-    </div>
-</header>
-<body>
-
+{% extends "layout.html" %}
+{% load staticfiles %}
+{% block pageBody %}
 <div class="holder">
     <div class="col col-md-12">
         <div class="col col-md-12" id="ticket">
@@ -82,133 +55,11 @@
 
         </div>
 
-        <div class="col col-md-12" id="comments">
-            <div class="comment col col-md-12" id="your-comment">
-                <div class="col col-md-11">
-                    <textarea placeholder="نظر شما ..."></textarea>
-                    <input type="button" class="btn btn-primary" value="ثبت نظر" id="submit-comment"/>
-                </div>
-                <div class="col col-md-1 image" style="background-image: url('{% static "img/default_profile_large.jpg" %}')"></div>
-            </div>
-            <div class="comment col col-md-12">
-                <div class="col col-md-11">
-                    <div class="name">کامران محبی</div>
-                    <div class="date">۲۵ خرداد ۱۳۹۴، ۲:۱۱ عصر</div>
-                    <div class="text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیستری را برای طراحان رایانه ای و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</div>
-                </div>
-                <div class="col col-md-1 image" style="background-image: url('{% static "img/ee2c94d4ce05632f957c7045f21a4333.jpeg" %}')"></div>
-            </div>
-        </div>
-        <div class="col col-md-12" id="more-info">
-            <div class="col col-md-12" id="organizer-info">
-                <a href="#"><i class="fa fa-angle-double-left" style="margin-left: 0.5em"></i>برگزار کننده این رویداد</a>
-            </div>
-        </div>
     </div>
 </div>
-<div id="links">
-    <div id="for-ticket">خرید بلیط<i class="fa fa-dollar"></i></div>
-    <div id="for-comments">نظر کاربران<i class="fa fa-comments"></i></div>
-    <div id="for-more-info">اطلاعات بیشتر<i class="fa fa-info"></i></div>
-</div>
-<div id="login-register">
-    <div id="for-login"><i class="fa fa-sign-in"></i>ورود</div>
-    <div id="for-register"><i class="fa fa-user-plus"></i>ثبت نام</div>
-</div>
-<div class="cd-user-modal"> <!-- this is the entire modal form, including the background -->
-    <div class="cd-user-modal-container"> <!-- this is the container wrapper -->
-        <ul class="cd-switcher">
-            <li><a href="#0">ورود</a></li>
-            <li><a href="#0">ثبت نام</a></li>
-        </ul>
-        <div id="cd-login"> <!-- log in form -->
-            <form class="cd-form">
-                <p class="fieldset">
-                    <label class="image-replace cd-email" for="signin-email">پست الکترونیکی</label>
-                    <input class="full-width has-padding has-border" id="signin-email" type="email" placeholder="پست الکترونیکی">
-                    <span class="cd-error-message">پست الکترونیکی نامعبتر!</span>
-                </p>
+{% endblock %}
 
-                <p class="fieldset">
-                    <label class="image-replace cd-password" for="signin-password">رمز عبور</label>
-                    <input class="full-width has-padding has-border" id="signin-password" type="text"  placeholder="رمز عبور">
-                    <a href="#0" class="hide-password">مخفی کردن</a>
-                    <span class="cd-error-message">رمز عبور نامعتبر!</span>
-                </p>
-
-                <!--<p class="fieldset">-->
-                    <!--<input type="checkbox" id="remember-me" checked>-->
-                    <!--<label for="remember-me">مرا به خاطر بسپار!</label>-->
-                <!--</p>-->
-
-                <p class="fieldset">
-                    <input class="full-width" type="submit" value="ورود">
-                </p>
-            </form>
-
-            <p class="cd-form-bottom-message"><a href="#0">رمز عبور یادتون رفته؟</a></p>
-            <!-- <a href="#0" class="cd-close-form">Close</a> -->
-        </div> <!-- cd-login -->
-
-        <div id="cd-signup"> <!-- sign up form -->
-            <form class="cd-form">
-                <p class="fieldset">
-                    <label class="image-replace cd-username" for="signup-username">نام کاربری</label>
-                    <input class="full-width has-padding has-border" id="signup-username" type="text" placeholder="نام کاربری">
-                    <span class="cd-error-message">نام کاربری نامعتبر</span>
-                </p>
-
-                <p class="fieldset">
-                    <label class="image-replace cd-email" for="signup-email">پست الکترونیکی</label>
-                    <input class="full-width has-padding has-border" id="signup-email" type="email" placeholder="پست الکترونیکی">
-                    <span class="cd-error-message">پست الکترونیکی نامعتبر</span>
-                </p>
-
-                <p class="fieldset">
-                    <label class="image-replace cd-password" for="signup-password">رمز عبور</label>
-                    <input class="full-width has-padding has-border" id="signup-password" type="text"  placeholder="رمز عبور">
-                    <a href="#0" class="hide-password">مخفی کردن</a>
-                    <span class="cd-error-message">رمز عبور نامعتبر</span>
-                </p>
-
-                <!--<p class="fieldset">-->
-                    <!--<input type="checkbox" id="accept-terms">-->
-                    <!--<label for="accept-terms">I agree to the <a href="#0">Terms</a></label>-->
-                <!--</p>-->
-
-                <p class="fieldset">
-                    <input class="full-width has-padding" type="submit" value="ایجاد حساب کاربری">
-                </p>
-            </form>
-
-            <!-- <a href="#0" class="cd-close-form">Close</a> -->
-        </div> <!-- cd-signup -->
-
-        <div id="cd-reset-password"> <!-- reset password form -->
-            <p class="cd-form-message">
-                پست الکترونیکی خود را در فیلد زیر وارد کنید تا رمز عبور جدید برایتان ارسال شود.
-            </p>
-            <form class="cd-form">
-                <p class="fieldset">
-                    <label class="image-replace cd-email" for="reset-email">پست الکترونیکی</label>
-                    <input class="full-width has-padding has-border" id="reset-email" type="email" placeholder="پست الکترونیکی">
-                    <span class="cd-error-message">پست الکترونیکی نامعتبر</span>
-                </p>
-
-                <p class="fieldset">
-                    <input class="full-width has-padding" type="submit" value="تغییر رمز عبور">
-                </p>
-            </form>
-
-            <p class="cd-form-bottom-message"><a href="#0">ورود به حساب کاربری</a></p>
-        </div> <!-- cd-reset-password -->
-        <a href="#0" class="cd-close-form">بستن</a>
-    </div> <!-- cd-user-modal-container -->
-</div>
-<script src="{% static "js/resize_text.js" %}"></script>
-<script src="{% static "js/jquery-1.11.2.min.js" %}"></script>
-<script src="{% static "js/bootstrap.min.js" %}"></script>
-<script src="{% static "js/sport-event.js" %}"></script>
-<script src="{% static "js/login-register.js" %}"></script>
-</body>
-</html>
+{% block css %}
+    {{ block.super }}
+<link rel="stylesheet" href="{% static "css/sport-event.css" %}"/>
+{% endblock %}
