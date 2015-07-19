@@ -6,6 +6,11 @@ def home(request):
         # 'PageTitle': "bilityab",
     })
 
+def terms(request):
+    return render(request, 'terms.html', {
+        # 'PageTitle': "bilityab",
+    })
+
 
 def events(request):
     return render(request, 'sport-event.html', {

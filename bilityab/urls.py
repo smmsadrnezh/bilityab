@@ -8,6 +8,7 @@ urlpatterns = [
     url(r'^organizer/$', 'bilityab.views.organizer', name='home'),
     url(r'^contact/$', 'bilityab.views.contact', name='home'),
     url(r'^about/$', 'bilityab.views.about', name='home'),
+    url(r'^terms/$', 'bilityab.views.terms', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
     ### account urls
