@@ -13,3 +13,8 @@ def ticket(request, user_id, purchased_id):
     return render(request, 'ticket.html', {
 
     })
+
+def all_ticket(request, user_id, purchased_id):
+    return render(request, 'all-ticket.html', {
+
+    })

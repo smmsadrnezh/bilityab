@@ -1,43 +1,47 @@
 from django.conf.urls import include, url
-from django.contrib import admin
-
 urlpatterns = [
     ### bilityab urls
-    url(r'^$', 'bilityab.views.home', name='home'),
-    url(r'^contact/$', 'bilityab.views.contact', name='home'),
-    url(r'^about/$', 'bilityab.views.about', name='home'),
-    url(r'^terms/$', 'bilityab.views.terms', name='home'),
+    url(r'^$', 'bilityab.views.home'),
+    url(r'^contact/$', 'bilityab.views.contact'),
+    url(r'^about/$', 'bilityab.views.about'),
+    url(r'^terms/$', 'bilityab.views.terms'),
     # url(r'^blog/', include('blog.urls')),
 
     ### account urls
-    url(r'^profile/(?P<user_id>\d+)/$', 'account.views.profile', name='home'),
-    url(r'^profile/(?P<user_id>\d+)/charge/$', 'account.views.charge', name='home'),
+    url(r'^profile/(?P<user_id>\d+)/$', 'account.views.profile'),
+    url(r'^profile/(?P<user_id>\d+)/charge/$', 'account.views.charge'),
 
     ### event urls
-    url(r'^events/$', 'event.views.events', name='home'),
-    url(r'^organizer/$', 'event.views.organizer', name='home'),
-    url(r'^events/movie/(?P<event_id>\d+)/$', 'event.views.movie', name='home'),
-    url(r'^events/sport/(?P<event_id>\d+)/$', 'event.views.sport', name='home'),
-    url(r'^events/concert/(?P<event_id>\d+)/$', 'event.views.concert', name='home'),
-    url(r'^events/entertainment/(?P<event_id>\d+)/$', 'event.views.entertainment', name='home'),
-    url(r'^events/art/(?P<event_id>\d+)/$', 'event.views.art', name='home'),
-    url(r'^organizer/(?P<organizer_id>\d+)/$', 'event.views.organizer', name='home'),
-    url(r'^organizer/(?P<organizer_id>\d+)/add-event/$', 'event.views.add_event', name='home'),
-    url(r'^organizer/(?P<organizer_id>\d+)/events/$', 'event.views.events', name='home'),
-    url(r'^organizer/(?P<organizer_id>\d+)/events/(?P<event_id>\d+)/edit/$', 'event.views.edit_event', name='home'),
-    url(r'^organizer/(?P<organizer_id>\d+)/events/(?P<event_id>\d+)/delete/$', 'event.views.delete_event', name='home'),
-    url(r'^report/$', 'event.views.report', name='home'),
+    url(r'^events/$', 'event.views.events'),
+    url(r'^events/movie/$', 'event.views.all_movie'),
+    url(r'^events/sport/$', 'event.views.all_sport'),
+    url(r'^events/concert/$', 'event.views.all_concert'),
+    url(r'^events/entertainment/$', 'event.views.all_entertainment'),
+    url(r'^events/art/$', 'event.views.all_art'),
+    url(r'^events/movie/(?P<event_id>\d+)/$', 'event.views.movie'),
+    url(r'^events/sport/(?P<event_id>\d+)/$', 'event.views.sport'),
+    url(r'^events/concert/(?P<event_id>\d+)/$', 'event.views.concert'),
+    url(r'^events/entertainment/(?P<event_id>\d+)/$', 'event.views.entertainment'),
+    url(r'^events/art/(?P<event_id>\d+)/$', 'event.views.art'),
+    url(r'^events/add/$', 'event.views.add_event'),
+    url(r'^organizer/$', 'event.views.all_organizer'),
+    url(r'^organizer/(?P<organizer_id>\d+)/$', 'event.views.organizer'),
+    url(r'^organizer/(?P<organizer_id>\d+)/events/$', 'event.views.organizer_events'),
+    url(r'^events/(?P<event_id>\d+)/edit/$', 'event.views.edit_event'),
+    url(r'^report/$', 'event.views.report'),
 
     ### ticket urls
-    url(r'^buy/(?P<event_id>\d+)/$', 'event.views.buy', name='home'),
-    url(r'^purchased/(?P<user_id>\d+)/(?P<purchased_id>\d+)/$', 'ticket.views.ticket', name='home'),
-    url(r'^purchased/(?P<user_id>\d+)/$', 'account.views.purchased', name='home'),
+    url(r'^buy/(?P<event_id>\d+)/$', 'ticket.views.buy'),
+    url(r'^ticket/(?P<user_id>\d+)/(?P<purchased_id>\d+)/$', 'ticket.views.ticket'),
+    url(r'^ticket/(?P<user_id>\d+)/$', 'account.views.all_ticket'),
 
     ### promotion urls
-    url(r'^promotion/(?P<promotion_id>\d+)/$', 'promotion.views.edit', name='home'),
-    url(r'^promotion/add/$', 'promotion.views.add', name='home'),
-    url(r'^promotion/(?P<promotion_id>\d+)/remove/$', 'promotion.views.remove', name='home'),
+    url(r'^promotion/(?P<promotion_id>\d+)/$', 'promotion.views.edit'),
+    url(r'^promotion/add/$', 'promotion.views.add'),
+    url(r'^promotion/(?P<promotion_id>\d+)/remove/$', 'promotion.views.remove'),
 
     url(r'^admin/', include(admin.site.urls)),
 ]
+from django.contrib import admin
+
 
