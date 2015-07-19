@@ -3,26 +3,8 @@ from django.shortcuts import render
 # Create your views here.
 
 
-def all_movie(request, event_id):
-    return render(request, 'all-movie.html', {
-
-    })
-
-
 def all_sport(request, event_id):
     return render(request, 'all-sport.html', {
-
-    })
-
-
-def all_concert(request, event_id):
-    return render(request, 'all-concert.html', {
-
-    })
-
-
-def all_entertainment(request, event_id):
-    return render(request, 'all-entertainment.html', {
 
     })
 
@@ -31,6 +13,13 @@ def all_art(request, event_id):
     return render(request, 'all-art.html', {
 
     })
+
+
+def entertainment(request, event_id):
+    return render(request, 'tourism.html', {
+
+    })
+
 
 def movie(request, event_id):
     return render(request, 'movie.html', {
@@ -51,13 +40,7 @@ def concert(request, event_id):
 
 
 def entertainment(request, event_id):
-    return render(request, 'entertainment.html', {
-
-    })
-
-
-def art(request, event_id):
-    return render(request, 'art.html', {
+    return render(request, 'tourism.html', {
 
     })
 
