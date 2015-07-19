@@ -136,3 +136,18 @@ a:hover {
     font-family: 'BYekan';
     margin-bottom: 1em;
 }
+
+.footer-text{
+    color:white;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.footer-link{
+    color: #aaa;
+    font-size: medium;
+}
+
+.footer-link:hover{
+    color: #ac2925;
+}
