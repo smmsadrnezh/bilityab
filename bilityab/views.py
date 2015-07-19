@@ -12,20 +12,10 @@ def terms(request):
     })
 
 
-def events(request):
-    return render(request, 'sport-event.html', {
-        # 'PageTitle': "bilityab",
-    })
-
-
 def about(request):
     return render(request, 'about.html', {
         # 'PageTitle': "bilityab",
     })
-
-
-def organizer(request):
-    return render(request, 'organizer.html', {})
 
 
 def contact(request):

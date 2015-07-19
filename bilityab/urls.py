@@ -4,8 +4,6 @@ from django.contrib import admin
 urlpatterns = [
     ### bilityab urls
     url(r'^$', 'bilityab.views.home', name='home'),
-    url(r'^events/$', 'bilityab.views.events', name='home'),
-    url(r'^organizer/$', 'bilityab.views.organizer', name='home'),
     url(r'^contact/$', 'bilityab.views.contact', name='home'),
     url(r'^about/$', 'bilityab.views.about', name='home'),
     url(r'^terms/$', 'bilityab.views.terms', name='home'),
@@ -16,6 +14,8 @@ urlpatterns = [
     url(r'^profile/(?P<user_id>\d+)/charge/$', 'account.views.charge', name='home'),
 
     ### event urls
+    url(r'^events/$', 'event.views.events', name='home'),
+    url(r'^organizer/$', 'event.views.organizer', name='home'),
     url(r'^events/movie/(?P<event_id>\d+)/$', 'event.views.movie', name='home'),
     url(r'^events/sport/(?P<event_id>\d+)/$', 'event.views.sport', name='home'),
     url(r'^events/concert/(?P<event_id>\d+)/$', 'event.views.concert', name='home'),

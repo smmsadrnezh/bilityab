@@ -40,13 +40,13 @@ def organizer(request, event_id):
 
 
 def add_event(request, event_id):
-    return render(request, 'add_event.html', {
+    return render(request, 'add-events.html', {
 
     })
 
 
-def events(request, event_id):
-    return render(request, 'events.html', {
+def events(request):
+    return render(request, 'all-events.html', {
 
     })
 
@@ -63,4 +63,5 @@ def delete_event(request, event_id):
     })
 
 
-
+def organizer(request):
+    return render(request, 'organizer.html', {})
