@@ -131,3 +131,8 @@ a:hover {
     left: 0.7em;
     top: 0.05em;
 }
+
+.title-font{
+    font-family: 'BYekan';
+    margin-bottom: 1em;
+}

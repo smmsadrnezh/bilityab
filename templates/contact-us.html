@@ -1,15 +1,25 @@
 {% extends "layout.html" %}
 {% load staticfiles %}
 {% block pageBody %}
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="well well-sm">
+
+    <div class="holder">
+        <div id="body-container" class="col col-md-12">
+            <div class="col col-md-12">
+                <div class="col col-md-12" id="box-head">
+                    <div id="center-head">
+                        ارتباط با ما
+                    </div>
+                </div>
+                <div class="col col-md-12">
                     <form class="form-horizontal" method="post">
                         <fieldset>
-                            <legend class="text-center header">ارتباط با ما</legend>
-
+                            <legend>
+                                <p>نشانی: خیابان آزادی - دانشگاه صنعتی شریف - سامانهٔ بلیط‌یاب</p>
+                                <p>شماره تماس: ۰۲۱۸۸۸۸۸۸۸۸</p>
+                            </legend>
+<h2 class="text-center title-font">ارسال پیام</h2>
                             <div class="form-group">
+
                                 <span class="col-md-1 col-md-offset-2 text-center"><i
                                         class="fa fa-user bigicon"></i></span>
 
@@ -69,23 +79,14 @@
             </div>
         </div>
     </div>
+{% endblock %}
 
-
+{% block js %}
+    {{ block.super }}
+    <script src="{% static "js/sport-event.js" %}"></script>
 {% endblock %}
 
 {% block css %}
     {{ block.super }}
-    <link rel="stylesheet" href="{% static "css/contact.css" %}"/>
-    <style>
-        .header {
-            color: #36A0FF;
-            font-size: 27px;
-            padding: 10px;
-        }
-
-        .bigicon {
-            font-size: 35px;
-            color: #36A0FF;
-        }
-    </style>
+    <link rel="stylesheet" href="{% static "css/about.css" %}"/>
 {% endblock %}
