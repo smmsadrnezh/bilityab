@@ -1,4 +1,6 @@
 from django.conf.urls import include, url
+from django.contrib import admin
+
 urlpatterns = [
     ### bilityab urls
     url(r'^$', 'bilityab.views.home'),
@@ -8,7 +10,7 @@ urlpatterns = [
     # url(r'^blog/', include('blog.urls')),
 
     ### account urls
-    url(r'^profile/(?P<user_id>\d+)/$', 'account.views.profile'),
+    url(r'^profile/(?P<user_id>\d+)/$', 'account.views.profile_edit'),
     url(r'^profile/(?P<user_id>\d+)/charge/$', 'account.views.charge'),
 
     ### event urls
