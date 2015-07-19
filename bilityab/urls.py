@@ -29,12 +29,10 @@ urlpatterns = [
     ### ticket urls
     url(r'^buy/(?P<event_id>\d+)/$', 'ticket.views.buy'),
     url(r'^ticket/(?P<user_id>\d+)/(?P<purchased_id>\d+)/$', 'ticket.views.ticket'),
-    url(r'^ticket/(?P<user_id>\d+)/$', 'account.views.all_ticket'),
+    url(r'^ticket/(?P<user_id>\d+)/$', 'ticket.views.all_ticket'),
 
     ### promotion urls
-    url(r'^promotion/(?P<promotion_id>\d+)/$', 'promotion.views.edit'),
-    url(r'^promotion/add/$', 'promotion.views.add'),
-    url(r'^promotion/(?P<promotion_id>\d+)/remove/$', 'promotion.views.remove'),
+    url(r'^promotion/$', 'promotion.views.promotion'),
 
     url(r'^admin/', include(admin.site.urls)),
 ]
