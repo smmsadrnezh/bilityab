@@ -3,26 +3,27 @@ from django.shortcuts import render
 # Create your views here.
 
 
+
+def events(request):
+    return render(request, 'all-events.html', {
+
+    })
+
+
 def all_sport(request, event_id):
-    return render(request, 'all-sport.html', {
+    return render(request, 'all-events.html', {
 
     })
 
 
 def all_art(request, event_id):
-    return render(request, 'all-art.html', {
+    return render(request, 'all-events.html', {
 
     })
 
 
-def entertainment(request, event_id):
-    return render(request, 'tourism.html', {
-
-    })
-
-
-def movie(request, event_id):
-    return render(request, 'movie.html', {
+def all_tourism(request, event_id):
+    return render(request, 'all-events.html', {
 
     })
 
@@ -33,14 +34,25 @@ def sport(request, event_id):
     })
 
 
-def concert(request, event_id):
-    return render(request, 'concert.html', {
+def tourism(request, event_id):
+    return render(request, 'tourism.html', {
 
     })
 
 
-def entertainment(request, event_id):
-    return render(request, 'tourism.html', {
+def art(request, event_id):
+    if event_id == 1:
+        return render(request, 'movie.html', {
+
+        })
+    elif event_id == 2:
+        return render(request, 'concert.html', {
+
+        })
+
+
+def all_organizer(request, event_id):
+    return render(request, 'all-organizer.html', {
 
     })
 
@@ -50,24 +62,15 @@ def organizer(request, event_id):
 
     })
 
+
 def organizer_events(request, event_id):
-    return render(request, 'organizer-events.html', {
+    return render(request, 'all-events.html', {
 
     })
 
-def all_organizer(request, event_id):
-    return render(request, 'all-organizer.html', {
-
-    })
 
 def add_event(request, event_id):
-    return render(request, 'add-events.html', {
-
-    })
-
-
-def events(request):
-    return render(request, 'all-events.html', {
+    return render(request, 'add-event.html', {
 
     })
 
