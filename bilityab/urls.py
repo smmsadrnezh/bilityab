@@ -7,7 +7,6 @@ urlpatterns = [
     url(r'^contact/$', 'bilityab.views.contact'),
     url(r'^about/$', 'bilityab.views.about'),
     url(r'^terms/$', 'bilityab.views.terms'),
-    # url(r'^blog/', include('blog.urls')),
 
     ### account urls
     url(r'^profile/(?P<user_id>\d+)/$', 'account.views.profile_edit'),
@@ -44,6 +43,3 @@ urlpatterns = [
 
     url(r'^admin/', include(admin.site.urls)),
 ]
-from django.contrib import admin
-
-
