@@ -26,19 +26,17 @@ urlpatterns = [
     url(r'^organizer/(?P<organizer_id>\d+)/events/$', 'event.views.events', name='home'),
     url(r'^organizer/(?P<organizer_id>\d+)/events/(?P<event_id>\d+)/edit/$', 'event.views.edit_event', name='home'),
     url(r'^organizer/(?P<organizer_id>\d+)/events/(?P<event_id>\d+)/delete/$', 'event.views.delete_event', name='home'),
+    url(r'^organized_events/(?P<user_id>\d+)/$', 'event.views.organized-events', name='home'),
 
     ### ticket urls
     url(r'^buy/(?P<event_id>\d+)/$', 'event.views.buy', name='home'),
-    url(r'^report/purchased/(?P<user_id>\d+)/(?P<purchased_id>\d+)/$', 'ticket.views.ticket', name='home'),
+    url(r'^purchased/(?P<user_id>\d+)/(?P<purchased_id>\d+)/$', 'ticket.views.ticket', name='home'),
+    url(r'^purchased/(?P<user_id>\d+)/$', 'account.views.purchased', name='home'),
 
     ### promotion urls
     url(r'^promotion/(?P<promotion_id>\d+)/$', 'promotion.views.edit', name='home'),
     url(r'^promotion/add/$', 'promotion.views.add', name='home'),
     url(r'^promotion/(?P<promotion_id>\d+)/remove/$', 'promotion.views.remove', name='home'),
-
-    ### report urls
-    url(r'^report/purchased/(?P<user_id>\d+)/$', 'report.views.purchased', name='home'),
-    url(r'^report/organized_events/(?P<user_id>\d+)/$', 'report.views.organized-events', name='home'),
 
     url(r'^admin/', include(admin.site.urls)),
 ]
