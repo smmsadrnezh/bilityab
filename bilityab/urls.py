@@ -26,7 +26,7 @@ urlpatterns = [
     url(r'^organizer/(?P<organizer_id>\d+)/events/$', 'event.views.events', name='home'),
     url(r'^organizer/(?P<organizer_id>\d+)/events/(?P<event_id>\d+)/edit/$', 'event.views.edit_event', name='home'),
     url(r'^organizer/(?P<organizer_id>\d+)/events/(?P<event_id>\d+)/delete/$', 'event.views.delete_event', name='home'),
-    url(r'^organized_events/(?P<user_id>\d+)/$', 'event.views.organized-events', name='home'),
+    url(r'^report/$', 'event.views.report', name='home'),
 
     ### ticket urls
     url(r'^buy/(?P<event_id>\d+)/$', 'event.views.buy', name='home'),
