@@ -151,3 +151,7 @@ a:hover {
 .footer-link:hover{
     color: #ac2925;
 }
+
+.set-color{
+    background-color: green;
+}

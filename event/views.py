@@ -19,7 +19,7 @@ def edit_event(request, event_id):
     })
 
 
-def all_sport(request, event_id):
+def all_sport(request):
     return render(request, 'all-events.html', {
 
     })
