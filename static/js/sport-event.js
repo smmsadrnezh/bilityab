@@ -1,4 +1,4 @@
-(function($){
+(function ($) {
     var stop = false;
     var r_days = $('#day');
     var r_hours = $('#hour');
@@ -21,48 +21,41 @@
         r_seconds.text(r_seconds_int);
         setTimeout(decrease_time, 1000);
     };
-    function decrease_time(){
-        if(!stop)
+    function decrease_time() {
+        if (!stop)
             setTimeout(decrease_time, 1000);
-        if(r_seconds_int == 0)
-        {
-            if(r_minutes_int == 0)
-            {
-                if(r_hours_int == 0)
-                {
-                    if(r_days_int == 0)
-                    {
+        if (r_seconds_int == 0) {
+            if (r_minutes_int == 0) {
+                if (r_hours_int == 0) {
+                    if (r_days_int == 0) {
                         stop = true;
                     }
-                    else
-                    {
+                    else {
                         r_seconds.text(r_seconds_int = 59);
                         r_minutes.text(r_minutes_int = 59);
                         r_hours.text(r_hours_int = 23);
                         r_days.text(--r_days_int);
                     }
                 }
-                else
-                {
+                else {
                     r_seconds.text(r_seconds_int = 59);
                     r_minutes.text(r_minutes_int = 59);
                     r_hours.text(--r_hours_int);
                 }
             }
-            else
-            {
+            else {
                 r_seconds.text(r_seconds_int = 59);
                 r_minutes.text(--r_minutes_int);
             }
         }
-        else
-        {
+        else {
             r_seconds.text(--r_seconds_int);
         }
     }
+
     $('#remaining-time').countDown();
     var body_height = parseFloat($('body').css('height'));
-    var header_plus_info_height = parseFloat($('#top-header').css('height')) + parseFloat($('#ticket-info').css('height')) + parseFloat($('#ticket-info').css('margin-top'))*2;
+    var header_plus_info_height = parseFloat($('#top-header').css('height')) + parseFloat($('#ticket-info').css('height')) + parseFloat($('#ticket-info').css('margin-top')) * 2;
     $('#seat-select').css('height', body_height - header_plus_info_height + 'px');
     $('[data-toggle="tooltip"]').tooltip();
     var fixture_ticket = $('#ticket');
@@ -70,7 +63,7 @@
     var more_info = $('#more-info');
     var active_panel = fixture_ticket;
     $('#for-ticket').on('click', function () {
-        if(fixture_ticket.css('display') != 'block'){
+        if (fixture_ticket.css('display') != 'block') {
             active_panel.fadeOut(function () {
                 fixture_ticket.fadeIn();
                 active_panel = fixture_ticket;
@@ -78,7 +71,7 @@
         }
     });
     $('#for-comments').on('click', function () {
-        if(user_comments.css('display') != 'block'){
+        if (user_comments.css('display') != 'block') {
             active_panel.fadeOut(function () {
                 user_comments.fadeIn();
                 active_panel = user_comments;
@@ -86,7 +79,7 @@
         }
     });
     $('#for-more-info').on('click', function () {
-        if(more_info.css('display') != 'block'){
+        if (more_info.css('display') != 'block') {
             active_panel.fadeOut(function () {
                 more_info.fadeIn();
                 active_panel = more_info;

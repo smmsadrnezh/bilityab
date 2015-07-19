@@ -1,5 +1,4 @@
-from django.conf.urls import include, url
-from django.contrib import admin
+from django.conf.urls import url
 
 urlpatterns = [
     url(r'^$', 'bilityab.views.home', name='home'),

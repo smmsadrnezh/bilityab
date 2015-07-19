@@ -1,65 +1,67 @@
 {% extends "layout.html" %}
 {% load staticfiles %}
 {% block pageBody %}
-<div class="holder">
-    <div class="col col-md-12">
-        <div class="col col-md-12" id="ticket">
-            <div class="col col-md-12" id="ticket-info">
-                <img class="organizer-image" src={% static "img/azadi.jpg" %}>
-                <div class="organizer-details">
-                    نام مجموعه: سینما آزادی
-                </div>
-                <div class="organizer-details">
-                    آدرس: تهران - تقاطع خیابان شهید بهشتی و خیابان خالد اسلامبولی
-                </div>
-                <div class="organizer-details">
-                    تلفن: 02188888888
-                </div>
-            </div>
+    <div class="holder">
+        <div class="col col-md-12">
+            <div class="col col-md-12" id="ticket">
+                <div class="col col-md-12" id="ticket-info">
+                    <img class="organizer-image" src={% static "img/azadi.jpg" %}>
 
-            <h2>
-                رویدادهای این مجموعه
-            </h2>
-
-            <div class="col col-md-12" id="ticket-info">
-                <img class="event-image" src={% static "img/iceage.jpg" %}>
-                <a href="#" class="event-info">
-نام رویداد: فیلم سینمایی عصر یخبندان
-                </a>
-                <div class="event-info">
-زمان رویداد: 3 مرداد 94 ساعت 18:00
+                    <div class="organizer-details">
+                        نام مجموعه: سینما آزادی
+                    </div>
+                    <div class="organizer-details">
+                        آدرس: تهران - تقاطع خیابان شهید بهشتی و خیابان خالد اسلامبولی
+                    </div>
+                    <div class="organizer-details">
+                        تلفن: 02188888888
+                    </div>
                 </div>
 
-                <div class="my-divider"></div>
+                <h2>
+                    رویدادهای این مجموعه
+                </h2>
 
-                <img class="event-image" src={% static "img/nahanganbar.jpg" %}>
-                <a href="#" class="event-info">
-نام رویداد: فیلم سینمایی نهنگ عنبر
-                </a>
+                <div class="col col-md-12" id="ticket-info">
+                    <img class="event-image" src={% static "img/iceage.jpg" %}>
+                    <a href="#" class="event-info">
+                        نام رویداد: فیلم سینمایی عصر یخبندان
+                    </a>
 
-                <div class="event-info">
-زمان رویداد: 4 مرداد 94 ساعت 19:00
+                    <div class="event-info">
+                        زمان رویداد: 3 مرداد 94 ساعت 18:00
+                    </div>
+
+                    <div class="my-divider"></div>
+
+                    <img class="event-image" src={% static "img/nahanganbar.jpg" %}>
+                    <a href="#" class="event-info">
+                        نام رویداد: فیلم سینمایی نهنگ عنبر
+                    </a>
+
+                    <div class="event-info">
+                        زمان رویداد: 4 مرداد 94 ساعت 19:00
+                    </div>
+
+                    <div class="my-divider"></div>
+
+                    <img class="event-image" src={% static "img/eteraf.jpg" %}>
+                    <a href="#" class="event-info">
+                        نام رویداد: فیلم سینمایی اعترافات ذهن خطرناک من
+                    </a>
+
+                    <div class="event-info">
+                        زمان رویداد: 5 مرداد 94 ساعت 21:00
+                    </div>
                 </div>
 
-                <div class="my-divider"></div>
-
-                <img class="event-image" src={% static "img/eteraf.jpg" %}>
-                <a href="#" class="event-info">
-نام رویداد: فیلم سینمایی اعترافات ذهن خطرناک من
-                </a>
-
-                <div class="event-info">
-زمان رویداد: 5 مرداد 94 ساعت 21:00
-                </div>
             </div>
 
         </div>
-
     </div>
-</div>
 {% endblock %}
 
 {% block css %}
     {{ block.super }}
-<link rel="stylesheet" href="{% static "css/sport-event.css" %}"/>
+    <link rel="stylesheet" href="{% static "css/sport-event.css" %}"/>
 {% endblock %}

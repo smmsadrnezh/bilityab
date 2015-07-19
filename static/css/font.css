@@ -2,8 +2,8 @@
     font-family: 'BMitra';
     src: url('../font/farsi-fonts/BMitra.eot');
     src: url('../font/farsi-fonts/BMitra.eot?#iefix') format('embedded-opentype'),
-         url('../font/farsi-fonts/BMitra.woff') format('woff'),
-         url('../font/farsi-fonts/BMitra.ttf') format('truetype');
+    url('../font/farsi-fonts/BMitra.woff') format('woff'),
+    url('../font/farsi-fonts/BMitra.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -12,8 +12,8 @@
     font-family: 'BMitraBold';
     src: url('../font/farsi-fonts/BMitraBold.eot');
     src: url('../font/farsi-fonts/BMitraBold.eot?#iefix') format('embedded-opentype'),
-         url('../font/farsi-fonts/BMitraBold.woff') format('woff'),
-         url('../font/farsi-fonts/BMitraBold.ttf') format('truetype');
+    url('../font/farsi-fonts/BMitraBold.woff') format('woff'),
+    url('../font/farsi-fonts/BMitraBold.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
 }
@@ -22,8 +22,8 @@
     font-family: 'BRoya';
     src: url('../font/farsi-fonts/BRoya.eot');
     src: url('../font/farsi-fonts/BRoya.eot?#iefix') format('embedded-opentype'),
-         url('../font/farsi-fonts/BRoya.woff') format('woff'),
-         url('../font/farsi-fonts/BRoya.ttf') format('truetype');
+    url('../font/farsi-fonts/BRoya.woff') format('woff'),
+    url('../font/farsi-fonts/BRoya.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -32,19 +32,18 @@
     font-family: 'BTabassom';
     src: url('../font/farsi-fonts/BTabassom.eot');
     src: url('../font/farsi-fonts/BTabassom.eot?#iefix') format('embedded-opentype'),
-         url('../font/farsi-fonts/BTabassom.woff') format('woff'),
-         url('../font/farsi-fonts/BTabassom.ttf') format('truetype');
+    url('../font/farsi-fonts/BTabassom.woff') format('woff'),
+    url('../font/farsi-fonts/BTabassom.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
-
 
 @font-face {
     font-family: 'BTitr';
     src: url('../font/farsi-fonts/BTitr.eot');
     src: url('../font/farsi-fonts/BTitr.eot?#iefix') format('embedded-opentype'),
-         url('../font/farsi-fonts/BTitr.woff') format('woff'),
-         url('../font/farsi-fonts/BTitr.ttf') format('truetype');
+    url('../font/farsi-fonts/BTitr.woff') format('woff'),
+    url('../font/farsi-fonts/BTitr.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
 }
@@ -53,41 +52,38 @@
     font-family: 'BTitrTGE';
     src: url('../font/farsi-fonts/BTitrTGE.eot');
     src: url('../font/farsi-fonts/BTitrTGE.eot?#iefix') format('embedded-opentype'),
-         url('../font/farsi-fonts/BTitrTGE.woff') format('woff'), 
-         url('../font/farsi-fonts/BTitrTGE.ttf') format('truetype');
+    url('../font/farsi-fonts/BTitrTGE.woff') format('woff'),
+    url('../font/farsi-fonts/BTitrTGE.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
 }
-
 
 @font-face {
     font-family: 'BYekan';
     src: url('../font/farsi-fonts/BYekan.eot');
     src: url('../font/farsi-fonts/BYekan.eot?#iefix') format('embedded-opentype'),
-         url('../font/farsi-fonts/BYekan.woff') format('woff'),
-         url('../font/farsi-fonts/BYekan.ttf') format('truetype');
+    url('../font/farsi-fonts/BYekan.woff') format('woff'),
+    url('../font/farsi-fonts/BYekan.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
-
 
 @font-face {
     font-family: 'BTraffic';
     src: url('../font/farsi-fonts/BTraffic.eot');
     src: url('../font/farsi-fonts/BTraffic.eot?#iefix') format('embedded-opentype'),
-         url('../font/farsi-fonts/BTraffic.woff') format('woff'),
-         url('../font/farsi-fonts/BTraffic.ttf') format('truetype');
+    url('../font/farsi-fonts/BTraffic.woff') format('woff'),
+    url('../font/farsi-fonts/BTraffic.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
-
- @font-face {
+@font-face {
     font-family: 'BNasim';
     src: url('../font/farsi-fonts/BNasim.eot');
     src: url('../font/farsi-fonts/BNasim.eot?#iefix') format('embedded-opentype'),
-         url('../font/farsi-fonts/BNasim.woff') format('woff'),
-         url('../font/farsi-fonts/BNasim.ttf') format('truetype');
+    url('../font/farsi-fonts/BNasim.woff') format('woff'),
+    url('../font/farsi-fonts/BNasim.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
 }

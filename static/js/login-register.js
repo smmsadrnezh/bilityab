@@ -1,4 +1,4 @@
-jQuery(document).ready(function($){
+jQuery(document).ready(function ($) {
     var $form_modal = $('.cd-user-modal'),
         $form_login = $form_modal.find('#cd-login'),
         $form_signup = $form_modal.find('#cd-signup'),
@@ -11,9 +11,9 @@ jQuery(document).ready(function($){
         $main_nav = $('#login-register');
 
     //open modal
-    $main_nav.on('click', function(event){
+    $main_nav.on('click', function (event) {
 
-        if( $(event.target).is($main_nav) ) {
+        if ($(event.target).is($main_nav)) {
             // on mobile open the submenu
             $(this).children('ul').toggleClass('is-visible');
         } else {
@@ -28,27 +28,27 @@ jQuery(document).ready(function($){
     });
 
     //close modal
-    $('.cd-user-modal').on('click', function(event){
-        if( $(event.target).is($form_modal) || $(event.target).is('.cd-close-form') ) {
+    $('.cd-user-modal').on('click', function (event) {
+        if ($(event.target).is($form_modal) || $(event.target).is('.cd-close-form')) {
             $form_modal.removeClass('is-visible');
         }
     });
     //close modal when clicking the esc keyboard button
-    $(document).keyup(function(event){
-        if(event.which=='27'){
+    $(document).keyup(function (event) {
+        if (event.which == '27') {
             $form_modal.removeClass('is-visible');
         }
     });
 
     //switch from a tab to another
-    $form_modal_tab.on('click', function(event) {
+    $form_modal_tab.on('click', function (event) {
         event.preventDefault();
-        ( $(event.target).is( $tab_login ) ) ? login_selected() : signup_selected();
+        ( $(event.target).is($tab_login) ) ? login_selected() : signup_selected();
     });
 
     //hide or show password
-    $('.hide-password').on('click', function(){
-        var $this= $(this),
+    $('.hide-password').on('click', function () {
+        var $this = $(this),
             $password_field = $this.prev('input');
 
         ( 'password' == $password_field.attr('type') ) ? $password_field.attr('type', 'text') : $password_field.attr('type', 'password');
@@ -58,18 +58,18 @@ jQuery(document).ready(function($){
     });
 
     //show forgot-password form
-    $forgot_password_link.on('click', function(event){
+    $forgot_password_link.on('click', function (event) {
         event.preventDefault();
         forgot_password_selected();
     });
 
     //back to login from the forgot-password form
-    $back_to_login_link.on('click', function(event){
+    $back_to_login_link.on('click', function (event) {
         event.preventDefault();
         login_selected();
     });
 
-    function login_selected(){
+    function login_selected() {
         $form_login.addClass('is-selected');
         $form_signup.removeClass('is-selected');
         $form_forgot_password.removeClass('is-selected');
@@ -77,7 +77,7 @@ jQuery(document).ready(function($){
         $tab_signup.removeClass('selected');
     }
 
-    function signup_selected(){
+    function signup_selected() {
         $form_login.removeClass('is-selected');
         $form_signup.addClass('is-selected');
         $form_forgot_password.removeClass('is-selected');
@@ -85,18 +85,18 @@ jQuery(document).ready(function($){
         $tab_signup.addClass('selected');
     }
 
-    function forgot_password_selected(){
+    function forgot_password_selected() {
         $form_login.removeClass('is-selected');
         $form_signup.removeClass('is-selected');
         $form_forgot_password.addClass('is-selected');
     }
 
     //REMOVE THIS - it's just to show error messages
-    $form_login.find('input[type="submit"]').on('click', function(event){
+    $form_login.find('input[type="submit"]').on('click', function (event) {
         event.preventDefault();
         $form_login.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
     });
-    $form_signup.find('input[type="submit"]').on('click', function(event){
+    $form_signup.find('input[type="submit"]').on('click', function (event) {
         event.preventDefault();
         $form_signup.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
     });
@@ -130,8 +130,8 @@ jQuery(document).ready(function($){
 
 
 //credits http://css-tricks.com/snippets/jquery/move-cursor-to-end-of-textarea-or-input/
-jQuery.fn.putCursorAtEnd = function() {
-    return this.each(function() {
+jQuery.fn.putCursorAtEnd = function () {
+    return this.each(function () {
         // If this function exists...
         if (this.setSelectionRange) {
             // ... then use it (Doesn't work in IE)

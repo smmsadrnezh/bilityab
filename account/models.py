@@ -1,8 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User, UserManager
 
-# Create your models here.
-
 
 class CustomUser(User):
     """Consider that this class inherit django user class.

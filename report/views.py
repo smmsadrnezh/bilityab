@@ -4,7 +4,7 @@ from django.shortcuts import render
 
 
 def purchased(request, user_id):
-    return render(request,'tickets.html',{
+    return render(request, 'tickets.html', {
 
     })
 

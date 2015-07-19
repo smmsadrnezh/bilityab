@@ -1,19 +1,16 @@
 /* body */
 
-body
-{
+body {
     height: 100vh;
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
 
-body > .holder
-{
+body > .holder {
     padding-top: 2em;
 }
 
-body > .holder > div.col > div.col
-{
+body > .holder > div.col > div.col {
     padding-right: 3%;
     padding-left: 3%;
     background-color: rgba(249, 249, 249, 0.95);
@@ -21,30 +18,25 @@ body > .holder > div.col > div.col
 
 /* accordion */
 
-body > .holder > div.col
-{
+body > .holder > div.col {
     background-color: rgba(221, 221, 221, 0.39);
 }
 
-#seat-select
-{
+#seat-select {
     padding: 0;
 }
 
-#seat-select > div.col:first-of-type
-{
+#seat-select > div.col:first-of-type {
     padding-left: 0;
 }
 
-#seat-select > div.col:last-of-type
-{
+#seat-select > div.col:last-of-type {
     padding-right: 0;
 }
 
-#ticket-info
-{
+#ticket-info {
     border-radius: 25px;
-    box-shadow: 1px 3px 1px #dfdfe0,-1px -1px 0 #f2f2f2;
+    box-shadow: 1px 3px 1px #dfdfe0, -1px -1px 0 #f2f2f2;
     margin-top: 4vh;
     margin-bottom: 4vh;
     background-color: #FFFFFF;
@@ -52,8 +44,7 @@ body > .holder > div.col
 
 }
 
-#ticket-info .image
-{
+#ticket-info .image {
     transition: all 0.5s;
     box-shadow: 2px 11px 13px -4px #BAB9B9;
     background-size: 100% 100%;
@@ -63,62 +54,53 @@ body > .holder > div.col
     height: 5em;
 }
 
-#ticket-info .image:hover
-{
+#ticket-info .image:hover {
     background-size: 150% 150%;
 }
 
-#ticket-info .home
-{
+#ticket-info .home {
     margin-right: 4em;
     float: right;
 }
 
-#ticket-info .away
-{
+#ticket-info .away {
     margin-left: 4em;
     float: left;
 }
 
-#main-info
-{
+#main-info {
     font-weight: 900;
     color: #BF7002;
     font-size: 0.75em;
     text-align: center;
 }
 
-#center-info
-{
+#center-info {
     font-family: 'BYekan', sans-serif;
     font-size: 1.8em;
     margin-top: 0.4em;
     text-align: center;
 }
 
-#home-team
-{
+#home-team {
     cursor: pointer;
     vertical-align: top;
     margin-left: 0.2em;
     border-left: 3px solid rgba(8, 8, 8, 0.19);
 }
 
-#away-team
-{
+#away-team {
     cursor: pointer;
     vertical-align: top;
     padding-right: 0.2em;
     border-right: 3px solid rgba(8, 8, 8, 0.19);
 }
 
-#remaining-time
-{
+#remaining-time {
     display: inline-block;
 }
 
-#remaining-time > div
-{
+#remaining-time > div {
     border-radius: 5px;
     padding: 0 0.6em;
     margin-top: 0.49em;
@@ -128,13 +110,11 @@ body > .holder > div.col
     display: inline-block;
 }
 
-#remaining-time > div > div:last-of-type
-{
+#remaining-time > div > div:last-of-type {
     color: #2981B2;
 }
 
-#links
-{
+#links {
     background-color: #080808;
     width: 7em;
     position: fixed;
@@ -143,8 +123,7 @@ body > .holder > div.col
     transform: translate(0, -50%);
 }
 
-#links > div
-{
+#links > div {
     cursor: pointer;
     text-align: left;
     transition: all 1s;
@@ -157,92 +136,78 @@ body > .holder > div.col
     color: #ffffff;
 }
 
-#links > div i
-{
+#links > div i {
     margin-right: 1.5em;
 }
 
-#links > div:hover
-{
+#links > div:hover {
     right: 7em;
 }
 
 /* seat-select */
 
-#available-tickets
-{
+#available-tickets {
     font-family: 'BYekan', sans-serif;
     font-size: 0.7em;
     width: 100%;
     background-color: #ffffff;
-    box-shadow: 1px 2px 1px #dfdfe0,-1px -1px 0 #f2f2f2;
+    box-shadow: 1px 2px 1px #dfdfe0, -1px -1px 0 #f2f2f2;
     border: 1px solid #dfdfe0;
 }
 
-#available-tickets th
-{
+#available-tickets th {
     text-align: center;
     padding: 9px 6px;
     border-bottom: 2px solid #9fa0a1;
 }
 
-#available-tickets tbody
-{
+#available-tickets tbody {
     text-align: right;
 }
 
-#available-tickets tbody tr td
-{
+#available-tickets tbody tr td {
     color: #2981B2;
     padding: 0.3em 0;
     text-align: center;
 }
 
-#available-tickets tbody tr:not(:last-of-type)
-{
+#available-tickets tbody tr:not(:last-of-type) {
     border-bottom: 1px solid #dfdfe0;
 }
 
-#available-tickets tbody tr td:nth-of-type(3)
-{
+#available-tickets tbody tr td:nth-of-type(3) {
     color: #2d2b2d;
 }
 
-#available-tickets tbody tr td:first-of-type
-{
+#available-tickets tbody tr td:first-of-type {
     font-family: 'Open Sans', sans-serif;
 }
 
-#available-tickets tbody tr:nth-of-type(2n+1)
-{
+#available-tickets tbody tr:nth-of-type(2n+1) {
     background-color: rgba(215, 219, 221, 0.23);
 }
 
 /* comments */
 
-#comments
-{
+#comments {
     padding: 0;
     display: none;
 }
 
-.comment
-{
+.comment {
     margin-top: 1em;
     margin-bottom: 1em;
     padding-right: 2em;
     background-color: #F2F2F2;
 }
 
-.comment .image
-{
+.comment .image {
     border-radius: 50%;
     background-size: 100% 100%;
     height: 4.5em;
 }
 
-.comment:before
-{
+.comment:before {
     display: inline-block;
     content: '';
     height: 100%;
@@ -252,8 +217,7 @@ body > .holder > div.col
     background-color: #585858;
 }
 
-.comment:after
-{
+.comment:after {
     content: '';
     display: inline-block;
     position: absolute;
@@ -266,35 +230,30 @@ body > .holder > div.col
     border-bottom: 4px solid transparent;
 }
 
-.comment .name
-{
+.comment .name {
     margin-top: 0.3em;
     color: #65aac1;
     font-family: 'BYekan', sans-serif;
 }
 
-.comment .date
-{
+.comment .date {
     padding-bottom: 0.2em;
     margin-bottom: 0.5em;
     border-bottom: 1px solid rgba(88, 88, 88, 0.2);
     font-size: 0.7em;
 }
 
-.comment .text
-{
+.comment .text {
     text-align: justify;
     font-size: 0.8em;
 }
 
-#your-comment
-{
+#your-comment {
     height: 5em;
     margin-top: 1.5em;
 }
 
-#your-comment textarea
-{
+#your-comment textarea {
     height: 5em;
     width: 50%;
     padding: 0.5em;
@@ -304,13 +263,11 @@ body > .holder > div.col
     border: 1px solid #c8c8c8;
 }
 
-#your-comment textarea:focus
-{
+#your-comment textarea:focus {
     outline: none;
 }
 
-#submit-comment
-{
+#submit-comment {
     font-family: 'BYekan', sans-serif;
     position: relative;
     top: -3.2em;
@@ -318,13 +275,11 @@ body > .holder > div.col
 
 /* more info */
 
-#more-info
-{
+#more-info {
     display: none;
 }
 
-#organizer-info
-{
+#organizer-info {
     margin-top: 1em;
     border-radius: 25px;
     margin-bottom: 1em;
@@ -334,20 +289,20 @@ body > .holder > div.col
     font-size: 0.7em;
 }
 
-.organizer-image{
+.organizer-image {
     float: right;
     /*margin-left: 10px;*/
     height: 150px;
 }
 
-.organizer-details{
+.organizer-details {
     line-height: 40px;
     margin-bottom: 10px;
     border-bottom: 1px dotted;
     margin-right: 180px;
 }
 
-.event-image{
+.event-image {
     height: 70px;
     width: 115px;
     /*width: 100px;*/
@@ -355,12 +310,12 @@ body > .holder > div.col
     margin-left: 30px;
 }
 
-.event-info{
+.event-info {
     font-size: 19px;
-    margin:5px;
+    margin: 5px;
 }
 
-.my-divider{
+.my-divider {
     border-bottom: 1px solid;
-    margin :20px 0;
+    margin: 20px 0;
 }

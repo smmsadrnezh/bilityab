@@ -4,13 +4,13 @@ from django.shortcuts import render
 
 
 def edit(request, promotion_id):
-    return render(request,'promotion.html',{
+    return render(request, 'promotion.html', {
 
     })
 
 
 def add(request):
-    return render(request,'',{
+    return render(request, '', {
 
     })
 
