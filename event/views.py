@@ -1,11 +1,20 @@
 from django.shortcuts import render
 
-# Create your views here.
-
-
 
 def events(request):
     return render(request, 'all-events.html', {
+
+    })
+
+
+def add_event(request, event_id):
+    return render(request, 'add-event.html', {
+
+    })
+
+
+def edit_event(request, event_id):
+    return render(request, 'edit-event.html', {
 
     })
 
@@ -61,28 +70,6 @@ def organizer(request, event_id):
     return render(request, 'organizer.html', {
 
     })
-
-
-def organizer_events(request, event_id):
-    return render(request, 'all-events.html', {
-
-    })
-
-
-def add_event(request, event_id):
-    return render(request, 'add-event.html', {
-
-    })
-
-
-def edit_event(request, event_id):
-    return render(request, '', {
-
-    })
-
-
-def organizer(request):
-    return render(request, 'organizer.html', {})
 
 
 def report(request):

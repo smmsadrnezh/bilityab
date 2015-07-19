@@ -15,6 +15,7 @@ urlpatterns = [
     ### event urls
     url(r'^events/$', 'event.views.events'),
     url(r'^events/add/$', 'event.views.add_event'),
+    url(r'^events/(?P<event_id>\d+)/edit/$', 'event.views.edit_event'),
     url(r'^events/sport/$', 'event.views.all_sport'),
     url(r'^events/tourism/$', 'event.views.all_tourism'),
     url(r'^events/art/$', 'event.views.all_art'),
@@ -23,8 +24,6 @@ urlpatterns = [
     url(r'^events/art/(?P<event_id>\d+)/$', 'event.views.art'),
     url(r'^organizer/$', 'event.views.all_organizer'),
     url(r'^organizer/(?P<organizer_id>\d+)/$', 'event.views.organizer'),
-    url(r'^organizer/(?P<organizer_id>\d+)/events/$', 'event.views.organizer_events'),
-    url(r'^events/(?P<event_id>\d+)/edit/$', 'event.views.edit_event'),
     url(r'^report/$', 'event.views.report'),
 
     ### ticket urls
