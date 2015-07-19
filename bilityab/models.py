@@ -32,7 +32,7 @@ class Event(models.Model):
     event_organizer = models.ForeignKey(EventOrganizer)
     address = models.CharField(max_length=300)
     price = models.FloatField(default=0)
-    photo = models.ImageField(null=True, default="default.jpg")
+    # photo = models.ImageField(null=True, default="default.jpg")
 
     class Meta:
         unique_together = (("title", "event_organizer", "address"),)

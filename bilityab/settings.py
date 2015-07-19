@@ -38,6 +38,12 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bilityab',
+    'account',
+    'comment',
+    'event',
+    'promotion',
+    'report',
+    'ticket'
 )
 
 MIDDLEWARE_CLASSES = (
