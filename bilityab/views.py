@@ -1,22 +1,24 @@
 from django.shortcuts import render
-
+# -*- coding: utf-8 -*-
 
 def home(request):
     return render(request, 'home.html', {
-        'pageTitle': "bilityab",
     })
+
 
 def terms(request):
     return render(request, 'terms.html', {
-        # 'PageTitle': "bilityab",
+        'pageTitle': " - شرایط و ضوابط",
     })
 
 
 def about(request):
     return render(request, 'about.html', {
-        # 'PageTitle': "bilityab",
+        'pageTitle': " - درباره",
     })
 
 
 def contact(request):
-    return render(request, 'contact-us.html', {})
+    return render(request, 'contact-us.html', {
+        'pageTitle': " - تماس با ما",
+    })
