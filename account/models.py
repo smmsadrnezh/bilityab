@@ -9,6 +9,8 @@ class CustomUser(User):
     registration_date = models.DateField()
     balance = models.FloatField()
     is_organizer = models.BooleanField(default=0)
+    gender = models.BooleanField(default=0)
+    phone = models.IntegerField(default="02188888888")
 
     # Use UserManager to get the create_user method, etc.
     objects = UserManager()
