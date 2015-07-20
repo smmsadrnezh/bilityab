@@ -21,13 +21,21 @@ class Event(models.Model):
     event_organizer = models.ForeignKey(EventOrganizer)
     address = models.CharField(max_length=300)
     price = models.FloatField(default=0)
-    # photo = models.ImageField(null=True, default="default.jpg")
+    photo = models.FilePathField(null=True, default="default.jpg")
 
     class Meta:
         unique_together = (("title", "event_organizer", "address"),)
 
     def __str__(self):
         return "%s" % self.title
+
+
+class PositionPrice(models.Model):
+    event = models.ForeignKey(Event)
+    from_column = models.PositiveIntegerField()
+    to_column = models.PositiveIntegerField()
+    from_row = models.PositiveIntegerField()
+    to_row = models.PositiveIntegerField()
 
 
 class Showtime(models.Model):
