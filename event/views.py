@@ -70,7 +70,7 @@ def all_organizer(request, event_id):
     })
 
 
-def organizer(request, event_id):
+def organizer(request, organizer_id):
     return render(request, 'organizer.html', {
 
     })
