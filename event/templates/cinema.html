@@ -1,10 +1,91 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+{% extends "layout.html" %}
+{% load staticfiles %}
+{% block pageBody %}
 
-</body>
-</html>
+    <div class="holder">
+        <div class="col col-md-12">
+            <div class="col col-md-12" id="ticket">
+                <div class="col col-md-12" id="ticket-info">
+                </div>
+
+                {# select cinema seat #}
+
+                <!-- multistep form -->
+
+                    <div class="col col-md-12 bs-wizard" style="border-bottom:0;">
+
+                <div class="col-xs-4 bs-wizard-step complete">
+                  <div class="text-center bs-wizard-stepnum">Step 1</div>
+                  <div class="progress"><div class="progress-bar"></div></div>
+                  <a href="#" class="bs-wizard-dot"></a>
+                  <div class="bs-wizard-info text-center">Lorem ipsum dolor sit amet.</div>
+                </div>
+
+                <div class="col-xs-4 bs-wizard-step active"><!-- complete -->
+                  <div class="text-center bs-wizard-stepnum">Step 2</div>
+                  <div class="progress"><div class="progress-bar"></div></div>
+                  <a href="#" class="bs-wizard-dot"></a>
+                  <div class="bs-wizard-info text-center">Nam mollis tristique erat vel tristique. Aliquam erat volutpat. Mauris et vestibulum nisi. Duis molestie nisl sed scelerisque vestibulum. Nam placerat tristique placerat</div>
+                </div>
+
+                <div class="col-xs-4 bs-wizard-step disabled"><!-- complete -->
+                  <div class="text-center bs-wizard-stepnum">Step 3</div>
+                  <div class="progress"><div class="progress-bar"></div></div>
+                  <a href="#" class="bs-wizard-dot"></a>
+                  <div class="bs-wizard-info text-center">Integer semper dolor ac auctor rutrum. Duis porta ipsum vitae mi bibendum bibendum</div>
+                </div>
+            </div>
+            </div>
+            </div>
+            <div class="col col-md-12" id="comments">
+                <div class="comment col col-md-12" id="your-comment">
+                    <div class="col col-md-11">
+                        <textarea placeholder="نظر شما ..."></textarea>
+                        <input type="button" class="btn btn-primary" value="ثبت نظر" id="submit-comment"/>
+                    </div>
+                    <div class="col col-md-1 image"
+                         style="background-image: url('{% static "img/default_profile_large.jpg" %}')"></div>
+                </div>
+                <div class="comment col col-md-12">
+                    <div class="col col-md-11">
+                        <div class="name">کامران محبی</div>
+                        <div class="date">۲۵ خرداد ۱۳۹۴، ۲:۱۱ عصر</div>
+                        <div class="text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از
+                            طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای
+                            شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
+                            کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا
+                            با نرم افزارها شناخت بیستری را برای طراحان رایانه ای و فرهنگ پیشرو در زبان فارسی ایجاد کرد.
+                            در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به
+                            پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای
+                            موجود طراحی اساسا مورد استفاده قرار گیرد.
+                        </div>
+                    </div>
+                    <div class="col col-md-1 image"
+                         style="background-image: url('{% static "img/ee2c94d4ce05632f957c7045f21a4333.jpeg" %}')"></div>
+                </div>
+            </div>
+            <div class="col col-md-12" id="more-info">
+                <div class="col col-md-12" id="organizer-info">
+                    <a href="#"><i class="fa fa-angle-double-left" style="margin-left: 0.5em"></i>برگزار کننده این
+                        رویداد</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="links">
+        <div id="for-ticket" style="background-color: #c9302c">خرید بلیط<i class="fa fa-dollar"></i></div>
+        <div id="for-comments" style="background-color: #777">نظر کاربران<i class="fa fa-comments"></i></div>
+        <div id="for-more-info" style="background-color: #c9302c">اطلاعات بیشتر<i class="fa fa-info"></i></div>
+    </div>
+{% endblock %}
+
+{% block js %}
+    {{ block.super }}
+    <script src="{% static "js/jquery.easing.min.js" %}"></script>
+    <script src="{% static "js/cinema-event.js" %}"></script>
+{% endblock %}
+
+{% block css %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static "css/cinema-event.css" %}"/>
+{% endblock %}
