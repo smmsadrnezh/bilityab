@@ -1,10 +1,81 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+{% extends "layout.html" %}
+{% load staticfiles %}
+{% block pageBody %}
+    <div class="holder">
+        <div class="col col-md-12">
+            <div class="col col-md-12" id="ticket">
+               <p style="display: inline;" >
+                   نمایش بر اساس
+               </p>
+                <select name="filter">
+                    <option>
+                        ورزشی
+                    </option>
+                    <option>
+                        هنری
+                    </option>
+                    <option>
+                        گردشگری
+                    </option>
+                </select>
+                <div class="col col-md-12" id="ticket-info">
+                    <img class="event-image" src={% static "img/iceage.jpg" %}>
+                    <a href="#" class="event-info">
+                        نام رویداد: فیلم سینمایی عصر یخبندان
+                    </a>
 
-</body>
-</html>
+                    <div class="event-info">
+                        زمان رویداد: 3 مرداد 94 ساعت 18:00
+                    </div>
+
+                    <div class="my-divider"></div>
+
+                    <img class="event-image" src={% static "img/nahanganbar.jpg" %}>
+                    <a href="#" class="event-info">
+                        نام رویداد: فیلم سینمایی نهنگ عنبر
+                    </a>
+
+                    <div class="event-info">
+                        زمان رویداد: 4 مرداد 94 ساعت 19:00
+                    </div>
+
+                    <div class="my-divider"></div>
+
+                    <img class="event-image" src={% static "img/eteraf.jpg" %}>
+                    <a href="#" class="event-info">
+                        نام رویداد: فیلم سینمایی اعترافات ذهن خطرناک من
+                    </a>
+
+                    <div class="event-info">
+                        زمان رویداد: 5 مرداد 94 ساعت 21:00
+                    </div>
+
+                    <div class="my-divider"></div>
+
+                    <img class="event-image" src={% static "img/concert.jpg" %}>
+                    <a href="#" class="event-info">
+                        نام رویداد: کنسرت احسان خواجه امیری
+                    </a>
+
+                    <div class="event-info">
+زمان رویداد: 1 شهریور 94 ساعت 20:00
+                    </div>
+
+                    <div class="my-divider"></div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+    {{ block.super }}
+    <script src="{% static "js/sport-event.js" %}"></script>
+{% endblock %}
+
+{% block css %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static "css/sport-event.css" %}"/>
+{% endblock %}
