@@ -268,8 +268,7 @@ body > .holder > div.col {
     outline: none;
 }
 
-#your-comment .image
-{
+#your-comment .image {
     margin-top: 0;
     top: 50%;
     transform: translate(0, -50%);
@@ -328,7 +327,7 @@ body > .holder > div.col {
     margin: 20px 0;
 }
 
-.org-image{
+.org-image {
     height: 60px;
     width: 65px;
     margin-left: 10px;

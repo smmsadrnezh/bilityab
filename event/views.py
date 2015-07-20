@@ -30,10 +30,12 @@ def all_music(request, event_id):
 
     })
 
+
 def all_cinema(request, event_id):
     return render(request, 'all-events.html', {
 
     })
+
 
 def all_tourism(request, event_id):
     return render(request, 'all-events.html', {
@@ -63,6 +65,7 @@ def music(request, event_id):
     return render(request, 'music.html', {
 
     })
+
 
 def all_organizer(request):
     return render(request, 'all-organizer.html', {

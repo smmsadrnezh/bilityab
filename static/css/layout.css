@@ -132,26 +132,26 @@ a:hover {
     top: 0.05em;
 }
 
-.title-font{
+.title-font {
     font-family: 'BYekan';
     margin-bottom: 1em;
 }
 
-.footer-text{
-    color:white;
+.footer-text {
+    color: white;
     margin-top: 10px;
     font-size: 16px;
 }
 
-.footer-link{
+.footer-link {
     color: #aaa;
     font-size: medium;
 }
 
-.footer-link:hover{
+.footer-link:hover {
     color: #ac2925;
 }
 
-.set-color{
+.set-color {
     background-color: green;
 }
