@@ -1,0 +1,31 @@
+input {
+    margin: 0;
+    padding: 0;
+    border-radius: 0.25em;
+}
+
+input[type=submit] {
+    padding: 16px 0;
+    cursor: pointer;
+    background: #2f889a;
+    color: #FFF;
+    font-weight: bold;
+    border: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+}
+
+input[type=submit]:hover, .no-touch .cd-form input[type=submit]:focus {
+    background: #3599ae;
+    outline: none;
+}
+
+@media only screen and (min-width: 600px) {
+    input[type=submit] {
+        padding: 16px 0;
+    }
+}
+
