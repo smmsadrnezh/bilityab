@@ -64,7 +64,7 @@ def music(request, event_id):
 
     })
 
-def all_organizer(request, event_id):
+def all_organizer(request):
     return render(request, 'all-organizer.html', {
 
     })

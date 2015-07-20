@@ -1,10 +1,52 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+{% extends "layout.html" %}
+{% load staticfiles %}
+{% block pageBody %}
+    <div class="holder">
+        <div class="col col-md-12">
+            <div class="col col-md-12" id="ticket">
+               <p style="display: inline;" >
+                   نمایش بر اساس
+               </p>
+                <select name="filter">
+                    <option>
+                        ورزشی
+                    </option>
+                    <option>
+                        هنری
+                    </option>
+                    <option>
+                        گردشگری
+                    </option>
+                </select>
+                <div class="col col-md-12" id="ticket-info">
+                    <img class="event-image" src={% static "img/eteraf.jpg" %}>
+                    <a href="#" class="event-info">
+                  نام برگزار کننده: سینما آزادی
+                    </a>
 
-</body>
-</html>
+                    <div class="my-divider"></div>
+
+                    <img class="event-image" src={% static "img/eteraf.jpg" %}>
+                    <a href="#" class="event-info">
+                        نام برگزارکننده: تالار وحدت
+                    </a>
+
+                    <div class="my-divider"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+    {{ block.super }}
+    <script src="{% static "js/sport-event.js" %}"></script>
+{% endblock %}
+
+{% block css %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static "css/sport-event.css" %}"/>
+{% endblock %}
