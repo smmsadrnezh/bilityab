@@ -327,3 +327,9 @@ body > .holder > div.col {
     border-bottom: 1px solid;
     margin: 20px 0;
 }
+
+.org-image{
+    height: 60px;
+    width: 65px;
+    margin-left: 10px;
+}
