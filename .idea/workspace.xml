@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c18b0d1-f6c7-403b-9305-c48120aa4f74" name="Default" comment="terms">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/event/views.py" afterPath="$PROJECT_DIR$/event/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/home.html" afterPath="$PROJECT_DIR$/templates/home.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/style.css" afterPath="$PROJECT_DIR$/static/css/style.css" />
     </list>
     <ignored path="bilityab.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -79,21 +80,45 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/event/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5368171">
+            <state vertical-scroll-proportion="-8.692307">
               <caret line="72" column="35" selection-start-line="72" selection-start-column="35" selection-end-line="72" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/home.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-12.5">
+              <caret line="199" column="60" selection-start-line="199" selection-start-column="60" selection-end-line="199" selection-end-column="60" />
+              <folding>
+                <element signature="e#459#1236#0#HTML" expanded="false" />
+                <element signature="e#1245#1466#0#HTML" expanded="false" />
+                <element signature="e#1988#2231#0#HTML" expanded="false" />
+                <element signature="e#2872#3091#0#HTML" expanded="false" />
+                <element signature="e#5976#7024#0#HTML" expanded="false" />
+                <element signature="e#7049#8093#0#HTML" expanded="false" />
+                <element signature="e#8236#9301#0#HTML" expanded="false" />
+                <element signature="e#9326#10379#0#HTML" expanded="false" />
+                <element signature="e#9597#10348#0#HTML" expanded="false" />
+                <element signature="e#11506#13754#0#HTML" expanded="false" />
+                <element signature="e#11602#12658#0#HTML" expanded="false" />
+                <element signature="e#12683#13727#0#HTML" expanded="false" />
+                <element signature="e#13876#14938#0#HTML" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.5525727">
+              <caret line="117" column="17" selection-start-line="117" selection-start-column="17" selection-end-line="117" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -140,10 +165,10 @@
         <option value="$PROJECT_DIR$/static/css/jquery-ui.theme.css" />
         <option value="$PROJECT_DIR$/static/js/ajax-search.js" />
         <option value="$PROJECT_DIR$/templates/basic.html" />
-        <option value="$PROJECT_DIR$/templates/home.html" />
-        <option value="$PROJECT_DIR$/static/css/style.css" />
         <option value="$PROJECT_DIR$/templates/layout.html" />
         <option value="$PROJECT_DIR$/event/views.py" />
+        <option value="$PROJECT_DIR$/templates/home.html" />
+        <option value="$PROJECT_DIR$/static/css/style.css" />
       </list>
     </option>
   </component>
@@ -1100,30 +1125,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#76#1705#0#HTML" expanded="false" />
-            <element signature="e#2811#3835#0#HTML" expanded="false" />
-            <element signature="e#3856#4920#0#HTML" expanded="false" />
-            <element signature="e#4941#5782#0#HTML" expanded="false" />
-            <element signature="e#5821#11986#0#HTML" expanded="false" />
-            <element signature="e#12003#15580#0#HTML" expanded="false" />
-            <element signature="e#15612#20714#0#HTML" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/layout.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.25">
@@ -1160,8 +1161,46 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/event/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5368171">
+        <state vertical-scroll-proportion="-8.692307">
           <caret line="72" column="35" selection-start-line="72" selection-start-column="35" selection-end-line="72" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/pycharm.jar!/resources/html5-schema/html5/block.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="225" column="16" selection-start-line="225" selection-start-column="16" selection-end-line="225" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.5">
+          <caret line="199" column="60" selection-start-line="199" selection-start-column="60" selection-end-line="199" selection-end-column="60" />
+          <folding>
+            <element signature="e#459#1236#0#HTML" expanded="false" />
+            <element signature="e#1245#1466#0#HTML" expanded="false" />
+            <element signature="e#1988#2231#0#HTML" expanded="false" />
+            <element signature="e#2872#3091#0#HTML" expanded="false" />
+            <element signature="e#5976#7024#0#HTML" expanded="false" />
+            <element signature="e#7049#8093#0#HTML" expanded="false" />
+            <element signature="e#8236#9301#0#HTML" expanded="false" />
+            <element signature="e#9326#10379#0#HTML" expanded="false" />
+            <element signature="e#9597#10348#0#HTML" expanded="false" />
+            <element signature="e#11506#13754#0#HTML" expanded="false" />
+            <element signature="e#11602#12658#0#HTML" expanded="false" />
+            <element signature="e#12683#13727#0#HTML" expanded="false" />
+            <element signature="e#13876#14938#0#HTML" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5525727">
+          <caret line="117" column="17" selection-start-line="117" selection-start-column="17" selection-end-line="117" selection-end-column="17" />
           <folding />
         </state>
       </provider>

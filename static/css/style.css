@@ -115,6 +115,7 @@
     position: relative;
     cursor: pointer;
     height: 7em;
+    float: right;
 }
 
 .event .image {
