@@ -70,6 +70,32 @@ body > .holder > div.col {
     opacity: 1;
 }
 
+#ticket-info .info .director
+{
+    margin-top: 1em;
+    color: #BF7002;
+    font-family: 'BYekan', sans-serif;
+}
+
+#ticket-info .info .genre-duration
+{
+    margin-bottom: 0.5em;
+    font-size: 0.7em;
+}
+
+#ticket-info .info .actors
+{
+    font-size: 0.8em;
+    background-color: rgba(249, 249, 249, 1);
+    color: rgba(0, 0, 0, 0.8);
+}
+
+#ticket-info .info .synopsis
+{
+    margin-top: 0.5em;
+    font-size: 0.8em;
+}
+
 #links {
     background-color: #080808;
     width: 7em;
@@ -253,7 +279,7 @@ body > .holder > div.col {
     float: right !important;
 }
 
-.bs-wizard {margin-top: 40px; direction: ltr;}
+.bs-wizard {margin-top: 0; direction: ltr;}
 .bs-wizard {border-bottom: solid 1px #e0e0e0; padding: 0 0 10px 0;}
 .bs-wizard > .bs-wizard-step {padding: 0; position: relative; float: right}
 .bs-wizard > .bs-wizard-step + .bs-wizard-step {}
