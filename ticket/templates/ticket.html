@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% load staticfiles %}
+{% block pageBody %}
+    <div class="holder">
+        <div id="body-container" class="col col-md-12">
+            <div class="col col-md-12">
+                <div class="col col-md-2">
+                <br />
+                <a class="btn btn-primary btn-lg btn-block" href="#print">
+                    <i class="fa fa-print"></i> پرینت
+                </a></div>
+                <div class="col col-md-10">
+                <h1>مسابقه فوتبال ایران و آمریکا</h1>
+                    </div>
+
+                <h2>خریدار: محمد محمدی</h2>
+
+                <h3>شماره بلیط: ۷۹۷۰۹</h3>
+
+                <p>کد فوق را هنگام ورود به محل برگزاری رویداد تحویل دهید.</p>
+
+                <h3>تاریخ خرید: ۱۳۹۴/۱۱/۱۳</h3>
+
+                <h3>زمان برگزاری رویداد: ۱۳۹۴/۱۱/۱۳ ساعت ۱۲:۳۰</h3>
+
+                <h3>مکان استفاده: سینما آزادی</h3>
+
+                <h3>تعداد خریداری شده: ۵</h3>
+
+                <h3>قیمت واحد: ۵۰۰۰ تومان</h3>
+
+                <h3>قیمت کل: ۲۵۰۰۰ تومان</h3>
+
+                <h3>نکات قابل توجه: </h3>
+
+                <p>بلیط‌های خریداری شده قابل استرداد  نمی‌باشد.</p>
+
+                <p>حتما ۲۰ دقیقه قبل از شروع رویداد در محل حضور داشته باشید.</p>
+
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+    {{ block.super }}
+    <script src="{% static "js/sport-event.js" %}"></script>
+{% endblock %}
+
+{% block css %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static "css/about.css" %}"/>
+{% endblock %}
