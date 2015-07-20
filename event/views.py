@@ -25,11 +25,15 @@ def all_sport(request):
     })
 
 
-def all_art(request, event_id):
+def all_music(request, event_id):
     return render(request, 'all-events.html', {
 
     })
 
+def all_cinema(request, event_id):
+    return render(request, 'all-events.html', {
+
+    })
 
 def all_tourism(request, event_id):
     return render(request, 'all-events.html', {
@@ -49,16 +53,16 @@ def tourism(request, event_id):
     })
 
 
-def art(request, event_id):
-    if event_id == 1:
-        return render(request, 'movie.html', {
+def cinema(request, event_id):
+    return render(request, 'cinema.html', {
 
-        })
-    elif event_id == 2:
-        return render(request, 'concert.html', {
+    })
 
-        })
 
+def music(request, event_id):
+    return render(request, 'music.html', {
+
+    })
 
 def all_organizer(request, event_id):
     return render(request, 'all-organizer.html', {
