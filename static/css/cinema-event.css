@@ -420,12 +420,14 @@ body > .holder > div.col {
 
 #show-times
 {
+    font-family: 'BYekan', sans-serif;
     display: none;
     text-align: center;
 }
 
 .show-time
 {
+    font-size: 0.8em;
     cursor: pointer;
     border-radius: 5px;
     background-color: #cc0000;
@@ -437,4 +439,30 @@ body > .holder > div.col {
 .show-time.sold
 {
     background-color: #337ab7;
+}
+
+#plans
+{
+    text-align: center;
+    display: none;
+}
+
+.plan
+{
+    width: 15em;
+    height: 20em;
+    border-radius: 5px;
+    display: inline-block;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+}
+
+#add-to-cart
+{
+    font-family: 'BYekan', sans-serif;
+    display: block;
+    width: 15em;
+    margin-right: auto;
+    margin-left: auto;
 }

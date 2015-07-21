@@ -59,4 +59,5 @@ $('.show-time').on('click', function(){
         step3.removeClass('disabled').addClass('active');
     }, 600);
     $(this).parent().fadeOut();
+    $('#plans').fadeIn();
 });
