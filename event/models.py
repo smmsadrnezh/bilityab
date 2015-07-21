@@ -25,7 +25,8 @@ class Event(models.Model):
 
     class Meta:
         unique_together = (("title", "event_organizer", "address"),)
-
+        verbose_name = "رویداد"
+        verbose_name_plural = "رویدادها"
     def __str__(self):
         return "%s" % self.title
 
@@ -36,6 +37,9 @@ class PositionPrice(models.Model):
     to_column = models.PositiveIntegerField()
     from_row = models.PositiveIntegerField()
     to_row = models.PositiveIntegerField()
+
+    class Meta:
+        verbose_name_plural = "قیمت ها"
 
 
 class Showtime(models.Model):
