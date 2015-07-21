@@ -20,7 +20,6 @@ class Event(models.Model):
     capacity = models.PositiveIntegerField()
     event_organizer = models.ForeignKey(EventOrganizer)
     address = models.CharField(max_length=300)
-    price = models.FloatField(default=0)
     # photo = models.FilePathField(null=True, default="default.jpg")
 
     class Meta:
@@ -37,6 +36,7 @@ class PositionPrice(models.Model):
     to_column = models.PositiveIntegerField()
     from_row = models.PositiveIntegerField()
     to_row = models.PositiveIntegerField()
+    price = models.FloatField(default=0)
 
     class Meta:
         verbose_name_plural = "قیمت ها"
