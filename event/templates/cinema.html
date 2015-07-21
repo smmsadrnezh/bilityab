@@ -25,7 +25,7 @@
                 {# select cinema seat #}
                 <div class="col col-md-12 bs-wizard" style="border-bottom:0;">
 
-                    <div class="col-xs-4 bs-wizard-step complete">
+                    <div class="col-xs-4 bs-wizard-step active">
                         <div class="text-center bs-wizard-stepnum">انتخاب سینما</div>
                         <div class="progress">
                             <div class="progress-bar"></div>
@@ -33,7 +33,7 @@
                         <a href="#" class="bs-wizard-dot"></a>
                     </div>
 
-                    <div class="col-xs-4 bs-wizard-step active"><!-- complete -->
+                    <div class="col-xs-4 bs-wizard-step disabled"><!-- complete -->
                         <div class="text-center bs-wizard-stepnum">انتخاب سانس</div>
                         <div class="progress">
                             <div class="progress-bar"></div>
@@ -75,12 +75,14 @@
                         </div>
                     </div>
                 </div>
-
-            </div>
-            <div class="col col-md-12" id="buy">
-                <a class="btn btn-primary btn-lg btn-block" href="/buy/1">
-                    <i class="fa fa-ticket"></i> خرید بلیط
-                </a>
+                <div class="col col-md-12" id="show-times">
+                    <div class="show-time">
+                        22:00
+                    </div>
+                    <div class="show-time sold">
+                        20:00
+                    </div>
+                </div>
             </div>
             <div class="col col-md-12" id="comments">
                 <div class="comment col col-md-12" id="your-comment">

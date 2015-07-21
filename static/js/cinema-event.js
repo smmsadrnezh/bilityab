@@ -36,3 +36,27 @@ $('#submit-comment').on('click', function () {
     $('#comments').append(comment);
     your_comment.find('textarea').val('');
 });
+
+
+var step1 = $('.bs-wizard div:first-of-type');
+var step2 = $('.bs-wizard div:nth-of-type(2)');
+var step3 = $('.bs-wizard div:last-of-type');
+
+var show_times = $('#show-times');
+
+$('#cinemas .item').on('click', function () {
+    step1.removeClass('active').addClass('complete');
+    setTimeout(function () {
+        step2.removeClass('disabled').addClass('active');
+    }, 600);
+    $(this).parent().fadeOut();
+    show_times.fadeIn();
+});
+
+$('.show-time').on('click', function(){
+    step2.removeClass('active').addClass('complete');
+    setTimeout(function () {
+        step3.removeClass('disabled').addClass('active');
+    }, 600);
+    $(this).parent().fadeOut();
+});

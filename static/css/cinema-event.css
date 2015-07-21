@@ -11,6 +11,7 @@ body > .holder {
 }
 
 body > .holder > div.col > div.col {
+    padding-bottom: 2em;
     padding-right: 3%;
     padding-left: 3%;
     background-color: rgba(249, 249, 249, 0.95);
@@ -415,4 +416,25 @@ body > .holder > div.col {
 #cinemas .item .info .capacity
 {
     font-size: 0.8em;
+}
+
+#show-times
+{
+    display: none;
+    text-align: center;
+}
+
+.show-time
+{
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #cc0000;
+    display: inline-block;
+    padding: 0.2em 0.5em;
+
+}
+
+.show-time.sold
+{
+    background-color: #337ab7;
 }
