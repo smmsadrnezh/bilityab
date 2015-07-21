@@ -310,19 +310,21 @@ body > .holder > div.col {
 }
 
 .event-image {
+    border-radius: 15px;
     height: 70px;
     width: 115px;
-    /*width: 100px;*/
     float: right;
-    margin-left: 30px;
+    margin-left: 15px;
 }
 
 .event-info {
-    font-size: 19px;
+    font-family: 'BYekan', sans-serif;
+    font-size: 0.7em;
     margin: 5px;
 }
 
 .my-divider {
+    color: #dddddd;
     border-bottom: 1px solid;
     margin: 20px 0;
 }
