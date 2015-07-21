@@ -1,10 +1,147 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+{% extends "layout.html" %}
+{% load staticfiles %}
+{% block pageBody %}
+    <div class="holder">
+        <div id="body-container" class="col col-md-12">
+            <div class="col col-md-12">
+                <div class="col col-md-2">
+                    <br/>
+                    <a class="btn btn-primary btn-lg btn-block" href="#print">
+                        <i class="fa fa-ticket"></i> بلیط‌های من
+                    </a><a class="btn btn-primary btn-lg btn-block" href="#print">
+                    <i class="fa fa-dollar"></i> شارژ موجودی
+                </a></div>
+                <div class="col col-md-8">
 
-</body>
-</html>
+                    <h1 class="">محمد محمدی</h1>
+
+                    <h2>عضو معمولی</h2>
+                </div>
+                <div class="col col-md-2">
+                    <img class="center-block img-circle ticket-box" src="/static/img/tabrizi.jpg">
+                </div>
+
+
+            </div>
+
+            <div class="col col-md-12 ticket-box">
+
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#profile" aria-controls="profile" role="tab"
+                                                              data-toggle="tab">اطلاعات حساب کاربری</a></li>
+                    <li role="presentation"><a href="#details" aria-controls="home" role="tab" data-toggle="tab">ویرایش
+                        مشخصات</a></li>
+                    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">ویرایش
+                        اطلاعات حساب کاربری</a></li>
+                </ul>
+                <br/>
+
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="profile">
+                        <div class="col col-md-12">
+                            <dl class="dl-horizontal">
+                                <dt>تعداد دفعات خرید</dt>
+                                <dd>۴</dd>
+                                <dt>میزان موجودی</dt>
+                                <dd>۱۰۰۰۰۰ تومان</dd>
+                                <dt>تاریخ عضویت</dt>
+                                <dd>۱۳۹۴/۱۱/۱۳</dd>
+                                <dt>جنسیت</dt>
+                                <dd>مرد</dd>
+                                <dt>شماره تلفن</dt>
+                                <dd>۰۲۱۸۸۸۸۸۸۸۸</dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="details">
+                        <div class="col col-md-12">
+                            <h3>ویرایش مشخصات</h3>
+
+                            <form class="cd-form">
+
+                                <p class="fieldset">
+                                    <label for="signin-email" class="image-replace cd-username">نام</label>
+                                    <input type="email" placeholder="نام" id="signin-email"
+                                           class="full-width has-padding has-border disabled">
+                                </p>
+
+                                <p class="fieldset">
+                                    <label for="signin-email" class="image-replace cd-username">نام خانوادگی</label>
+                                    <input type="email" placeholder="نام خانوادگی" id="signin-email"
+                                           class="full-width has-padding has-border disabled">
+                                </p>
+
+                                <p class="fieldset">
+                                    <label for="signin-email" class="image-replace cd-username">شماره تلفن</label>
+                                    <input type="email" placeholder="شماره تلفن" id="signin-email"
+                                           class="full-width has-padding has-border disabled">
+                                </p>
+                                <a class="btn btn-primary btn-lg btn-block" href="/ticket/1/2">
+                                    <i class="fa fa-save"></i> ذخیره
+                                </a>
+                            </form>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="settings">
+                        <div class="col col-md-12">
+                            <h3>ویرایش اطلاعات حساب کاربری</h3>
+
+                            <form class="cd-form">
+                                <p class="fieldset">
+                                    <label for="signin-email" class="image-replace cd-username">ایمیل</label>
+                                    <input type="email" placeholder="ایمیل" id="signin-email"
+                                           class="full-width has-padding has-border disabled">
+                                </p>
+
+                                <p class="fieldset">
+                                    <label for="signin-password" class="image-replace cd-password">رمز عبور جدید</label>
+                                    <input type="text" placeholder="رمز عبور جدید" id="signin-password"
+                                           class="full-width has-padding has-border">
+                                </p>
+
+                                <p class="fieldset">
+                                    <label for="signin-password" class="image-replace cd-password">تکرار رمز عبور
+                                        جدید</label>
+                                    <input type="text" placeholder="رمز عبور جدید" id="signin-password"
+                                           class="full-width has-padding has-border">
+
+                                </p>
+
+                                <p class="fieldset">
+                                    <a class="btn btn-primary btn-lg btn-block" href="/ticket/1/2">
+                                        <i class="fa fa-save"></i> ذخیره
+                                    </a>
+                                </p>
+
+                                <p class="fieldset">
+                                    <a class="btn btn-danger btn-lg btn-block" href="/ticket/1/2">
+                                        <i class="fa fa-remove"></i> حذف حساب کاربری
+                                    </a>
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+    <script>
+
+        $('#myTabs a').click(function (e) {
+            e.preventDefault()
+            $(this).tab('show')
+
+            $('#myTabs a[href="#profile"]').tab('show')
+        })
+
+    </script>
+{% endblock %}
+
+{% block css %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static "css/about.css" %}"/>
+    <link rel="stylesheet" href="{% static "css/ticket.css" %}"/>
+{% endblock %}
