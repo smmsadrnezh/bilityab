@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9c18b0d1-f6c7-403b-9305-c48120aa4f74" name="Default" comment="contact us finalization">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/event/templates/all-events.html" afterPath="$PROJECT_DIR$/event/templates/all-events.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/sport-event.css" afterPath="$PROJECT_DIR$/static/css/sport-event.css" />
     </list>
     <ignored path="bilityab.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -63,21 +62,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sport-event.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="sport-event.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/css/sport-event.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6689038">
+            <state vertical-scroll-proportion="0.0">
               <caret line="321" column="18" selection-start-line="321" selection-start-column="18" selection-end-line="321" selection-end-column="18" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="all-events.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="all-events.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/event/templates/all-events.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.5">
-              <caret line="61" column="46" selection-start-line="61" selection-start-column="46" selection-end-line="61" selection-end-column="46" />
+            <state vertical-scroll-proportion="0.4680851">
+              <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -167,8 +166,8 @@
         <option value="$PROJECT_DIR$/static/css/style.css" />
         <option value="$PROJECT_DIR$/templates/home.html" />
         <option value="$PROJECT_DIR$/templates/about.html" />
-        <option value="$PROJECT_DIR$/event/templates/all-events.html" />
         <option value="$PROJECT_DIR$/static/css/sport-event.css" />
+        <option value="$PROJECT_DIR$/event/templates/all-events.html" />
       </list>
     </option>
   </component>
@@ -1290,18 +1289,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/event/templates/all-events.html">
+    <entry file="file://$PROJECT_DIR$/static/css/sport-event.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.5">
-          <caret line="61" column="46" selection-start-line="61" selection-start-column="46" selection-end-line="61" selection-end-column="46" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="321" column="18" selection-start-line="321" selection-start-column="18" selection-end-line="321" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/sport-event.css">
+    <entry file="file://$PROJECT_DIR$/event/templates/all-events.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6689038">
-          <caret line="321" column="18" selection-start-line="321" selection-start-column="18" selection-end-line="321" selection-end-column="18" />
+        <state vertical-scroll-proportion="0.4680851">
+          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
           <folding />
         </state>
       </provider>
