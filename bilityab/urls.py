@@ -23,7 +23,7 @@ urlpatterns = [
     url(r'^events/sport/(?P<event_id>\d+)/$', 'event.views.sport'),
     url(r'^events/tourism/(?P<event_id>\d+)/$', 'event.views.tourism'),
     url(r'^events/cinema/(?P<event_id>\d+)/$', 'event.views.cinema'),
-    url(r'^events/music/(?P<event_id>\d+)/$', 'event.views.cinema'),
+    url(r'^events/music/(?P<event_id>\d+)/$', 'event.views.music'),
     url(r'^organizer/$', 'event.views.all_organizer'),
     url(r'^organizer/(?P<organizer_id>\d+)/$', 'event.views.organizer'),
     url(r'^report/$', 'event.views.report'),
