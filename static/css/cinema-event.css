@@ -373,3 +373,46 @@ body > .holder > div.col {
 .bs-wizard > .bs-wizard-step.disabled a.bs-wizard-dot {
     pointer-events: none;
 }
+
+
+/* cinemas grid */
+
+#cinemas .item
+{
+    font-family: 'BYekan', sans-serif;
+    font-size: 0.8em;
+}
+
+#cinemas .item .thumbnail
+{
+    border-radius: 15px;
+    background-size: 100% 100%;
+    height: 10em;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: all 1s;
+}
+
+#cinemas .item:hover .thumbnail
+{
+    opacity: 1;
+}
+
+#cinemas .item .info
+{
+    cursor: pointer;
+    color: #dddddd;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 50%;
+    transform: translate(50%, -50%);
+    border-radius: 15px;
+    right: 50%;
+    padding: 0.2em 1em;
+    text-align: center;
+}
+
+#cinemas .item .info .capacity
+{
+    font-size: 0.8em;
+}
