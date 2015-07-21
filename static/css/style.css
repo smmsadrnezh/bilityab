@@ -336,6 +336,7 @@
     font-size: 0.6em;
     border-bottom: 1px solid #ddd;
     padding-bottom: 0.5em;
+    padding-top: 0.5em;
 }
 
 .medium-event .description {
@@ -355,7 +356,7 @@
 
 .medium-event .footer .see-ticket {
     font-family: 'BYekan', sans-serif;
-    font-size: 0.7em;
+    font-size: 0.6em;
     float: right;
     padding: 0.5em 0.7em 0.4em 0.4em;
 }
@@ -366,7 +367,7 @@
 
 .medium-event .footer .date {
     font-family: 'BYekan', sans-serif;
-    font-size: 0.7em;
+    font-size: 0.6em;
     float: left;
     padding: 0.5em 0.4em 0.4em 0.7em;
 }
