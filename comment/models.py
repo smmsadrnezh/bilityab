@@ -1,5 +1,5 @@
 from django.db import models
-
+# -*- coding: utf-8 -*-
 from account.models import CustomUser
 from event.models import Event, EventOrganizer
 
@@ -8,6 +8,7 @@ class Comment(models.Model):
     user = models.ForeignKey(CustomUser)
     time = models.DateTimeField()
     text = models.TimeField()
+
 
     class Meta:
         unique_together = (("user", "time"),)

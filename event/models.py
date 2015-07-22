@@ -1,5 +1,5 @@
 from django.db import models
-
+# -*- coding: utf-8 -*-
 from account.models import CustomUser
 
 
@@ -20,7 +20,7 @@ class Event(models.Model):
     capacity = models.PositiveIntegerField()
     event_organizer = models.ForeignKey(EventOrganizer)
     address = models.CharField(max_length=300)
-    # photo = models.FilePathField(null=True, default="default.jpg")
+    photo = models.ImageField(null=True, default="default.jpg")
 
     class Meta:
         unique_together = (("title", "event_organizer", "address"),)
