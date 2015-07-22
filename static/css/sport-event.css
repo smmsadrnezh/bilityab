@@ -54,10 +54,6 @@ body > .holder > div.col {
     height: 5em;
 }
 
-#ticket-info .image:hover {
-    background-size: 150% 150%;
-}
-
 #ticket-info .home {
     margin-right: 4em;
     float: right;
@@ -69,9 +65,10 @@ body > .holder > div.col {
 }
 
 #main-info {
+    font-family: 'BYekan', sans-serif;
     font-weight: 900;
-    color: #BF7002;
-    font-size: 0.75em;
+    color: rgba(201, 48, 44, 0.86);
+    font-size: 0.65em;
     text-align: center;
 }
 
