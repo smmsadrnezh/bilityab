@@ -11,7 +11,6 @@ body > .holder {
 }
 
 body > .holder > div.col > div.col {
-    padding-bottom: 2em;
     padding-right: 3%;
     padding-left: 3%;
     background-color: rgba(249, 249, 249, 0.95);
@@ -67,7 +66,6 @@ body > .holder > div.col {
 
 .my-label
 {
-    font-family: 'BYekan', sans-serif;
     font-size: 0.7em;
 }
 
@@ -94,8 +92,29 @@ body > .holder > div.col {
 
 #film-info .producer
 {
-    text-align: right;
-    padding-right: 0.5em;
+    padding: 1em 1em 0.5em;
+}
+
+#film-info .writers, #film-info .actors
+{
+    padding: 0 1em 0.5em;
+}
+
+#left-info > div > span:last-of-type
+{
+    font-size: 0.9em;
+    font-family: 'BYekan', sans-serif;
+}
+
+#ticket-info .synopsis
+{
+    box-shadow: -3px 4px 10px 0 #cccccc;
+}
+
+#ticket-info .synopsis, #ticket-info .cast
+{
+    padding: 0.5em 1em;
+    font-size: 0.8em;
 }
 
 #links {
@@ -362,4 +381,87 @@ body > .holder > div.col {
     width: 15em;
     margin-right: auto;
     margin-left: auto;
+}
+
+
+/* progress */
+
+.progress
+{
+    height: 70px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.progress .circle,
+.progress .bar
+{
+    display: inline-block;
+    background: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    border: 1px solid #d5d5da;
+}
+
+.progress .bar {
+position: relative;
+width: 80px;
+height: 6px;
+top: -33px;
+margin-left: -5px;
+margin-right: -5px;
+border-left: none;
+border-right: none;
+border-radius: 0;
+}
+.progress .circle .label {
+display: inline-block;
+width: 32px;
+height: 32px;
+line-height: 32px;
+border-radius: 32px;
+margin-top: 3px;
+color: #b5b5ba;
+font-size: 17px;
+}
+.progress .circle .title {
+color: #b5b5ba;
+font-size: 13px;
+line-height: 30px;
+margin-left: -5px;
+}
+
+/* Done / Active */
+
+.progress .bar.done, .progress .circle.done
+{
+    background: #eee;
+}
+
+.progress .bar.active {
+background: linear-gradient(to right, #EEE 40%, #FFF 60%);
+}
+.progress .circle.done .label {
+color: #FFF;
+background: #81CE97;
+box-shadow: inset 0 0 2px rgba(0,0,0,.2);
+}
+.progress .circle.done .title {
+color: #444;
+}
+.progress .circle.active .label {
+color: #FFF;
+background: #0c95be;
+box-shadow: inset 0 0 2px rgba(0,0,0,.2);
+}
+.progress .circle.active .title {
+color: #0c95be;
+}
+
+/* seat select */
+
+#selects
+{
+    background-color: #f5f5f5;
 }
