@@ -76,6 +76,7 @@ $(window).load(function () {
     step1.on('click', function () {
         if(current_step == step1)
             return false;
+        current_step = step1;
         current_select.fadeOut(function () {
             cinemas.fadeIn();
             current_select = cinemas;
@@ -93,6 +94,7 @@ $(window).load(function () {
     step2.on('click', function () {
         if(current_step == step2 || current_step == step1)
             return false;
+        current_step = step2;
         current_select.fadeOut(function () {
             show_times.fadeIn();
             current_select = show_times;
@@ -102,6 +104,46 @@ $(window).load(function () {
         step2.next().removeClass('done').addClass('active');
 
         step3.removeClass('active');
+    });
+
+    $('.seat').on('click', function () {
+        if($(this).hasClass('free-seat'))
+            $(this).fadeOut(function () {
+                $(this).css('background-image', 'url("http://127.0.0.1:8000/static/img/seat_selected.png")')
+                    .removeClass('free-seat').addClass('selected-seat').fadeIn();
+            });
+        else
+            if($(this).hasClass('selected-seat'))
+                $(this).fadeOut(function () {
+                    $(this).css('background-image', 'url("http://127.0.0.1:8000/static/img/seat_available.png")')
+                        .removeClass('selected-seat').addClass('free-seat').fadeIn();
+                });
+    });
+
+    $('.seat').each(function () {
+        $(this).attr({ 'data-toggle': 'tooltip',
+            'data-placement': 'top',
+            'data-template': '<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div style="font-family:BYekan" class="tooltip-inner"></div></div>"',
+            'title': ''});
+        if($(this).hasClass('no-internet-sale'))
+            $(this).attr('data-original-title', 'فروش اینترنتی ندارد');
+        else
+            if($(this).hasClass('sold-seat'))
+                $(this).attr('data-original-title', 'فروخته شده');
+        $(this).tooltip();
+    });
+    var counter = 1;
+    $('#plan-azadi').children().each(function () {
+        if($(this).hasClass('free-seat')){
+            $(this).attr('data-original-title', counter);
+            counter++;
+        }
+        else
+            if($(this).hasClass('sold-seat'))
+                counter++;
+            else
+                if($(this).hasClass('seat-row'))
+                    counter = 1;
     });
 
 });

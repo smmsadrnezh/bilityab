@@ -530,3 +530,78 @@ color: #0c95be;
     padding-top: 15px;
     background-color: #f5f5f5;
 }
+
+
+/* seats */
+
+.clear
+{
+    clear:both;
+}
+
+.seat-row
+{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    color: #B1B1B1;
+    top: -10px;
+    position: relative;
+    font-family: 'BYekan', sans-serif;
+    font-size: 15px;
+}
+
+.seat
+{
+    margin: 0 2px;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+}
+
+.disabled-seat
+{
+    color: transparent;
+}
+
+.no-internet-sale
+{
+    opacity: 0.3;
+    background-size: 100% 100%;
+    background-image: url('../img/seat_reserved.png');
+}
+
+.sold-seat
+{
+    background-size: 100% 100%;
+    background-image: url('../img/seat_reserved.png');
+}
+
+.free-seat
+{
+    background-size: 100% 100%;
+    background-image: url('../img/seat_available.png');
+    cursor: pointer;
+}
+
+.selected-seat
+{
+    background-size: 100% 100%;
+    background-image: url('../img/seat_selected.png');
+    cursor: pointer;
+}
+
+#plan-azadi
+{
+    font-size: 0;
+}
+
+#plan-azadi .btn
+{
+    display: block;
+    width: 77%;
+    margin: 0 auto 1em;
+    background-color: #c70a4a;
+    border: none;
+    font-family: 'BYekan', sans-serif;
+}
