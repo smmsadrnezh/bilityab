@@ -348,6 +348,7 @@ body > .holder > div.col {
 
 #show-times .item
 {
+    float: right;
     border-radius: 25px;
     height: 6em;
     padding: 0;
