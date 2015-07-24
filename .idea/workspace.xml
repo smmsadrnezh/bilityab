@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9c18b0d1-f6c7-403b-9305-c48120aa4f74" name="Default" comment="contact us finalization">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/cinema-event.css" afterPath="$PROJECT_DIR$/static/css/cinema-event.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/event/templates/cinema.html" afterPath="$PROJECT_DIR$/event/templates/cinema.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="bilityab.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -44,21 +42,9 @@
       <file leaf-file-name="cinema.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/event/templates/cinema.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="-0.0">
               <caret line="61" column="55" selection-start-line="61" selection-start-column="55" selection-end-line="61" selection-end-column="55" />
-              <folding>
-                <element signature="e#201#2453#0#HTML" expanded="false" />
-                <element signature="e#266#648#0#HTML" expanded="false" />
-                <element signature="e#2546#3680#0#HTML" expanded="false" />
-                <element signature="e#3697#5771#0#HTML" expanded="false" />
-                <element signature="e#3758#5135#0#HTML" expanded="false" />
-                <element signature="e#3913#3980#0#HTML" expanded="true" />
-                <element signature="e#4351#4414#0#HTML" expanded="true" />
-                <element signature="e#4784#4851#0#HTML" expanded="true" />
-                <element signature="e#5559#5619#0#HTML" expanded="true" />
-                <element signature="e#5803#7759#0#HTML" expanded="false" />
-                <element signature="e#7772#8070#0#HTML" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -66,8 +52,8 @@
       <file leaf-file-name="cinema-event.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/css/cinema-event.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.31795716">
-              <caret line="449" column="31" selection-start-line="449" selection-start-column="31" selection-end-line="449" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.6883117">
+              <caret line="466" column="15" selection-start-line="466" selection-start-column="15" selection-end-line="466" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -779,7 +765,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2" y="30" width="1370" height="740" extended-state="7" />
+    <frame x="-2" y="30" width="1370" height="740" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290938" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -788,7 +774,9 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18081991" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32750398" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22727273" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22734499" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -797,12 +785,10 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290938" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22727273" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1185,6 +1171,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.29234338">
           <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1221,26 +1208,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="61" column="55" selection-start-line="61" selection-start-column="55" selection-end-line="61" selection-end-column="55" />
-          <folding>
-            <element signature="e#201#2453#0#HTML" expanded="false" />
-            <element signature="e#266#648#0#HTML" expanded="false" />
-            <element signature="e#2546#3680#0#HTML" expanded="false" />
-            <element signature="e#3697#5771#0#HTML" expanded="false" />
-            <element signature="e#3758#5135#0#HTML" expanded="false" />
-            <element signature="e#3913#3980#0#HTML" expanded="true" />
-            <element signature="e#4351#4414#0#HTML" expanded="true" />
-            <element signature="e#4784#4851#0#HTML" expanded="true" />
-            <element signature="e#5559#5619#0#HTML" expanded="true" />
-            <element signature="e#5803#7759#0#HTML" expanded="false" />
-            <element signature="e#7772#8070#0#HTML" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/css/cinema-event.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31795716">
-          <caret line="449" column="31" selection-start-line="449" selection-start-column="31" selection-end-line="449" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.6883117">
+          <caret line="466" column="15" selection-start-line="466" selection-start-column="15" selection-end-line="466" selection-end-column="15" />
           <folding />
         </state>
       </provider>

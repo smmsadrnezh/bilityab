@@ -388,6 +388,7 @@ body > .holder > div.col {
 
 .progress
 {
+    padding-top: 10px;
     height: 70px;
     margin: 0 auto;
     text-align: center;
@@ -463,5 +464,6 @@ color: #0c95be;
 
 #selects
 {
+    padding-top: 5px;
     background-color: #f5f5f5;
 }
