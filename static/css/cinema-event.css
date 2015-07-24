@@ -314,7 +314,7 @@ body > .holder > div.col {
 {
     transition: all 1s;
     cursor: pointer;
-    color: #9C9C9C;
+    color: rgba(241, 241, 241, 0.76);
     background-color: rgba(0, 0, 0, 0.7);
     position: absolute;
     top: 50%;
@@ -338,25 +338,80 @@ body > .holder > div.col {
 
 #show-times
 {
+    margin-bottom: 0;
+    padding-left: 2%;
+    padding-right: 2%;
     font-family: 'BYekan', sans-serif;
     display: none;
     text-align: center;
 }
 
+#show-times .item
+{
+    border-radius: 25px;
+    height: 6em;
+    padding: 0;
+    background-color: #FFFFFF;
+    box-shadow: -3px 4px 10px 0 #cccccc;
+}
+
+#show-times .item .show-times
+{
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+#show-times .item .date
+{
+    border-radius: 25px;
+    height: 100%;
+    box-shadow: -3px 4px 10px 0 #cccccc;
+    padding: 0;
+}
+
+#show-times .item .date .week-day
+{
+    padding: 0.2em 0;
+    border-radius: 25px 25px 0 0;
+    color: #FDB707;
+    font-family: 'BYekan', sans-serif;
+    font-size: 0.6em;
+    background-color: #000000;
+}
+
+#show-times .item .date .day
+{
+    color: #2981B2;
+    font-size: 1.5em;
+}
+
+#show-times .item .date .month
+{
+    color: #ADABAB;
+    font-size: 0.8em;
+}
+
+#show-times .item .date .year
+{
+    color: #ADABAB;
+    font-size: 0.8em;
+}
+
 .show-time
 {
+    color: #5A5757;
+    transition: all 1s;
     font-size: 0.8em;
     cursor: pointer;
     border-radius: 5px;
-    background-color: #cc0000;
     display: inline-block;
     padding: 0.2em 0.5em;
-
+    background-color: #B0B6BB;
 }
 
-.show-time.sold
+.show-time:hover
 {
-    background-color: #337ab7;
+    background-color: #31b3f1;
 }
 
 #plans
@@ -443,7 +498,7 @@ margin-left: -5px;
 }
 
 .progress .bar.active {
-background: linear-gradient(to right, #EEE 40%, #FFF 60%);
+background: linear-gradient(to left, #EEE 40%, #FFF 60%);
 }
 .progress .circle.done .label {
 color: #FFF;
@@ -463,6 +518,11 @@ color: #0c95be;
 }
 
 /* seat select */
+
+#seat-select .progress .circle
+{
+    cursor: pointer;
+}
 
 #selects
 {

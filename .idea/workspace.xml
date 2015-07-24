@@ -5,7 +5,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/cinema-event.css" afterPath="$PROJECT_DIR$/static/css/cinema-event.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/cinema-event.js" afterPath="$PROJECT_DIR$/static/js/cinema-event.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/event/templates/cinema.html" afterPath="$PROJECT_DIR$/event/templates/cinema.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="bilityab.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -45,10 +44,14 @@
       <file leaf-file-name="cinema.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/event/templates/cinema.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.666667">
-              <caret line="76" column="36" selection-start-line="76" selection-start-column="36" selection-end-line="76" selection-end-column="36" />
+            <state vertical-scroll-proportion="-10.777778">
+              <caret line="45" column="43" selection-start-line="45" selection-start-column="43" selection-end-line="45" selection-end-column="43" />
               <folding>
-                <element signature="e#3484#3551#0#HTML" expanded="true" />
+                <element signature="e#3271#7860#0#HTML" expanded="false" />
+                <element signature="e#3332#5131#0#HTML" expanded="false" />
+                <element signature="e#3486#3553#0#HTML" expanded="true" />
+                <element signature="e#7283#7598#0#HTML" expanded="false" />
+                <element signature="e#10035#10061#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -57,8 +60,8 @@
       <file leaf-file-name="cinema-event.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/css/cinema-event.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.41558442">
-              <caret line="296" column="0" selection-start-line="296" selection-start-column="0" selection-end-line="296" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.8008658">
+              <caret line="411" column="16" selection-start-line="411" selection-start-column="16" selection-end-line="411" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -68,7 +71,7 @@
         <entry file="file://$PROJECT_DIR$/static/js/cinema-event.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="52" column="33" selection-start-line="52" selection-start-column="33" selection-end-line="52" selection-end-column="33" />
+              <caret line="87" column="60" selection-start-line="87" selection-start-column="60" selection-end-line="87" selection-end-column="60" />
               <folding />
             </state>
           </provider>
@@ -138,8 +141,8 @@
         <option value="$PROJECT_DIR$/static/css/sport-event.css" />
         <option value="$PROJECT_DIR$/static/css/video-js.css" />
         <option value="$PROJECT_DIR$/static/css/star-rating.css" />
-        <option value="$PROJECT_DIR$/static/js/cinema-event.js" />
         <option value="$PROJECT_DIR$/event/templates/cinema.html" />
+        <option value="$PROJECT_DIR$/static/js/cinema-event.js" />
         <option value="$PROJECT_DIR$/static/css/cinema-event.css" />
       </list>
     </option>
@@ -1199,31 +1202,36 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7012987">
           <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/cinema-event.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="52" column="33" selection-start-line="52" selection-start-column="33" selection-end-line="52" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/event/templates/cinema.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.666667">
-          <caret line="76" column="36" selection-start-line="76" selection-start-column="36" selection-end-line="76" selection-end-column="36" />
+        <state vertical-scroll-proportion="-10.777778">
+          <caret line="45" column="43" selection-start-line="45" selection-start-column="43" selection-end-line="45" selection-end-column="43" />
           <folding>
-            <element signature="e#3484#3551#0#HTML" expanded="true" />
+            <element signature="e#3271#7860#0#HTML" expanded="false" />
+            <element signature="e#3332#5131#0#HTML" expanded="false" />
+            <element signature="e#3486#3553#0#HTML" expanded="true" />
+            <element signature="e#7283#7598#0#HTML" expanded="false" />
+            <element signature="e#10035#10061#0#HTML" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/cinema-event.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="87" column="60" selection-start-line="87" selection-start-column="60" selection-end-line="87" selection-end-column="60" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/css/cinema-event.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41558442">
-          <caret line="296" column="0" selection-start-line="296" selection-start-column="0" selection-end-line="296" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.8008658">
+          <caret line="411" column="16" selection-start-line="411" selection-start-column="16" selection-end-line="411" selection-end-column="16" />
           <folding />
         </state>
       </provider>
