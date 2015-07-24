@@ -291,42 +291,44 @@ body > .holder > div.col {
 
 #cinemas
 {
-    display: none;
-}
-
-#cinemas .item
-{
-    font-family: 'BYekan', sans-serif;
-    font-size: 0.8em;
+    margin-bottom: 0;
 }
 
 #cinemas .item .thumbnail
 {
+    position: relative;
     border-radius: 15px;
     background-size: 100% 100%;
     height: 10em;
     cursor: pointer;
-    opacity: 0.8;
-    transition: all 1s;
+    opacity: 1;
+    padding: 0;
 }
 
-#cinemas .item:hover .thumbnail
+#cinemas .item:hover .thumbnail .info
 {
-    opacity: 1;
+    opacity: 0.1;
 }
 
 #cinemas .item .info
 {
+    transition: all 1s;
     cursor: pointer;
-    color: #dddddd;
+    color: #9C9C9C;
     background-color: rgba(0, 0, 0, 0.7);
     position: absolute;
     top: 50%;
-    transform: translate(50%, -50%);
+    transform: translate(0, -50%);
+    width: 100%;
     border-radius: 15px;
-    right: 50%;
     padding: 0.2em 1em;
     text-align: center;
+}
+
+#cinemas .item .info .title
+{
+    font-family: 'BYekan', sans-serif;
+    color: #2981B2;
 }
 
 #cinemas .item .info .capacity
@@ -360,7 +362,7 @@ body > .holder > div.col {
 #plans
 {
     text-align: center;
-    /*display: none;*/
+    display: none;
 }
 
 .plan
@@ -389,7 +391,7 @@ body > .holder > div.col {
 .progress
 {
     padding-top: 10px;
-    height: 70px;
+    height: 80px;
     margin: 0 auto;
     text-align: center;
 }
@@ -399,8 +401,8 @@ body > .holder > div.col {
 {
     display: inline-block;
     background: #fff;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 40px;
     border: 1px solid #d5d5da;
 }
@@ -418,11 +420,11 @@ border-radius: 0;
 }
 .progress .circle .label {
 display: inline-block;
-width: 32px;
-height: 32px;
-line-height: 32px;
-border-radius: 32px;
-margin-top: 3px;
+width: 38px;
+height: 38px;
+line-height: 37px;
+border-radius: 50%;
+margin-top: 5px;
 color: #b5b5ba;
 font-size: 17px;
 }
@@ -464,6 +466,7 @@ color: #0c95be;
 
 #selects
 {
-    padding-top: 5px;
+    padding-bottom: 1em;
+    padding-top: 15px;
     background-color: #f5f5f5;
 }

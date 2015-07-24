@@ -41,17 +41,16 @@ $(window).load(function () {
     });
 
 
-    var step1 = $('.bs-wizard div:first-of-type');
-    var step2 = $('.bs-wizard div:nth-of-type(2)');
-    var step3 = $('.bs-wizard div:last-of-type');
-
+    var seat_progress = $('#seat-select .progress');
+    var step1 = seat_progress.find('div:nth-of-type(1)');
+    var step2 = seat_progress.find('div:nth-of-type(2)');
+    var step3 = seat_progress.find('div:nth-of-type(3)');
     var show_times = $('#show-times');
 
     $('#cinemas .item').on('click', function () {
-        step1.removeClass('active').addClass('complete');
-        setTimeout(function () {
-            step2.removeClass('disabled').addClass('active');
-        }, 600);
+        step1.removeClass('active').addClass('done');
+        step1.next().removeClass('half').addClass('done');
+        step2.addClass('active');
         $(this).parent().fadeOut();
         show_times.fadeIn();
     });
