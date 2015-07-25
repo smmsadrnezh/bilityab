@@ -90,6 +90,7 @@
 }
 
 #events .nav-tabs > li > a {
+    margin-left: 0;
     border-radius: 0;
     margin-right: 0;
 }
@@ -103,11 +104,13 @@
 }
 
 #events .nav-tabs .dropdown-menu {
+    text-align: center;
     background-color: #ffffff;
     right: 0;
     left: auto;
-    text-align: right;
     border: none;
+    padding-top: 0;
+    width: 100%;
 }
 
 .event {
@@ -336,6 +339,7 @@
     font-size: 0.6em;
     border-bottom: 1px solid #ddd;
     padding-bottom: 0.5em;
+    padding-top: 0.5em;
 }
 
 .medium-event .description {
@@ -355,7 +359,7 @@
 
 .medium-event .footer .see-ticket {
     font-family: 'BYekan', sans-serif;
-    font-size: 0.7em;
+    font-size: 0.6em;
     float: right;
     padding: 0.5em 0.7em 0.4em 0.4em;
 }
@@ -366,7 +370,7 @@
 
 .medium-event .footer .date {
     font-family: 'BYekan', sans-serif;
-    font-size: 0.7em;
+    font-size: 0.6em;
     float: left;
     padding: 0.5em 0.4em 0.4em 0.7em;
 }

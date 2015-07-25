@@ -11,7 +11,6 @@ body > .holder {
 }
 
 body > .holder > div.col > div.col {
-    padding-bottom: 2em;
     padding-right: 3%;
     padding-left: 3%;
     background-color: rgba(249, 249, 249, 0.95);
@@ -24,68 +23,97 @@ body > .holder > div.col {
 }
 
 #ticket-info {
-    border-radius: 25px;
     box-shadow: 1px 3px 1px #dfdfe0, -1px -1px 0 #f2f2f2;
     margin: 4vh auto;
     background-color: #FFFFFF;
     padding: 0;
-    width: 70%;
-    float: none;
-    height: 14em;
 }
 
-#ticket-info .image {
-    transition: all 1s;
-    border-radius: 25px;
-    width: 100%;
-    background-size: 100% 100%;
-    background-position: 50% 50%;
-    height: 100%;
+#film-info
+{
+    padding: 0;
 }
 
-#ticket-info .info {
-    transform: scale(0.1);
-    border-radius: 25px;
-    height: 100%;
-    cursor: pointer;
-    width: 100%;
-    color: #dddddd;
-    background-color: rgba(0, 0, 0, 0.8);
-    transition: all 1s;
-    opacity: 0;
+#film-trailer-container
+{
+    padding: 0;
+    direction: ltr;
+}
+
+#left-info
+{
+    font-size: 0.8em;
+    padding: 1.5em 0 !important;
     text-align: center;
-    position: absolute;
-    top: 0;
+    background-color: #262626;
+    color: #cccccc;
+    height: 100%;
 }
 
-#ticket-info:hover .image {
-    background-size: 110% 110%;
-}
-
-#ticket-info:hover .info {
-    transform: scale(1);
-    opacity: 1;
-}
-
-#ticket-info .info .director {
-    margin-top: 1em;
-    color: #BF7002;
+#left-info .release-date
+{
+    font-size: 1.5em;
+    color: #ffffff;
     font-family: 'BYekan', sans-serif;
 }
 
-#ticket-info .info .genre-duration {
-    margin-bottom: 0.5em;
+#left-info .director
+{
+    font-size: 1.1em;
+    padding: 0.5em 0;
+    font-family: 'BYekan', sans-serif;
+}
+
+.my-label
+{
     font-size: 0.7em;
 }
 
-#ticket-info .info .actors {
-    font-size: 0.8em;
-    background-color: rgba(249, 249, 249, 1);
-    color: rgba(0, 0, 0, 0.8);
+#left-info .director span:last-of-type
+{
+    color: #BB811B;
 }
 
-#ticket-info .info .synopsis {
-    margin-top: 0.5em;
+#left-info .genre
+{
+    padding-bottom: 0.8em;
+}
+
+#left-info .num-of-voters
+{
+    padding-top: 0.1em;
+}
+
+#film-info img
+{
+    width: 7em;
+    float: right;
+}
+
+#film-info .producer
+{
+    padding: 1em 1em 0.5em;
+}
+
+#film-info .writers, #film-info .actors
+{
+    padding: 0 1em 0.5em;
+}
+
+#left-info > div > span:last-of-type
+{
+    font-size: 0.9em;
+    font-family: 'BYekan', sans-serif;
+}
+
+#ticket-info .synopsis
+{
+    box-shadow: -3px 4px 10px 0 #cccccc;
+}
+
+#ticket-info .synopsis, #ticket-info .cast
+{
+    padding: 0.5em 1em;
     font-size: 0.8em;
 }
 
@@ -259,158 +287,48 @@ body > .holder > div.col {
     margin: 20px 0;
 }
 
-/* step progress */
-
-.progress {
-    background-color: #E7E7E7 !important;
-}
-
-.progress-bar {
-    float: right !important;
-}
-
-.bs-wizard {
-    margin-top: 0;
-    direction: ltr;
-}
-
-.bs-wizard {
-    border-bottom: solid 1px #e0e0e0;
-    padding: 0 0 10px 0;
-}
-
-.bs-wizard > .bs-wizard-step {
-    padding: 0;
-    position: relative;
-    float: right
-}
-
-.bs-wizard > .bs-wizard-step + .bs-wizard-step {
-}
-
-.bs-wizard > .bs-wizard-step .bs-wizard-stepnum {
-    color: #595959;
-    font-size: 16px;
-    margin-bottom: 5px;
-}
-
-.bs-wizard > .bs-wizard-step .bs-wizard-info {
-    color: #999;
-    font-size: 14px;
-}
-
-.bs-wizard > .bs-wizard-step > .bs-wizard-dot {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    display: block;
-    background: #97D771;
-    top: 45px;
-    left: 50%;
-    margin-top: -15px;
-    margin-left: -15px;
-    border-radius: 50%;
-}
-
-.bs-wizard > .bs-wizard-step > .bs-wizard-dot:after {
-    content: ' ';
-    width: 14px;
-    height: 14px;
-    background: #5A9B33;
-    border-radius: 50px;
-    position: absolute;
-    top: 8px;
-    left: 8px;
-}
-
-.bs-wizard > .bs-wizard-step > .progress {
-    position: relative;
-    border-radius: 0px;
-    height: 8px;
-    box-shadow: none;
-    margin: 20px 0;
-}
-
-.bs-wizard > .bs-wizard-step > .progress > .progress-bar {
-    width: 0px;
-    box-shadow: none;
-    background: #97D771;
-}
-
-.bs-wizard > .bs-wizard-step.complete > .progress > .progress-bar {
-    width: 100%;
-}
-
-.bs-wizard > .bs-wizard-step.active > .progress > .progress-bar {
-    width: 50%;
-}
-
-.bs-wizard > .bs-wizard-step:first-child.active > .progress > .progress-bar {
-    width: 0%;
-}
-
-.bs-wizard > .bs-wizard-step:last-child.active > .progress > .progress-bar {
-    width: 100%;
-}
-
-.bs-wizard > .bs-wizard-step.disabled > .bs-wizard-dot {
-    background-color: #E7E7E7;
-}
-
-.bs-wizard > .bs-wizard-step.disabled > .bs-wizard-dot:after {
-    opacity: 0;
-}
-
-.bs-wizard > .bs-wizard-step:first-child > .progress {
-    right: 0;
-    width: 50%;
-}
-
-.bs-wizard > .bs-wizard-step:last-child > .progress {
-    width: 50%;
-    left: 50%
-}
-
-.bs-wizard > .bs-wizard-step.disabled a.bs-wizard-dot {
-    pointer-events: none;
-}
-
-
 /* cinemas grid */
 
-#cinemas .item
+#cinemas
 {
-    font-family: 'BYekan', sans-serif;
-    font-size: 0.8em;
+    margin-bottom: 0;
 }
 
 #cinemas .item .thumbnail
 {
+    position: relative;
     border-radius: 15px;
     background-size: 100% 100%;
     height: 10em;
     cursor: pointer;
-    opacity: 0.8;
-    transition: all 1s;
+    opacity: 1;
+    padding: 0;
 }
 
-#cinemas .item:hover .thumbnail
+#cinemas .item:hover .thumbnail .info
 {
-    opacity: 1;
+    opacity: 0.1;
 }
 
 #cinemas .item .info
 {
+    transition: all 1s;
     cursor: pointer;
-    color: #dddddd;
+    color: rgba(241, 241, 241, 0.76);
     background-color: rgba(0, 0, 0, 0.7);
     position: absolute;
     top: 50%;
-    transform: translate(50%, -50%);
+    transform: translate(0, -50%);
+    width: 100%;
     border-radius: 15px;
-    right: 50%;
     padding: 0.2em 1em;
     text-align: center;
+}
+
+#cinemas .item .info .title
+{
+    font-family: 'BYekan', sans-serif;
+    color: #2981B2;
 }
 
 #cinemas .item .info .capacity
@@ -420,21 +338,271 @@ body > .holder > div.col {
 
 #show-times
 {
+    margin-bottom: 0;
+    padding-left: 2%;
+    padding-right: 2%;
+    font-family: 'BYekan', sans-serif;
     display: none;
     text-align: center;
 }
 
+#show-times .item
+{
+    float: right;
+    border-radius: 25px;
+    height: 6em;
+    padding: 0;
+    background-color: #FFFFFF;
+    box-shadow: -3px 4px 10px 0 #cccccc;
+}
+
+#show-times .item .show-times
+{
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+#show-times .item .date
+{
+    border-radius: 25px;
+    height: 100%;
+    box-shadow: -3px 4px 10px 0 #cccccc;
+    padding: 0;
+}
+
+#show-times .item .date .week-day
+{
+    padding: 0.2em 0;
+    border-radius: 25px 25px 0 0;
+    color: #FDB707;
+    font-family: 'BYekan', sans-serif;
+    font-size: 0.6em;
+    background-color: #000000;
+}
+
+#show-times .item .date .day
+{
+    color: #2981B2;
+    font-size: 1.5em;
+}
+
+#show-times .item .date .month
+{
+    color: #ADABAB;
+    font-size: 0.8em;
+}
+
+#show-times .item .date .year
+{
+    color: #ADABAB;
+    font-size: 0.8em;
+}
+
 .show-time
 {
+    color: #5A5757;
+    transition: all 1s;
+    font-size: 0.8em;
     cursor: pointer;
     border-radius: 5px;
-    background-color: #cc0000;
     display: inline-block;
     padding: 0.2em 0.5em;
+    background-color: #B0B6BB;
+}
+
+.show-time:hover
+{
+    background-color: #31b3f1;
+}
+
+#plans
+{
+    text-align: center;
+    display: none;
+}
+
+.plan
+{
+    width: 15em;
+    height: 20em;
+    border-radius: 5px;
+    display: inline-block;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 
 }
 
-.show-time.sold
+#add-to-cart
 {
-    background-color: #337ab7;
+    font-family: 'BYekan', sans-serif;
+    display: block;
+    width: 15em;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+/* progress */
+
+.progress
+{
+    padding-top: 10px;
+    height: 80px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.progress .circle,
+.progress .bar
+{
+    display: inline-block;
+    background: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 40px;
+    border: 1px solid #d5d5da;
+}
+
+.progress .bar {
+position: relative;
+width: 80px;
+height: 6px;
+top: -33px;
+margin-left: -5px;
+margin-right: -5px;
+border-left: none;
+border-right: none;
+border-radius: 0;
+}
+.progress .circle .label {
+display: inline-block;
+width: 38px;
+height: 38px;
+line-height: 37px;
+border-radius: 50%;
+margin-top: 5px;
+color: #b5b5ba;
+font-size: 17px;
+}
+.progress .circle .title {
+color: #b5b5ba;
+font-size: 13px;
+line-height: 30px;
+margin-left: -5px;
+}
+
+/* Done / Active */
+
+.progress .bar.done, .progress .circle.done
+{
+    background: #eee;
+}
+
+.progress .bar.active {
+background: linear-gradient(to left, #EEE 40%, #FFF 60%);
+}
+.progress .circle.done .label {
+color: #FFF;
+background: #81CE97;
+box-shadow: inset 0 0 2px rgba(0,0,0,.2);
+}
+.progress .circle.done .title {
+color: #444;
+}
+.progress .circle.active .label {
+color: #FFF;
+background: #0c95be;
+box-shadow: inset 0 0 2px rgba(0,0,0,.2);
+}
+.progress .circle.active .title {
+color: #0c95be;
+}
+
+/* seat select */
+
+#seat-select .progress .circle
+{
+    cursor: pointer;
+}
+
+#selects
+{
+    padding-bottom: 1em;
+    padding-top: 15px;
+    background-color: #f5f5f5;
+}
+
+
+/* seats */
+
+.clear
+{
+    clear:both;
+}
+
+.seat-row
+{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    color: #B1B1B1;
+    top: -10px;
+    position: relative;
+    font-family: 'BYekan', sans-serif;
+    font-size: 15px;
+}
+
+.seat
+{
+    margin: 0 2px;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+}
+
+.disabled-seat
+{
+    color: transparent;
+}
+
+.no-internet-sale
+{
+    opacity: 0.3;
+    background-size: 100% 100%;
+    background-image: url('../img/seat_reserved.png');
+}
+
+.sold-seat
+{
+    background-size: 100% 100%;
+    background-image: url('../img/seat_reserved.png');
+}
+
+.free-seat
+{
+    background-size: 100% 100%;
+    background-image: url('../img/seat_available.png');
+    cursor: pointer;
+}
+
+.selected-seat
+{
+    background-size: 100% 100%;
+    background-image: url('../img/seat_selected.png');
+    cursor: pointer;
+}
+
+#plan-azadi
+{
+    font-size: 0;
+}
+
+#plan-azadi .btn
+{
+    display: block;
+    width: 77%;
+    margin: 0 auto 1em;
+    background-color: #c70a4a;
+    border: none;
+    font-family: 'BYekan', sans-serif;
 }
