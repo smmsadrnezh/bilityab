@@ -14,7 +14,7 @@ class EventOrganizer(models.Model):
 
 class Categories(models.Model):
     title = models.CharField(max_length=90)
-    parent = models.ForeignKey('self', null=True, symmetrical=False)
+    parent = models.ForeignKey('self', null=True)
 
 
 class Event(models.Model):

@@ -150,7 +150,7 @@ $(window).load(function () {
 
     // user rating
 
-    $('.star-ratings-sprite').mouseover(function (event) {
+    $('.star-ratings-sprite').mousemove(function (event) {
         console.log('hey')
         if(!$(this).hasClass('not-rated'))
             return false;
