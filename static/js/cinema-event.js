@@ -1,4 +1,8 @@
-$('#left-info').css('height', parseFloat($('#film-trailer').css('width'))*9/16);
+$('#film-info').css('height', parseFloat($('#film-trailer').css('height')));
+
+console.log(parseFloat($('#film-info').css('height')));
+
+$('#film-info > div:last-of-type').css('height', parseFloat($('#film-info').css('height'))-parseFloat($('#film-info > div:first-of-type').css('height')));
 
 $(window).load(function () {
     var fixture_ticket = $('#ticket');

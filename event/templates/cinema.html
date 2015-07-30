@@ -11,17 +11,24 @@
                         </video>
                     </div>
                     <div class="col col-md-4" id="film-info">
-                        <img src="{% static 'img/guinness.jpg' %}">
-                        <div id="left-info">
-                            <div class="release-date">۳ تیر ۹۴</div>
-                            <div class="director"><span class="my-label">فیلمی از </span><span>محسن تنابنده</span></div>
-                            <div class="duration">۱۲۰ دقیقه</div>
-                            <div class="genre">کمدی / اجتماعی</div>
-                            <div class="star-ratings-sprite"><span style="width:50%" class="rating"></span></div>
-                            <div class="num-of-voters">۸۷ رای</div>
-                            <div class="producer"><span class="my-label">تهیه کننده: </span><span>سعید ملکان</span></div>
-                            <div class="writers"><span class="my-label">نویسندگان: </span><span>محسن تنابنده، احمد رفیع زاده</span></div>
-                            <div class="actors"><span class="my-label">بازیگران:</span><span>رضا عطاران، محسن تنابنده، حسین اسکندری، جمال اجلالی و...</span></div>
+                        <div class="col col-md-12">
+                            <div class="col col-md-6 col-xs-8" id="left-info">
+                                <div class="title">گینِس</div>
+                                <div class="release-date">۳ تیر ۹۴</div>
+                                <div class="director"><span class="my-label">فیلمی از </span><span>محسن تنابنده</span></div>
+                                <div class="duration">۱۲۰ دقیقه</div>
+                                <div class="genre">کمدی / اجتماعی</div>
+                                <div class="star-ratings-sprite"><span style="width:50%" class="rating"></span></div>
+                                <div class="num-of-voters">۸۷ رای</div>
+                            </div>
+                            <div class="col col-md-6 col-xs-4 image" style="background-image: url('{% static 'img/guinness.jpg' %}')"></div>
+                        </div>
+                        <div class="col col-md-12">
+                            <div class="vertical-center" style="text-align: center">
+                                <div class="producer"><span class="my-label">تهیه کننده: </span><span>سعید ملکان</span></div>
+                                <div class="writers"><span class="my-label">نویسندگان: </span><span>محسن تنابنده، احمد رفیع زاده</span></div>
+                                <div class="actors"><span class="my-label">بازیگران:</span><span>رضا عطاران، محسن تنابنده، حسین اسکندری، جمال اجلالی و...</span></div>
+                            </div>
                         </div>
                     </div>
                     <div class="col col-md-6 cast"><span class="my-label">سایر عوامل: </span>
@@ -31,8 +38,7 @@
                     </div>
                     <div class="col col-md-6 synopsis"><span class="my-label">خلاصه داستان: </span><span>فردین: گینس سیخی چنده!؟ پول کجاست اینو بگو؟ غنچه: خاک بر سرت که نافتو از پول بریدن. بدبخت همش اعتباره... میدونی کیا اسمشون تو گینسه... علی دایی... رضا زاده... جنیفر لوپز.</span></div>
                 </div>
-            </div>
-            <div class="col col-md-12" id="seat-select">
+                <div class="col col-md-12" id="seat-select">
                 <div class="col col-md-12 progress">
                     <div class="circle active">
                         <span class="label">1</span>
@@ -512,6 +518,8 @@
                         </div>
                         <div class="btn btn-primary" id="add-to-cart">افزودن به سبد خرید</div>
                 </div>
+            </div>
+            </div>
             </div>
             <div class="col col-md-12" id="comments">
                 <div class="comment col col-md-12" id="your-comment">

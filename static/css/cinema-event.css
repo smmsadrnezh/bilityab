@@ -29,9 +29,21 @@ body > .holder > div.col {
     padding: 0;
 }
 
-#film-info
+#film-info, #film-info > div.col
 {
+    background-color: #262626;
     padding: 0;
+    color: #cccccc;
+}
+
+#film-info > div:first-of-type
+{
+    height: 10em;
+}
+
+#film-info > div:last-of-type
+{
+    font-size: 0.8em;
 }
 
 #film-trailer-container
@@ -43,14 +55,12 @@ body > .holder > div.col {
 #left-info
 {
     font-size: 0.8em;
-    padding: 1.5em 0 !important;
+    padding: .7em 0 !important;
     text-align: center;
-    background-color: #262626;
-    color: #cccccc;
     height: 100%;
 }
 
-#left-info .release-date
+#left-info .title
 {
     font-size: 1.5em;
     color: #ffffff;
@@ -60,7 +70,7 @@ body > .holder > div.col {
 #left-info .director
 {
     font-size: 1.1em;
-    padding: 0.5em 0;
+    padding: 0.2em 0;
     font-family: 'BYekan', sans-serif;
 }
 
@@ -76,7 +86,7 @@ body > .holder > div.col {
 
 #left-info .genre
 {
-    padding-bottom: 0.8em;
+    padding-bottom: 0.5em;
 }
 
 #left-info .num-of-voters
@@ -84,20 +94,17 @@ body > .holder > div.col {
     padding-top: 0.1em;
 }
 
-#film-info img
+#film-info .image
 {
-    width: 7em;
-    float: right;
+    background-size: 100% 100%;
+    height: 100%;
+    padding: 0;
+    border-radius: 0 0 0 25px;
 }
 
-#film-info .producer
+#film-info .producer, #film-info .writers, #film-info .actors
 {
-    padding: 1em 1em 0.5em;
-}
-
-#film-info .writers, #film-info .actors
-{
-    padding: 0 1em 0.5em;
+    padding: 0.2em 1em;
 }
 
 #left-info > div > span:last-of-type
@@ -519,6 +526,11 @@ color: #0c95be;
 }
 
 /* seat select */
+
+#seat-select
+{
+    padding: 0;
+}
 
 #seat-select .progress .circle
 {
