@@ -20,7 +20,6 @@ class Categories(models.Model):
 class Event(models.Model):
     title = models.CharField(max_length=90)
     description = models.CharField(max_length=300, null=True)
-    type = models.CharField(max_length=40)
     category = models.ForeignKey(Categories, related_name='events')
     capacity = models.PositiveIntegerField()
     event_organizer = models.ForeignKey(EventOrganizer)
