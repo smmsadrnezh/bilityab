@@ -14,7 +14,7 @@
     transition: all 1s;
     position: relative;
     left: 0;
-    background-color: #080808;
+    background-color: rgba(41, 129, 178, 0.2);
     padding: 0.5em 0.8em 0.5em 1em;
     font-family: 'BYekan', sans-serif;
     font-size: 0.7em;
@@ -230,7 +230,7 @@
 .cd-form input[type=submit] {
     padding: 16px 0;
     cursor: pointer;
-    background: #2f889a;
+    background: rgba(41, 129, 178, 0.78);
     color: #FFF;
     font-weight: bold;
     border: none;

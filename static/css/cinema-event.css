@@ -340,6 +340,11 @@ body > .holder > div.col {
 
 #cinemas .item .info .capacity
 {
+    font-size: 0.75em;
+}
+
+#cinemas .item .info .address
+{
     font-size: 0.8em;
 }
 

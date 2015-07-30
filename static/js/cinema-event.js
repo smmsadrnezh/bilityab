@@ -1,7 +1,5 @@
 $('#film-info').css('height', parseFloat($('#film-trailer').css('height')));
 
-console.log(parseFloat($('#film-info').css('height')));
-
 $('#film-info > div:last-of-type').css('height', parseFloat($('#film-info').css('height'))-parseFloat($('#film-info > div:first-of-type').css('height')));
 
 $(window).load(function () {
@@ -149,5 +147,20 @@ $(window).load(function () {
                 if($(this).hasClass('seat-row'))
                     counter = 1;
     });
+
+    // user rating
+
+    $('.star-ratings-sprite').mouseover(function (event) {
+        console.log('hey')
+        if(!$(this).hasClass('not-rated'))
+            return false;
+        console.log(event.pageX-$(this).offset().left);
+    }).mouseout(function () {
+        if(!$(this).hasClass('not-rated'))
+            return false;
+    }).on('click', function () {
+        $(this).removeClass('not-rated');
+    });
+
 
 });
