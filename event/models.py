@@ -12,11 +12,16 @@ class EventOrganizer(models.Model):
         return "%s" % self.title
 
 
+class Categories(models.Model):
+    title = models.CharField(max_length=90)
+    parent = models.ForeignKey('self', null=True, symmetrical=False)
+
+
 class Event(models.Model):
     title = models.CharField(max_length=90)
     description = models.CharField(max_length=300, null=True)
     type = models.CharField(max_length=40)
-    category = models.CharField(max_length=50)
+    category = models.ForeignKey(Categories, related_name='events')
     capacity = models.PositiveIntegerField()
     event_organizer = models.ForeignKey(EventOrganizer)
     address = models.CharField(max_length=300)
@@ -26,6 +31,7 @@ class Event(models.Model):
         unique_together = (("title", "event_organizer", "address"),)
         verbose_name = "رویداد"
         verbose_name_plural = "رویدادها"
+
     def __str__(self):
         return "%s" % self.title
 
