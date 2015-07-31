@@ -151,16 +151,26 @@ $(window).load(function () {
     // user rating
 
     $('.star-ratings-sprite').mousemove(function (event) {
-        console.log('hey')
         if(!$(this).hasClass('not-rated'))
             return false;
-        console.log(event.pageX-$(this).offset().left);
-    }).mouseout(function () {
+        $(this).find('span').css('width', (event.pageX-$(this).offset().left)/parseFloat($(this).css('width'))*100+'%');
+    }).hover(function () {}, function () {
         if(!$(this).hasClass('not-rated'))
             return false;
+        $(this).fadeOut(200, function () {
+            $(this).find('span').css('width', $(this).attr('initial-rate')).end().fadeIn(200);
+        });
     }).on('click', function () {
+        if(!$(this).hasClass('not-rated'))
+            return false;
         $(this).removeClass('not-rated');
+        var user_rate = parseFloat($(this).find('span')[0].style.width);
+        var initial_rate = parseFloat($(this).attr('initial-rate'));
+        var num_of_voters = $(this).next();
+        var num = parseInt(num_of_voters.find('span').text());
+        num_of_voters.find('span').fadeOut(200, function () {
+            $(this).text(num+1).fadeIn(200);
+        });
+        $(this).find('span').css('width', (user_rate+initial_rate*num)/(num+1)+'%');
     });
-
-
 });

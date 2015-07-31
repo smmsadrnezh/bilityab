@@ -52,11 +52,7 @@
             r_seconds.text(--r_seconds_int);
         }
     }
-
     $('#remaining-time').countDown();
-    var body_height = parseFloat($('body').css('height'));
-    var header_plus_info_height = parseFloat($('#top-header').css('height')) + parseFloat($('#ticket-info').css('height')) + parseFloat($('#ticket-info').css('margin-top')) * 2;
-    $('#seat-select').css('height', body_height - header_plus_info_height + 'px');
     $('[data-toggle="tooltip"]').tooltip();
     var fixture_ticket = $('#ticket');
     var user_comments = $('#comments');
@@ -95,5 +91,110 @@
         comment.find('.image').css('background-image', your_comment.find('.image').css('background-image'));
         $('#comments').append(comment);
         your_comment.find('textarea').val('');
+    });
+    var seat_progress = $('#seat-select .progress');
+    var step1 = seat_progress.find('div:nth-of-type(1)');
+    var step2 = seat_progress.find('div:nth-of-type(2)');
+    var step3 = seat_progress.find('div:nth-of-type(3)');
+    var cinemas = $('#cinemas');
+    var show_times = $('#show-times');
+    var plans = $('#plans');
+    var current_step = step1;
+    var current_select = cinemas;
+
+    $('#cinemas .item').on('click', function () {
+        step1.removeClass('active').addClass('done');
+        step1.next().removeClass('active').addClass('done');
+        step2.next().addClass('active');
+        step2.addClass('active');
+        current_step = step2;
+        cinemas.fadeOut(function () {
+            show_times.fadeIn();
+            current_select = show_times;
+        });
+    });
+
+    $('.show-time').on('click', function(){
+        step2.removeClass('active').addClass('done');
+        step2.next().removeClass('active').addClass('done');
+        step3.addClass('active');
+        current_step = step3;
+        show_times.fadeOut(function () {
+            plans.fadeIn();
+            current_select = plans;
+        });
+    });
+
+    step1.on('click', function () {
+        if(current_step == step1)
+            return false;
+        current_step = step1;
+        current_select.fadeOut(function () {
+            cinemas.fadeIn();
+            current_select = cinemas;
+        });
+
+        step1.removeClass('done').addClass('active');
+        step1.next().removeClass('done').addClass('active');
+
+        step2.removeClass('done').removeClass('active');
+        step2.next().removeClass('done').removeClass('active');
+
+        step3.removeClass('active');
+    });
+
+    step2.on('click', function () {
+        if(current_step == step2 || current_step == step1)
+            return false;
+        current_step = step2;
+        current_select.fadeOut(function () {
+            show_times.fadeIn();
+            current_select = show_times;
+        });
+
+        step2.removeClass('done').addClass('active');
+        step2.next().removeClass('done').addClass('active');
+
+        step3.removeClass('active');
+    });
+
+    $('.seat').on('click', function () {
+        if($(this).hasClass('free-seat'))
+            $(this).fadeOut(function () {
+                $(this).css('background-image', 'url("http://127.0.0.1:8000/static/img/seat_selected.png")')
+                    .removeClass('free-seat').addClass('selected-seat').fadeIn();
+            });
+        else
+            if($(this).hasClass('selected-seat'))
+                $(this).fadeOut(function () {
+                    $(this).css('background-image', 'url("http://127.0.0.1:8000/static/img/seat_available.png")')
+                        .removeClass('selected-seat').addClass('free-seat').fadeIn();
+                });
+    });
+
+    $('.seat').each(function () {
+        $(this).attr({ 'data-toggle': 'tooltip',
+            'data-placement': 'top',
+            'data-template': '<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div style="font-family:BYekan" class="tooltip-inner"></div></div>"',
+            'title': ''});
+        if($(this).hasClass('no-internet-sale'))
+            $(this).attr('data-original-title', 'فروش اینترنتی ندارد');
+        else
+            if($(this).hasClass('sold-seat'))
+                $(this).attr('data-original-title', 'فروخته شده');
+        $(this).tooltip();
+    });
+    var counter = 1;
+    $('#plan-azadi').children().each(function () {
+        if($(this).hasClass('free-seat')){
+            $(this).attr('data-original-title', counter);
+            counter++;
+        }
+        else
+            if($(this).hasClass('sold-seat'))
+                counter++;
+            else
+                if($(this).hasClass('seat-row'))
+                    counter = 1;
     });
 })(jQuery);
