@@ -42,103 +42,29 @@
                     </div>
                 </div>
                 <div class="col col-md-12" id="seat-select">
-                    <div class="col col-md-5">
-                        <object width="100%" height="387" id="venueMap" name="venueMap"
-                                data="http://cdn.viagogo.net/webresources/flash/activevenuemap/mapv6.1.swf"
-                                type="application/x-shockwave-flash">
-                            <param name="allowfullscreen" value="true">
-                            <param name="allowscriptaccess" value="always">
-                            <param name="quality" value="high">
-                            <param name="wmode" value="opaque">
-                            <param name="flashvars"
-                                   value="VenueId=18541&amp;VenueConfigId=59084&amp;DataUrl=http%3A%2F%2Fwww.viagogo.co.uk%2FBrowse%2FVenueMap%2FGetData%2F1054961%3FcategoryId%3D20586&amp;MapAsset=http%3A%2F%2Fcdn.viagogo.net%2Fwebresources%2Fflash%2Factivevenuemap%2Fch%2Fafgarena%2Ffootballspecificawayandhomesections%2Fafgarena_footballspecificawayandhome_de_18541_config_59084.swf&amp;IsActiveMap=True&amp;IsFlashSale=false&amp;HideUI=False&amp;MessageTitle=%3Cb%3EWelcome%20to%20Viagogo%20Active%20Maps%3C%2Fb%3E&amp;MessageText=%3Cp%3EHover%20over%20sections%20to%20see%20price%20and%20availability%3C%2Fp%3E%0A%3Cp%3EClick%20to%20see%20available%20tickets%20on%20the%20right%3C%2Fp%3E&amp;QuantityFormat=%3Cb%3EAvailable%3A%20%3C%2Fb%3E%7B0%7D&amp;PriceFormat=%3Cb%3EPrice%20from%3A%20%3C%2Fb%3E%3Cspan%20class%3D%26quot%3Bhighlight%26quot%3B%3E%7B0%7D%3C%2Fspan%3E&amp;NoMapText=Map%20Coming%20Soon&amp;LoadCompletedHandler=VenueMap_LoadCompleted&amp;DebugMessageHandler=VenueMap_DebugMessage">
-                        </object>
+                <div class="col col-md-12 progress">
+                    <div class="circle active">
+                        <span class="label">1</span>
+                        <span class="title">موقعیت</span>
                     </div>
-                    <div class="col col-md-7">
-                        <table id="available-tickets">
-                            <thead>
-                            <tr>
-                                <th>بخش</th>
-                                <th>ردیف</th>
-                                <th>قیمت</th>
-                                <th></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>B4</td>
-                                <td>6</td>
-                                <td>۱۲۰۰۰۰ ریال</td>
-                                <td><a href="#" data-toggle="tooltip" data-placement="left"
-                                       data-template='<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div style="font-family:BYekan " class="tooltip-inner"></div></div>'
-                                       title="افزودن به سبد خرید"><img style="width: 40px"
-                                                                       src="{% static "img/add_to_shopping_cart.png" %}"></a>
-                                <td>
-                            </tr>
-                            <tr>
-                                <td>D1</td>
-                                <td>12</td>
-                                <td>۱۵۰۰۰۰ ریال</td>
-                                <td><a href="#" data-toggle="tooltip" data-placement="left"
-                                       data-template='<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div style="font-family:BYekan " class="tooltip-inner"></div></div>'
-                                       title="افزودن به سبد خرید"><img style="width: 40px"
-                                                                       src="{% static "img/add_to_shopping_cart.png" %}"></a>
-                                <td>
-                            </tr>
-                            <tr>
-                                <td>C1</td>
-                                <td>5</td>
-                                <td>۱۸۰۰۰۰ ریال</td>
-                                <td><a href="#" data-toggle="tooltip" data-placement="left"
-                                       data-template='<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div style="font-family:BYekan " class="tooltip-inner"></div></div>'
-                                       title="افزودن به سبد خرید"><img style="width: 40px"
-                                                                       src="{% static "img/add_to_shopping_cart.png" %}"></a>
-                                <td>
-                            </tr>
-                            <tr>
-                                <td>C1</td>
-                                <td>5</td>
-                                <td>۱۸۰۰۰۰ ریال</td>
-                                <td><a href="#" data-toggle="tooltip" data-placement="left"
-                                       data-template='<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div style="font-family:BYekan " class="tooltip-inner"></div></div>'
-                                       title="افزودن به سبد خرید"><img style="width: 40px"
-                                                                       src="{% static "img/add_to_shopping_cart.png" %}"></a>
-                                <td>
-                            </tr>
-                            <tr>
-                                <td>C1</td>
-                                <td>5</td>
-                                <td>۱۸۰۰۰۰ ریال</td>
-                                <td><a href="#" data-toggle="tooltip" data-placement="left"
-                                       data-template='<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div style="font-family:BYekan " class="tooltip-inner"></div></div>'
-                                       title="افزودن به سبد خرید"><img style="width: 40px"
-                                                                       src="{% static "img/add_to_shopping_cart.png" %}"></a>
-                                <td>
-                            </tr>
-                            <tr>
-                                <td>C1</td>
-                                <td>5</td>
-                                <td>۱۸۰۰۰۰ ریال</td>
-                                <td><a href="#" data-toggle="tooltip" data-placement="left"
-                                       data-template='<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div style="font-family:BYekan " class="tooltip-inner"></div></div>'
-                                       title="افزودن به سبد خرید"><img style="width: 40px"
-                                                                       src="{% static "img/add_to_shopping_cart.png" %}"></a>
-                                <td>
-                            </tr>
-                            <tr>
-                                <td>C1</td>
-                                <td>5</td>
-                                <td>۱۸۰۰۰۰ ریال</td>
-                                <td><a href="#" data-toggle="tooltip" data-placement="left"
-                                       data-template='<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div style="font-family:BYekan " class="tooltip-inner"></div></div>'
-                                       title="افزودن به سبد خرید"><img style="width: 40px"
-                                                                       src="{% static "img/add_to_shopping_cart.png" %}"></a>
-                                <td>
-                            </tr>
-                            </tbody>
-                        </table>
+                    <span class="bar active"></span>
+                    <div class="circle">
+                    <span class="label">2</span>
+                    <span class="title">جایگاه</span>
+                    </div>
+                    <span class="bar half"></span>
+                    <div class="circle">
+                    <span class="label">3</span>
+                    <span class="title">صندلی</span>
                     </div>
                 </div>
+                <div class="col col-md-12" id="selects">
+
+                    <div class="col col-md-12" id="plans">
+                        <div class="btn btn-primary" id="add-to-cart">افزودن به سبد خرید</div>
+                </div>
+            </div>
+            </div>
             </div>
             <div class="col col-md-12" id="comments">
                 <div class="comment col col-md-12" id="your-comment">

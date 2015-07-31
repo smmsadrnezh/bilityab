@@ -107,12 +107,6 @@ body > .holder > div.col {
     padding: 0.2em 1em;
 }
 
-#left-info > div > span:last-of-type
-{
-    font-size: 0.9em;
-    font-family: 'BYekan', sans-serif;
-}
-
 #ticket-info .synopsis
 {
     box-shadow: -3px 4px 10px 0 #cccccc;
