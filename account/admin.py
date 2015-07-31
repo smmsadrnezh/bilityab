@@ -2,6 +2,7 @@ from django.contrib import admin
 
 from event.models import Event, PositionPrice
 
+
 class PositionInline(admin.StackedInline):
     model = PositionPrice
 
@@ -11,6 +12,7 @@ class EventAdmin(admin.ModelAdmin):
         PositionInline
     ]
 
-admin.site.register(Event,EventAdmin)
+
+admin.site.register(Event, EventAdmin)
 
 
