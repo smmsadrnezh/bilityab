@@ -1,6 +1,6 @@
 $('#film-info').css('height', parseFloat($('#film-trailer').css('height')));
 
-$('#film-info > div:last-of-type').css('height', parseFloat($('#film-info').css('height'))-parseFloat($('#film-info > div:first-of-type').css('height')));
+$('#film-info > div:last-of-type').css('height', parseFloat($('#film-info').css('height')) - parseFloat($('#film-info > div:first-of-type').css('height')));
 
 $(window).load(function () {
     var fixture_ticket = $('#ticket');
@@ -64,7 +64,7 @@ $(window).load(function () {
         });
     });
 
-    $('.show-time').on('click', function(){
+    $('.show-time').on('click', function () {
         step2.removeClass('active').addClass('done');
         step2.next().removeClass('active').addClass('done');
         step3.addClass('active');
@@ -76,7 +76,7 @@ $(window).load(function () {
     });
 
     step1.on('click', function () {
-        if(current_step == step1)
+        if (current_step == step1)
             return false;
         current_step = step1;
         current_select.fadeOut(function () {
@@ -94,7 +94,7 @@ $(window).load(function () {
     });
 
     step2.on('click', function () {
-        if(current_step == step2 || current_step == step1)
+        if (current_step == step2 || current_step == step1)
             return false;
         current_step = step2;
         current_select.fadeOut(function () {
@@ -109,59 +109,58 @@ $(window).load(function () {
     });
 
     $('.seat').on('click', function () {
-        if($(this).hasClass('free-seat'))
+        if ($(this).hasClass('free-seat'))
             $(this).fadeOut(function () {
                 $(this).css('background-image', 'url("http://127.0.0.1:8000/static/img/seat_selected.png")')
                     .removeClass('free-seat').addClass('selected-seat').fadeIn();
             });
-        else
-            if($(this).hasClass('selected-seat'))
-                $(this).fadeOut(function () {
-                    $(this).css('background-image', 'url("http://127.0.0.1:8000/static/img/seat_available.png")')
-                        .removeClass('selected-seat').addClass('free-seat').fadeIn();
-                });
+        else if ($(this).hasClass('selected-seat'))
+            $(this).fadeOut(function () {
+                $(this).css('background-image', 'url("http://127.0.0.1:8000/static/img/seat_available.png")')
+                    .removeClass('selected-seat').addClass('free-seat').fadeIn();
+            });
     });
 
     $('.seat').each(function () {
-        $(this).attr({ 'data-toggle': 'tooltip',
+        $(this).attr({
+            'data-toggle': 'tooltip',
             'data-placement': 'top',
             'data-template': '<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div style="font-family:BYekan" class="tooltip-inner"></div></div>"',
-            'title': ''});
-        if($(this).hasClass('no-internet-sale'))
+            'title': ''
+        });
+        if ($(this).hasClass('no-internet-sale'))
             $(this).attr('data-original-title', 'فروش اینترنتی ندارد');
-        else
-            if($(this).hasClass('sold-seat'))
-                $(this).attr('data-original-title', 'فروخته شده');
+        else if ($(this).hasClass('sold-seat'))
+            $(this).attr('data-original-title', 'فروخته شده');
         $(this).tooltip();
     });
     var counter = 1;
     $('#plan-azadi').children().each(function () {
-        if($(this).hasClass('free-seat')){
+        if ($(this).hasClass('free-seat')) {
             $(this).attr('data-original-title', counter);
             counter++;
         }
-        else
-            if($(this).hasClass('sold-seat'))
-                counter++;
-            else
-                if($(this).hasClass('seat-row'))
-                    counter = 1;
+        else if ($(this).hasClass('sold-seat'))
+            counter++;
+        else if ($(this).hasClass('seat-row'))
+            counter = 1;
     });
 
     // user rating
 
     $('.star-ratings-sprite').mousemove(function (event) {
-        if(!$(this).hasClass('not-rated'))
+        if (!$(this).hasClass('not-rated'))
             return false;
-        $(this).find('span').css('width', (event.pageX-$(this).offset().left)/parseFloat($(this).css('width'))*100+'%');
-    }).hover(function () {}, function () {
-        if(!$(this).hasClass('not-rated'))
+        $(this).find('span').css('width', (event.pageX - $(this).offset().left) / parseFloat($(this).css('width')) * 100 + '%');
+    }).hover(function () {
+    }, function () {
+        if (!$(this).hasClass('not-rated'))
             return false;
         $(this).fadeOut(200, function () {
             $(this).find('span').css('width', $(this).attr('initial-rate')).end().fadeIn(200);
         });
     }).on('click', function () {
-        if(!$(this).hasClass('not-rated'))
+        if (!$(this).hasClass('not-rated'))
             return false;
         $(this).removeClass('not-rated');
         var user_rate = parseFloat($(this).find('span')[0].style.width);
@@ -169,8 +168,8 @@ $(window).load(function () {
         var num_of_voters = $(this).next();
         var num = parseInt(num_of_voters.find('span').text());
         num_of_voters.find('span').fadeOut(200, function () {
-            $(this).text(num+1).fadeIn(200);
+            $(this).text(num + 1).fadeIn(200);
         });
-        $(this).find('span').css('width', (user_rate+initial_rate*num)/(num+1)+'%');
+        $(this).find('span').css('width', (user_rate + initial_rate * num) / (num + 1) + '%');
     });
 });

@@ -52,6 +52,7 @@
             r_seconds.text(--r_seconds_int);
         }
     }
+
     $('#remaining-time').countDown();
     $('[data-toggle="tooltip"]').tooltip();
     var fixture_ticket = $('#ticket');
@@ -114,7 +115,7 @@
         });
     });
 
-    $('.show-time').on('click', function(){
+    $('.show-time').on('click', function () {
         step2.removeClass('active').addClass('done');
         step2.next().removeClass('active').addClass('done');
         step3.addClass('active');
@@ -126,7 +127,7 @@
     });
 
     step1.on('click', function () {
-        if(current_step == step1)
+        if (current_step == step1)
             return false;
         current_step = step1;
         current_select.fadeOut(function () {
@@ -144,7 +145,7 @@
     });
 
     step2.on('click', function () {
-        if(current_step == step2 || current_step == step1)
+        if (current_step == step2 || current_step == step1)
             return false;
         current_step = step2;
         current_select.fadeOut(function () {
@@ -159,42 +160,40 @@
     });
 
     $('.seat').on('click', function () {
-        if($(this).hasClass('free-seat'))
+        if ($(this).hasClass('free-seat'))
             $(this).fadeOut(function () {
                 $(this).css('background-image', 'url("http://127.0.0.1:8000/static/img/seat_selected.png")')
                     .removeClass('free-seat').addClass('selected-seat').fadeIn();
             });
-        else
-            if($(this).hasClass('selected-seat'))
-                $(this).fadeOut(function () {
-                    $(this).css('background-image', 'url("http://127.0.0.1:8000/static/img/seat_available.png")')
-                        .removeClass('selected-seat').addClass('free-seat').fadeIn();
-                });
+        else if ($(this).hasClass('selected-seat'))
+            $(this).fadeOut(function () {
+                $(this).css('background-image', 'url("http://127.0.0.1:8000/static/img/seat_available.png")')
+                    .removeClass('selected-seat').addClass('free-seat').fadeIn();
+            });
     });
 
     $('.seat').each(function () {
-        $(this).attr({ 'data-toggle': 'tooltip',
+        $(this).attr({
+            'data-toggle': 'tooltip',
             'data-placement': 'top',
             'data-template': '<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div style="font-family:BYekan" class="tooltip-inner"></div></div>"',
-            'title': ''});
-        if($(this).hasClass('no-internet-sale'))
+            'title': ''
+        });
+        if ($(this).hasClass('no-internet-sale'))
             $(this).attr('data-original-title', 'فروش اینترنتی ندارد');
-        else
-            if($(this).hasClass('sold-seat'))
-                $(this).attr('data-original-title', 'فروخته شده');
+        else if ($(this).hasClass('sold-seat'))
+            $(this).attr('data-original-title', 'فروخته شده');
         $(this).tooltip();
     });
     var counter = 1;
     $('#plan-azadi').children().each(function () {
-        if($(this).hasClass('free-seat')){
+        if ($(this).hasClass('free-seat')) {
             $(this).attr('data-original-title', counter);
             counter++;
         }
-        else
-            if($(this).hasClass('sold-seat'))
-                counter++;
-            else
-                if($(this).hasClass('seat-row'))
-                    counter = 1;
+        else if ($(this).hasClass('sold-seat'))
+            counter++;
+        else if ($(this).hasClass('seat-row'))
+            counter = 1;
     });
 })(jQuery);
