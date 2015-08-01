@@ -98,67 +98,55 @@
     var step1 = seat_progress.find('div:nth-of-type(1)');
     var step2 = seat_progress.find('div:nth-of-type(2)');
     var step3 = seat_progress.find('div:nth-of-type(3)');
-    var cinemas = $('#cinemas');
-    var show_times = $('#show-times');
-    var plans = $('#plans');
+    var positions = $('#positions');
+    var stations = $('#stations');
+    var seat_maps = $('#seat-maps');
     var current_step = step1;
-    var current_select = cinemas;
+    var current_select = positions;
 
-    $('#cinemas .item').on('click', function () {
-        step1.removeClass('active').addClass('done');
-        step1.next().removeClass('active').addClass('done');
-        step2.next().addClass('active');
-        step2.addClass('active');
-        current_step = step2;
-        cinemas.fadeOut(function () {
-            show_times.fadeIn();
-            current_select = show_times;
-        });
-    });
+    //$('.show-time').on('click', function () {
+    //    step2.removeClass('active').addClass('done');
+    //    step2.next().removeClass('active').addClass('done');
+    //    step3.addClass('active');
+    //    current_step = step3;
+    //    show_times.fadeOut(function () {
+    //        plans.fadeIn();
+    //        current_select = plans;
+    //    });
+    //});
 
-    $('.show-time').on('click', function () {
-        step2.removeClass('active').addClass('done');
-        step2.next().removeClass('active').addClass('done');
-        step3.addClass('active');
-        current_step = step3;
-        show_times.fadeOut(function () {
-            plans.fadeIn();
-            current_select = plans;
-        });
-    });
+    //step1.on('click', function () {
+    //    if (current_step == step1)
+    //        return false;
+    //    current_step = step1;
+    //    current_select.fadeOut(function () {
+    //        cinemas.fadeIn();
+    //        current_select = cinemas;
+    //    });
+    //
+    //    step1.removeClass('done').addClass('active');
+    //    step1.next().removeClass('done').addClass('active');
+    //
+    //    step2.removeClass('done').removeClass('active');
+    //    step2.next().removeClass('done').removeClass('active');
+    //
+    //    step3.removeClass('active');
+    //});
 
-    step1.on('click', function () {
-        if (current_step == step1)
-            return false;
-        current_step = step1;
-        current_select.fadeOut(function () {
-            cinemas.fadeIn();
-            current_select = cinemas;
-        });
-
-        step1.removeClass('done').addClass('active');
-        step1.next().removeClass('done').addClass('active');
-
-        step2.removeClass('done').removeClass('active');
-        step2.next().removeClass('done').removeClass('active');
-
-        step3.removeClass('active');
-    });
-
-    step2.on('click', function () {
-        if (current_step == step2 || current_step == step1)
-            return false;
-        current_step = step2;
-        current_select.fadeOut(function () {
-            show_times.fadeIn();
-            current_select = show_times;
-        });
-
-        step2.removeClass('done').addClass('active');
-        step2.next().removeClass('done').addClass('active');
-
-        step3.removeClass('active');
-    });
+    //step2.on('click', function () {
+    //    if (current_step == step2 || current_step == step1)
+    //        return false;
+    //    current_step = step2;
+    //    current_select.fadeOut(function () {
+    //        show_times.fadeIn();
+    //        current_select = show_times;
+    //    });
+    //
+    //    step2.removeClass('done').addClass('active');
+    //    step2.next().removeClass('done').addClass('active');
+    //
+    //    step3.removeClass('active');
+    //});
 
     $('.seat').on('click', function () {
         if ($(this).hasClass('free-seat'))
@@ -187,14 +175,75 @@
         $(this).tooltip();
     });
     var counter = 1;
-    $('#plan-azadi').children().each(function () {
-        if ($(this).hasClass('free-seat')) {
-            $(this).attr('data-original-title', counter);
-            counter++;
-        }
-        else if ($(this).hasClass('sold-seat'))
-            counter++;
-        else if ($(this).hasClass('seat-row'))
-            counter = 1;
+    //$('#plan-azadi').children().each(function () {
+    //    if ($(this).hasClass('free-seat')) {
+    //        $(this).attr('data-original-title', counter);
+    //        counter++;
+    //    }
+    //    else if ($(this).hasClass('sold-seat'))
+    //        counter++;
+    //    else if ($(this).hasClass('seat-row'))
+    //        counter = 1;
+    //});
+
+    $('img[usemap]').maphilight({
+        fill: true,
+        fillColor: '000000',
+        fillOpacity: 0.2,
+        stroke: true,
+        strokeColor: 'fff',
+        strokeOpacity: 0,
+        strokeWidth: 0.01,
+        fade: true,
+        alwaysOn: false,
+        neverOn: false,
+        groupBy: false,
+        wrapClass: true,
+        shadow: false,
+        shadowX: 0,
+        shadowY: 0,
+        shadowRadius: 6,
+        shadowColor: '000000',
+        shadowOpacity: 0.8,
+        shadowPosition: 'outside',
+        shadowFrom: false
     });
+    function set_stadium(map){
+        var areas = map.find('area');
+        areas.each(function () {
+            $(this).on('click', function (e) {
+                if(!$(this).hasClass('no-internet-sale'))
+                {
+                    var parent_id = $(this).parent().parent().attr('id');
+                    if(parent_id == 'positions')
+                    {
+                        step1.removeClass('active').addClass('done');
+                        step1.next().removeClass('active').addClass('done');
+                        step2.next().addClass('active');
+                        step2.addClass('active');
+                        current_step = step2;
+                        var _href = $(this).attr('href');
+                        positions.fadeOut(function () {
+                            $(_href).fadeIn();
+                            console.log($(_href))
+                            current_select = stations;
+                        });
+                    }
+                    else
+                    {
+                        if(parent_id == 'stations')
+                        {
+
+                        }
+                        else
+                        {
+
+                        }
+                    }
+                }
+                return false;
+            });
+        });
+    }
+    set_stadium($('#positions map').first());
 })(jQuery);
