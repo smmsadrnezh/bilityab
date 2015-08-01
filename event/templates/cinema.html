@@ -6,8 +6,9 @@
             <div class="col col-md-12" id="ticket">
                 <div class="col col-md-12" id="ticket-info">
                     <div class="col col-md-8" id="film-trailer-container">
-                        <video id="film-trailer" class="video-js vjs-default-skin" controls preload="none" poster="{% static 'img/guinness-poster.jpg' %}" data-setup="{}">
-                            <source src="{% static 'media/guinness.mp4' %}" type='video/mp4' />
+                        <video id="film-trailer" class="video-js vjs-default-skin" controls preload="none"
+                               poster="{% static 'img/guinness-poster.jpg' %}" data-setup="{}">
+                            <source src="{% static 'media/guinness.mp4' %}" type='video/mp4'/>
                         </video>
                     </div>
                     <div class="col col-md-4" id="film-info">
@@ -15,7 +16,8 @@
                             <div class="col col-md-6 col-xs-8" id="left-info">
                                 <div class="title">گینِس</div>
                                 <div class="release-date">۳ تیر ۹۴</div>
-                                <div class="director"><span class="my-label">فیلمی از </span><span>محسن تنابنده</span></div>
+                                <div class="director"><span class="my-label">فیلمی از </span><span>محسن تنابنده</span>
+                                </div>
                                 <div class="duration">۱۲۰ دقیقه</div>
                                 <div class="genre">کمدی / اجتماعی</div>
                                 <div class="star-ratings-sprite not-rated" initial-rate="50%">
@@ -23,13 +25,17 @@
                                 </div>
                                 <div class="num-of-voters"><span>87</span> رأی</div>
                             </div>
-                            <div class="col col-md-6 col-xs-4 image" style="background-image: url('{% static 'img/guinness.jpg' %}')"></div>
+                            <div class="col col-md-6 col-xs-4 image"
+                                 style="background-image: url('{% static 'img/guinness.jpg' %}')"></div>
                         </div>
                         <div class="col col-md-12">
                             <div class="vertical-center" style="text-align: center">
-                                <div class="producer"><span class="my-label">تهیه کننده: </span><span>سعید ملکان</span></div>
-                                <div class="writers"><span class="my-label">نویسندگان: </span><span>محسن تنابنده، احمد رفیع زاده</span></div>
-                                <div class="actors"><span class="my-label">بازیگران:</span><span>رضا عطاران، محسن تنابنده، حسین اسکندری، جمال اجلالی و...</span></div>
+                                <div class="producer"><span class="my-label">تهیه کننده: </span><span>سعید ملکان</span>
+                                </div>
+                                <div class="writers"><span class="my-label">نویسندگان: </span><span>محسن تنابنده، احمد رفیع زاده</span>
+                                </div>
+                                <div class="actors"><span class="my-label">بازیگران:</span><span>رضا عطاران، محسن تنابنده، حسین اسکندری، جمال اجلالی و...</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -38,490 +44,495 @@
                             مرتضی غفوری، سعید ملکان، حسن زاهدی، مجید شهبازی، سحر شهامت، حسین مصطفوی، مصطفی تنابنده، مجید فاضلی، امیر اسکندری و ...
                         </span>
                     </div>
-                    <div class="col col-md-6 synopsis"><span class="my-label">خلاصه داستان: </span><span>فردین: گینس سیخی چنده!؟ پول کجاست اینو بگو؟ غنچه: خاک بر سرت که نافتو از پول بریدن. بدبخت همش اعتباره... میدونی کیا اسمشون تو گینسه... علی دایی... رضا زاده... جنیفر لوپز.</span></div>
+                    <div class="col col-md-6 synopsis"><span class="my-label">خلاصه داستان: </span><span>فردین: گینس سیخی چنده!؟ پول کجاست اینو بگو؟ غنچه: خاک بر سرت که نافتو از پول بریدن. بدبخت همش اعتباره... میدونی کیا اسمشون تو گینسه... علی دایی... رضا زاده... جنیفر لوپز.</span>
+                    </div>
                 </div>
                 <div class="col col-md-12" id="seat-select">
-                <div class="col col-md-12 progress">
-                    <div class="circle active">
-                        <span class="label">1</span>
-                        <span class="title">انتخاب سینما</span>
+                    <div class="col col-md-12 progress">
+                        <div class="circle active">
+                            <span class="label">1</span>
+                            <span class="title">انتخاب سینما</span>
+                        </div>
+                        <span class="bar active"></span>
+
+                        <div class="circle">
+                            <span class="label">2</span>
+                            <span class="title">انتخاب سانس</span>
+                        </div>
+                        <span class="bar half"></span>
+
+                        <div class="circle">
+                            <span class="label">3</span>
+                            <span class="title">انتخاب صندلی</span>
+                        </div>
                     </div>
-                    <span class="bar active"></span>
-                    <div class="circle">
-                    <span class="label">2</span>
-                    <span class="title">انتخاب سانس</span>
-                    </div>
-                    <span class="bar half"></span>
-                    <div class="circle">
-                    <span class="label">3</span>
-                    <span class="title">انتخاب صندلی</span>
+                    <div class="col col-md-12" id="selects">
+                        <div id="cinemas" class="row list-group">
+                            <div class="item col-xs-4 col-lg-4">
+                                <div class="thumbnail"
+                                     style="background-image: url('{% static 'img/n00001053-b.jpg' %}')">
+                                    <div class="info">
+                                        <div class="title">سینما آزادی</div>
+                                        <div class="capacity">۱۱۰ نفر</div>
+                                        <div class="address">تهران، خیابان بهشتی نبش خالد اسلامبولی</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item  col-xs-4 col-lg-4">
+                                <div class="thumbnail" style="background-image: url('{% static 'img/farhang.jpg' %}')">
+                                    <div class="info">
+                                        <div class="title">سینما فرهنگ</div>
+                                        <div class="capacity">۸۰ نفر</div>
+                                        <div class="address">خیابان شریعتی، بالاتر از خیابان دولت</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item  col-xs-4 col-lg-4">
+                                <div class="thumbnail"
+                                     style="background-image: url('{% static 'img/n00001053-b.jpg' %}')">
+                                    <div class="info">
+                                        <div class="title">سینما آزادی</div>
+                                        <div class="capacity">۱۱۰ نفر</div>
+                                        <div class="address">تهران، خیابان بهشتی نبش خالد اسلامبولی</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="show-times" class="row list-group">
+                            <div class="item col-xs-4 col-lg-4">
+                                <div class="col col-md-8 show-times">
+                                    <div class="show-time">
+                                        22:00
+                                    </div>
+                                    <div class="show-time">
+                                        20:00
+                                    </div>
+                                </div>
+                                <div class="col col-md-4 date">
+                                    <div class="week-day">پنج شنبه</div>
+                                    <div class="day">2</div>
+                                    <div class="month">شهریور</div>
+                                    <div class="year">94</div>
+                                </div>
+                            </div>
+                            <div class="item col-xs-4 col-lg-4">
+                                <div class="col col-md-8 show-times">
+                                    <div class="show-time">
+                                        22:00
+                                    </div>
+                                    <div class="show-time">
+                                        20:00
+                                    </div>
+                                </div>
+                                <div class="col col-md-4 date">
+                                    <div class="week-day">شنبه</div>
+                                    <div class="day">۴</div>
+                                    <div class="month">شهریور</div>
+                                    <div class="year">94</div>
+                                </div>
+                            </div>
+                            <div class="item col-xs-4 col-lg-4">
+                                <div class="col col-md-8 show-times">
+                                    <div class="show-time">
+                                        22:00
+                                    </div>
+                                    <div class="show-time">
+                                        20:00
+                                    </div>
+                                </div>
+                                <div class="col col-md-4 date">
+                                    <div class="week-day">یک شنبه</div>
+                                    <div class="day">۵</div>
+                                    <div class="month">شهریور</div>
+                                    <div class="year">94</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col-md-12" id="plans">
+                            <div id="plan-azadi">
+                                <div class="seat-row">1</div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat disabled-seat"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat disabled-seat"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="clear"></div>
+                                <div class="seat-row">2</div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat disabled-seat"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat disabled-seat"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat disabled-seat"></div>
+                                <div class="clear"></div>
+                                <div class="seat-row">3</div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat disabled-seat"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat disabled-seat"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="seat no-internet-sale"></div>
+                                <div class="clear"></div>
+                                <div class="seat-row">4</div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat disabled-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat sold-seat"></div>
+                                <div class="seat sold-seat"></div>
+                                <div class="seat sold-seat"></div>
+                                <div class="seat sold-seat"></div>
+                                <div class="seat sold-seat"></div>
+                                <div class="seat sold-seat"></div>
+                                <div class="seat sold-seat"></div>
+                                <div class="seat sold-seat"></div>
+                                <div class="seat sold-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat disabled-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat disabled-seat"></div>
+                                <div class="clear"></div>
+                                <div class="seat-row">5</div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat disabled-seat"></div>
+                                <div class="seat sold-seat"></div>
+                                <div class="seat sold-seat"></div>
+                                <div class="seat sold-seat"></div>
+                                <div class="seat sold-seat"></div>
+                                <div class="seat sold-seat"></div>
+                                <div class="seat sold-seat"></div>
+                                <div class="seat sold-seat"></div>
+                                <div class="seat sold-seat"></div>
+                                <div class="seat sold-seat"></div>
+                                <div class="seat sold-seat"></div>
+                                <div class="seat sold-seat"></div>
+                                <div class="seat sold-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat disabled-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="clear"></div>
+                                <div class="seat-row">6</div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat disabled-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat disabled-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat disabled-seat"></div>
+                                <div class="clear"></div>
+                                <div class="seat-row">7</div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat disabled-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat disabled-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat disabled-seat"></div>
+                                <div class="clear"></div>
+                                <div class="seat-row">8</div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat disabled-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat disabled-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat disabled-seat"></div>
+                                <div class="clear"></div>
+                                <div class="seat-row">9</div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat disabled-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat disabled-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat disabled-seat"></div>
+                                <div class="clear"></div>
+                                <div class="seat-row">10</div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat disabled-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat disabled-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat disabled-seat"></div>
+                                <div class="clear"></div>
+                                <div class="seat-row">11</div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat disabled-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat disabled-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat disabled-seat"></div>
+                                <div class="clear"></div>
+                                <div class="seat-row">12</div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat disabled-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat disabled-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat disabled-seat"></div>
+                                <div class="clear"></div>
+                                <div class="seat-row">13</div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat disabled-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat disabled-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat disabled-seat"></div>
+                                <div class="clear"></div>
+                                <div class="seat-row">14</div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat disabled-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat disabled-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat free-seat"></div>
+                                <div class="seat disabled-seat"></div>
+                                <div class="btn btn-primary">پرده نمایش</div>
+                            </div>
+                            <div class="btn btn-primary" id="add-to-cart">افزودن به سبد خرید</div>
+                        </div>
                     </div>
                 </div>
-                <div class="col col-md-12" id="selects">
-                    <div id="cinemas" class="row list-group">
-                        <div class="item col-xs-4 col-lg-4">
-                            <div class="thumbnail" style="background-image: url('{% static 'img/n00001053-b.jpg' %}')">
-                                <div class="info">
-                                <div class="title">سینما آزادی</div>
-                                <div class="capacity">۱۱۰ نفر</div>
-                                <div class="address">تهران، خیابان بهشتی نبش خالد اسلامبولی</div>
-                            </div>
-                            </div>
-                        </div>
-                        <div class="item  col-xs-4 col-lg-4">
-                            <div class="thumbnail" style="background-image: url('{% static 'img/farhang.jpg' %}')">
-                                <div class="info">
-                                    <div class="title">سینما فرهنگ</div>
-                                    <div class="capacity">۸۰ نفر</div>
-                                    <div class="address">خیابان شریعتی، بالاتر از خیابان دولت</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item  col-xs-4 col-lg-4">
-                            <div class="thumbnail" style="background-image: url('{% static 'img/n00001053-b.jpg' %}')">
-                                <div class="info">
-                                    <div class="title">سینما آزادی</div>
-                                    <div class="capacity">۱۱۰ نفر</div>
-                                    <div class="address">تهران، خیابان بهشتی نبش خالد اسلامبولی</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="show-times" class="row list-group">
-                        <div class="item col-xs-4 col-lg-4">
-                            <div class="col col-md-8 show-times">
-                                <div class="show-time">
-                                    22:00
-                                </div>
-                                <div class="show-time">
-                                    20:00
-                                </div>
-                            </div>
-                            <div class="col col-md-4 date">
-                                <div class="week-day">پنج شنبه</div>
-                                <div class="day">2</div>
-                                <div class="month">شهریور</div>
-                                <div class="year">94</div>
-                            </div>
-                        </div>
-                        <div class="item col-xs-4 col-lg-4">
-                            <div class="col col-md-8 show-times">
-                                <div class="show-time">
-                                    22:00
-                                </div>
-                                <div class="show-time">
-                                    20:00
-                                </div>
-                            </div>
-                            <div class="col col-md-4 date">
-                                <div class="week-day">شنبه</div>
-                                <div class="day">۴</div>
-                                <div class="month">شهریور</div>
-                                <div class="year">94</div>
-                            </div>
-                        </div>
-                        <div class="item col-xs-4 col-lg-4">
-                            <div class="col col-md-8 show-times">
-                                <div class="show-time">
-                                    22:00
-                                </div>
-                                <div class="show-time">
-                                    20:00
-                                </div>
-                            </div>
-                            <div class="col col-md-4 date">
-                                <div class="week-day">یک شنبه</div>
-                                <div class="day">۵</div>
-                                <div class="month">شهریور</div>
-                                <div class="year">94</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col col-md-12" id="plans">
-                        <div id="plan-azadi">
-                            <div class="seat-row">1</div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat disabled-seat"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat disabled-seat"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="clear"></div>
-                            <div class="seat-row">2</div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat disabled-seat"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat disabled-seat"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat disabled-seat"></div>
-                            <div class="clear"></div>
-                            <div class="seat-row">3</div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat disabled-seat"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat disabled-seat"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="seat no-internet-sale"></div>
-                            <div class="clear"></div>
-                            <div class="seat-row">4</div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat disabled-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat sold-seat"></div>
-                            <div class="seat sold-seat"></div>
-                            <div class="seat sold-seat"></div>
-                            <div class="seat sold-seat"></div>
-                            <div class="seat sold-seat"></div>
-                            <div class="seat sold-seat"></div>
-                            <div class="seat sold-seat"></div>
-                            <div class="seat sold-seat"></div>
-                            <div class="seat sold-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat disabled-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat disabled-seat"></div>
-                            <div class="clear"></div>
-                            <div class="seat-row">5</div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat disabled-seat"></div>
-                            <div class="seat sold-seat"></div>
-                            <div class="seat sold-seat"></div>
-                            <div class="seat sold-seat"></div>
-                            <div class="seat sold-seat"></div>
-                            <div class="seat sold-seat"></div>
-                            <div class="seat sold-seat"></div>
-                            <div class="seat sold-seat"></div>
-                            <div class="seat sold-seat"></div>
-                            <div class="seat sold-seat"></div>
-                            <div class="seat sold-seat"></div>
-                            <div class="seat sold-seat"></div>
-                            <div class="seat sold-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat disabled-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="clear"></div>
-                            <div class="seat-row">6</div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat disabled-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat disabled-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat disabled-seat"></div>
-                            <div class="clear"></div>
-                            <div class="seat-row">7</div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat disabled-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat disabled-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat disabled-seat"></div>
-                            <div class="clear"></div>
-                            <div class="seat-row">8</div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat disabled-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat disabled-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat disabled-seat"></div>
-                            <div class="clear"></div>
-                            <div class="seat-row">9</div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat disabled-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat disabled-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat disabled-seat"></div>
-                            <div class="clear"></div>
-                            <div class="seat-row">10</div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat disabled-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat disabled-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat disabled-seat"></div>
-                            <div class="clear"></div>
-                            <div class="seat-row">11</div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat disabled-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat disabled-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat disabled-seat"></div>
-                            <div class="clear"></div>
-                            <div class="seat-row">12</div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat disabled-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat disabled-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat disabled-seat"></div>
-                            <div class="clear"></div>
-                            <div class="seat-row">13</div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat disabled-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat disabled-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat disabled-seat"></div>
-                            <div class="clear"></div>
-                            <div class="seat-row">14</div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat disabled-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat disabled-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat free-seat"></div>
-                            <div class="seat disabled-seat"></div>
-                            <div class="btn btn-primary">پرده نمایش</div>
-                        </div>
-                        <div class="btn btn-primary" id="add-to-cart">افزودن به سبد خرید</div>
-                </div>
-            </div>
-            </div>
             </div>
             <div class="col col-md-12" id="comments">
                 <div class="comment col col-md-12" id="your-comment">
@@ -568,27 +579,27 @@
     {{ block.super }}
     <script src="{% static 'js/video.js' %}"></script>
     <script>
-        _V_("film-trailer").ready(function(){
+        _V_("film-trailer").ready(function () {
 
-        var myPlayer = this;    // Store the video object
-        var aspectRatio = 9/16; // Make up an aspect ratio
+            var myPlayer = this;    // Store the video object
+            var aspectRatio = 9 / 16; // Make up an aspect ratio
 
-        function resizeVideoJS(){
-          // Get the parent element's actual width
-          var width = document.getElementById(myPlayer.id).parentElement.offsetWidth;
-          // Set width to fill parent element, Set height
-          myPlayer.width(width).height( width * aspectRatio );
-        }
+            function resizeVideoJS() {
+                // Get the parent element's actual width
+                var width = document.getElementById(myPlayer.id).parentElement.offsetWidth;
+                // Set width to fill parent element, Set height
+                myPlayer.width(width).height(width * aspectRatio);
+            }
 
-        resizeVideoJS(); // Initialize the function
-        window.onresize = resizeVideoJS; // Call the function on resize
-      });
+            resizeVideoJS(); // Initialize the function
+            window.onresize = resizeVideoJS; // Call the function on resize
+        });
     </script>
     <script src="{% static "js/cinema-event.js" %}"></script>
 {% endblock %}
 {% block css %}
     {{ block.super }}
-    <link rel="stylesheet" href="{% static 'css/video-js.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/video-js.css' %}"/>
     <link rel="stylesheet" href="{% static "css/cinema-event.css" %}"/>
     <link rel="stylesheet" href="{% static 'css/star-rating.css' %}">
 {% endblock %}

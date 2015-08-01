@@ -281,8 +281,7 @@ body > .holder > div.col {
 
 /* progress */
 
-.progress
-{
+.progress {
     padding-top: 10px;
     height: 80px;
     margin: 0 auto;
@@ -290,8 +289,7 @@ body > .holder > div.col {
 }
 
 .progress .circle,
-.progress .bar
-{
+.progress .bar {
     display: inline-block;
     background: #fff;
     width: 50px;
@@ -301,74 +299,76 @@ body > .holder > div.col {
 }
 
 .progress .bar {
-position: relative;
-width: 80px;
-height: 6px;
-top: -33px;
-margin-left: -5px;
-margin-right: -5px;
-border-left: none;
-border-right: none;
-border-radius: 0;
+    position: relative;
+    width: 80px;
+    height: 6px;
+    top: -33px;
+    margin-left: -5px;
+    margin-right: -5px;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
 }
+
 .progress .circle .label {
-display: inline-block;
-width: 38px;
-height: 38px;
-line-height: 37px;
-border-radius: 50%;
-margin-top: 5px;
-color: #b5b5ba;
-font-size: 17px;
+    display: inline-block;
+    width: 38px;
+    height: 38px;
+    line-height: 37px;
+    border-radius: 50%;
+    margin-top: 5px;
+    color: #b5b5ba;
+    font-size: 17px;
 }
+
 .progress .circle .title {
-color: #b5b5ba;
-font-size: 13px;
-line-height: 30px;
-margin-left: -5px;
+    color: #b5b5ba;
+    font-size: 13px;
+    line-height: 30px;
+    margin-left: -5px;
 }
 
 /* Done / Active */
 
-.progress .bar.done, .progress .circle.done
-{
+.progress .bar.done, .progress .circle.done {
     background: #eee;
 }
 
 .progress .bar.active {
-background: linear-gradient(to left, #EEE 40%, #FFF 60%);
+    background: linear-gradient(to left, #EEE 40%, #FFF 60%);
 }
+
 .progress .circle.done .label {
-color: #FFF;
-background: #81CE97;
-box-shadow: inset 0 0 2px rgba(0,0,0,.2);
+    color: #FFF;
+    background: #81CE97;
+    box-shadow: inset 0 0 2px rgba(0, 0, 0, .2);
 }
+
 .progress .circle.done .title {
-color: #444;
+    color: #444;
 }
+
 .progress .circle.active .label {
-color: #FFF;
-background: #0c95be;
-box-shadow: inset 0 0 2px rgba(0,0,0,.2);
+    color: #FFF;
+    background: #0c95be;
+    box-shadow: inset 0 0 2px rgba(0, 0, 0, .2);
 }
+
 .progress .circle.active .title {
-color: #0c95be;
+    color: #0c95be;
 }
 
 /* seat select */
 
-#seat-select
-{
+#seat-select {
     padding: 0;
 }
 
-#seat-select .progress .circle
-{
+#seat-select .progress .circle {
     cursor: pointer;
 }
 
-#selects
-{
+#selects {
     padding-bottom: 1em;
     padding-top: 15px;
     background-color: #f5f5f5;
