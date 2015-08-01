@@ -93,6 +93,7 @@
         $('#comments').append(comment);
         your_comment.find('textarea').val('');
     });
+
     var seat_progress = $('#seat-select .progress');
     var step1 = seat_progress.find('div:nth-of-type(1)');
     var step2 = seat_progress.find('div:nth-of-type(2)');
