@@ -373,3 +373,18 @@ color: #0c95be;
     padding-top: 15px;
     background-color: #f5f5f5;
 }
+
+#position
+{
+    text-align: center;
+}
+
+#stations
+{
+    display: none;
+}
+
+#seat-maps
+{
+    display: none;
+}
