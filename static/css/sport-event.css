@@ -385,8 +385,64 @@ body > .holder > div.col {
     display: none;
 }
 
-#seat-maps
+#seat-maps > div
 {
+    text-align: center;
+    font-size: 0;
     display: none;
+}
+
+
+/* seats */
+
+/* seats */
+
+.clear {
+    clear: both;
+}
+
+.seat-row {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    color: #B1B1B1;
+    top: -10px;
+    position: relative;
+    font-family: 'BYekan', sans-serif;
+    font-size: 15px;
+}
+
+.seat {
+    margin: 0 2px;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+}
+
+.disabled-seat {
+    color: transparent;
+}
+
+.no-internet-sale {
+    opacity: 0.3;
+    background-size: 100% 100%;
+    background-image: url('../img/seat_reserved.png');
+}
+
+.sold-seat {
+    background-size: 100% 100%;
+    background-image: url('../img/seat_reserved.png');
+}
+
+.free-seat {
+    background-size: 100% 100%;
+    background-image: url('../img/seat_available.png');
+    cursor: pointer;
+}
+
+.selected-seat {
+    background-size: 100% 100%;
+    background-image: url('../img/seat_selected.png');
+    cursor: pointer;
 }
 

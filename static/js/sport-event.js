@@ -205,10 +205,12 @@
         var areas = $(this).find('area');
         areas.each(function () {
             $(this).on('click', function (e) {
+                console.log($(this).hasClass('no-internet-sale'))
                 if(!$(this).hasClass('no-internet-sale'))
                 {
                     var parent_id = $(this).parent().parent().attr('id');
                     var grand_pa_id = $(this).parent().parent().parent().attr('id');
+                    console.log(grand_pa_id)
                     if(parent_id == 'positions')
                     {
                         step1.removeClass('active').addClass('done');
@@ -235,10 +237,6 @@
                                 $(_href2).fadeIn();
                                 current_select = seat_maps;
                             });
-                        }
-                        else
-                        {
-
                         }
                     }
                 }
