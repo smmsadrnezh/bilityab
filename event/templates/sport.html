@@ -75,15 +75,14 @@
                     </div>
                     <div id="stations">
                         <div id="west-station">
-                            <img src="{% static 'img/west-station.png' %}"/>
-                            <map name="targetMap" id="eBgUc7-map">
-                                <area id="eBgUu0" class="z-area" title="برای اطلاعات بیشتر روی جایگاه مورد نظر خود کلیک کنید." href="javascript:;" coords="443,185,483,60,455,48,421,37,382,162,409,171,425,177,443,185" shape="polygon">
-                                <area id="eBgUv0" class="z-area" title="برای اطلاعات بیشتر روی جایگاه مورد نظر خود کلیک کنید." href="javascript:;" coords="380,161,420,37,384,28,349,21,327,150,344,153,361,156,380,161" shape="polygon">
-                                <area id="eBgUw0" class="z-area" title="برای اطلاعات بیشتر روی جایگاه مورد نظر خود کلیک کنید." href="javascript:;" coords="326,150,349,22,331,19,304,15,289,14,276,143,293,146,309,147,325,149" shape="polygon">
-                                <area id="eBgUx0" class="z-area" title="برای اطلاعات بیشتر روی جایگاه مورد نظر خود کلیک کنید." href="javascript:;" coords="274,144,287,14,246,13,210,14,223,144,237,144,251,144,263,144,273,145" shape="polygon">
-                                <area id="eBgUv4" class="z-area" title="برای اطلاعات بیشتر روی جایگاه مورد نظر خود کلیک کنید." href="javascript:;" coords="220,144,208,14,172,17,147,20,136,23,162,150,173,150,192,146,206,146,220,145" shape="polygon">
-                                <area id="eBgUw7" class="z-area" title="برای اطلاعات بیشتر روی جایگاه مورد نظر خود کلیک کنید." href="javascript:;" coords="159,151,135,24,112,28,85,35,69,40,105,165,121,161,136,156,153,153,159,151" shape="polygon">
-                                <area id="eBgUx7" class="z-area" title="برای اطلاعات بیشتر روی جایگاه مورد نظر خود کلیک کنید." href="javascript:;" coords="104,165,67,41,9,61,52,186,62,181,75,175,90,170,104,165" shape="polygon">
+                            <img src="{% static 'img/west-station.png' %}" usemap="#azadi-west-station"/>
+                            <map name="azadi-west-station" id="azadi-west-station">
+                                <area href="#" title="فروش اینترنتی ندارد" class="no-internet-sale z-area" coords="54,80,18,204,41,214,72,224,108,102,93,96,75,89,55,81" shape="polygon">
+                                <area href="#" title="فروش اینترنتی ندارد" class="no-internet-sale z-area" coords="109,101,73,225,108,233,140,240,164,115,142,110,125,106,110,102" shape="polygon">
+                                <area href="#west-station-seats-3" class="z-area" coords="165,114,140,239,174,245,208,247,222,120,198,117,165,114" shape="polygon">
+                                <area href="#" title="فروش اینترنتی ندارد" class="no-internet-sale z-area" coords="277,118,291,246,314,245,333,241,353,239,328,113,311,116,294,118,278,119" shape="polygon">
+                                <area href="#" title="فروش اینترنتی ندارد" class="no-internet-sale z-area" coords="331,114,355,238,384,232,412,225,381,102,360,107,342,110,330,112" shape="polygon">
+                                <area href="#" title="فروش اینترنتی ندارد" class="no-internet-sale z-area" coords="383,101,414,225,439,217,464,206,485,196,440,78,422,85,410,91,392,97,383,101" shape="polygon">
                             </map>
                         </div>
                         <div id="east-station">
@@ -91,6 +90,10 @@
                         </div>
                     </div>
                     <div class="col col-md-12" id="seat-maps">
+                        <div id="west-station-seats-3">
+
+                        </div>
+                        
                         <div class="btn btn-primary" id="add-to-cart">افزودن به سبد خرید</div>
                     </div>
                 </div>

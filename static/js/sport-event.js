@@ -105,14 +105,7 @@
     var current_select = positions;
 
     //$('.show-time').on('click', function () {
-    //    step2.removeClass('active').addClass('done');
-    //    step2.next().removeClass('active').addClass('done');
-    //    step3.addClass('active');
-    //    current_step = step3;
-    //    show_times.fadeOut(function () {
-    //        plans.fadeIn();
-    //        current_select = plans;
-    //    });
+    //
     //});
 
     //step1.on('click', function () {
@@ -208,13 +201,14 @@
         shadowPosition: 'outside',
         shadowFrom: false
     });
-    function set_stadium(map){
-        var areas = map.find('area');
+    $('map').each(function () {
+        var areas = $(this).find('area');
         areas.each(function () {
             $(this).on('click', function (e) {
                 if(!$(this).hasClass('no-internet-sale'))
                 {
                     var parent_id = $(this).parent().parent().attr('id');
+                    var grand_pa_id = $(this).parent().parent().parent().attr('id');
                     if(parent_id == 'positions')
                     {
                         step1.removeClass('active').addClass('done');
@@ -225,15 +219,22 @@
                         var _href = $(this).attr('href');
                         positions.fadeOut(function () {
                             $(_href).fadeIn();
-                            console.log($(_href))
                             current_select = stations;
                         });
                     }
                     else
                     {
-                        if(parent_id == 'stations')
+                        if(grand_pa_id == 'stations')
                         {
-
+                            step2.removeClass('active').addClass('done');
+                            step2.next().removeClass('active').addClass('done');
+                            step3.addClass('active');
+                            current_step = step3;
+                            var _href2 = $(this).attr('href');
+                            stations.fadeOut(function () {
+                                $(_href2).fadeIn();
+                                current_select = seat_maps;
+                            });
                         }
                         else
                         {
@@ -244,6 +245,5 @@
                 return false;
             });
         });
-    }
-    set_stadium($('#positions map').first());
+    });
 })(jQuery);
