@@ -1,8 +1,12 @@
 from django.shortcuts import render
+from event.models import Event,EventRating
 # -*- coding: utf-8 -*-
+
 
 def home(request):
     return render(request, 'home.html', {
+        'bestEvents':  Event.objects.all(),
+        'nearestEvents': Event.objects.all()
     })
 
 

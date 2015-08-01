@@ -549,28 +549,30 @@
                     <div class="heading"><i class="fa fa-star"></i><span class="title">برترین رویدادها</span></div>
                     <div class="content">
 
-                        <div class="small-event">
-                            <a href="events/sport/1">
-                                <div class="event-type">
-                                    والیبال
-                                </div>
-                                <div class="date">۲۵ تیر ۹۴</div>
-                                <div class="title">ایران-آمریکا</div>
-                                <div class="place">مجموعه ورزشی آزادی</div>
-                            </a>
-                        </div>
+                       {% for event in bestEvents %}
+                            <div class="small-event">
+                                <a href="events/sport/"+event.id>
+                                    <div class="event-type">
+                                        {{ event.category.title }}
+                                    </div>
+                                    <div class="date">{{ event.date }}</div>
+                                    <div class="title">{{ event.title }}</div>
+                                    <div class="place">{{ event.event_organizer }}</div>
+                                </a>
+                            </div>
+                        {% endfor %}
 
 
-                        <div class="small-event">
-                            <a href="events/sport/1">
-                                <div class="event-type">
-                                    فوتبال
-                                </div>
-                                <div class="date">۲۵ تیر ۹۴</div>
-                                <div class="title">ایران-آمریکا</div>
-                                <div class="place">مجموعه ورزشی آزادی</div>
-                            </a>
-                        </div>
+{#                        <div class="small-event">#}
+{#                            <a href="events/sport/1">#}
+{#                                <div class="event-type">#}
+{#                                    فوتبال#}
+{#                                </div>#}
+{#                                <div class="date">۲۵ تیر ۹۴</div>#}
+{#                                <div class="title">ایران-آمریکا</div>#}
+{#                                <div class="place">مجموعه ورزشی آزادی</div>#}
+{#                            </a>#}
+{#                        </div>#}
 
 
                     </div>
@@ -601,56 +603,57 @@
                     <div class="heading"><i class="fa fa-newspaper-o"></i><span class="title">نزدیکترین رویدادها</span>
                     </div>
                     <div class="content">
-                        <div class="small-event">
-                            <a href="events/sport/1">
-                                <div class="event-type">
-                                    والیبال
-                                </div>
-                                <div class="date">۲۵ تیر ۹۴</div>
-                                <div class="title">ایران-آمریکا</div>
-                                <div class="place">مجموعه ورزشی آزادی</div>
-                            </a>
-                        </div>
-                        <div class="small-event">
-                            <a href="events/sport/1">
-                                <div class="event-type">
-                                    فوتبال
-                                </div>
-                                <div class="date">۲۵ تیر ۹۴</div>
-                                <div class="title">ایران-آمریکا</div>
-                                <div class="place">مجموعه ورزشی آزادی</div>
-                            </a>
-                        </div>
-
+                        {% for event in nearestEvents %}
+                            <div class="small-event">
+                                <a href="events/sport/"+event.id>
+                                    <div class="event-type">
+                                        {{ event.category.title }}
+                                    </div>
+                                    <div class="date">{{ event.date }}</div>
+                                    <div class="title">{{ event.title }}</div>
+                                    <div class="place">{{ event.event_organizer }}</div>
+                                </a>
+                            </div>
+{#                            <div class="small-event">#}
+{#                                <a href="events/sport/1">#}
+{#                                    <div class="event-type">#}
+{#                                        فوتبال#}
+{#                                    </div>#}
+{#                                    <div class="date">۲۵ تیر ۹۴</div>#}
+{#                                    <div class="title">ایران-آمریکا</div>#}
+{#                                    <div class="place">مجموعه ورزشی آزادی</div>#}
+{#                                </a>#}
+{#                            </div>#}
+                    {% endfor %}
                     </div>
                 </div>
-                <div id="nearest" class="widget">
-                    <div class="heading"><i class="fa fa-newspaper-o"></i><span class="title">جدیدترین رویدادها</span>
-                    </div>
-                    <div class="content">
-                        <div class="small-event">
-                            <a href="events/sport/1">
-                                <div class="event-type">
-                                    والیبال
-                                </div>
-                                <div class="date">۲۵ تیر ۹۴</div>
-                                <div class="title">ایران-آمریکا</div>
-                                <div class="place">مجموعه ورزشی آزادی</div>
-                            </a>
-                        </div>
-                        <div class="small-event">
-                            <a href="events/sport/1">
-                                <div class="event-type">
-                                    فوتبال
-                                </div>
-                                <div class="date">۲۵ تیر ۹۴</div>
-                                <div class="title">ایران-آمریکا</div>
-                                <div class="place">مجموعه ورزشی آزادی</div>
-                            </a>
-                        </div>
-
-                    </div>
-                </div>
+{#                <div id="newest" class="widget">#}
+{#                    <div class="heading"><i class="fa fa-newspaper-o"></i><span class="title">جدیدترین رویدادها</span>#}
+{#                    </div>#}
+{#                    <div class="content">#}
+{#                        <div class="small-event">#}
+{#                            <a href="events/sport/1">#}
+{#                                <div class="event-type">#}
+{#                                    والیبال#}
+{#                                </div>#}
+{#                                <div class="date">۲۵ تیر ۹۴</div>#}
+{#                                <div class="title">ایران-آمریکا</div>#}
+{#                                <div class="place">مجموعه ورزشی آزادی</div>#}
+{#                            </a>#}
+{#                        </div>#}
+{#                        <div class="small-event">#}
+{#                            <a href="events/sport/1">#}
+{#                                <div class="event-type">#}
+{#                                    فوتبال#}
+{#                                </div>#}
+{#                                <div class="date">۲۵ تیر ۹۴</div>#}
+{#                                <div class="title">ایران-آمریکا</div>#}
+{#                                <div class="place">مجموعه ورزشی آزادی</div>#}
+{#                            </a>#}
+{#                        </div>#}
+{##}
+{#                    </div>#}
+{#                </div>#}
             </div>
         </div>
     </div>
