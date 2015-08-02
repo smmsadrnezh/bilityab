@@ -1,5 +1,6 @@
-from django.db import models
 # -*- coding: utf-8 -*-
+
+from django.db import models
 from account.models import CustomUser
 
 
@@ -15,6 +16,9 @@ class EventOrganizer(models.Model):
 class Categories(models.Model):
     title = models.CharField(max_length=90)
     parent = models.ForeignKey('self', null=True)
+
+    def __str__(self):
+        return "%s" % self.title
 
 
 class Event(models.Model):
@@ -79,9 +83,11 @@ class Movie(models.Model):
 
 
 class Sport(models.Model):
-    event = models.OneToOneField(Event, primary_key=True)
-    country1 = models.CharField(max_length=30)
-    country2 = models.CharField(max_length=30)
+    event = models.OneToOneField(Event, primary_key=True, related_name='teams')
+    home_team = models.CharField(max_length=30)
+    home_team_flag = models.ImageField()
+    away_team = models.CharField(max_length=30)
+    away_team_flag = models.ImageField()
 
     def __str__(self):
         return "%s %s" % (self.country1, self.country2)

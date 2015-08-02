@@ -50,6 +50,8 @@ def all_tourism(request, event_id):
 def sport(request, event_id):
     try:
         event = Event.objects.get(pk=event_id)
+        teams = Sport.objects.get(event_id=event_id)
+        print(teams)
     except Event.DoesNotExist:
         raise Http404("sport event does not exist!")
     return render(request, 'sport.html', {
