@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from django.http import Http404
+from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import render
 
 from .models import *
@@ -15,10 +15,28 @@ def events(request):
 
 
 def add_event(request):
-    return render(request, 'add-event.html', {
-        'logged_in': request.user.is_authenticated()
+    print ("hello")
+    if request.user.is_authenticated():
 
-    })
+        if request.is_ajax():
+            print "a"
+            # if(True):
+            #
+            # Event(title=request.POST.get('event-title', ''), description=request.POST.get('event-description', ''),
+            #                     category_id=request.POST.get('event-type', ''), capacity=request.POST.get('event-capacity', ''),
+            #                     address=request.POST.get('event-address', ''),
+            #                     event_organizer_id=request.user.id,
+            #                     photo=request.POST.get('event-photo', '')
+            #     ).save()
+            #     return 1
+            # else:
+            #     return 0
+        else:
+            return render(request, 'add-event.html', {
+                'logged_in': request.user.is_authenticated()
+            })
+    else:
+        return HttpResponseRedirect('/')
 
 
 def edit_event(request, event_id):

@@ -7,7 +7,7 @@
 
                 <h3>افزودن رویداد جدید</h3>
 
-                <form class="cd-form">
+                <form class="cd-form" id="add-event-form">
 
                     <p class="fieldset">
                         <i class="fa fa-header"></i>
@@ -29,7 +29,7 @@
 
                     <p class="fieldset">
                         <i class="fa fa-th-list"></i>
-                        <select name="دسته">
+                        <select name="event-type">
                             <option value="دسته یک">دسته یک</option>
                             <option value="دسته دو">دسته دو</option>
                         </select>
@@ -37,7 +37,7 @@
                     </p>
 
                     <p class="fieldset">
-                        <i class="fa fa-location-arrow"></i>
+                        <i class="fa fa-map-marker"></i>
                         <input class="full-width has-padding has-border" id="event-address"
                                name="event-address"
                                type="text"
@@ -46,15 +46,26 @@
                     </p>
 
                     <p class="fieldset">
+                        <i class="fa fa-slack"></i>
+                        <input class="full-width has-padding has-border" id="event-capacity"
+                               name="event-capacity"
+                               type="text"
+                               placeholder="ظرفیت">
+                        <span class="cd-error-message">ظرفیت نامعتبر</span>
+                    </p>
+
+                    <p class="fieldset">
                         <i class="fa fa-file-image-o"></i>
-                                           <input class="full-width has-padding has-border" id="event-photo"
+                        <input class="full-width has-padding has-border" id="event-photo"
                                name="event-photo"
                                type="file">
                         <span class="cd-error-message">تصویر رویداد نامعتبر</span>
                     </p>
-                    <a class="btn btn-primary btn-lg btn-block" href="/profile/1/">
-                        <i class="fa fa-save"></i> ذخیره
-                    </a>
+
+                    <p class="fieldset">
+                        <i class="fa fa-plus"></i>
+                        <input class="full-width" type="submit" value=" افزودن رویداد">
+                    </p>
                 </form>
             </div>
 
@@ -64,6 +75,7 @@
 
 {% block js %}
     {{ block.super }}
+    <script src="{% static "js/add-event-ajax.js" %}"></script>
     <script src="{% static "js/sport-event.js" %}"></script>
 {% endblock %}
 
