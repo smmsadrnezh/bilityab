@@ -14,7 +14,7 @@ urlpatterns = [
 
     url(r'^login/$', 'account.views.login'),
     url(r'^logout/$', 'account.views.logout'),
-    url(r'^register/$', 'account.views.logout'),
+    url(r'^register/$', 'account.views.register'),
 
     ### event urls
     url(r'^events/$', 'event.views.events'),
