@@ -113,194 +113,204 @@
                             </li>
                             <li><a href="#pop" role="tab" data-toggle="tab"
                                    aria-expanded="false">پاپ</a></li>
-                            <li><a href="#classic" role="tab" data-toggle="tab" aria-expanded="false">کلاسیک</a>
-                            </li>
                         </ul>
                     </li>
                 </ul>
                 <div id="events-list" class="tab-content">
                     <div role="tabpanel" class="tab-pane active fade in col col-md-12" id="action">
-                        <div class="col col-md-6 event">
-                            <div class="image" style="background-image: url('/static/img/te-nflpromo.jpg')">
-                                <div class="date">۲۵ اردیبهشت ۹۴</div>
-                            </div>
-                            <div class="description cinema">
-                                <div class="vertical-center">
-                                    <div class="title">
-                                        فیلم سینمایی جان سخت ۳
-                                    </div>
-                                    <div class="place">
-                                        تهران، سینما آزادی
-                                    </div>
-                                    <div class="num-of-remaining-tickets">بلیط های باقیمانده: ۴۹ عدد</div>
-                                    <div class="price">
-                                        ۱۰ هزار تومان
+                       {% for event in actionMovies %}
+                            <div class="col col-md-6 event">
+                                <div class="image" style="background-image: url('/static/img/te-nflpromo.jpg')">
+                                    <div class="date">{{ event.date }}</div>
+                                </div>
+                                <div class="description cinema">
+                                    <div class="vertical-center">
+                                        <div class="title">
+                                            {{ event.title }}
+                                        </div>
+                                        <div class="place">
+                                            {{ event.event_organizer}}
+                                        </div>
+                                        <div class="num-of-remaining-tickets">بلیط های باقیمانده: ۴۹ عدد</div>
+                                        <div class="price">
+                                            {{ event.price }}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col col-md-6 event">
-                            <div class="image" style="background-image: url('/static/img/te-nflpromo.jpg')">
-                                <div class="date">۲۵ اردیبهشت ۹۴</div>
-                            </div>
-                            <div class="description cinema">
-                                <div class="vertical-center">
-                                    <div class="title">
-                                        فیلم سینمایی محافظ
-                                    </div>
-                                    <div class="place">
-                                        تهران، سینما آزادی
-                                    </div>
-                                    <div class="num-of-remaining-tickets">بلیط های باقیمانده: ۴۹ عدد</div>
-                                    <div class="price">
-                                        ۱۰ هزار تومان
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        {% endfor %}
+{#                        <div class="col col-md-6 event">#}
+{#                            <div class="image" style="background-image: url('/static/img/te-nflpromo.jpg')">#}
+{#                                <div class="date">۲۵ اردیبهشت ۹۴</div>#}
+{#                            </div>#}
+{#                            <div class="description cinema">#}
+{#                                <div class="vertical-center">#}
+{#                                    <div class="title">#}
+{#                                        فیلم سینمایی محافظ#}
+{#                                    </div>#}
+{#                                    <div class="place">#}
+{#                                        تهران، سینما آزادی#}
+{#                                    </div>#}
+{#                                    <div class="num-of-remaining-tickets">بلیط های باقیمانده: ۴۹ عدد</div>#}
+{#                                    <div class="price">#}
+{#                                        ۱۰ هزار تومان#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="dram">
-                        <div class="col col-md-6 event">
-                            <div class="image" style="background-image: url('/static/img/eli.jpg')">
-                                <div class="date">۲۵ اردیبهشت ۹۴</div>
-                            </div>
-                            <div class="description cinema">
-                                <div class="vertical-center">
-                                    <div class="title">
-                                        فیلم سینمایی درباره الی
-                                    </div>
-                                    <div class="place">
-                                        تهران، مجموعه ورزشی آزادی
-                                    </div>
-                                    <div class="num-of-remaining-tickets">بلیط های باقیمانده: ۴۹ عدد</div>
-                                    <div class="price">
-                                        ۱۵ هزار تومان
+
+                        {% for event in dramaticMovies %}
+                            <div class="col col-md-6 event">
+                                <div class="image" style="background-image: url('/static/img/eli.jpg')">
+                                    <div class="date">۲۵ اردیبهشت ۹۴</div>
+                                </div>
+                                <div class="description cinema">
+                                    <div class="vertical-center">
+                                        <div class="title">
+                                            {{ event.title }}
+                                        </div>
+                                        <div class="place">
+                                            {{ event.event_organizer }}
+                                        </div>
+                                        <div class="num-of-remaining-tickets">بلیط های باقیمانده: ۴۹ عدد</div>
+                                        <div class="price">
+                                            ۱۵ هزار تومان
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col col-md-6 event">
-                            <div class="image" style="background-image: url('/static/img/arghavan.jpg')">
-                                <div class="date">۱ خرداد ۹۴</div>
-                            </div>
-                            <div class="description cinema">
-                                <div class="vertical-center">
-                                    <div class="title">
-                                        فیلم سینمایی به رنگ ارغوان
-                                    </div>
-                                    <div class="place">
-                                        تهران، مجموعه ورزشی آزادی
-                                    </div>
-                                    <div class="num-of-remaining-tickets">بلیط های باقیمانده: ۲ عدد</div>
-                                    <div class="price">
-                                        ۱۸ هزار تومان
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col col-md-6 event">
-                            <div class="image" style="background-image: url('/static/img/iceage.jpg')">
-                                <div class="date">۲۵ اردیبهشت ۹۴</div>
-                            </div>
-                            <div class="description cinema">
-                                <div class="vertical-center">
-                                    <div class="title">
-                                        فیلم سینمایی عصر یخبندان
-                                    </div>
-                                    <div class="place">
-                                        تهران، سینما اریکه ایرانیان
-                                    </div>
-                                    <div class="num-of-remaining-tickets">بلیط های باقیمانده : ۱۰۰ عدد</div>
-                                    <div class="price">
-                                        ۵ هزار تومان
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        {% endfor %}
+{#                        <div class="col col-md-6 event">#}
+{#                            <div class="image" style="background-image: url('/static/img/arghavan.jpg')">#}
+{#                                <div class="date">۱ خرداد ۹۴</div>#}
+{#                            </div>#}
+{#                            <div class="description cinema">#}
+{#                                <div class="vertical-center">#}
+{#                                    <div class="title">#}
+{#                                        فیلم سینمایی به رنگ ارغوان#}
+{#                                    </div>#}
+{#                                    <div class="place">#}
+{#                                        تهران، مجموعه ورزشی آزادی#}
+{#                                    </div>#}
+{#                                    <div class="num-of-remaining-tickets">بلیط های باقیمانده: ۲ عدد</div>#}
+{#                                    <div class="price">#}
+{#                                        ۱۸ هزار تومان#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <div class="col col-md-6 event">#}
+{#                            <div class="image" style="background-image: url('/static/img/iceage.jpg')">#}
+{#                                <div class="date">۲۵ اردیبهشت ۹۴</div>#}
+{#                            </div>#}
+{#                            <div class="description cinema">#}
+{#                                <div class="vertical-center">#}
+{#                                    <div class="title">#}
+{#                                        فیلم سینمایی عصر یخبندان#}
+{#                                    </div>#}
+{#                                    <div class="place">#}
+{#                                        تهران، سینما اریکه ایرانیان#}
+{#                                    </div>#}
+{#                                    <div class="num-of-remaining-tickets">بلیط های باقیمانده : ۱۰۰ عدد</div>#}
+{#                                    <div class="price">#}
+{#                                        ۵ هزار تومان#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="comic">
-                        <div class="col col-md-6 event">
-                            <div class="image" style="background-image: url('/static/img/te-nflpromo.jpg')">
-                                <div class="date">۲۵ اردیبهشت ۹۴</div>
-                            </div>
-                            <div class="description cinema">
-                                <div class="vertical-center">
-                                    <div class="title">
-                                        فیلم سینمایی ایران برگر
-                                    </div>
-                                    <div class="place">
-                                        تهران، مجموعه ورزشی آزادی
-                                    </div>
-                                    <div class="num-of-remaining-tickets">بلیط های باقیمانده: ۴۹ عدد</div>
-                                    <div class="price">
-                                        ۱۵ هزار تومان
+                        {% for event in comicMovies %}
+                            <div class="col col-md-6 event">
+                                <div class="image" style="background-image: url('/static/img/te-nflpromo.jpg')">
+                                    <div class="date">{{ event.date }}</div>
+                                </div>
+                                <div class="description cinema">
+                                    <div class="vertical-center">
+                                        <div class="title">
+                                            {{ event.title }}
+                                        </div>
+                                        <div class="place">
+                                            {{ event.event_organizer }}
+                                        </div>
+                                        <div class="num-of-remaining-tickets">بلیط های باقیمانده: ۴۹ عدد</div>
+                                        <div class="price">
+                                            {{ event.price }}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col col-md-6 event">
-                            <div class="image" style="background-image: url('/static/img/volleyball.jpg')">
-                                <div class="date">۱ خرداد ۹۴</div>
-                            </div>
-                            <div class="description cinema">
-                                <div class="vertical-center">
-                                    <div class="title">
-                                        فیلم سینمایی گینس
-                                    </div>
-                                    <div class="place">
-                                        تهران، مجموعه ورزشی آزادی
-                                    </div>
-                                    <div class="num-of-remaining-tickets">بلیط های باقیمانده: ۲ عدد</div>
-                                    <div class="price">
-                                        ۱۸ هزار تومان
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        {% endfor %}
+{#                        <div class="col col-md-6 event">#}
+{#                            <div class="image" style="background-image: url('/static/img/volleyball.jpg')">#}
+{#                                <div class="date">۱ خرداد ۹۴</div>#}
+{#                            </div>#}
+{#                            <div class="description cinema">#}
+{#                                <div class="vertical-center">#}
+{#                                    <div class="title">#}
+{#                                        فیلم سینمایی گینس#}
+{#                                    </div>#}
+{#                                    <div class="place">#}
+{#                                        تهران، مجموعه ورزشی آزادی#}
+{#                                    </div>#}
+{#                                    <div class="num-of-remaining-tickets">بلیط های باقیمانده: ۲ عدد</div>#}
+{#                                    <div class="price">#}
+{#                                        ۱۸ هزار تومان#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="volleyball">
-                        <div class="col col-md-6 event">
-                            <div class="image" style="background-image: url('/static/img/volleyball.jpg')">
-                                <div class="date">۲۵ اردیبهشت ۹۴</div>
-                            </div>
-                            <div class="description sport">
-                                <div class="vertical-center">
-                                    <div class="title">
-                                        مسابقه والیبال ایران - آمریکا
-                                    </div>
-                                    <div class="place">
-                                        تهران، مجموعه ورزشی آزادی
-                                    </div>
-                                    <div class="num-of-remaining-tickets">بلیط های باقیمانده: ۴۹ عدد</div>
-                                    <div class="price">
-                                        ۱۵ هزار تومان
+                        {% for event in volleyballEvents %}
+                            <div class="col col-md-6 event">
+                                <div class="image" style="background-image: url('/static/img/volleyball.jpg')">
+                                    <div class="date">۲۵ اردیبهشت ۹۴</div>
+                                </div>
+                                <div class="description sport">
+                                    <div class="vertical-center">
+                                        <div class="title">
+                                            {{ event.title }}
+                                        </div>
+                                        <div class="place">
+                                            {{ event.event_organizer }}
+                                        </div>
+                                        <div class="num-of-remaining-tickets">بلیط های باقیمانده: ۴۹ عدد</div>
+                                        <div class="price">
+                                            ۱۵ هزار تومان
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        {% endfor %}
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="football">
-                        <div class="col col-md-6 event">
-                            <div class="image" style="background-image: url('/static/img/te-nflpromo.jpg')">
-                                <div class="date">۲۵ اردیبهشت ۹۴</div>
-                            </div>
-                            <div class="description sport">
-                                <div class="vertical-center">
-                                    <div class="title">
-                                        مسابقه فوتبال ایران - ترکیه
-                                    </div>
-                                    <div class="place">
-                                        تهران، مجموعه ورزشی آزادی
-                                    </div>
-                                    <div class="num-of-remaining-tickets">بلیط های باقیمانده: ۴۹ عدد</div>
-                                    <div class="price">
-                                        ۱۵ هزار تومان
+                        {% for event in footballEvents %}
+                            <div class="col col-md-6 event">
+                                <div class="image" style="background-image: url('/static/img/te-nflpromo.jpg')">
+                                    <div class="date">۲۵ اردیبهشت ۹۴</div>
+                                </div>
+                                <div class="description sport">
+                                    <div class="vertical-center">
+                                        <div class="title">
+                                            {{ event.title }}
+                                        </div>
+                                        <div class="place">
+                                            {{ event.event_organizer }}
+                                        </div>
+                                        <div class="num-of-remaining-tickets">بلیط های باقیمانده: ۴۹ عدد</div>
+                                        <div class="price">
+                                            {{ event.price }}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        {% endfor %}
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="basketball">
+                        {% for event in basketballEvents %}
                         <div class="col col-md-6 event">
                             <div class="image" style="background-image: url('/static/img/te-nflpromo.jpg')">
                                 <div class="date">۲۵ اردیبهشت ۹۴</div>
@@ -308,10 +318,10 @@
                             <div class="description sport">
                                 <div class="vertical-center">
                                     <div class="title">
-                                        مسابقه بسکتبال ایران - لبنان
+                                        {{ event.title }}
                                     </div>
                                     <div class="place">
-                                        تهران، مجموعه ورزشی آزادی
+                                        {{ event.event_organizer }}
                                     </div>
                                     <div class="num-of-remaining-tickets">بلیط های باقیمانده: ۴۹ عدد</div>
                                     <div class="price">
@@ -320,8 +330,10 @@
                                 </div>
                             </div>
                         </div>
+                        {% endfor %}
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="wrestling">
+                        {% for event in wrestleEvents %}
                         <div class="col col-md-6 event">
                             <div class="image" style="background-image: url('/static/img/te-nflpromo.jpg')">
                                 <div class="date">۲۵ اردیبهشت ۹۴</div>
@@ -329,10 +341,10 @@
                             <div class="description sport">
                                 <div class="vertical-center">
                                     <div class="title">
-                                        کشتی جام جهانی ایران - روسیه
+                                        {{ event.title }}
                                     </div>
                                     <div class="place">
-                                        تهران، مجموعه ورزشی آزادی
+                                        {{ event.event_organizer }}
                                     </div>
                                     <div class="num-of-remaining-tickets">بلیط های باقیمانده: ۴۹ عدد</div>
                                     <div class="price">
@@ -341,8 +353,10 @@
                                 </div>
                             </div>
                         </div>
+                        {% endfor %}
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="tour">
+                        {% for event in tourEvents %}
                         <div class="col col-md-6 event">
                             <div class="image" style="background-image: url('/static/img/te-nflpromo.jpg')">
                                 <div class="date">۲۵ اردیبهشت ۹۴</div>
@@ -350,10 +364,10 @@
                             <div class="description tourism">
                                 <div class="vertical-center">
                                     <div class="title">
-                                        تور تفریحی ترکیه
+                                        {{ event.title }}
                                     </div>
                                     <div class="place">
-                                        تهران، مجموعه ورزشی آزادی
+                                        {{ event.event_organizer }}
                                     </div>
                                     <div class="num-of-remaining-tickets">بلیط های باقیمانده: ۴۹ عدد</div>
                                     <div class="price">
@@ -362,8 +376,10 @@
                                 </div>
                             </div>
                         </div>
+                        {% endfor %}
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="zoo">
+                        {% for event in zooEvents %}
                         <div class="col col-md-6 event">
                             <div class="image" style="background-image: url('/static/img/te-nflpromo.jpg')">
                                 <div class="date">۲۵ اردیبهشت ۹۴</div>
@@ -371,10 +387,10 @@
                             <div class="description tourism">
                                 <div class="vertical-center">
                                     <div class="title">
-                                        باغ وحش وکیل آباد
+                                        {{ event.title }}
                                     </div>
                                     <div class="place">
-                                        مشهد
+                                        {{ event.event_organizer }}
                                     </div>
                                     <div class="num-of-remaining-tickets">بلیط های باقیمانده: بدون محدودیت</div>
                                     <div class="price">
@@ -383,113 +399,103 @@
                                 </div>
                             </div>
                         </div>
+                        {% endfor %}
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="amusement-park">
-                        <div class="col col-md-6 event">
-                            <div class="image" style="background-image: url('/static/img/te-nflpromo.jpg')">
-                                <div class="date">۲۵ اردیبهشت ۹۴</div>
-                            </div>
-                            <div class="description tourism">
-                                <div class="vertical-center">
-                                    <div class="title">
-                                        پارک ارم
-                                    </div>
-                                    <div class="place">
-                                        تهران، مجموعه ورزشی آزادی
-                                    </div>
-                                    <div class="num-of-remaining-tickets">بلیط های باقیمانده: ۴۹ عدد</div>
-                                    <div class="price">
-                                        ۱۵ هزار تومان
+                        {% for event in amusementEvents %}
+                            <div class="col col-md-6 event">
+                                <div class="image" style="background-image: url('/static/img/te-nflpromo.jpg')">
+                                    <div class="date">۲۵ اردیبهشت ۹۴</div>
+                                </div>
+                                <div class="description tourism">
+                                    <div class="vertical-center">
+                                        <div class="title">
+                                            {{ event.title }}
+                                        </div>
+                                        <div class="place">
+                                            {{ event.event_organizer }}
+                                        </div>
+                                        <div class="num-of-remaining-tickets">بلیط های باقیمانده: ۴۹ عدد</div>
+                                        <div class="price">
+                                            ۱۵ هزار تومان
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        {% endfor %}
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="circus">
-                        <div class="col col-md-6 event">
-                            <div class="image" style="background-image: url('/static/img/te-nflpromo.jpg')">
-                                <div class="date">۲۵ اردیبهشت ۹۴</div>
-                            </div>
-                            <div class="description tourism">
-                                <div class="vertical-center">
-                                    <div class="title">
-                                        سیرک خلیل عقاب
-                                    </div>
-                                    <div class="place">
-                                        تهران، مجموعه ورزشی آزادی
-                                    </div>
-                                    <div class="num-of-remaining-tickets">بلیط های باقیمانده: ۴۹ عدد</div>
-                                    <div class="price">
-                                        ۱۵ هزار تومان
+                        {% for event in circusEvents %}
+                            <div class="col col-md-6 event">
+                                <div class="image" style="background-image: url('/static/img/te-nflpromo.jpg')">
+                                    <div class="date">۲۵ اردیبهشت ۹۴</div>
+                                </div>
+                                <div class="description tourism">
+                                    <div class="vertical-center">
+                                        <div class="title">
+                                            {{ event.title }}
+                                        </div>
+                                        <div class="place">
+                                            {{ event.event_organizer }}
+                                        </div>
+                                        <div class="num-of-remaining-tickets">بلیط های باقیمانده: ۴۹ عدد</div>
+                                        <div class="price">
+                                            ۱۵ هزار تومان
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        {% endfor %}
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="traditional">
-                        <div class="col col-md-6 event">
-                            <div class="image" style="background-image: url('/static/img/te-nflpromo.jpg')">
-                                <div class="date">۲۵ اردیبهشت ۹۴</div>
-                            </div>
-                            <div class="description music">
-                                <div class="vertical-center">
-                                    <div class="title">
-                                        کنسرت محمدرضا شجریان
-                                    </div>
-                                    <div class="place">
-                                        تهران، مجموعه ورزشی آزادی
-                                    </div>
-                                    <div class="num-of-remaining-tickets">بلیط های باقیمانده: ۴۹ عدد</div>
-                                    <div class="price">
-                                        ۱۵ هزار تومان
+                        {% for event in traditionalMusic %}
+                            <div class="col col-md-6 event">
+                                <div class="image" style="background-image: url('/static/img/te-nflpromo.jpg')">
+                                    <div class="date">۲۵ اردیبهشت ۹۴</div>
+                                </div>
+                                <div class="description music">
+                                    <div class="vertical-center">
+                                        <div class="title">
+                                            {{ event.title }}
+                                        </div>
+                                        <div class="place">
+                                            {{ event.event_organizer }}
+                                        </div>
+                                        <div class="num-of-remaining-tickets">بلیط های باقیمانده: ۴۹ عدد</div>
+                                        <div class="price">
+                                            ۱۵ هزار تومان
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        {% endfor %}
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="pop">
-                        <div class="col col-md-6 event">
-                            <div class="image" style="background-image: url('/static/img/te-nflpromo.jpg')">
-                                <div class="date">۲۵ اردیبهشت ۹۴</div>
-                            </div>
-                            <div class="description music">
-                                <div class="vertical-center">
-                                    <div class="title">
-                                        کنسرت مازیار فلاحی
-                                    </div>
-                                    <div class="place">
-                                        تهران، مجموعه ورزشی آزادی
-                                    </div>
-                                    <div class="num-of-remaining-tickets">بلیط های باقیمانده: ۴۹ عدد</div>
-                                    <div class="price">
-                                        ۱۵ هزار تومان
+                        {% for event in popMusic %}
+                            <div class="col col-md-6 event">
+                                <div class="image" style="background-image: url('/static/img/te-nflpromo.jpg')">
+                                    <div class="date">۲۵ اردیبهشت ۹۴</div>
+                                </div>
+                                <div class="description music">
+                                    <div class="vertical-center">
+                                        <div class="title">
+                                            {{ event.title }}
+                                        </div>
+                                        <div class="place">
+                                            {{ event.event_organizer }}
+                                        </div>
+                                        <div class="num-of-remaining-tickets">بلیط های باقیمانده: ۴۹ عدد</div>
+                                        <div class="price">
+                                            ۱۵ هزار تومان
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div role="tabpanel" class="tab-pane fade in col col-md-12" id="classic">
-                        <div class="col col-md-6 event">
-                            <div class="image" style="background-image: url('/static/img/te-nflpromo.jpg')">
-                                <div class="date">۲۵ اردیبهشت ۹۴</div>
-                            </div>
-                            <div class="description music">
-                                <div class="vertical-center">
-                                    <div class="title">
-                                        کنسرت سالار عقیلی
-                                    </div>
-                                    <div class="place">
-                                        تهران، برج میلاد
-                                    </div>
-                                    <div class="num-of-remaining-tickets">بلیط های باقیمانده: ۴۹ عدد</div>
-                                    <div class="price">
-                                        ۱۵ هزار تومان
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
+
+
                 <div class="col col-md-12" id="suggestions">
                     <div class="or-spacer">
                         <div class="mask"></div>

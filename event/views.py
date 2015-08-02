@@ -1,6 +1,7 @@
 from django.shortcuts import render
 # -*- coding: utf-8 -*-
 
+
 def events(request):
     return render(request, 'all-events.html', {
 
