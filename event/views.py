@@ -51,7 +51,7 @@ def sport(request, event_id):
     try:
         event = Event.objects.get(pk=event_id)
     except Event.DoesNotExist:
-        raise Http404("sport event does not exist")
+        raise Http404("sport event does not exist!")
     return render(request, 'sport.html', {
         'title': event.title
     })
