@@ -8,10 +8,9 @@
                 <li><a href="/profile/1"><i class="fa fa-user"></i>حساب کاربری</a></li>
                 <li><a href="/events"><i class="fa fa-list"></i>رویدادها</a></li>
                 <li><a href="/ticket/2"><i class="fa fa-ticket"></i>بلیط‌های من</a></li>
-                <li><a href="/about"><i class="fa fa-info-circle"></i>دربارهٔ ما</a></li>
-                {#                <li><a href="/terms"><i class="fa fa-flag"></i>شرایط و ضوابط</a></li>#}
-                <li><a href="/contact"><i class="fa fa-phone"></i>تماس با ما</a></li>
-                <li><a href="/logout"><i class="fa fa-sign-out"></i>خروج</a></li>
+                {% if logged_in %}
+                    <li><a href="/logout"><i class="fa fa-sign-out"></i>خروج</a></li>
+                {% endif %}
             </ul>
             <div id="left-bar" class="col col-md-6">
                 <input type="text" id="autocomplete" name="search" placeholder="جستجوی رویداد ...">
@@ -28,13 +27,13 @@
         <p class="footer-text">
             کلیه حقوق این وبگاه متعلق به شرکت رایان شریف می باشد.
         </p>
-        <a href="/terms" class="footer-link">
-            قوانین و مقررات بلیط یاب
-        </a>
-        -
-        <a href="/about" class="footer-link">
-            درباره ما
-        </a>
+
+        <a href="/about" class="footer-link"><i class="fa fa-info-circle"></i> دربارهٔ ما</a>
+                -
+        <a href="/terms" class="footer-link"><i class="fa fa-flag"></i> شرایط و ضوابط</a>
+                -
+        <a href="/contact" class="footer-link"><i class="fa fa-phone"></i> تماس با ما</a>
+
 
 
     </div>
@@ -69,7 +68,7 @@
                         </p>
 
                         <p class="fieldset">
-                            <input type="checkbox" id="remember-me" checked>
+                            <input type="checkox" id="remember-me" checked>
                             <label for="remember-me">مرا به خاطر بسپار!</label>
                         </p>
 
@@ -84,24 +83,27 @@
                 <!-- cd-login -->
 
                 <div id="cd-signup"> <!-- sign up form -->
-                    <form class="cd-form">
+                    <form class="cd-form" action="/register/" method="POST">{% csrf_token %}
                         <p class="fieldset">
                             <label class="image-replace cd-username" for="signup-username">نام کاربری</label>
-                            <input class="full-width has-padding has-border" id="signup-username" type="text"
+                            <input class="full-width has-padding has-border" id="signup-username" name="signup-username"
+                                   type="text"
                                    placeholder="نام کاربری">
                             <span class="cd-error-message">نام کاربری نامعتبر</span>
                         </p>
 
                         <p class="fieldset">
                             <label class="image-replace cd-email" for="signup-email">پست الکترونیکی</label>
-                            <input class="full-width has-padding has-border" id="signup-email" type="email"
+                            <input class="full-width has-padding has-border" id="signup-email" name="signup-email"
+                                   type="email"
                                    placeholder="پست الکترونیکی">
                             <span class="cd-error-message">پست الکترونیکی نامعتبر</span>
                         </p>
 
                         <p class="fieldset">
                             <label class="image-replace cd-password" for="signup-password">رمز عبور</label>
-                            <input class="full-width has-padding has-border" id="signup-password" type="text"
+                            <input class="full-width has-padding has-border" id="signup-password" name="signup-password"
+                                   type="text"
                                    placeholder="رمز عبور">
                             <a href="#0" class="hide-password">مخفی کردن</a>
                             <span class="cd-error-message">رمز عبور نامعتبر</span>

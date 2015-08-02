@@ -3,6 +3,10 @@ from django.contrib import auth
 from django.http import HttpResponseRedirect
 from django.template.loader import get_template
 from django.core.context_processors import csrf
+from django.contrib.auth.forms import UserCreationForm
+
+from account.models import CustomUser
+
 # Create your views here.
 
 
@@ -28,6 +32,14 @@ def logout(request):
     return HttpResponseRedirect('/')
 
 
+def register(request):
+    CustomUser.username = UserCreationForm.cleaned_data['signup-username']
+    CustomUser.email = UserCreationForm.cleaned_data['signup-email']
+    CustomUser.password = UserCreationForm.clean_password2()
+    CustomUser.save()
+    return HttpResponseRedirect('/login')
+
+
 def profile_edit(request, user_id):
     return render(request, 'profile.html', {
 
@@ -38,8 +50,3 @@ def charge(request, user_id):
     return render(request, 'charge.html', {
 
     })
-
-
-def logout(request):
-    auth.logout(request)
-    return HttpResponseRedirect('/')
