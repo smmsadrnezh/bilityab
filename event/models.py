@@ -53,7 +53,7 @@ class PositionPrice(models.Model):
 
 
 class Showtime(models.Model):
-    event = models.ForeignKey(Event)
+    event = models.ForeignKey(Event, related_name='show_times')
     date = models.DateField()
     from_time = models.TimeField()
     to_time = models.TimeField()
