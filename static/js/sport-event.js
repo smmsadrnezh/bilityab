@@ -103,43 +103,40 @@
     var seat_maps = $('#seat-maps');
     var current_step = step1;
     var current_select = positions;
+    var _href, _href2;
 
-    //$('.show-time').on('click', function () {
-    //
-    //});
+    step1.on('click', function () {
+        if (current_step == step1)
+            return false;
+        current_step = step1;
+        current_select.fadeOut(function () {
+            positions.fadeIn();
+            current_select = positions;
+        });
 
-    //step1.on('click', function () {
-    //    if (current_step == step1)
-    //        return false;
-    //    current_step = step1;
-    //    current_select.fadeOut(function () {
-    //        cinemas.fadeIn();
-    //        current_select = cinemas;
-    //    });
-    //
-    //    step1.removeClass('done').addClass('active');
-    //    step1.next().removeClass('done').addClass('active');
-    //
-    //    step2.removeClass('done').removeClass('active');
-    //    step2.next().removeClass('done').removeClass('active');
-    //
-    //    step3.removeClass('active');
-    //});
+        step1.removeClass('done').addClass('active');
+        step1.next().removeClass('done').addClass('active');
 
-    //step2.on('click', function () {
-    //    if (current_step == step2 || current_step == step1)
-    //        return false;
-    //    current_step = step2;
-    //    current_select.fadeOut(function () {
-    //        show_times.fadeIn();
-    //        current_select = show_times;
-    //    });
-    //
-    //    step2.removeClass('done').addClass('active');
-    //    step2.next().removeClass('done').addClass('active');
-    //
-    //    step3.removeClass('active');
-    //});
+        step2.removeClass('done').removeClass('active');
+        step2.next().removeClass('done').removeClass('active');
+
+        step3.removeClass('active');
+    });
+
+    step2.on('click', function () {
+        if (current_step == step2 || current_step == step1)
+            return false;
+        current_step = step2;
+        current_select.fadeOut(function () {
+            $(_href).fadeIn();
+            current_select = $(_href);
+        });
+
+        step2.removeClass('done').addClass('active');
+        step2.next().removeClass('done').addClass('active');
+
+        step3.removeClass('active');
+    });
 
     $('.seat').on('click', function () {
         if ($(this).hasClass('free-seat'))
@@ -172,7 +169,6 @@
         var counter = 1;
         $(this).children().each(function () {
             if ($(this).hasClass('free-seat')) {
-                console.log(counter)
                 $(this).attr('data-original-title', counter);
                 counter++;
             }
@@ -205,16 +201,15 @@
         shadowPosition: 'outside',
         shadowFrom: false
     });
+
     $('map').each(function () {
         var areas = $(this).find('area');
         areas.each(function () {
             $(this).on('click', function (e) {
-                console.log($(this).hasClass('no-internet-sale'))
                 if(!$(this).hasClass('no-internet-sale'))
                 {
                     var parent_id = $(this).parent().parent().attr('id');
                     var grand_pa_id = $(this).parent().parent().parent().attr('id');
-                    console.log(grand_pa_id)
                     if(parent_id == 'positions')
                     {
                         step1.removeClass('active').addClass('done');
@@ -222,10 +217,10 @@
                         step2.next().addClass('active');
                         step2.addClass('active');
                         current_step = step2;
-                        var _href = $(this).attr('href');
+                        _href = $(this).attr('href');
                         positions.fadeOut(function () {
                             $(_href).fadeIn();
-                            current_select = stations;
+                            current_select = $(_href);
                         });
                     }
                     else
@@ -236,10 +231,10 @@
                             step2.next().removeClass('active').addClass('done');
                             step3.addClass('active');
                             current_step = step3;
-                            var _href2 = $(this).attr('href');
-                            stations.fadeOut(function () {
+                            _href2 = $(this).attr('href');
+                            $(_href).fadeOut(function () {
                                 $(_href2).fadeIn();
-                                current_select = seat_maps;
+                                current_select = $(_href2);
                             });
                         }
                     }

@@ -392,8 +392,10 @@ body > .holder > div.col {
     display: none;
 }
 
-
-/* seats */
+.add-to-cart
+{
+    font-family: 'BYekan', sans-serif;
+}
 
 /* seats */
 
