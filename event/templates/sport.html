@@ -11,11 +11,12 @@
                     <div class="image away"
                          style="background-image: url('{% static "img/usa-flag-wallpaper-01.jpg" %}')"></div>
                     <div id="main-info">
+                        {{  }}
                         یکشنبه ۱۲ تیر ۹۴ | مجموعه ورزشی آزادی | ساعت ۲۱:۰۰
                     </div>
                     <div id="center-info">
                                 <span id="home-team">
-                                    {{ title|split:'-'|indexer:0 }}
+                                    {{ teams.home_team }}
                                 </span>
 
                         <div id="remaining-time" time-difference-milli-seconds="7300000">
@@ -37,7 +38,7 @@
                             </div>
                         </div>
                                 <span id="away-team">
-                                    آمریکا
+                                    {{ teams.away_team }}
                                 </span>
                     </div>
                 </div>
