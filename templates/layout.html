@@ -9,7 +9,7 @@
                 <li><a href="/events"><i class="fa fa-list"></i>رویدادها</a></li>
                 <li><a href="/ticket/2"><i class="fa fa-ticket"></i>بلیط‌های من</a></li>
                 {% if logged_in %}
-                    <li><a href="/logout"><i class="fa fa-sign-out"></i>خروج</a></li>
+                    <li><a href="/logout/?next={{ request.path }}"><i class="fa fa-sign-out"></i>خروج</a></li>
                 {% endif %}
             </ul>
             <div id="left-bar" class="col col-md-6">

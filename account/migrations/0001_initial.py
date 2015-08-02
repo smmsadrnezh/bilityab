@@ -7,7 +7,6 @@ import django.contrib.auth.models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('auth', '0006_require_contenttypes_0002'),
     ]
@@ -16,7 +15,9 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='CustomUser',
             fields=[
-                ('user_ptr', models.OneToOneField(primary_key=True, to=settings.AUTH_USER_MODEL, serialize=False, parent_link=True, auto_created=True)),
+                ('user_ptr',
+                 models.OneToOneField(primary_key=True, to=settings.AUTH_USER_MODEL, serialize=False, parent_link=True,
+                                      auto_created=True)),
                 ('registration_date', models.DateField()),
                 ('balance', models.FloatField()),
                 ('is_organizer', models.BooleanField(default=0)),
