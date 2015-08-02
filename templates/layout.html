@@ -50,7 +50,7 @@
                 <div id="cd-login"> <!-- log in form -->
                     <form class="cd-form" action="/login/?next={{ request.path }}" method="POST">{% csrf_token %}
                         <p class="fieldset">
-                            <label class="image-replace cd-email" for="signin-username">نام کاربری</label>
+                            <label class="image-replace cd-username" for="signin-username">نام کاربری</label>
                             <input class="full-width has-padding has-border" name="signin-username" id="signin-username"
                                    type="text"
                                    placeholder="نام کاربری">
