@@ -5,11 +5,6 @@ from event.models import Event
 
 
 def home(request):
-    if request.user.is_authenticated():
-        logged_in = True
-    else:
-        logged_in = False
-
     return render(request, 'home.html', {
         'bestEvents': Event.objects.all(),
         'nearestEvents': Event.objects.all(),
@@ -25,7 +20,7 @@ def home(request):
         'circusEvents': Event.objects.filter(category__title='سیرک'),
         'traditionalMusic': Event.objects.filter(category__title='سنتی'),
         'popMusic': Event.objects.filter(category__title='پاپ'),
-        'logged_in': logged_in
+        'logged_in': request.user.is_authenticated()
 
     })
 
@@ -33,16 +28,22 @@ def home(request):
 def terms(request):
     return render(request, 'terms.html', {
         'pageTitle': " - شرایط و ضوابط",
+        'logged_in': request.user.is_authenticated()
+
     })
 
 
 def about(request):
     return render(request, 'about.html', {
         'pageTitle': " - درباره",
+        'logged_in': request.user.is_authenticated()
+
     })
 
 
 def contact(request):
     return render(request, 'contact-us.html', {
         'pageTitle': " - تماس با ما",
+        'logged_in': request.user.is_authenticated()
+
     })

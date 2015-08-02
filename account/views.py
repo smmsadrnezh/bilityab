@@ -7,6 +7,7 @@ from django.contrib.auth.forms import UserCreationForm
 
 from account.models import CustomUser
 
+
 # Create your views here.
 
 
@@ -42,11 +43,13 @@ def register(request):
 
 def profile_edit(request, user_id):
     return render(request, 'profile.html', {
+        'logged_in': request.user.is_authenticated()
 
     })
 
 
 def charge(request, user_id):
     return render(request, 'charge.html', {
+        'logged_in': request.user.is_authenticated()
 
     })

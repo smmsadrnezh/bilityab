@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% load staticfiles %}
 {% block pageBody %}
-{% load sport-tags %}
+    {% load sport-tags %}
     <div class="holder">
         <div class="col col-md-12">
             <div class="col col-md-12" id="ticket">
@@ -17,6 +17,7 @@
                                 <span id="home-team">
                                     {{ title|split:'-'|indexer:0 }}
                                 </span>
+
                         <div id="remaining-time" time-difference-milli-seconds="7300000">
                             <div>
                                 <div id="day">25</div>
