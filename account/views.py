@@ -21,7 +21,8 @@ def login(request):
             auth.login(request, user)
             return HttpResponseRedirect(request.REQUEST.get('next', ''))
         else:
-            invalid_html = get_template('invalid.html').render()
+            return HttpResponseRedirect(redirect_to=request.REQUEST.get('next', ''),kwargs={'location': 'salam'})
+
 
     c = {}
     c.update(csrf(request))

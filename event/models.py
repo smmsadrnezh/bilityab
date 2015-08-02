@@ -84,7 +84,7 @@ class Movie(models.Model):
 
 
 class Sport(models.Model):
-    event = models.OneToOneField(Event, primary_key=True, related_name='teams')
+    event = models.OneToOneField(Event, primary_key=True)
     home_team = models.CharField(max_length=30)
     away_team = models.CharField(max_length=30)
 

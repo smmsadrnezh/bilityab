@@ -48,7 +48,7 @@
                     <li><a href="#0">ثبت نام</a></li>
                 </ul>
                 <div id="cd-login"> <!-- log in form -->
-                    <form class="cd-form" action="/login/?next={{ request.path }}" method="POST">{% csrf_token %}
+                    <form class="cd-form" id="signin-form" action="/login/?next={{ request.path }}" method="POST">{% csrf_token %}
                         <p class="fieldset">
                             <label class="image-replace cd-username" for="signin-username">نام کاربری</label>
                             <input class="full-width has-padding has-border" name="signin-username" id="signin-username"

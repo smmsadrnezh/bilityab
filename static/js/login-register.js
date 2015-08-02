@@ -91,15 +91,26 @@ jQuery(document).ready(function ($) {
         $form_forgot_password.addClass('is-selected');
     }
 
+    $.ajax({
+        type: "POST",
+        url: window.location.pathname + "login/",
+        data: $("#signin-form").serialize(), // serializes the form's elements.
+        success: function (data) {
+            document.querySelector("#invalid-message").innerHTML = data;
+        }
+    });
+
+    return false; // avoid to execute the actual submit of the form.
+
     ////REMOVE THIS - it's just to show error messages
-    //$form_login.find('input[type="submit"]').on('click', function (event) {
-    //    event.preventDefault();
-    //    $form_login.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
-    //});
-    //$form_signup.find('input[type="submit"]').on('click', function (event) {
-    //    event.preventDefault();
-    //    $form_signup.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
-    //});
+    $form_login.find('input[type="submit"]').on('click', function (event) {
+        event.preventDefault();
+        $form_login.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
+    });
+    $form_signup.find('input[type="submit"]').on('click', function (event) {
+        event.preventDefault();
+        $form_signup.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
+    });
 
 
     ////IE9 placeholder fallback
