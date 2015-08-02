@@ -1,10 +1,9 @@
-from django.http import Http404
-from django.shortcuts import render
+# -*- coding: utf-8 -*-
 
 from .models import *
-
-
-# -*- coding: utf-8 -*-
+from django.http import Http404
+from django.shortcuts import render
+from bilityab import change_date
 
 
 def events(request):
@@ -62,8 +61,8 @@ def sport(request, event_id):
     except Event.DoesNotExist:
         raise Http404("sport event does not exist!")
     return render(request, 'sport.html', {
-        'title': event.title,
-        'teams': event.teams
+        'event': event,
+        'persian_date': event.show_times
     })
 
 

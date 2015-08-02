@@ -7,16 +7,17 @@
             <div class="col col-md-12" id="ticket">
                 <div class="col col-md-12" id="ticket-info">
                     <div class="image home"
-                         style="background-image: url('{% static "img/Flag_of_Iran.svg.png" %}')"></div>
+                         style="background-image: url('{% static 'flags/' %}{{ event.sport.home_team }}.png')"></div>
                     <div class="image away"
-                         style="background-image: url('{% static "img/usa-flag-wallpaper-01.jpg" %}')"></div>
+                         style="background-image: url('{% static 'flags/' %}{{ event.sport.away_team }}.png')"></div>
                     <div id="main-info">
-                        {{  }}
+
+                        {{ event.event_organizer.title }}
                         یکشنبه ۱۲ تیر ۹۴ | مجموعه ورزشی آزادی | ساعت ۲۱:۰۰
                     </div>
                     <div id="center-info">
                                 <span id="home-team">
-                                    {{ teams.home_team }}
+                                    {{ event.sport.home_team }}
                                 </span>
 
                         <div id="remaining-time" time-difference-milli-seconds="7300000">
@@ -38,7 +39,7 @@
                             </div>
                         </div>
                                 <span id="away-team">
-                                    {{ teams.away_team }}
+                                    {{ event.sport.away_team }}
                                 </span>
                     </div>
                 </div>
