@@ -11,6 +11,7 @@
                 <li><a href="/about"><i class="fa fa-info-circle"></i>دربارهٔ ما</a></li>
                 {#                <li><a href="/terms"><i class="fa fa-flag"></i>شرایط و ضوابط</a></li>#}
                 <li><a href="/contact"><i class="fa fa-phone"></i>تماس با ما</a></li>
+                <li><a href="/logout"><i class="fa fa-sign-out"></i>خروج</a></li>
             </ul>
             <div id="left-bar" class="col col-md-6">
                 <input type="text" id="autocomplete" name="search" placeholder="جستجوی رویداد ...">
@@ -37,109 +38,113 @@
 
 
     </div>
-    <div id="login-register">
-        <div id="for-login" style="background-color: #c9302c"><i class="fa fa-sign-in"></i>ورود</div>
-        <div id="for-register" style="background-color: #555"><i class="fa fa-user-plus"></i>ثبت نام</div>
-    </div>
-    <div class="cd-user-modal"> <!-- this is the entire modal form, including the background -->
-        <div class="cd-user-modal-container "> <!-- this is the container wrapper -->
-            <ul class="cd-switcher ">
-                <li><a href="#0">ورود</a></li>
-                <li><a href="#0">ثبت نام</a></li>
-            </ul>
-            <div id="cd-login"> <!-- log in form -->
-                <form class="cd-form">
-                    <p class="fieldset">
-                        <label class="image-replace cd-email" for="signin-email">پست الکترونیکی</label>
-                        <input class="full-width has-padding has-border" id="signin-email" type="email"
-                               placeholder="پست الکترونیکی">
-                        <span class="cd-error-message">پست الکترونیکی نامعبتر!</span>
-                    </p>
-
-                    <p class="fieldset">
-                        <label class="image-replace cd-password" for="signin-password">رمز عبور</label>
-                        <input class="full-width has-padding has-border" id="signin-password" type="text"
-                               placeholder="رمز عبور">
-                        <a href="#0" class="hide-password">مخفی کردن</a>
-                        <span class="cd-error-message">رمز عبور نامعتبر!</span>
-                    </p>
-
-                    <!--<p class="fieldset">-->
-                    <!--<input type="checkbox" id="remember-me" checked>-->
-                    <!--<label for="remember-me">مرا به خاطر بسپار!</label>-->
-                    <!--</p>-->
-
-                    <p class="fieldset">
-                        <input class="full-width" type="submit" value="ورود">
-                    </p>
-                </form>
-
-                <p class="cd-form-bottom-message"><a href="#0">رمز عبور یادتون رفته؟</a></p>
-                <!-- <a href="#0" class="cd-close-form">Close</a> -->
-            </div>
-            <!-- cd-login -->
-
-            <div id="cd-signup"> <!-- sign up form -->
-                <form class="cd-form">
-                    <p class="fieldset">
-                        <label class="image-replace cd-username" for="signup-username">نام کاربری</label>
-                        <input class="full-width has-padding has-border" id="signup-username" type="text"
-                               placeholder="نام کاربری">
-                        <span class="cd-error-message">نام کاربری نامعتبر</span>
-                    </p>
-
-                    <p class="fieldset">
-                        <label class="image-replace cd-email" for="signup-email">پست الکترونیکی</label>
-                        <input class="full-width has-padding has-border" id="signup-email" type="email"
-                               placeholder="پست الکترونیکی">
-                        <span class="cd-error-message">پست الکترونیکی نامعتبر</span>
-                    </p>
-
-                    <p class="fieldset">
-                        <label class="image-replace cd-password" for="signup-password">رمز عبور</label>
-                        <input class="full-width has-padding has-border" id="signup-password" type="text"
-                               placeholder="رمز عبور">
-                        <a href="#0" class="hide-password">مخفی کردن</a>
-                        <span class="cd-error-message">رمز عبور نامعتبر</span>
-                    </p>
-
-                    <!--<p class="fieldset">-->
-                    <!--<input type="checkbox" id="accept-terms">-->
-                    <!--<label for="accept-terms">I agree to the <a href="#0">Terms</a></label>-->
-                    <!--</p>-->
-
-                    <p class="fieldset">
-                        <input class="full-width has-padding" type="submit" value="ایجاد حساب کاربری">
-                    </p>
-                </form>
-
-                <!-- <a href="#0" class="cd-close-form">Close</a> -->
-            </div>
-            <!-- cd-signup -->
-
-            <div id="cd-reset-password"> <!-- reset password form -->
-                <p class="cd-form-message">
-                    پست الکترونیکی خود را در فیلد زیر وارد کنید تا رمز عبور جدید برایتان ارسال شود.
-                </p>
-
-                <form class="cd-form">
-                    <p class="fieldset">
-                        <label class="image-replace cd-email" for="reset-email">پست الکترونیکی</label>
-                        <input class="full-width has-padding has-border" id="reset-email" type="email"
-                               placeholder="پست الکترونیکی">
-                        <span class="cd-error-message">پست الکترونیکی نامعتبر</span>
-                    </p>
-
-                    <p class="fieldset">
-                        <input class="full-width has-padding" type="submit" value="تغییر رمز عبور">
-                    </p>
-                </form>
-
-                <p class="cd-form-bottom-message"><a href="#0">ورود به حساب کاربری</a></p>
-            </div>
-            <!-- cd-reset-password -->
-            <a href="#0" class="cd-close-form">بستن</a>
+    {% if not logged_in %}
+        <div id="login-register">
+            <div id="for-login" style="background-color: #c9302c"><i class="fa fa-sign-in"></i>ورود</div>
+            <div id="for-register" style="background-color: #555"><i class="fa fa-user-plus"></i>ثبت نام</div>
         </div>
-        <!-- cd-user-modal-container -->
-    </div>
+        <div class="cd-user-modal"> <!-- this is the entire modal form, including the background -->
+            <div class="cd-user-modal-container "> <!-- this is the container wrapper -->
+                <ul class="cd-switcher ">
+                    <li><a href="#0">ورود</a></li>
+                    <li><a href="#0">ثبت نام</a></li>
+                </ul>
+                <div id="cd-login"> <!-- log in form -->
+                    <form class="cd-form" action="/login/?next={{ request.path }}" method="POST">{% csrf_token %}
+                        <p class="fieldset">
+                            <label class="image-replace cd-email" for="signin-username">نام کاربری</label>
+                            <input class="full-width has-padding has-border" name="signin-username" id="signin-username"
+                                   type="text"
+                                   placeholder="نام کاربری">
+                            <span class="cd-error-message">نام کاربری نامعتبر</span>
+                        </p>
+
+                        <p class="fieldset">
+                            <label class="image-replace cd-password" for="signin-password">رمز عبور</label>
+                            <input class="full-width has-padding has-border" name="signin-password" id="signin-password"
+                                   type="text"
+                                   placeholder="رمز عبور">
+                            <a href="#0" class="hide-password">مخفی کردن</a>
+                            <span class="cd-error-message">رمز عبور نامعتبر!</span>
+                        </p>
+
+                        <p class="fieldset">
+                            <input type="checkbox" id="remember-me" checked>
+                            <label for="remember-me">مرا به خاطر بسپار!</label>
+                        </p>
+
+                        <p class="fieldset">
+                            <input class="full-width" type="submit" value="ورود">
+                        </p>
+                    </form>
+
+                    <p class="cd-form-bottom-message"><a href="#0">رمز عبور یادتون رفته؟</a></p>
+                    <!-- <a href="#0" class="cd-close-form">Close</a> -->
+                </div>
+                <!-- cd-login -->
+
+                <div id="cd-signup"> <!-- sign up form -->
+                    <form class="cd-form">
+                        <p class="fieldset">
+                            <label class="image-replace cd-username" for="signup-username">نام کاربری</label>
+                            <input class="full-width has-padding has-border" id="signup-username" type="text"
+                                   placeholder="نام کاربری">
+                            <span class="cd-error-message">نام کاربری نامعتبر</span>
+                        </p>
+
+                        <p class="fieldset">
+                            <label class="image-replace cd-email" for="signup-email">پست الکترونیکی</label>
+                            <input class="full-width has-padding has-border" id="signup-email" type="email"
+                                   placeholder="پست الکترونیکی">
+                            <span class="cd-error-message">پست الکترونیکی نامعتبر</span>
+                        </p>
+
+                        <p class="fieldset">
+                            <label class="image-replace cd-password" for="signup-password">رمز عبور</label>
+                            <input class="full-width has-padding has-border" id="signup-password" type="text"
+                                   placeholder="رمز عبور">
+                            <a href="#0" class="hide-password">مخفی کردن</a>
+                            <span class="cd-error-message">رمز عبور نامعتبر</span>
+                        </p>
+
+                        <!--<p class="fieldset">-->
+                        <!--<input type="checkbox" id="accept-terms">-->
+                        <!--<label for="accept-terms">I agree to the <a href="#0">Terms</a></label>-->
+                        <!--</p>-->
+
+                        <p class="fieldset">
+                            <input class="full-width has-padding" type="submit" value="ایجاد حساب کاربری">
+                        </p>
+                    </form>
+
+                    <!-- <a href="#0" class="cd-close-form">Close</a> -->
+                </div>
+                <!-- cd-signup -->
+
+                <div id="cd-reset-password"> <!-- reset password form -->
+                    <p class="cd-form-message">
+                        پست الکترونیکی خود را در فیلد زیر وارد کنید تا رمز عبور جدید برایتان ارسال شود.
+                    </p>
+
+                    <form class="cd-form">
+                        <p class="fieldset">
+                            <label class="image-replace cd-email" for="reset-email">پست الکترونیکی</label>
+                            <input class="full-width has-padding has-border" id="reset-email" type="email"
+                                   placeholder="پست الکترونیکی">
+                            <span class="cd-error-message">پست الکترونیکی نامعتبر</span>
+                        </p>
+
+                        <p class="fieldset">
+                            <input class="full-width has-padding" type="submit" value="تغییر رمز عبور">
+                        </p>
+                    </form>
+
+                    <p class="cd-form-bottom-message"><a href="#0">ورود به حساب کاربری</a></p>
+                </div>
+                <!-- cd-reset-password -->
+                <a href="#0" class="cd-close-form">بستن</a>
+            </div>
+            <!-- cd-user-modal-container -->
+        </div>
+    {% endif %}
 {% endblock %}

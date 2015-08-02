@@ -12,6 +12,9 @@ urlpatterns = [
     url(r'^profile/(?P<user_id>\d+)/$', 'account.views.profile_edit'),
     url(r'^profile/(?P<user_id>\d+)/charge/$', 'account.views.charge'),
 
+    url(r'^login/$', 'account.views.login'),
+    url(r'^logout/$', 'account.views.logout'),
+
     ### event urls
     url(r'^events/$', 'event.views.events'),
     url(r'^events/add/$', 'event.views.add_event'),

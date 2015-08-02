@@ -31,7 +31,7 @@ class ChangeDate(object):
 
     @staticmethod
     def leap_gregorian(year):
-        return ((year % 4) == 0) and (not(((year % 100) == 0) and ((year % 400) != 0)))
+        return ((year % 4) == 0) and (not (((year % 100) == 0) and ((year % 400) != 0)))
 
     @staticmethod
     def gregorian_to_jd(year, month, day):
@@ -40,7 +40,7 @@ class ChangeDate(object):
         var_3 = math.floor((year - 1) / 400) + math.floor((((367 * month) - 362) / 12))
         var_5 = 0 if month <= 2 else (-1 if ChangeDate.leap_gregorian(year) != 0 else -2)
         var_4 = day
-        return var_1+var_2+var_3+var_4+var_5
+        return var_1 + var_2 + var_3 + var_4 + var_5
 
     @staticmethod
     def persian_to_jd(year, month, day):
@@ -78,9 +78,10 @@ class ChangeDate(object):
     def get_persian_date_time(self, date_time):
         persian_date = self.change(year=date_time.year, month=date_time.month, day=date_time.day)
         time_arr = str(date_time.time()).split(':')
-        time = time_arr[0]+':'+time_arr[1]+':'+str(int(float(time_arr[2])))
-        return str(persian_date[2])+' '+self.PERSIAN_MONTHS[persian_date[1]-1]+' '+str(persian_date[0])+' ، '+time
-    
+        time = time_arr[0] + ':' + time_arr[1] + ':' + str(int(float(time_arr[2])))
+        return str(persian_date[2]) + ' ' + self.PERSIAN_MONTHS[persian_date[1] - 1] + ' ' + str(
+            persian_date[0]) + ' ، ' + time
+
     def get_persian_date(self, date):
         persian_date = self.change(year=date.year, month=date.month, day=date.day)
-        return str(persian_date[2])+' '+self.PERSIAN_MONTHS[persian_date[1]-1]+' '+str(persian_date[0])
+        return str(persian_date[2]) + ' ' + self.PERSIAN_MONTHS[persian_date[1] - 1] + ' ' + str(persian_date[0])

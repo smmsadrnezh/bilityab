@@ -10,10 +10,11 @@ def login(request):
     invalid_html = ""
 
     if request.method == "POST":
-        user = auth.authenticate(username=request.POST.get('username', ''), password=request.POST.get('password', ''))
+        user = auth.authenticate(username=request.POST.get('signin-username', ''),
+                                 password=request.POST.get('signin-password', ''))
         if user is not None:
             auth.login(request, user)
-            return HttpResponseRedirect(request.POST.get)
+            return HttpResponseRedirect(request.REQUEST.get('next', ''))
         else:
             invalid_html = get_template('invalid.html').render()
 
@@ -37,3 +38,8 @@ def charge(request, user_id):
     return render(request, 'charge.html', {
 
     })
+
+
+def logout(request):
+    auth.logout(request)
+    return HttpResponseRedirect('/')

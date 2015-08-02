@@ -1,11 +1,17 @@
-from django.shortcuts import render
-from event.models import Event,EventRating
 # -*- coding: utf-8 -*-
+from django.shortcuts import render
+
+from event.models import Event
 
 
 def home(request):
+    if request.user.is_authenticated():
+        logged_in = True
+    else:
+        logged_in = False
+
     return render(request, 'home.html', {
-        'bestEvents':  Event.objects.all(),
+        'bestEvents': Event.objects.all(),
         'nearestEvents': Event.objects.all(),
         'actionMovies': Event.objects.filter(category__title='اکشن'),
         'dramaticMovies': Event.objects.filter(category__title='درام'),
@@ -19,7 +25,7 @@ def home(request):
         'circusEvents': Event.objects.filter(category__title='سیرک'),
         'traditionalMusic': Event.objects.filter(category__title='سنتی'),
         'popMusic': Event.objects.filter(category__title='پاپ'),
-
+        'logged_in': logged_in
 
     })
 

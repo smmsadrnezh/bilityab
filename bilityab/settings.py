@@ -55,6 +55,11 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.security.SecurityMiddleware',
 )
 
+AUTHENTICATION_BACKENDS = (
+    'bilityab.auth_backends.CustomUserModelBackend',
+)
+CUSTOM_USER_MODEL = 'account.CustomUser'
+
 ROOT_URLCONF = 'bilityab.urls'
 
 TEMPLATES = [

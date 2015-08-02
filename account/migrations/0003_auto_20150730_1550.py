@@ -6,7 +6,6 @@ import django.contrib.auth.models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('account', '0002_auto_20150720_1809'),
     ]

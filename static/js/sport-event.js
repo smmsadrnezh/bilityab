@@ -174,8 +174,8 @@
             }
             else if ($(this).hasClass('sold-seat'))
                 counter++;
-                else if ($(this).hasClass('seat-row'))
-                    counter = 1;
+            else if ($(this).hasClass('seat-row'))
+                counter = 1;
         });
     });
 
@@ -206,12 +206,10 @@
         var areas = $(this).find('area');
         areas.each(function () {
             $(this).on('click', function (e) {
-                if(!$(this).hasClass('no-internet-sale'))
-                {
+                if (!$(this).hasClass('no-internet-sale')) {
                     var parent_id = $(this).parent().parent().attr('id');
                     var grand_pa_id = $(this).parent().parent().parent().attr('id');
-                    if(parent_id == 'positions')
-                    {
+                    if (parent_id == 'positions') {
                         step1.removeClass('active').addClass('done');
                         step1.next().removeClass('active').addClass('done');
                         step2.next().addClass('active');
@@ -223,10 +221,8 @@
                             current_select = $(_href);
                         });
                     }
-                    else
-                    {
-                        if(grand_pa_id == 'stations')
-                        {
+                    else {
+                        if (grand_pa_id == 'stations') {
                             step2.removeClass('active').addClass('done');
                             step2.next().removeClass('active').addClass('done');
                             step3.addClass('active');
