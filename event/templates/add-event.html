@@ -3,51 +3,59 @@
 {% block pageBody %}
     <div class="holder">
         <div class="col col-md-12">
-            <div class="col col-md-12" id="ticket">
-                <div role="tabpanel" class="tab-pane" id="details">
-                    <div class="col col-md-12">
-                        <h3>افزودن رویداد جدید</h3>
+            <div id="add-event" class="col col-md-12">
 
-                        <form class="cd-form">
+                <h3>افزودن رویداد جدید</h3>
 
-                            <p class="fieldset">
-                                <label for="signin-email" class="image-replace cd-username">عنوان رویداد</label>
-                                <input type="email" placeholder="عنوان رویداد" id="signin-email"
-                                       class="full-width has-padding has-border disabled">
-                            </p>
+                <form class="cd-form">
 
-                            <p class="fieldset">
-                                <label for="signin-email" class="image-replace cd-username">توضیحات</label>
-                                <input type="email" placeholder="توضیحات" id="signin-email"
-                                       class="full-width has-padding has-border disabled">
-                            </p>
+                    <p class="fieldset">
+                        <i class="fa fa-header"></i>
+                        <input class="full-width has-padding has-border" id="event-title"
+                               name="event-title"
+                               type="text"
+                               placeholder="عنوان رویداد">
+                        <span class="cd-error-message">عنوان رویداد نامعتبر</span>
+                    </p>
 
-                            <p class="fieldset">
-                                <label for="signin-email" class="image-replace cd-username">دسته</label>
-                                <input type="email" placeholder="دسته" id="signin-email"
-                                       class="full-width has-padding has-border disabled">
-                            </p>
+                    <p class="fieldset">
+                        <i class="fa fa-info"></i>
+                        <input class="full-width has-padding has-border" id="event-description"
+                               name="event-description"
+                               type="text"
+                               placeholder="توضیحات">
+                        <span class="cd-error-message">توضیحات نامعتبر</span>
+                    </p>
 
-                            <p class="fieldset">
-                                <label for="signin-email" class="image-replace cd-username">محل برگزاری</label>
-                                <input type="email" placeholder="محل برگزاری" id="signin-email"
-                                       class="full-width has-padding has-border disabled">
-                            </p>
+                    <p class="fieldset">
+                        <i class="fa fa-th-list"></i>
+                        <select name="دسته">
+                            <option value="دسته یک">دسته یک</option>
+                            <option value="دسته دو">دسته دو</option>
+                        </select>
+                        <span class="cd-error-message">دسته نامعتبر</span>
+                    </p>
 
-                            <p class="fieldset">
-                                <label for="signin-email" class="image-replace cd-username">تصویر رویداد</label>
-                                <input type="email" placeholder="تصویر رویداد" id="signin-email"
-                                       class="full-width has-padding has-border disabled">
-                            </p>
+                    <p class="fieldset">
+                        <i class="fa fa-location-arrow"></i>
+                        <input class="full-width has-padding has-border" id="event-address"
+                               name="event-address"
+                               type="text"
+                               placeholder="محل برگزاری">
+                        <span class="cd-error-message">محل برگزاری نامعتبر</span>
+                    </p>
 
-                            <a class="btn btn-primary btn-lg btn-block" href="/profile/1/">
-                                <i class="fa fa-plus-circle"></i> افزودن
-                            </a>
-                        </form>
-                    </div>
-                </div>
-
-
+                    <p class="fieldset">
+                        <i class="fa fa-file-image-o"></i>
+                                           <input class="full-width has-padding has-border" id="event-photo"
+                               name="event-photo"
+                               type="file">
+                        <span class="cd-error-message">تصویر رویداد نامعتبر</span>
+                    </p>
+                    <a class="btn btn-primary btn-lg btn-block" href="/profile/1/">
+                        <i class="fa fa-save"></i> ذخیره
+                    </a>
+                </form>
             </div>
 
         </div>
