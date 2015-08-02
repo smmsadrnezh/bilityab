@@ -167,17 +167,21 @@
             $(this).attr('data-original-title', 'فروخته شده');
         $(this).tooltip();
     });
-    var counter = 1;
-    //$('#plan-azadi').children().each(function () {
-    //    if ($(this).hasClass('free-seat')) {
-    //        $(this).attr('data-original-title', counter);
-    //        counter++;
-    //    }
-    //    else if ($(this).hasClass('sold-seat'))
-    //        counter++;
-    //    else if ($(this).hasClass('seat-row'))
-    //        counter = 1;
-    //});
+
+    $('#seat-maps > div').each(function () {
+        var counter = 1;
+        $(this).children().each(function () {
+            if ($(this).hasClass('free-seat')) {
+                console.log(counter)
+                $(this).attr('data-original-title', counter);
+                counter++;
+            }
+            else if ($(this).hasClass('sold-seat'))
+                counter++;
+                else if ($(this).hasClass('seat-row'))
+                    counter = 1;
+        });
+    });
 
     $('img[usemap]').maphilight({
         fill: true,
