@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-from .models import *
 from django.http import Http404
 from django.shortcuts import render
-from bilityab import change_date
+
+from .models import *
 
 
 def events(request):

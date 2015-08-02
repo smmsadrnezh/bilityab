@@ -99,7 +99,7 @@ jQuery(document).ready(function ($) {
             url: "/login/",
             data: $("#signin-form").serialize(), // serializes the form's elements.
             success: function (data) {
-                if (parseInt(data)){
+                if (parseInt(data)) {
                     window.location.replace(window.location.pathname);
                 } else {
                     $form_login.find('input[type="text"]').toggleClass('has-error').next('span').toggleClass('is-visible');
