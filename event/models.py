@@ -86,12 +86,10 @@ class Movie(models.Model):
 class Sport(models.Model):
     event = models.OneToOneField(Event, primary_key=True, related_name='teams')
     home_team = models.CharField(max_length=30)
-    home_team_flag = models.ImageField()
     away_team = models.CharField(max_length=30)
-    away_team_flag = models.ImageField()
 
     def __str__(self):
-        return "%s %s" % (self.country1, self.country2)
+        return "%s %s" % (self.home_team, self.away_team)
 
 
 class EventRating(models.Model):
