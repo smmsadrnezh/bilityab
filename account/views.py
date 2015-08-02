@@ -8,8 +8,6 @@ from .check_registration import CheckRegistration
 
 from account.models import CustomUser
 
-
-
 # Create your views here.
 
 
@@ -65,16 +63,19 @@ def register(request):
     else:
         return HttpResponseForbidden('post required')
 
-
 def profile_edit(request, user_id):
-    return render(request, 'profile.html', {
-        'logged_in': request.user.is_authenticated()
-
-    })
-
+    if request.user.is_authenticated():
+        return render(request, 'profile.html', {
+            'logged_in': request.user.is_authenticated()
+        })
+    else:
+        return HttpResponseRedirect('/')
 
 def charge(request, user_id):
-    return render(request, 'charge.html', {
+    if request.user.is_authenticated():
+        return render(request, 'charge.html', {
         'logged_in': request.user.is_authenticated()
 
-    })
+        })
+    else:
+        return HttpResponseRedirect('/')
