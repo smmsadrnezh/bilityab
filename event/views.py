@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
+from .models import *
 from django.http import Http404
 from django.shortcuts import render
-
-from .models import *
+from bilityab.change_date import ChangeDate
 
 
 def events(request):
@@ -58,11 +58,13 @@ def all_tourism(request, event_id):
 def sport(request, event_id):
     try:
         event = Event.objects.get(pk=event_id)
+        show_time = event.show_times.all()[0]
+        print(show_time.date)
     except Event.DoesNotExist:
         raise Http404("sport event does not exist!")
     return render(request, 'sport.html', {
         'event': event,
-        'persian_date': event.show_times
+        # 'persian_date': ChangeDate.get_persian_date(show_time.date)
     })
 
 

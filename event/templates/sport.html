@@ -11,7 +11,8 @@
                     <div class="image away"
                          style="background-image: url('{% static 'flags/' %}{{ event.sport.away_team }}.png')"></div>
                     <div id="main-info">
-
+                        {{ event.show_times }}
+                        {{ persian_date }}
                         {{ event.event_organizer.title }}
                         یکشنبه ۱۲ تیر ۹۴ | مجموعه ورزشی آزادی | ساعت ۲۱:۰۰
                     </div>
