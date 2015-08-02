@@ -64,26 +64,54 @@
                     </div>
                     <div role="tabpanel" class="tab-pane" id="details">
                         <div class="col col-md-12">
+
                             <h3>ویرایش مشخصات</h3>
 
                             <form class="cd-form">
 
                                 <p class="fieldset">
-                                    <label for="signin-email" class="image-replace cd-username">نام</label>
-                                    <input type="email" placeholder="نام" id="signin-email"
-                                           class="full-width has-padding has-border disabled">
+                                    <i class="fa fa-user"></i>
+                                    <input class="full-width has-padding has-border" id="edit-first-name"
+                                           name="edit-first-name"
+                                           type="text"
+                                           placeholder="نام">
+                                    <span class="cd-error-message">نام نامعتبر</span>
                                 </p>
 
                                 <p class="fieldset">
-                                    <label for="signin-email" class="image-replace cd-username">نام خانوادگی</label>
-                                    <input type="email" placeholder="نام خانوادگی" id="signin-email"
-                                           class="full-width has-padding has-border disabled">
+                                    <i class="fa fa-user"></i>
+                                    <input class="full-width has-padding has-border" id="edit-last-name"
+                                           name="edit-last-name"
+                                           type="text"
+                                           placeholder="نام خانوادگی">
+                                    <span class="cd-error-message">نام خانوادگی نامعتبر</span>
                                 </p>
 
                                 <p class="fieldset">
-                                    <label for="signin-email" class="image-replace cd-username">شماره تلفن</label>
-                                    <input type="email" placeholder="شماره تلفن" id="signin-email"
-                                           class="full-width has-padding has-border disabled">
+                                    <i class="fa fa-calendar"></i>
+                                    <input class="full-width has-padding has-border" id="edit-birthday"
+                                           name="edit-birthday"
+                                           type="text"
+                                           placeholder="تاریخ تولد">
+                                    <span class="cd-error-message">تاریخ تولد نامعتبر</span>
+                                </p>
+
+                                <p class="fieldset">
+                                    <i class="fa fa-transgender"></i>
+                                    <input class="full-width has-padding has-border" id="edit-gender"
+                                           name="edit-gender"
+                                           type="text"
+                                           placeholder="جنسیت">
+                                    <span class="cd-error-message">جنسیت نامعتبر</span>
+                                </p>
+
+                                <p class="fieldset">
+                                    <i class="fa fa-phone"></i>
+                                    <input class="full-width has-padding has-border" id="edit-phone"
+                                           name="edit-phone"
+                                           type="text"
+                                           placeholder="شماره تماس">
+                                    <span class="cd-error-message">شماره تماس نامعتبر</span>
                                 </p>
                                 <a class="btn btn-primary btn-lg btn-block" href="/profile/1/">
                                     <i class="fa fa-save"></i> ذخیره
@@ -96,25 +124,44 @@
                             <h3>ویرایش اطلاعات حساب کاربری</h3>
 
                             <form class="cd-form">
-                                <p class="fieldset">
-                                    <label for="signin-email" class="image-replace cd-username">ایمیل</label>
-                                    <input type="email" placeholder="ایمیل" id="signin-email"
-                                           class="full-width has-padding has-border disabled">
-                                </p>
+                        <p class="fieldset">
+                            <i class="fa fa-user"></i>
+                            <input class="full-width has-padding has-border" id="edit-username" name="edit-username"
+                                   type="text"
+                                   placeholder="نام کاربری">
+                            <span class="cd-error-message">نام کاربری نامعتبر</span>
+                        </p>
 
-                                <p class="fieldset">
-                                    <label for="signin-password" class="image-replace cd-password">رمز عبور جدید</label>
-                                    <input type="text" placeholder="رمز عبور جدید" id="signin-password"
-                                           class="full-width has-padding has-border">
-                                </p>
+                        <p class="fieldset">
+                            <i class="fa fa-envelope"></i>
+                            <input class="full-width has-padding has-border" id="edit-email" name="edit-email"
+                                   type="email"
+                                   placeholder="پست الکترونیکی">
+                        </p>
 
-                                <p class="fieldset">
-                                    <label for="signin-password" class="image-replace cd-password">تکرار رمز عبور
-                                        جدید</label>
-                                    <input type="text" placeholder="تکرار رمز عبور جدید" id="signin-password"
-                                           class="full-width has-padding has-border">
+                                                        <p class="fieldset">
+                            <i class="fa fa-key"></i>
+                            <input class="full-width has-padding has-border" id="edit-password" name="edit-password"
+                                   type="password"
+                                   placeholder="رمز عبور قبلی">
+                            <span class="cd-error-message">رمز عبور قبلی نامعتبر است</span>
+                        </p>
 
-                                </p>
+                        <p class="fieldset">
+                            <i class="fa fa-key"></i>
+                            <input class="full-width has-padding has-border" id="edit-new-password" name="edit-new-password"
+                                   type="password"
+                                   placeholder="رمز عبور جدید">
+                            <span class="cd-error-message">رمز عبور جدید قابل قبول نیست</span>
+                        </p>
+
+                        <p class="fieldset">
+                            <i class="fa fa-key"></i>
+                            <input class="full-width has-padding has-border" id="edit-new-password-repeat" name="edit-new-password-repeat"
+                                   type="password"
+                                   placeholder="تکرار رمز عبور جدید">
+                            <span class="cd-error-message">تکرار رمز عبور جدید یکسان نیست</span>
+                        </p>
 
                                 <p class="fieldset">
                                     <a class="btn btn-primary btn-lg btn-block" href="/profile/1/">

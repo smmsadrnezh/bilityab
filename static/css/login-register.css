@@ -378,7 +378,7 @@
     display: block;
 }
 
-.cd-user-modal i.fa {
+#settings  i.fa, #details i.fa, .cd-user-modal i.fa {
     position: absolute;
     top: 30%;
     right: 18px;

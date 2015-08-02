@@ -79,7 +79,7 @@
                         </p>
                     </form>
 
-                    <p class="cd-form-bottom-message"><a href="#0">رمز عبور یادتون رفته؟</a></p>
+                    <p class="cd-form-bottom-message"><a href="/">فراموشی رمز عبور</a></p>
                     <!-- <a href="#0" class="cd-close-form">Close</a> -->
                 </div>
                 <!-- cd-login -->
@@ -88,7 +88,6 @@
                     <form class="cd-form" action="/register/" method="POST">{% csrf_token %}
                         <p class="fieldset">
                             <i class="fa fa-user"></i>
-                            <label class="image-replace cd-username" for="signup-name">نام</label>
                             <input class="full-width has-padding has-border" id="signup-first-name"
                                    name="signup-first-name"
                                    type="text"
@@ -98,7 +97,6 @@
 
                         <p class="fieldset">
                             <i class="fa fa-user"></i>
-                            <label class="image-replace cd-username" for="signup-username">نام خانوادگی</label>
                             <input class="full-width has-padding has-border" id="signup-last-name"
                                    name="signup-last-name"
                                    type="text"
@@ -108,9 +106,8 @@
 
                         <p class="fieldset">
                             <i class="fa fa-calendar"></i>
-                            <label class="image-replace cd-username" for="signup-username">تاریخ تولد</label>
-                            <input class="full-width has-padding has-border" id="signup-last-name"
-                                   name="signup-last-name"
+                            <input class="full-width has-padding has-border" id="signup-birthday"
+                                   name="signup-birthday"
                                    type="text"
                                    placeholder="تاریخ تولد">
                             <span class="cd-error-message">تاریخ تولد نامعتبر</span>
@@ -118,9 +115,8 @@
 
                         <p class="fieldset">
                             <i class="fa fa-transgender"></i>
-                            <label class="image-replace cd-username" for="signup-username">جنسیت</label>
-                            <input class="full-width has-padding has-border" id="signup-last-name"
-                                   name="signup-last-name"
+                            <input class="full-width has-padding has-border" id="signup-gender"
+                                   name="signup-gender"
                                    type="text"
                                    placeholder="جنسیت">
                             <span class="cd-error-message">جنسیت نامعتبر</span>
@@ -128,9 +124,8 @@
 
                         <p class="fieldset">
                             <i class="fa fa-phone"></i>
-                            <label class="image-replace cd-username" for="signup-username">شماره تماس</label>
-                            <input class="full-width has-padding has-border" id="signup-last-name"
-                                   name="signup-last-name"
+                            <input class="full-width has-padding has-border" id="signup-phone"
+                                   name="signup-phone"
                                    type="text"
                                    placeholder="شماره تماس">
                             <span class="cd-error-message">شماره تماس</span>
@@ -138,7 +133,6 @@
 
                         <p class="fieldset">
                             <i class="fa fa-user"></i>
-                            <label class="image-replace cd-username" for="signup-username">نام کاربری</label>
                             <input class="full-width has-padding has-border" id="signup-username" name="signup-username"
                                    type="text"
                                    placeholder="نام کاربری">
@@ -147,7 +141,6 @@
 
                         <p class="fieldset">
                             <i class="fa fa-envelope"></i>
-                            <label class="image-replace cd-email" for="signup-email">پست الکترونیکی</label>
                             <input class="full-width has-padding has-border" id="signup-email" name="signup-email"
                                    type="email"
                                    placeholder="پست الکترونیکی">
@@ -156,7 +149,6 @@
 
                         <p class="fieldset">
                             <i class="fa fa-key"></i>
-                            <label class="image-replace cd-password" for="signup-password">رمز عبور</label>
                             <input class="full-width has-padding has-border" id="signup-password" name="signup-password"
                                    type="password"
                                    placeholder="رمز عبور">
@@ -186,7 +178,6 @@
                     <form class="cd-form">
                         <p class="fieldset">
                             <i class="fa fa-envelope"></i>
-                            <label class="image-replace cd-email" for="reset-email">پست الکترونیکی</label>
                             <input class="full-width has-padding has-border" id="reset-email" type="email"
                                    placeholder="پست الکترونیکی">
                             <span class="cd-error-message">پست الکترونیکی نامعتبر</span>
