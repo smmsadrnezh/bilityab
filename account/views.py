@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect
 from django.template.loader import get_template
 from django.core.context_processors import csrf
 from django.contrib.auth.forms import UserCreationForm
+from django.http import HttpResponse
 
 from account.models import CustomUser
 
@@ -12,21 +13,14 @@ from account.models import CustomUser
 
 
 def login(request):
-    invalid_html = ""
-
     if request.method == "POST":
         user = auth.authenticate(username=request.POST.get('signin-username', ''),
                                  password=request.POST.get('signin-password', ''))
         if user is not None:
             auth.login(request, user)
-            return HttpResponseRedirect(request.REQUEST.get('next', ''))
+            return HttpResponse(1)
         else:
-            return HttpResponseRedirect(redirect_to=request.REQUEST.get('next', ''),kwargs={'location': 'salam'})
-
-
-    c = {}
-    c.update(csrf(request))
-    return render(request, 'login.html', dict(c, **{'PageTitle': " - Login", 'invalid_html': invalid_html}))
+            return HttpResponse(0)
 
 
 def logout(request):

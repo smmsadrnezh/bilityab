@@ -96,11 +96,15 @@ jQuery(document).ready(function ($) {
         event.preventDefault();
         $.ajax({
             type: "POST",
-            url: window.location.pathname + "login/",
+            url: "/login/",
             data: $("#signin-form").serialize(), // serializes the form's elements.
             success: function (data) {
-                console.log(data);
-                $form_login.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
+                if (parseInt(data)){
+                    window.location.replace(window.location.pathname);
+                } else {
+                    $form_login.find('input[type="text"]').toggleClass('has-error').next('span').toggleClass('is-visible');
+                    $form_login.find('input[type="password"]').toggleClass('has-error').next('a').next('span').toggleClass('is-visible');
+                }
             }
         });
 
@@ -109,30 +113,6 @@ jQuery(document).ready(function ($) {
     //    event.preventDefault();
     //    $form_signup.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
     //});
-
-    ////IE9 placeholder fallback
-    ////credits http://www.hagenburger.net/BLOG/HTML5-Input-Placeholder-Fix-With-jQuery.html
-    //if(!Modernizr.input.placeholder){
-    //    $('[placeholder]').focus(function() {
-    //        var input = $(this);
-    //        if (input.val() == input.attr('placeholder')) {
-    //            input.val('');
-    //        }
-    //    }).blur(function() {
-    //        var input = $(this);
-    //        if (input.val() == '' || input.val() == input.attr('placeholder')) {
-    //            input.val(input.attr('placeholder'));
-    //        }
-    //    }).blur();
-    //    $('[placeholder]').parents('form').submit(function() {
-    //        $(this).find('[placeholder]').each(function() {
-    //            var input = $(this);
-    //            if (input.val() == input.attr('placeholder')) {
-    //                input.val('');
-    //            }
-    //        })
-    //    });
-    //}
 
 });
 
