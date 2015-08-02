@@ -5,7 +5,8 @@
         <div class="holder">
             <ul class="col col-md-6">
                 <li class="active"><a href="/"><i class="fa fa-home"></i>خانه</a></li>
-                <li><a href="/profile/1"><i class="fa fa-user"></i>حساب کاربری</a></li>
+                {% if logged_in %}
+                    <li><a href="/profile/1"><i class="fa fa-user"></i>حساب کاربری</a></li>{% endif %}
                 <li><a href="/events"><i class="fa fa-list"></i>رویدادها</a></li>
                 <li><a href="/ticket/2"><i class="fa fa-ticket"></i>بلیط‌های من</a></li>
                 {% if logged_in %}
@@ -88,7 +89,8 @@
                         <p class="fieldset">
                             <i class="fa fa-user"></i>
                             <label class="image-replace cd-username" for="signup-name">نام</label>
-                            <input class="full-width has-padding has-border" id="signup-first-name" name="signup-first-name"
+                            <input class="full-width has-padding has-border" id="signup-first-name"
+                                   name="signup-first-name"
                                    type="text"
                                    placeholder="نام">
                             <span class="cd-error-message">نام نامعتبر</span>
@@ -97,7 +99,8 @@
                         <p class="fieldset">
                             <i class="fa fa-user"></i>
                             <label class="image-replace cd-username" for="signup-username">نام خانوادگی</label>
-                            <input class="full-width has-padding has-border" id="signup-last-name" name="signup-last-name"
+                            <input class="full-width has-padding has-border" id="signup-last-name"
+                                   name="signup-last-name"
                                    type="text"
                                    placeholder="نام خانوادگی">
                             <span class="cd-error-message">نام خانوادگی نامعتبر</span>
@@ -106,16 +109,18 @@
                         <p class="fieldset">
                             <i class="fa fa-calendar"></i>
                             <label class="image-replace cd-username" for="signup-username">تاریخ تولد</label>
-                            <input class="full-width has-padding has-border" id="signup-last-name" name="signup-last-name"
+                            <input class="full-width has-padding has-border" id="signup-last-name"
+                                   name="signup-last-name"
                                    type="text"
                                    placeholder="تاریخ تولد">
                             <span class="cd-error-message">تاریخ تولد نامعتبر</span>
                         </p>
 
                         <p class="fieldset">
-                            <i class="fa fa-؟"></i>
+                            <i class="fa fa-transgender"></i>
                             <label class="image-replace cd-username" for="signup-username">جنسیت</label>
-                            <input class="full-width has-padding has-border" id="signup-last-name" name="signup-last-name"
+                            <input class="full-width has-padding has-border" id="signup-last-name"
+                                   name="signup-last-name"
                                    type="text"
                                    placeholder="جنسیت">
                             <span class="cd-error-message">جنسیت نامعتبر</span>
@@ -124,11 +129,13 @@
                         <p class="fieldset">
                             <i class="fa fa-phone"></i>
                             <label class="image-replace cd-username" for="signup-username">شماره تماس</label>
-                            <input class="full-width has-padding has-border" id="signup-last-name" name="signup-last-name"
+                            <input class="full-width has-padding has-border" id="signup-last-name"
+                                   name="signup-last-name"
                                    type="text"
                                    placeholder="شماره تماس">
                             <span class="cd-error-message">شماره تماس</span>
                         </p>
+
                         <p class="fieldset">
                             <i class="fa fa-user"></i>
                             <label class="image-replace cd-username" for="signup-username">نام کاربری</label>
