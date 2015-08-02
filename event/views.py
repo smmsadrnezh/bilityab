@@ -63,7 +63,7 @@ def sport(request, event_id):
         raise Http404("sport event does not exist!")
     return render(request, 'sport.html', {
         'title': event.title,
-        'teams': event.teams
+        'teams': event.sport
     })
 
 
