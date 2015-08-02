@@ -55,7 +55,7 @@ body > .holder > div.col {
 #main-info {
     font-family: 'BYekan', sans-serif;
     font-weight: 900;
-    color: rgba(201, 48, 44, 0.86);
+    color: rgb(41, 129, 178);
     font-size: 0.65em;
     text-align: center;
 }
@@ -96,7 +96,7 @@ body > .holder > div.col {
 }
 
 #remaining-time > div > div:last-of-type {
-    color: #2981B2;
+    color: #E4BB70;
 }
 
 #links {
