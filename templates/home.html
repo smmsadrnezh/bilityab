@@ -233,7 +233,7 @@
                                             {{ event.title }}
                                         </div>
                                         <div class="place">
-                                            {#                                            {{ event.event_organizer }}#}
+                                            {{ event.event_organizer.title }}
                                         </div>
                                         <div class="num-of-remaining-tickets">بلیط های باقیمانده: ۴۹ عدد</div>
                                         <div class="price">
@@ -275,7 +275,7 @@
                                             {{ event.title }}
                                         </div>
                                         <div class="place">
-                                            {#                                            {{ event.event_organizer }}#}
+                                            {{ event.event_organizer.title }}
                                         </div>
                                         <div class="num-of-remaining-tickets">بلیط های باقیمانده: ۴۹ عدد</div>
                                         <div class="price">
@@ -298,7 +298,7 @@
                                             {{ event.title }}
                                         </div>
                                         <div class="place">
-                                            {#                                            {{ event.event_organizer }}#}
+                                            {{ event.event_organizer.title }}
                                         </div>
                                         <div class="num-of-remaining-tickets">بلیط های باقیمانده: ۴۹ عدد</div>
                                         <div class="price">
@@ -321,7 +321,7 @@
                                             {{ event.title }}
                                         </div>
                                         <div class="place">
-                                            {#                                        {{ event.event_organizer }}#}
+                                            {{ event.event_organizer.title }}
                                         </div>
                                         <div class="num-of-remaining-tickets">بلیط های باقیمانده: ۴۹ عدد</div>
                                         <div class="price">
@@ -344,7 +344,7 @@
                                             {{ event.title }}
                                         </div>
                                         <div class="place">
-                                            {#                                        {{ event.event_organizer }}#}
+                                            {{ event.event_organizer.title }}
                                         </div>
                                         <div class="num-of-remaining-tickets">بلیط های باقیمانده: ۴۹ عدد</div>
                                         <div class="price">
@@ -367,7 +367,7 @@
                                             {{ event.title }}
                                         </div>
                                         <div class="place">
-                                            {#                                        {{ event.event_organizer }}#}
+                                            {{ event.event_organizer.title }}
                                         </div>
                                         <div class="num-of-remaining-tickets">بلیط های باقیمانده: ۴۹ عدد</div>
                                         <div class="price">
@@ -390,7 +390,7 @@
                                             {{ event.title }}
                                         </div>
                                         <div class="place">
-                                            {#                                        {{ event.event_organizer }}#}
+                                            {{ event.event_organizer.title }}
                                         </div>
                                         <div class="num-of-remaining-tickets">بلیط های باقیمانده: بدون محدودیت</div>
                                         <div class="price">
@@ -413,7 +413,7 @@
                                             {{ event.title }}
                                         </div>
                                         <div class="place">
-                                            {#                                            {{ event.event_organizer }}#}
+                                            {{ event.event_organizer.title }}
                                         </div>
                                         <div class="num-of-remaining-tickets">بلیط های باقیمانده: ۴۹ عدد</div>
                                         <div class="price">
@@ -436,7 +436,7 @@
                                             {#                                            {{ event.title }}#}
                                         </div>
                                         <div class="place">
-                                            {#                                            {{ event.event_organizer }}#}
+                                            {{ event.event_organizer.title }}
                                         </div>
                                         <div class="num-of-remaining-tickets">بلیط های باقیمانده: ۴۹ عدد</div>
                                         <div class="price">
@@ -459,7 +459,7 @@
                                             {{ event.title }}
                                         </div>
                                         <div class="place">
-                                            {#                                            {{ event.event_organizer }}#}
+                                            {{ event.event_organizer.title }}
                                         </div>
                                         <div class="num-of-remaining-tickets">بلیط های باقیمانده: ۴۹ عدد</div>
                                         <div class="price">
@@ -482,7 +482,7 @@
                                             {{ event.title }}
                                         </div>
                                         <div class="place">
-                                            {#                                            {{ event.event_organizer }}#}
+                                            {{ event.event_organizer.title }}
                                         </div>
                                         <div class="num-of-remaining-tickets">بلیط های باقیمانده: ۴۹ عدد</div>
                                         <div class="price">
@@ -502,51 +502,52 @@
                         <span><i>پیشنهادهای ما</i></span>
                     </div>
                     <div class="col col-md-12 event-carousel">
-                        <div class="medium-event col col-md-4">
-                            <div class="image" style="background-image: url('/static/img/te-nflpromo.jpg')"></div>
-                            <div class="title">والیبال ایران-آمریکا</div>
-                            <div class="place">مجموعه ورزشی آزادی</div>
-                            <div class="description"><i class="fa fa-quote-right"></i>
-                                این بازی از سری بازی های مرحله مقدماتی لیگ جهانی والیبال می باشد. ایران برای اینکه
-                                همچنان امیدش به صعود حفظ شود، باید در این بازی از آمریکا امتیاز بگیرد.
-                            </div>
-                            <div class="footer">
-                                <div class="see-ticket"><a href="/events/sport/1">نمایش رویداد<i
-                                        class="fa fa-ticket"></i></a>
+                        {% for event in suggestedEvents %}
+                            <div class="medium-event col col-md-4">
+                                <div class="image" style="background-image: url('/static/img/te-nflpromo.jpg')"></div>
+                                <div class="title">{{ event.title }}</div>
+                                <div class="place">{{ event.event_organizer.title }}</div>
+                                <div class="description"><i class="fa fa-quote-right"></i>
+                                    {{ event.description }}
                                 </div>
-                                <div class="date"><i class="fa fa-calendar"></i>۲۵ تیر ۹۴</div>
-                            </div>
-                        </div>
-                        <div class="medium-event col col-md-4">
-                            <div class="image" style="background-image: url('/static/img/te-nflpromo.jpg')"></div>
-                            <div class="title">والیبال ایران-آمریکا</div>
-                            <div class="place">مجموعه ورزشی آزادی</div>
-                            <div class="description"><i class="fa fa-quote-right"></i>
-                                این بازی از سری بازی های مرحله مقدماتی لیگ جهانی والیبال می باشد. ایران برای اینکه
-                                همچنان امیدش به صعود حفظ شود، باید در این بازی از آمریکا امتیاز بگیرد.
-                            </div>
-                            <div class="footer">
-                                <div class="see-ticket"><a href="/events/sport/1">نمایش رویداد<i
-                                        class="fa fa-ticket"></i></a>
+                                <div class="footer">
+                                    <div class="see-ticket"><a href="/events/sport/1">نمایش رویداد<i
+                                            class="fa fa-ticket"></i></a>
+                                    </div>
+                                    <div class="date"><i class="fa fa-calendar"></i>۲۵ تیر ۹۴</div>
                                 </div>
-                                <div class="date"><i class="fa fa-calendar"></i>۲۵ تیر ۹۴</div>
                             </div>
-                        </div>
-                        <div class="medium-event col col-md-4">
-                            <div class="image" style="background-image: url('/static/img/volleyball.jpg')"></div>
-                            <div class="title">والیبال ایران-آمریکا</div>
-                            <div class="place">مجموعه ورزشی آزادی</div>
-                            <div class="description"><i class="fa fa-quote-right"></i>
-                                این بازی از سری بازی های مرحله مقدماتی لیگ جهانی والیبال می باشد. ایران برای اینکه
-                                همچنان امیدش به صعود حفظ شود، باید در این بازی از آمریکا امتیاز بگیرد.
-                            </div>
-                            <div class="footer">
-                                <div class="see-ticket"><a href="/events/sport/1">نمایش رویداد<i
-                                        class="fa fa-ticket"></i></a>
-                                </div>
-                                <div class="date"><i class="fa fa-calendar"></i>۲۵ تیر ۹۴</div>
-                            </div>
-                        </div>
+                        {% endfor %}
+{#                        <div class="medium-event col col-md-4">#}
+{#                            <div class="image" style="background-image: url('/static/img/te-nflpromo.jpg')"></div>#}
+{#                            <div class="title">والیبال ایران-آمریکا</div>#}
+{#                            <div class="place">مجموعه ورزشی آزادی</div>#}
+{#                            <div class="description"><i class="fa fa-quote-right"></i>#}
+{#                                این بازی از سری بازی های مرحله مقدماتی لیگ جهانی والیبال می باشد. ایران برای اینکه#}
+{#                                همچنان امیدش به صعود حفظ شود، باید در این بازی از آمریکا امتیاز بگیرد.#}
+{#                            </div>#}
+{#                            <div class="footer">#}
+{#                                <div class="see-ticket"><a href="/events/sport/1">نمایش رویداد<i#}
+{#                                        class="fa fa-ticket"></i></a>#}
+{#                                </div>#}
+{#                                <div class="date"><i class="fa fa-calendar"></i>۲۵ تیر ۹۴</div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <div class="medium-event col col-md-4">#}
+{#                            <div class="image" style="background-image: url('/static/img/volleyball.jpg')"></div>#}
+{#                            <div class="title">والیبال ایران-آمریکا</div>#}
+{#                            <div class="place">مجموعه ورزشی آزادی</div>#}
+{#                            <div class="description"><i class="fa fa-quote-right"></i>#}
+{#                                این بازی از سری بازی های مرحله مقدماتی لیگ جهانی والیبال می باشد. ایران برای اینکه#}
+{#                                همچنان امیدش به صعود حفظ شود، باید در این بازی از آمریکا امتیاز بگیرد.#}
+{#                            </div>#}
+{#                            <div class="footer">#}
+{#                                <div class="see-ticket"><a href="/events/sport/1">نمایش رویداد<i#}
+{#                                        class="fa fa-ticket"></i></a>#}
+{#                                </div>#}
+{#                                <div class="date"><i class="fa fa-calendar"></i>۲۵ تیر ۹۴</div>#}
+{#                            </div>#}
+{#                        </div>#}
                     </div>
                 </div>
             </div>
