@@ -120,7 +120,7 @@
                     <div role="tabpanel" class="tab-pane active fade in col col-md-12" id="action">
                         {% for event in actionMovies %}
                             <div class="col col-md-6 event">
-                                <div class="image" style="background-image: url('/static/img/te-nflpromo.jpg')">
+                                <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
                                     <div class="date">{{ event.date }}</div>
                                 </div>
                                 <div class="description cinema">
@@ -163,7 +163,7 @@
 
                         {% for event in dramaticMovies %}
                             <div class="col col-md-6 event">
-                                <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo.pic }}')">
+                                <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
                                     <div class="date">۲۵ اردیبهشت ۹۴</div>
                                 </div>
                                 <div class="description cinema">
@@ -224,7 +224,7 @@
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="comic">
                         {% for event in comicMovies %}
                             <div class="col col-md-6 event">
-                                <div class="image" style="background-image: url('/static/img/te-nflpromo.jpg')">
+                                <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
                                     <div class="date">{{ event.date }}</div>
                                 </div>
                                 <div class="description cinema">
@@ -266,7 +266,7 @@
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="volleyball">
                         {% for event in volleyballEvents %}
                             <div class="col col-md-6 event">
-                                <div class="image" style="background-image: url('/static/img/volleyball.jpg')">
+                                <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
                                     <div class="date">۲۵ اردیبهشت ۹۴</div>
                                 </div>
                                 <div class="description sport">
@@ -289,7 +289,7 @@
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="football">
                         {% for event in footballEvents %}
                             <div class="col col-md-6 event">
-                                <div class="image" style="background-image: url('/static/img/te-nflpromo.jpg')">
+                                <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
                                     <div class="date">۲۵ اردیبهشت ۹۴</div>
                                 </div>
                                 <div class="description sport">
@@ -312,7 +312,7 @@
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="basketball">
                         {% for event in basketballEvents %}
                             <div class="col col-md-6 event">
-                                <div class="image" style="background-image: url('/static/img/te-nflpromo.jpg')">
+                                <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
                                     <div class="date">۲۵ اردیبهشت ۹۴</div>
                                 </div>
                                 <div class="description sport">
@@ -335,7 +335,7 @@
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="wrestling">
                         {% for event in wrestleEvents %}
                             <div class="col col-md-6 event">
-                                <div class="image" style="background-image: url('/static/img/te-nflpromo.jpg')">
+                                <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
                                     <div class="date">۲۵ اردیبهشت ۹۴</div>
                                 </div>
                                 <div class="description sport">
@@ -358,7 +358,7 @@
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="tour">
                         {% for event in tourEvents %}
                             <div class="col col-md-6 event">
-                                <div class="image" style="background-image: url('/static/img/te-nflpromo.jpg')">
+                                <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
                                     <div class="date">۲۵ اردیبهشت ۹۴</div>
                                 </div>
                                 <div class="description tourism">
@@ -381,7 +381,7 @@
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="zoo">
                         {% for event in zooEvents %}
                             <div class="col col-md-6 event">
-                                <div class="image" style="background-image: url('/static/img/te-nflpromo.jpg')">
+                                <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
                                     <div class="date">۲۵ اردیبهشت ۹۴</div>
                                 </div>
                                 <div class="description tourism">
@@ -404,7 +404,7 @@
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="amusement-park">
                         {% for event in amusementEvents %}
                             <div class="col col-md-6 event">
-                                <div class="image" style="background-image: url('/static/img/te-nflpromo.jpg')">
+                                <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
                                     <div class="date">۲۵ اردیبهشت ۹۴</div>
                                 </div>
                                 <div class="description tourism">
@@ -427,7 +427,7 @@
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="circus">
                         {% for event in circusEvents %}
                             <div class="col col-md-6 event">
-                                <div class="image" style="background-image: url('/static/img/te-nflpromo.jpg')">
+                                <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
                                     <div class="date">۲۵ اردیبهشت ۹۴</div>
                                 </div>
                                 <div class="description tourism">
@@ -450,7 +450,7 @@
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="traditional">
                         {% for event in traditionalMusic %}
                             <div class="col col-md-6 event">
-                                <div class="image" style="background-image: url('/static/img/te-nflpromo.jpg')">
+                                <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
                                     <div class="date">۲۵ اردیبهشت ۹۴</div>
                                 </div>
                                 <div class="description music">
@@ -473,7 +473,7 @@
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="pop">
                         {% for event in popMusic %}
                             <div class="col col-md-6 event">
-                                <div class="image" style="background-image: url('/static/img/te-nflpromo.jpg')">
+                                <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
                                     <div class="date">۲۵ اردیبهشت ۹۴</div>
                                 </div>
                                 <div class="description music">
@@ -504,7 +504,7 @@
                     <div class="col col-md-12 event-carousel">
                         {% for event in suggestedEvents %}
                             <div class="medium-event col col-md-4">
-                                <div class="image" style="background-image: url('/static/img/te-nflpromo.jpg')"></div>
+                                <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')"></div>
                                 <div class="title">{{ event.title }}</div>
                                 <div class="place">{{ event.event_organizer.title }}</div>
                                 <div class="description"><i class="fa fa-quote-right"></i>
@@ -618,7 +618,7 @@
                                     </div>
                                     <div class="date">{{ event.date }}</div>
                                     <div class="title">{{ event.title }}</div>
-                                    {#                                    <div class="place">{{ event.event_organizer }}</div>#}
+                                    <div class="place">{{ event.event_organizer.title }}</div>
                                 </a>
                             </div>
                             {#                            <div class="small-event">#}
