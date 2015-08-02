@@ -1,5 +1,6 @@
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.conf import settings
 
 urlpatterns = [
     ### bilityab urls
@@ -14,7 +15,7 @@ urlpatterns = [
 
     url(r'^login/$', 'account.views.login'),
     url(r'^logout/$', 'account.views.logout'),
-    url(r'^register/$', 'account.views.register'),
+    url(r'^register/$', 'account.views.logout'),
 
     ### event urls
     url(r'^events/$', 'event.views.events'),
@@ -41,4 +42,9 @@ urlpatterns = [
     url(r'^promotion/$', 'promotion.views.promotion'),
 
     url(r'^admin/', include(admin.site.urls)),
+
+    ### serve media
+    url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
+        'document_root': settings.MEDIA_ROOT
+        })
 ]
