@@ -15,7 +15,7 @@
 
                     <h1 class="">{{ request.user.first_name }} {{ request.user.last_name }}</h1>
                     {% if request.user.is_organizer %}
-                    <p class="person-title">برگزارکننده</p>
+                        <p class="person-title">برگزارکننده</p>
                     {% else %}
                         <p class="person-title">عضو معمولی</p>
                     {% endif %}
@@ -53,9 +53,9 @@
                                 <dd>۱۳۹۴/۱۱/۱۳</dd>
                                 <dt>جنسیت</dt>
                                 {% if request.user.gender %}
-                                <dd>مرد</dd>
+                                    <dd>مرد</dd>
                                 {% else %}
-                                <dd>زن</dd>
+                                    <dd>زن</dd>
                                 {% endif %}
                                 <dt>شماره تلفن</dt>
                                 <dd>{{ request.user.phone }}</dd>

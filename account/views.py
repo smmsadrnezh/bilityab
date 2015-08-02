@@ -5,7 +5,6 @@ from django.contrib import auth
 from django.http import HttpResponseForbidden, HttpResponse, HttpResponseRedirect
 
 from .check_registration import CheckRegistration
-
 from account.models import CustomUser
 
 # Create your views here.
@@ -63,6 +62,7 @@ def register(request):
     else:
         return HttpResponseForbidden('post required')
 
+
 def profile_edit(request, user_id):
     if request.user.is_authenticated():
         return render(request, 'profile.html', {
@@ -71,10 +71,11 @@ def profile_edit(request, user_id):
     else:
         return HttpResponseRedirect('/')
 
+
 def charge(request, user_id):
     if request.user.is_authenticated():
         return render(request, 'charge.html', {
-        'logged_in': request.user.is_authenticated()
+            'logged_in': request.user.is_authenticated()
 
         })
     else:
