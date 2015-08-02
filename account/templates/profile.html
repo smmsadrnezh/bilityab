@@ -13,9 +13,12 @@
                 </a></div>
                 <div class="col col-md-8">
 
-                    <h1 class="">محمد محمدی</h1>
-
-                    <p class="person-title">عضو معمولی</p>
+                    <h1 class="">{{ request.user.first_name }} {{ request.user.last_name }}</h1>
+                    {% if request.user.is_organizer %}
+                    <p class="person-title">برگزارکننده</p>
+                    {% else %}
+                        <p class="person-title">عضو معمولی</p>
+                    {% endif %}
                 </div>
                 <div class="col col-md-2">
                     <img class="center-block img-circle ticket-box" src="/static/img/default_profile_large.jpg">
@@ -43,13 +46,19 @@
                                 <dt>تعداد دفعات خرید</dt>
                                 <dd>۴</dd>
                                 <dt>میزان موجودی</dt>
-                                <dd>۱۰۰۰۰۰ تومان</dd>
+                                <dd>
+                                    {{ request.user.balance }} تومان
+                                </dd>
                                 <dt>تاریخ عضویت</dt>
                                 <dd>۱۳۹۴/۱۱/۱۳</dd>
                                 <dt>جنسیت</dt>
+                                {% if request.user.gender %}
                                 <dd>مرد</dd>
+                                {% else %}
+                                <dd>زن</dd>
+                                {% endif %}
                                 <dt>شماره تلفن</dt>
-                                <dd>۰۲۱۸۸۸۸۸۸۸۸</dd>
+                                <dd>{{ request.user.phone }}</dd>
                             </dl>
                         </div>
                     </div>

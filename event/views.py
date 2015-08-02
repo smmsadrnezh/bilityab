@@ -13,7 +13,7 @@ def events(request):
     })
 
 
-def add_event(request, event_id):
+def add_event(request):
     return render(request, 'add-event.html', {
         'logged_in': request.user.is_authenticated()
 

@@ -4,22 +4,49 @@
     <div class="holder">
         <div class="col col-md-12">
             <div class="col col-md-12" id="ticket">
-                <div class="col col-md-12" id="ticket-info">
-                    <img class="org-image" src={% static "img/azadi.jpg" %}>
-                    <a href="/organizer/1" class="event-info">
-                        نام برگزار کننده: سینما آزادی
-                    </a>
+                <div role="tabpanel" class="tab-pane" id="details">
+                    <div class="col col-md-12">
+                        <h3>افزودن رویداد جدید</h3>
 
-                    <div class="my-divider"></div>
+                        <form class="cd-form">
 
-                    <img class="org-image" src={% static "img/vahdat.jpg" %}>
-                    <a href="/organizer/2" class="event-info">
-                        نام برگزارکننده: تالار وحدت
-                    </a>
+                            <p class="fieldset">
+                                <label for="signin-email" class="image-replace cd-username">عنوان رویداد</label>
+                                <input type="email" placeholder="عنوان رویداد" id="signin-email"
+                                       class="full-width has-padding has-border disabled">
+                            </p>
 
-                    <div class="my-divider"></div>
+                            <p class="fieldset">
+                                <label for="signin-email" class="image-replace cd-username">توضیحات</label>
+                                <input type="email" placeholder="توضیحات" id="signin-email"
+                                       class="full-width has-padding has-border disabled">
+                            </p>
 
+                            <p class="fieldset">
+                                <label for="signin-email" class="image-replace cd-username">دسته</label>
+                                <input type="email" placeholder="دسته" id="signin-email"
+                                       class="full-width has-padding has-border disabled">
+                            </p>
+
+                            <p class="fieldset">
+                                <label for="signin-email" class="image-replace cd-username">محل برگزاری</label>
+                                <input type="email" placeholder="محل برگزاری" id="signin-email"
+                                       class="full-width has-padding has-border disabled">
+                            </p>
+
+                            <p class="fieldset">
+                                <label for="signin-email" class="image-replace cd-username">تصویر رویداد</label>
+                                <input type="email" placeholder="تصویر رویداد" id="signin-email"
+                                       class="full-width has-padding has-border disabled">
+                            </p>
+
+                            <a class="btn btn-primary btn-lg btn-block" href="/profile/1/">
+                                <i class="fa fa-plus-circle"></i> افزودن
+                            </a>
+                        </form>
+                    </div>
                 </div>
+
 
             </div>
 
