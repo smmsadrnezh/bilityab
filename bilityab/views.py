@@ -20,6 +20,7 @@ def home(request):
         'circusEvents': Event.objects.filter(category__title='سیرک'),
         'traditionalMusic': Event.objects.filter(category__title='سنتی'),
         'popMusic': Event.objects.filter(category__title='پاپ'),
+        'suggestedEvents': Event.objects.all()[:3],
         'logged_in': request.user.is_authenticated()
 
     })
