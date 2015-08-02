@@ -4,22 +4,36 @@
     <div class="holder">
         <div class="col col-md-12">
             <div class="col col-md-12" id="ticket">
-                <div class="col col-md-12" id="ticket-info">
-                    <img class="org-image" src={% static "img/azadi.jpg" %}>
-                    <a href="/organizer/1" class="event-info">
-                        نام برگزار کننده: سینما آزادی
-                    </a>
+                    <div role="tabpanel" class="tab-pane" id="details">
+                        <div class="col col-md-12">
+                            <h3>افزودن رویداد جدید</h3>
 
-                    <div class="my-divider"></div>
+                            <form class="cd-form">
 
-                    <img class="org-image" src={% static "img/vahdat.jpg" %}>
-                    <a href="/organizer/2" class="event-info">
-                        نام برگزارکننده: تالار وحدت
-                    </a>
+                                <p class="fieldset">
+                                    <label for="signin-email" class="image-replace cd-username">نام</label>
+                                    <input type="email" placeholder="نام" id="signin-email"
+                                           class="full-width has-padding has-border disabled">
+                                </p>
 
-                    <div class="my-divider"></div>
+                                <p class="fieldset">
+                                    <label for="signin-email" class="image-replace cd-username">نام خانوادگی</label>
+                                    <input type="email" placeholder="نام خانوادگی" id="signin-email"
+                                           class="full-width has-padding has-border disabled">
+                                </p>
 
-                </div>
+                                <p class="fieldset">
+                                    <label for="signin-email" class="image-replace cd-username">شماره تلفن</label>
+                                    <input type="email" placeholder="شماره تلفن" id="signin-email"
+                                           class="full-width has-padding has-border disabled">
+                                </p>
+                                <a class="btn btn-primary btn-lg btn-block" href="/profile/1/">
+                                    <i class="fa fa-plus-circle"></i> افزودن
+                                </a>
+                            </form>
+                        </div>
+                    </div>
+
 
             </div>
 

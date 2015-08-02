@@ -64,7 +64,9 @@
                 </div>
 
             </div>
-
+            {% if request.user.is_organizer %}
+                <i class="fa fa-plus-circle"></i><a href="/events/add/"> اضافه کردن رویداد</a>
+            {% endif %}
         </div>
     </div>
 {% endblock %}
