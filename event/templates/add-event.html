@@ -30,8 +30,9 @@
                     <p class="fieldset">
                         <i class="fa fa-th-list"></i>
                         <select name="event-type">
-                            <option value="1">دسته یک</option>
-                            <option value="2">دسته دو</option>
+                            {% for category in categories %}
+                            <option value="{{ category.id }}">{{ category.title }}</option>
+                            {% endfor %}
                         </select>
                     </p>
 

@@ -3,7 +3,7 @@
 from django.http import Http404, HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 
-from event.models import Event
+from event.models import Event,Categories
 from bilityab.change_date import ChangeDate
 
 
@@ -31,7 +31,8 @@ def add_event(request):
                 return HttpResponse(0)
         else:
             return render(request, 'add-event.html', {
-                'logged_in': request.user.is_authenticated()
+                'logged_in': request.user.is_authenticated(),
+                'categories': Categories.objects.all()
             })
     else:
         return HttpResponseRedirect('/')
