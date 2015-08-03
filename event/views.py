@@ -4,7 +4,7 @@ import datetime
 from django.shortcuts import render
 from bilityab.change_date import ChangeDate
 from event.models import Event, Categories, Sport, Movie, Concert
-from django.http import Http404, HttpResponseRedirect, HttpResponse
+from django.http import Http404, HttpResponseRedirect, HttpResponse, HttpResponseForbidden
 
 
 def events(request):
@@ -134,13 +134,23 @@ def cinema(request, event_id):
     try:
         event = Event.objects.get(pk=event_id)
         event_rates = event.rates.all()
+        can_rate = request.user.is_authenticated()
+        rates_average = 0
         num_of_votes = len(event_rates)
+        if num_of_votes:
+            rates_sum = 0
+            for rate in event_rates:
+                rates_sum += rate.rate
+                can_rate = can_rate and not (rate.user.id == request.user.id)
+            rates_average = rates_sum/num_of_votes
     except Event.DoesNotExist:
         raise Http404('cinema event does not exist!')
     return render(request, 'cinema.html', {
         'logged_in': request.user.is_authenticated(),
-        'event': event
-
+        'event': event,
+        'num_of_votes': num_of_votes,
+        'rates_average_percent': rates_average*20,
+        'can_rate': can_rate
     })
 
 
@@ -169,4 +179,11 @@ def report(request):
     return render(request, 'report.html', {'logged_in': request.user.is_authenticated()
     })
 
+#
+# def rate_event(request):
+#     if request.method == 'POST':
+#
+#     else:
+#         return HttpResponseForbidden('post required')
+#
 

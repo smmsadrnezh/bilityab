@@ -20,10 +20,10 @@
                                 </div>
                                 <div class="duration">{{ event.movie.duration }} دقیقه</div>
                                 <div class="genre">{{ event.movie.genre }}</div>
-                                <div class="star-ratings-sprite not-rated" initial-rate="50%">
-                                    <span style="width:50%" class="rating"></span>
+                                <div class="star-ratings-sprite {% if can_rate %}not-rated{% endif %}" initial-rate="{{ rates_average_percent }}%">
+                                    <span style="width:{{ rates_average_percent }}%" class="rating"></span>
                                 </div>
-                                <div class="num-of-voters"><span>87</span> رأی</div>
+                                <div class="num-of-voters"><span>{{ num_of_votes }}</span> رأی</div>
                             </div>
                             <div class="col col-md-6 col-xs-4 image"
                                  style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')"></div>

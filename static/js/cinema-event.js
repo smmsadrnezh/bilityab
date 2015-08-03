@@ -151,7 +151,7 @@ $(window).load(function () {
     $('.star-ratings-sprite').mousemove(function (event) {
         if (!$(this).hasClass('not-rated'))
             return false;
-        $(this).find('span').css('width', (event.pageX - $(this).offset().left) / parseFloat($(this).css('width')) * 100 + '%');
+        $(this).find('span').css('width', parseInt(((event.pageX - $(this).offset().left) / parseFloat($(this).css('width')) * 100)/10)*10 + 10 + '%');
     }).hover(function () {
     }, function () {
         if (!$(this).hasClass('not-rated'))
@@ -171,5 +171,8 @@ $(window).load(function () {
             $(this).text(num + 1).fadeIn(200);
         });
         $(this).find('span').css('width', (user_rate + initial_rate * num) / (num + 1) + '%');
+
+        console.log(user_rate/20)
+
     });
 });
