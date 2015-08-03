@@ -184,14 +184,12 @@ def rate_event(request):
     if request.user.is_authenticated():
         if request.method == 'POST':
             if 'rate' in request.POST:
-                rate = request.POST['rate']
-                print(rate > 5)
+                rate = int(request.POST['rate'])
                 if rate > 5 or rate < 0:
+                    print('sada;dw')
                     return HttpResponseForbidden('invalid rate')
-                print(rate)
                 event_id = request.POST['event_id']
                 try:
-                    print('googogogogoog')
                     event = Event.objects.get(pk=event_id)
                     EventRating.objects.get(event=event, user=request.user)
                     return HttpResponseForbidden('already rated')
