@@ -51,52 +51,51 @@
                     <div class="col col-md-12 progress">
                         <div class="circle active">
                             <span class="label">1</span>
-                            <span class="title">انتخاب سینما</span>
+                            <span class="title">انتخاب تاریخ</span>
                         </div>
                         <span class="bar active"></span>
 
                         <div class="circle">
                             <span class="label">2</span>
-                            <span class="title">انتخاب سانس</span>
+                            <span class="title">انتخاب سینما</span>
                         </div>
                         <span class="bar half"></span>
 
                         <div class="circle">
                             <span class="label">3</span>
+                            <span class="title">انتخاب سانس</span>
+                        </div>
+                        <span class="bar half"></span>
+
+                        <div class="circle">
+                            <span class="label">4</span>
                             <span class="title">انتخاب صندلی</span>
                         </div>
                     </div>
                     <div class="col col-md-12" id="selects">
+                        <div id="dates">
+                            <div class="item">
+                                <div class="date">
+                                    <div class="week-day">پنج شنبه</div>
+                                    <span class="day">2</span>
+                                    <span class="month">شهریور</span>
+                                    <span class="year">94</span>
+                                </div>
+                            </div>
+                        </div>
                         <div id="cinemas" class="row list-group">
+                            {% for cinema in event.event_organizers.all %}
                             <div class="item col-xs-4 col-lg-4">
                                 <div class="thumbnail"
-                                     style="background-image: url('{% static 'img/n00001053-b.jpg' %}')">
+                                     style="background-image: url('{{ MEDIA_URL }}{{ cinema.photo }}')">
                                     <div class="info">
-                                        <div class="title">سینما آزادی</div>
-                                        <div class="capacity">۱۱۰ نفر</div>
-                                        <div class="address">تهران، خیابان بهشتی نبش خالد اسلامبولی</div>
+                                        <div class="title">{{ cinema.title }}</div>
+                                        <div class="capacity">{{ cinema.capacity }} نفر</div>
+                                        <div class="address">{{ cinema.address }}</div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="item  col-xs-4 col-lg-4">
-                                <div class="thumbnail" style="background-image: url('{% static 'img/farhang.jpg' %}')">
-                                    <div class="info">
-                                        <div class="title">سینما فرهنگ</div>
-                                        <div class="capacity">۸۰ نفر</div>
-                                        <div class="address">خیابان شریعتی، بالاتر از خیابان دولت</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item  col-xs-4 col-lg-4">
-                                <div class="thumbnail"
-                                     style="background-image: url('{% static 'img/n00001053-b.jpg' %}')">
-                                    <div class="info">
-                                        <div class="title">سینما آزادی</div>
-                                        <div class="capacity">۱۱۰ نفر</div>
-                                        <div class="address">تهران، خیابان بهشتی نبش خالد اسلامبولی</div>
-                                    </div>
-                                </div>
-                            </div>
+                            {% endfor %}
                         </div>
                         <div id="show-times" class="row list-group">
                             <div class="item col-xs-4 col-lg-4">

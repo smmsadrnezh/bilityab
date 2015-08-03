@@ -173,6 +173,7 @@ def all_organizer(request):
 def organizer(request, organizer_id):
     return render(request, 'organizer.html', {
         'organizer': EventOrganizer.objects.get(id=organizer_id),
+        'organizer_events': Event.objects.filter(event_organizers__id=organizer_id),
         'logged_in': request.user.is_authenticated()
     })
 
