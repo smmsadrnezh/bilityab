@@ -123,7 +123,7 @@
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
                                     <div class="date">{{ event.date }}</div>
                                 </div>
-                                <div class="description cinema">
+                                <div class="description cinema" event_id="{{ event.id }}">
                                     <div class="vertical-center">
                                         <div class="title">
                                             {{ event.title }}
@@ -471,7 +471,7 @@
                     <div class="content">
                         {% for event,type in nearestEvents %}
                             <div class="small-event">
-                                <a href="events/sport/" +event.id>
+                                <a href="events/{{ type }}/{{ event.id }}" >
                                     <div class="event-type">
                                         {{ event.category.title }}
                                     </div>

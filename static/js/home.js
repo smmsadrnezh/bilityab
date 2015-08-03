@@ -1,7 +1,13 @@
 (function ($) {
+
+    //var eventImage = $("#event_id");
+    //eventImage.on('click', function () {
+    //    window.location.href = "events/cinema/";
+    //});
+
     var cinemaImage = $(".cinema");
     cinemaImage.on('click', function () {
-        window.location.href = "events/cinema/1";
+        window.location.href = "events/cinema/"+cinemaImage.attr('event_id');
     });
 
     var sportImage = $(".sport");
