@@ -106,3 +106,5 @@ class EventRating(models.Model):
 
     def __str__(self):
         return "%d" % self.rate
+
+
