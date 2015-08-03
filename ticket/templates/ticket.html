@@ -3,64 +3,65 @@
 {% block pageBody %}
     {% for ticket,event,type,showtime,positions in ticket_event_type_list %}
 
-    <div class="holder">
-        <div id="body-container" class="col col-md-12">
-            <div class="col col-md-12">
-                <div class="col col-md-2">
-                    <br/>
-                    <a class="btn btn-primary btn-lg btn-block" href="#print">
-                        <i class="fa fa-print"></i> پرینت
-                    </a><a class="btn btn-primary btn-lg btn-block" href="/events/{{ type }}/{{ event.id }}/">
-                    <i class="fa fa-info-circle"></i> صفحه رویداد</a></div>
-                <div class="col col-md-9">
+        <div class="holder">
+            <div id="body-container" class="col col-md-12">
+                <div class="col col-md-12">
+                    <div class="col col-md-2">
+                        <br/>
+                        <a class="btn btn-primary btn-lg btn-block" href="#print">
+                            <i class="fa fa-print"></i> پرینت
+                        </a><a class="btn btn-primary btn-lg btn-block" href="/events/{{ type }}/{{ event.id }}/">
+                        <i class="fa fa-info-circle"></i> صفحه رویداد</a></div>
+                    <div class="col col-md-9">
 
-                    <h1 class="">بلـــــــــــیط‌یاب</h1>
+                        <h1 class="">بلـــــــــــیط‌یاب</h1>
 
-                    <h2>{{ event.title }}</h2>
+                        <h2>{{ event.title }}</h2>
+                    </div>
+                    <div class="col col-md-1">
+                        <i class="fa fa-ticket fa-3x" style="padding: 0.5em 0.2em 0  0 "></i>
+                    </div>
+
+
                 </div>
-                <div class="col col-md-1">
-                    <i class="fa fa-ticket fa-3x" style="padding: 0.5em 0.2em 0  0 "></i>
-                </div>
+                <div class="col col-md-12 ticket-box">
+                    <div class="col col-md-6">
+                        <h3>نکات قابل توجه: </h3>
 
+                        <p>بلیط‌های خریداری شده قابل استرداد نمی‌باشد.</p>
 
-            </div>
-            <div class="col col-md-12 ticket-box">
-                <div class="col col-md-6">
-                    <h3>نکات قابل توجه: </h3>
-
-                    <p>بلیط‌های خریداری شده قابل استرداد نمی‌باشد.</p>
-
-                    <p>حتما ۲۰ دقیقه قبل از شروع رویداد در محل حضور داشته باشید.</p>
-                </div>
-                <div class="col col-md-6">
-                    <dl class="dl-horizontal">
-                        <dt>خریدار</dt>
-                        <dd>{{ request.user.first_name }} {{ request.user.last_name }}</dd>
-                        <dt>کد رهگیری بانک</dt>
-                        <dd>{{ ticket.receipt }}</dd>
-                        <dt>شماره بلیط</dt>
-                        <dd>{{ ticket.id }}</dd>
-                        <p>(کد فوق را هنگام ورود به محل برگزاری رویداد تحویل دهید.)</p>
-                        <dt>تاریخ خرید</dt>
-                        <dd>{{ ticket.purchased_date }}</dd>
-                        <dt>زمان برگزاری رویداد</dt>
-                        <dd>{{ showtime.date }} از ساعت {{ showtime.from_time }} تا {{ showtime.to_time }}</dd>
-                        <dt>مکان استفاده</dt>
-                        <dd>{{ event.address }}</dd>
-                        {% for position in positions %}
-                        <dt>محل قرارگیری صندلی</dt>
-                        <dd>جایگاه {{ position.section }} ردیف {{ position.row }} ستون {{ position.column }}</dd>
+                        <p>حتما ۲۰ دقیقه قبل از شروع رویداد در محل حضور داشته باشید.</p>
+                    </div>
+                    <div class="col col-md-6">
+                        <dl class="dl-horizontal">
+                            <dt>خریدار</dt>
+                            <dd>{{ request.user.first_name }} {{ request.user.last_name }}</dd>
+                            <dt>کد رهگیری بانک</dt>
+                            <dd>{{ ticket.receipt }}</dd>
+                            <dt>شماره بلیط</dt>
+                            <dd>{{ ticket.id }}</dd>
+                            <p>(کد فوق را هنگام ورود به محل برگزاری رویداد تحویل دهید.)</p>
+                            <dt>تاریخ خرید</dt>
+                            <dd>{{ ticket.purchased_date }}</dd>
+                            <dt>زمان برگزاری رویداد</dt>
+                            <dd>{{ showtime.date }} از ساعت {{ showtime.from_time }} تا {{ showtime.to_time }}</dd>
+                            <dt>مکان استفاده</dt>
+                            <dd>{{ event.address }}</dd>
+                            {% for position in positions %}
+                                <dt>محل قرارگیری صندلی</dt>
+                                <dd>جایگاه {{ position.section }} ردیف {{ position.row }}
+                                    ستون {{ position.column }}</dd>
                             {% endfor %}
-                        <dt>تعداد خریداری شده</dt>
-                        <dd>{{ ticket.quantity }}</dd>
-                        <dt>قیمت کل</dt>
-                        <dd>{{ ticket.price }} تومان</dd>
+                            <dt>تعداد خریداری شده</dt>
+                            <dd>{{ ticket.quantity }}</dd>
+                            <dt>قیمت کل</dt>
+                            <dd>{{ ticket.price }} تومان</dd>
 
-                    </dl>
+                        </dl>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     {% endfor %}
 {% endblock %}
 

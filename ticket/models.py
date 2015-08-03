@@ -1,7 +1,7 @@
 from django.db import models
 
 from account.models import CustomUser
-from event.models import Event,Showtime
+from event.models import Event, Showtime
 
 
 class PurchasedTicket(models.Model):

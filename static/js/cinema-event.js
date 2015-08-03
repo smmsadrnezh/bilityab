@@ -4,7 +4,7 @@ $('#film-info > div:last-of-type').css('height', parseFloat($('#film-info').css(
 
 $(window).load(function () {
 
-    $(document).ajaxSend(function(event, xhr, settings) {
+    $(document).ajaxSend(function (event, xhr, settings) {
         function getCookie(name) {
             var cookieValue = null;
             if (document.cookie && document.cookie != '') {
@@ -20,6 +20,7 @@ $(window).load(function () {
             }
             return cookieValue;
         }
+
         function sameOrigin(url) {
             // url could be relative or scheme relative or absolute
             var host = document.location.host; // host + port
@@ -29,9 +30,10 @@ $(window).load(function () {
             // Allow absolute or scheme relative URLs to same origin
             return (url == origin || url.slice(0, origin.length + 1) == origin + '/') ||
                 (url == sr_origin || url.slice(0, sr_origin.length + 1) == sr_origin + '/') ||
-                // or any other URL that isn't scheme relative or absolute i.e relative.
+                    // or any other URL that isn't scheme relative or absolute i.e relative.
                 !(/^(\/\/|http:|https:).*/.test(url));
         }
+
         function safeMethod(method) {
             return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
         }
@@ -40,13 +42,6 @@ $(window).load(function () {
             xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
         }
     });
-
-
-
-
-
-
-
 
 
     var fixture_ticket = $('#ticket');
@@ -197,7 +192,7 @@ $(window).load(function () {
     $('.star-ratings-sprite').mousemove(function (event) {
         if (!$(this).hasClass('not-rated'))
             return false;
-        $(this).find('span').css('width', parseInt(((event.pageX - $(this).offset().left) / parseFloat($(this).css('width')) * 100)/10)*10 + 10 + '%');
+        $(this).find('span').css('width', parseInt(((event.pageX - $(this).offset().left) / parseFloat($(this).css('width')) * 100) / 10) * 10 + 10 + '%');
     }).hover(function () {
     }, function () {
         if (!$(this).hasClass('not-rated'))
@@ -218,11 +213,15 @@ $(window).load(function () {
         });
         $(this).find('span').css('width', (user_rate + initial_rate * num) / (num + 1) + '%');
         var event_id = $(this).closest('#ticket').attr('event_id');
-        $.ajax('/events/rate/', {type: 'POST', data: {
-				rate: user_rate/20, event_id: event_id
-			}, dataType: 'json'})
-			.done(function(data) {})
-			.fail(function() {});
+        $.ajax('/events/rate/', {
+            type: 'POST', data: {
+                rate: user_rate / 20, event_id: event_id
+            }, dataType: 'json'
+        })
+            .done(function (data) {
+            })
+            .fail(function () {
+            });
 
     });
 });

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render
 
-from event.models import Event, Categories, EventOrganizer
+from event.models import Event, Categories
 
 
 def get_type(event_id):
@@ -10,7 +10,7 @@ def get_type(event_id):
     return {
         'ورزشی': 'sport',
         'سینمایی': 'cinema',
-'موسیقی'         : 'music',
+        'موسیقی': 'music',
         'گردشگری': 'tourism'
     }[category]
 

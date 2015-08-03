@@ -130,9 +130,8 @@ jQuery(document).ready(function ($) {
                 } else {
                     data = data.trim();
                     var errors = data.split(' ');
-                    for(var error in errors)
-                    {
-                        switch(errors[error]) {
+                    for (var error in errors) {
+                        switch (errors[error]) {
                             case 'invalid_first_name':
                                 $('#signup-first-name').toggleClass('has-error').next('span').text('نام نامعتبر').toggleClass('is-visible');
                                 setTimeout(function () {

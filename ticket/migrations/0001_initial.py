@@ -5,7 +5,6 @@ from django.db import models, migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('event', '0021_eventorganizer_phone'),
         ('account', '0007_auto_20150803_1019'),
