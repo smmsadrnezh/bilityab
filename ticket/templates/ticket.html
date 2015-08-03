@@ -1,6 +1,8 @@
 {% extends "layout.html" %}
 {% load staticfiles %}
 {% block pageBody %}
+    {% for ticket,event,type,showtime in ticket_event_type_list %}
+
     <div class="holder">
         <div id="body-container" class="col col-md-12">
             <div class="col col-md-12">
@@ -8,13 +10,13 @@
                     <br/>
                     <a class="btn btn-primary btn-lg btn-block" href="#print">
                         <i class="fa fa-print"></i> پرینت
-                    </a><a class="btn btn-primary btn-lg btn-block" href="/events/sport/1/">
+                    </a><a class="btn btn-primary btn-lg btn-block" href="/events/{{ type }}/{{ ticket.event_id }}/">
                     <i class="fa fa-info-circle"></i> صفحه رویداد</a></div>
                 <div class="col col-md-9">
 
                     <h1 class="">بلـــــــــــیط‌یاب</h1>
 
-                    <h2>مسابقه فوتبال ایران و آمریکا</h2>
+                    <h2>{{ event.title }}</h2>
                 </div>
                 <div class="col col-md-1">
                     <i class="fa fa-ticket fa-3x" style="padding: 0.5em 0.2em 0  0 "></i>
@@ -33,32 +35,33 @@
                 <div class="col col-md-6">
                     <dl class="dl-horizontal">
                         <dt>خریدار</dt>
-                        <dd>محمد محمدی</dd>
+                        <dd>{{ request.user.first_name }} {{ request.user.last_name }}</dd>
                         <dt>کد رهگیری بانک</dt>
-                        <dd>۱۱۱۱۱۱۱۱۱۱</dd>
+                        <dd>{{ ticket.receipt }}</dd>
                         <dt>شماره بلیط</dt>
-                        <dd>۷۹۷۰۹</dd>
+                        <dd>{{ ticket.id }}</dd>
                         <p>(کد فوق را هنگام ورود به محل برگزاری رویداد تحویل دهید.)</p>
                         <dt>تاریخ خرید</dt>
-                        <dd>۱۳۹۴/۱۱/۱۳</dd>
+                        <dd>{{ ticket.purchased_date }}</dd>
                         <dt>زمان برگزاری رویداد</dt>
-                        <dd>۱۳۹۴/۱۱/۱۳ ساعت ۱۲:۳۰</dd>
+                        <dd>{{ event. }}</dd>
                         <dt>مکان استفاده</dt>
                         <dd>سینما آزادی</dd>
                         <dt>محل قرارگیری صندلی</dt>
                         <dd>جایگاه A ردیف ۲ ستون ۵</dd>
                         <dt>تعداد خریداری شده</dt>
-                        <dd>۵</dd>
+                        <dd>{{ ticket.quantity }}</dd>
                         <dt>قیمت واحد</dt>
                         <dd>۵۰۰۰ تومان</dd>
                         <dt>قیمت کل</dt>
-                        <dd>۲۵۰۰۰ تومان</dd>
+                        <dd>{{ ticket.price }} تومان</dd>
 
                     </dl>
                 </div>
             </div>
         </div>
     </div>
+    {% endfor %}
 {% endblock %}
 
 {% block css %}

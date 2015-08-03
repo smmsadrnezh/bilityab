@@ -1,11 +1,11 @@
 from django.db import models
 
 from account.models import CustomUser
-from event.models import Event
+from event.models import Event,Showtime
 
 
 class PurchasedTicket(models.Model):
-    event = models.ForeignKey(Event)
+    event = models.OneToOneField(Showtime)
     user = models.ForeignKey(CustomUser)
     quantity = models.PositiveSmallIntegerField()
     purchased_date = models.DateTimeField()

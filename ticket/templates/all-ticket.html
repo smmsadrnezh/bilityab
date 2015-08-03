@@ -20,7 +20,7 @@
                     <div class="event-image">
                         <i class="fa fa-ticket fa-3x"></i>
                     </div>
-                    <a href="/events/cinema/1/" class="event-info">
+                    <a href="/ticket/{{ request.user.id }}/{{ ticket.id }}" class="event-info">
                         مسابقه فوتبال ایران و آمریکا (تعداد: {{ ticket.quantity }})
                     </a>
                     <div class="event-info">

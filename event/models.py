@@ -8,6 +8,7 @@ from account.models import CustomUser
 class EventOrganizer(models.Model):
     title = models.CharField(max_length=60, unique=True)
     address = models.TextField()
+    phone = models.IntegerField(default="02188888888")
     user = models.ForeignKey(CustomUser)
     capacity = models.PositiveIntegerField()
 
