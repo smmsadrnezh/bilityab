@@ -82,6 +82,8 @@ class Movie(models.Model):
     cast = models.CharField(max_length=1000)
     duration = models.PositiveIntegerField()
     genre = models.CharField(max_length=50)
+    producer = models.CharField(max_length=100)
+    writers = models.CharField(max_length=200)
 
     def __str__(self):
         return "%s (%s) \n %s" % (self.director, self.year, self.story_summary)
