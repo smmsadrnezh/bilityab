@@ -239,4 +239,60 @@
             });
         });
     });
+
+    function getCookie(name){
+        var cooki=null;
+        if(document.cookie && String(document.cookie)!=""){
+            var cookies = document.cookie.split(';');
+            for(var i=0;i<cookies.length;i++){
+                var temp = cookies[i].trim();
+                if(temp.substring(0,name.length+1) == (name + '=')){
+                    cooki = decodeURIComponent(temp.substring(name.length +1));
+                    break;
+                }
+            }
+        }
+        return cooki;
+    }
+
+    /* Ajax-Code */
+
+    function send_ajax_request($url, $params, $callback){
+        var request = new XMLHttpRequest();
+        request.open('POST', $url, true);
+        request.setRequestHeader('X-CSRFToken', getCookie('csrftoken'));
+        request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        request.onreadystatechange = function () {
+            if(request.readyState == 4 && request.status == 200){
+                $callback(request.responseText);
+            }
+        };
+        console.log($params)
+        request.send($params);
+    }
+
+    function getIndicesOf(searchStr, str, caseSensitive) {
+        var startIndex = 0, searchStrLen = searchStr.length;
+        var index, indices = [];
+        if (!caseSensitive) {
+            str = str.toLowerCase();
+            searchStr = searchStr.toLowerCase();
+        }
+        while ((index = str.indexOf(searchStr, startIndex)) > -1) {
+            indices.push(index);
+            startIndex = index + searchStrLen;
+        }
+        return indices;
+    }
+
+    function set_sold_seats(data) {
+        var indexes = getIndicesOf("section", data, false);
+        for(var i = 0 ; i < indexes.length ; i++){
+            if(i != indexes.length-1)
+                console.log(data.substring(indexes[i], indexes[i+1]))
+            else
+                console.log(data.substring(indexes[i]))
+        }
+    }
+    send_ajax_request('/events/sold_seats/', 'event_id='+$('#ticket').attr('event_id'), set_sold_seats);
 })(jQuery);

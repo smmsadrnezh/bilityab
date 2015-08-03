@@ -4,7 +4,7 @@
     {% load sport-tags %}
     <div class="holder">
         <div class="col col-md-12">
-            <div class="col col-md-12" id="ticket">
+            <div class="col col-md-12" id="ticket" event_id="{{ event.id }}">
                 <div class="col col-md-12" id="ticket-info">
                     <div class="image home"
                          style="background-image: url('{% static 'flags/' %}{{ event.sport.home_team }}.png')"></div>

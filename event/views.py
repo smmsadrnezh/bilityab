@@ -115,7 +115,6 @@ def sport(request, event_id):
         event = Event.objects.get(pk=event_id)
         show_time = event.show_times.all()[0]
         event_date_time = datetime.datetime.combine(show_time.date, show_time.from_time)
-        print(event.show_times.all()[0].tickets.all())
     except Event.DoesNotExist:
         raise Http404("sport event does not exist!")
     return render(request, 'sport.html', {
@@ -209,3 +208,14 @@ def rate_event(request):
     else:
         return HttpResponseForbidden('login required')
 
+
+def get_sold_seats(request):
+    if request.method == 'POST':
+        event_id = request.POST.get('event_id')
+        event = Event.objects.get(pk=event_id)
+        tickets = []
+        for i in event.show_times.all()[0].tickets.all():
+            tickets.extend(i.positions.all())
+        return HttpResponse(tickets)
+    else:
+        return HttpResponseForbidden('post required')
