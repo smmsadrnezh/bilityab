@@ -123,6 +123,7 @@ def sport(request, event_id):
         event = Event.objects.get(pk=event_id)
         show_time = event.show_times.all()[0]
         event_date_time = datetime.datetime.combine(show_time.date, show_time.from_time)
+        print(event.show_times.all()[0].tickets.all())
     except Event.DoesNotExist:
         raise Http404("sport event does not exist!")
     return render(request, 'sport.html', {
@@ -183,7 +184,7 @@ def all_organizer(request):
 def organizer(request, organizer_id):
     return render(request, 'organizer.html', {
         'organizer': EventOrganizer.objects.get(id=organizer_id),
-        'organizer_events': Event.objects.filter(event_organizers__id=organizer_id),
+        'organizer_events': make_event_type_list(Event.objects.filter(event_organizers__id=organizer_id)),
         'logged_in': request.user.is_authenticated()
     })
 
