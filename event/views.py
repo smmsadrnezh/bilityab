@@ -160,3 +160,5 @@ def organizer(request, organizer_id):
 def report(request):
     return render(request, 'report.html', {'logged_in': request.user.is_authenticated()
     })
+
+
