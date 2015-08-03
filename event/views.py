@@ -75,8 +75,8 @@ def add_event(request):
 
 def edit_event(request, event_id):
     return render(request, 'edit-event.html', {
-        'logged_in': request.user.is_authenticated()
-
+        'logged_in': request.user.is_authenticated(),
+        'categories': Categories.objects.all()
     })
 
 
