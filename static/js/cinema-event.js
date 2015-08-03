@@ -3,6 +3,52 @@ $('#film-info').css('height', parseFloat($('#film-trailer').css('height')));
 $('#film-info > div:last-of-type').css('height', parseFloat($('#film-info').css('height')) - parseFloat($('#film-info > div:first-of-type').css('height')));
 
 $(window).load(function () {
+
+    $(document).ajaxSend(function(event, xhr, settings) {
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie != '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = jQuery.trim(cookies[i]);
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+        function sameOrigin(url) {
+            // url could be relative or scheme relative or absolute
+            var host = document.location.host; // host + port
+            var protocol = document.location.protocol;
+            var sr_origin = '//' + host;
+            var origin = protocol + sr_origin;
+            // Allow absolute or scheme relative URLs to same origin
+            return (url == origin || url.slice(0, origin.length + 1) == origin + '/') ||
+                (url == sr_origin || url.slice(0, sr_origin.length + 1) == sr_origin + '/') ||
+                // or any other URL that isn't scheme relative or absolute i.e relative.
+                !(/^(\/\/|http:|https:).*/.test(url));
+        }
+        function safeMethod(method) {
+            return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+        }
+
+        if (!safeMethod(settings.type) && sameOrigin(settings.url)) {
+            xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+        }
+    });
+
+
+
+
+
+
+
+
+
     var fixture_ticket = $('#ticket');
     var user_comments = $('#comments');
     var more_info = $('#more-info');
@@ -171,10 +217,16 @@ $(window).load(function () {
             $(this).text(num + 1).fadeIn(200);
         });
         $(this).find('span').css('width', (user_rate + initial_rate * num) / (num + 1) + '%');
+        var event_id = $(this).closest('#ticket').attr('event_id');
+        $.ajax('/events/rate/', {type: 'POST', data: {
+				rate: user_rate/20, event_id: event_id
+			}, dataType: 'json'})
+			.done(function(data) {
+				if (data == 'success') {
 
-        console.log(user_rate/20)
-
-
+				}
+			})
+			.fail(function() {  });
 
     });
 });

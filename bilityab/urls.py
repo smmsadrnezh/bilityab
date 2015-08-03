@@ -20,6 +20,7 @@ urlpatterns = [
     ### event urls
     url(r'^events/$', 'event.views.events'),
     url(r'^events/add/$', 'event.views.add_event'),
+    url(r'^events/rate/$', 'event.views.rate_event'),
     url(r'^events/(?P<event_id>\d+)/edit/$', 'event.views.edit_event'),
     url(r'^events/sport/$', 'event.views.all_sport'),
     url(r'^events/tourism/$', 'event.views.all_tourism'),

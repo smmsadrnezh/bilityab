@@ -3,7 +3,7 @@
 import datetime
 from django.shortcuts import render
 from bilityab.change_date import ChangeDate
-from event.models import Event, Categories, Sport, Movie, Concert
+from event.models import Event, Categories, Sport, Movie, Concert, EventRating
 from django.http import Http404, HttpResponseRedirect, HttpResponse, HttpResponseForbidden
 
 
@@ -179,11 +179,30 @@ def report(request):
     return render(request, 'report.html', {'logged_in': request.user.is_authenticated()
     })
 
-#
-# def rate_event(request):
-#     if request.method == 'POST':
-#
-#     else:
-#         return HttpResponseForbidden('post required')
-#
+
+def rate_event(request):
+    if request.user.is_authenticated():
+        if request.method == 'POST':
+            if 'rate' in request.POST:
+                rate = request.POST['rate']
+                print(rate > 5)
+                if rate > 5 or rate < 0:
+                    return HttpResponseForbidden('invalid rate')
+                print(rate)
+                event_id = request.POST['event_id']
+                try:
+                    print('googogogogoog')
+                    event = Event.objects.get(pk=event_id)
+                    EventRating.objects.get(event=event, user=request.user)
+                    return HttpResponseForbidden('already rated')
+                except Event.DoesNotExist:
+                    print('goog')
+                    return HttpResponseForbidden('invalid event id')
+                except EventRating.DoesNotExist:
+                    EventRating.objects.create(event=event, user=request.user, rate=rate)
+                    return HttpResponse('success')
+        else:
+            return HttpResponseForbidden('post required')
+    else:
+        return HttpResponseForbidden('login required')
 
