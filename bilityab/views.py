@@ -17,9 +17,9 @@ def get_type(event_id):
 
 def make_event_type_list(event_list):
     event_type_list = []
-    for item in event_list:
-        category = get_type(item.category.id)
-        event_type_list.append((item, category))
+    for event in event_list:
+        category = get_type(event.id)
+        event_type_list.append((event, category))
     return event_type_list
 
 

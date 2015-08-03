@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from bilityab.views import make_event_type_list
 
 import datetime
 from django.shortcuts import render
@@ -8,7 +9,8 @@ from django.http import Http404, HttpResponseRedirect, HttpResponse, HttpRespons
 
 def events(request):
     return render(request, 'all-events.html', {
-        'logged_in': request.user.is_authenticated()
+        'logged_in': request.user.is_authenticated(),
+        'event_type_list': make_event_type_list(Event.objects.all())
 
     })
 
