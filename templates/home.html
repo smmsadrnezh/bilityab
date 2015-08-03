@@ -118,7 +118,7 @@
                 </ul>
                 <div id="events-list" class="tab-content">
                     <div role="tabpanel" class="tab-pane active fade in col col-md-12" id="action">
-                        {% for event,type in actionMovies %}
+                        {% for event, type, organizer in actionMovies %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
                                     <div class="date">{{ event.date }}</div>
@@ -129,7 +129,7 @@
                                             {{ event.title }}
                                         </div>
                                         <div class="place">
-                                            {#                                            {{ event.event_organizer}}#}
+                                              {{ organizer.title}}
                                         </div>
                                         <div class="num-of-remaining-tickets">بلیط های باقیمانده: ۴۹ عدد</div>
                                         <div class="price">
@@ -153,7 +153,7 @@
                                             {{ event.title }}
                                         </div>
                                         <div class="place">
-                                            {{ event.event_organizer.title }}
+                                            {{ organizer.title }}
                                         </div>
                                         <div class="num-of-remaining-tickets">بلیط های باقیمانده: ۴۹ عدد</div>
                                         <div class="price">
@@ -459,7 +459,7 @@
                                     </div>
                                     <div class="date">{{ event.date }}</div>
                                     <div class="title">{{ event.title }}</div>
-                                    <div class="place"><a href="/organizer/{{ event.event_organizer.id }}/">{{ event.event_organizer.title }}</a></div>
+                                    <div class="place"><a href="/organizer/{{ event.event_organizer.id }}/">{{ organizer.title }}</a></div>
                                 </a>
                             </div>
                         {% endfor %}

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render
 
-from event.models import Event, Categories
+from event.models import Event, Categories, EventOrganizer
 
 
 def get_type(event_id):
@@ -20,26 +20,36 @@ def make_event_type_list(event_list):
     for event in event_list:
         category = get_type(event.id)
         event_type_list.append((event, category))
+
+    return event_type_list
+
+
+def make_event_type_list1(event_list):
+    event_type_list = []
+    for event in event_list:
+        category = get_type(event.id)
+        organizer = EventOrganizer.objects.filter(event__id=event.id)[:1]
+        event_type_list.append((event, category, organizer))
     return event_type_list
 
 
 def home(request):
     return render(request, 'home.html', {
-        'bestEvents': make_event_type_list(Event.objects.all()[:3]),
-        'nearestEvents': make_event_type_list(Event.objects.all()[:3]),
-        'actionMovies': make_event_type_list(Event.objects.filter(category__title='اکشن')),
-        'dramaticMovies': make_event_type_list(Event.objects.filter(category__title='درام')),
-        'comicMovies': make_event_type_list(Event.objects.filter(category__title='کمدی')),
-        'volleyballEvents': make_event_type_list(Event.objects.filter(category__title='والیبال')),
-        'footballEvents': make_event_type_list(Event.objects.filter(category__title='فوتبال')),
-        'basketballEvents': make_event_type_list(Event.objects.filter(category__title='بسکتبال')),
-        'wrestleEvents': make_event_type_list(Event.objects.filter(category__title='کشتی')),
-        'zooEvents': make_event_type_list(Event.objects.filter(category__title='باغ وحش')),
-        'amusementEvents': make_event_type_list(Event.objects.filter(category__title='شهر بازی')),
-        'circusEvents': make_event_type_list(Event.objects.filter(category__title='سیرک')),
-        'traditionalMusic': make_event_type_list(Event.objects.filter(category__title='سنتی')),
-        'popMusic': make_event_type_list(Event.objects.filter(category__title='پاپ')),
-        'suggestedEvents': make_event_type_list(Event.objects.all()[:3]),
+        'bestEvents': make_event_type_list1(Event.objects.all()[:3]),
+        'nearestEvents': make_event_type_list1(Event.objects.all()[:3]),
+        'actionMovies': make_event_type_list1(Event.objects.filter(category__title='اکشن')),
+        'dramaticMovies': make_event_type_list1(Event.objects.filter(category__title='درام')),
+        'comicMovies': make_event_type_list1(Event.objects.filter(category__title='کمدی')),
+        'volleyballEvents': make_event_type_list1(Event.objects.filter(category__title='والیبال')),
+        'footballEvents': make_event_type_list1(Event.objects.filter(category__title='فوتبال')),
+        'basketballEvents': make_event_type_list1(Event.objects.filter(category__title='بسکتبال')),
+        'wrestleEvents': make_event_type_list1(Event.objects.filter(category__title='کشتی')),
+        'zooEvents': make_event_type_list1(Event.objects.filter(category__title='باغ وحش')),
+        'amusementEvents': make_event_type_list1(Event.objects.filter(category__title='شهر بازی')),
+        'circusEvents': make_event_type_list1(Event.objects.filter(category__title='سیرک')),
+        'traditionalMusic': make_event_type_list1(Event.objects.filter(category__title='سنتی')),
+        'popMusic': make_event_type_list1(Event.objects.filter(category__title='پاپ')),
+        'suggestedEvents': make_event_type_list1(Event.objects.all()[:3]),
         'logged_in': request.user.is_authenticated()
 
     })
