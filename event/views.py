@@ -118,7 +118,8 @@ def sport(request, event_id):
         'event': event,
         'persian_date': ChangeDate().get_persian_date(show_time.date),
         'from_time': show_time.from_time,
-        'remaining_time': int((event_date_time - datetime.datetime.now()).total_seconds()*1000)
+        'remaining_time': int((event_date_time - datetime.datetime.now()).total_seconds()*1000),
+        'logged_in': request.user.is_authenticated()
     })
 
 
@@ -130,8 +131,14 @@ def tourism(request, event_id):
 
 
 def cinema(request, event_id):
+    try:
+        event = Event.objects.get(pk=event_id)
+
+    except Event.DoesNotExist:
+        raise Http404('cinema event does not exist!')
     return render(request, 'cinema.html', {
-        'logged_in': request.user.is_authenticated()
+        'logged_in': request.user.is_authenticated(),
+        'event': event
 
     })
 

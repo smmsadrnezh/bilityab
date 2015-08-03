@@ -42,14 +42,13 @@ def register(request):
         errors += CheckRegistration.check_username(username) + ' '
         errors += CheckRegistration.check_pass(password) + ' '
         errors += CheckRegistration.check_email(email)
-        print(errors)
         if not errors.strip():
             birth_date = birth_date.split('/')
             CustomUser.objects.create_user(username=username, first_name=first_name, last_name=last_name, email=email,
                                            password=password, birth_date=datetime(int(birth_date[0]),
                                                                                   int(birth_date[1]),
                                                                                   int(birth_date[2])))
-            user = auth.authenticate(email=email, password=password)
+            user = auth.authenticate(username=username, password=password)
             auth.login(request, user)
             return HttpResponse('success')
         else:

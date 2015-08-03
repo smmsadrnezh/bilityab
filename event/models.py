@@ -79,6 +79,11 @@ class Movie(models.Model):
     actors = models.CharField(max_length=1000)
     year = models.PositiveSmallIntegerField()
     story_summary = models.CharField(max_length=300)
+    cast = models.CharField(max_length=1000)
+    duration = models.PositiveIntegerField()
+    genre = models.CharField(max_length=50)
+    producer = models.CharField(max_length=100)
+    writers = models.CharField(max_length=200)
 
     def __str__(self):
         return "%s (%s) \n %s" % (self.director, self.year, self.story_summary)
@@ -95,7 +100,7 @@ class Sport(models.Model):
 
 class EventRating(models.Model):
     rate = models.PositiveSmallIntegerField()
-    event = models.ForeignKey(Event)
+    event = models.ForeignKey(Event, related_name='rates')
     user = models.ForeignKey(CustomUser, default=1)
 
     def __str__(self):
