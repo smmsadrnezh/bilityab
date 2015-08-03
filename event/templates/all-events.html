@@ -23,7 +23,7 @@
                     {% for event,type in event_type_list %}
                                             <div class="col col-md-2">
                                             <a class="btn btn-primary btn-lg btn-block"
-                           href="/ticket/{{ request.user.id }}/{{ ticket.id }}/edit/">
+                           href="/events/{{ event.id }}/edit/">
                             <i class="fa fa-edit"></i> ویرایش رویداد
                         </a>
                         <a class="btn btn-danger btn-lg btn-block" data-toggle="modal" data-target="#confirm-delete">
