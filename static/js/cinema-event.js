@@ -174,5 +174,7 @@ $(window).load(function () {
 
         console.log(user_rate/20)
 
+
+
     });
 });

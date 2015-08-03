@@ -7,7 +7,7 @@
 
     var cinema_events = $('.cinema').closest('.event');
     cinema_events.on('click', function () {
-        window.location.href = "events/cinema/"+cinema_events.attr('event_id');
+        window.location.href = "events/cinema/"+$(this).attr('event_id');
     });
 
     var sportImage = $(".sport");

@@ -97,7 +97,7 @@ jQuery(document).ready(function ($) {
         $.ajax({
             type: "POST",
             url: "/login/",
-            data: $("#signin-form").serialize(), // serializes the form's elements.
+            data: $("#signin-form").serialize(),
             success: function (data) {
                 if (parseInt(data)) {
                     window.location.replace(window.location.pathname);
