@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
                 ('purchased_date', models.DateTimeField()),
                 ('price', models.FloatField()),
                 ('receipt', models.CharField(max_length=50)),
-                ('event', models.OneToOneField(to='event.Showtime')),
+                ('showtime', models.OneToOneField(to='event.Showtime')),
                 ('user', models.ForeignKey(to='account.CustomUser')),
             ],
         ),
@@ -28,7 +28,7 @@ class Migration(migrations.Migration):
             name='TicketPosition',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('section', models.PositiveSmallIntegerField(null=True)),
+                ('section', models.CharField(max_length=2)),
                 ('row', models.PositiveSmallIntegerField()),
                 ('column', models.PositiveSmallIntegerField()),
                 ('ticket', models.ForeignKey(to='ticket.PurchasedTicket')),
@@ -36,6 +36,6 @@ class Migration(migrations.Migration):
         ),
         migrations.AlterUniqueTogether(
             name='purchasedticket',
-            unique_together=set([('event', 'user')]),
+            unique_together=set([('showtime', 'user', 'purchased_date')]),
         ),
     ]

@@ -15,15 +15,9 @@ class PurchasedTicket(models.Model):
     class Meta:
         unique_together = (("showtime", "user", "purchased_date"),)
 
-    def __str__(self):
-        return "%s -- purchased by %s" % (self.event, self.user)
-
 
 class TicketPosition(models.Model):
     ticket = models.ForeignKey(PurchasedTicket)
-    section = models.PositiveIntegerField(null=True)
+    section = models.CharField(max_length=2)
     row = models.PositiveSmallIntegerField()
     column = models.PositiveSmallIntegerField()
-
-    def __str__(self):
-        return "%s -- purchased by %s \n row: %s column: %s" % (self.event, self.user)
