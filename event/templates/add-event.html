@@ -31,7 +31,7 @@
                         <i class="fa fa-th-list"></i>
                         <select name="event-type">
                             {% for category in categories %}
-                            <option value="{{ category.id }}">{{ category.title }}</option>
+                                <option value="{{ category.id }}">{{ category.title }}</option>
                             {% endfor %}
                         </select>
                     </p>
@@ -59,6 +59,64 @@
                         <input class="full-width has-padding has-border" id="event-photo"
                                name="event-photo"
                                type="file">
+                    </p>
+
+                    <h3>اطلاعات بیشتر رویداد ورزشی</h3>
+
+                    <p class="fieldset">
+                        <i class="fa fa-flag"></i>
+                        <input class="full-width has-padding has-border" id="event-home-team"
+                               name="event-home-team"
+                               type="text"
+                               placeholder="کشور میزبان">
+                        <span class="cd-error-message">کشور میزبان نامعتبر است</span>
+                    </p>
+
+                    <p class="fieldset">
+                        <i class="fa fa-flag-o"></i>
+                        <input class="full-width has-padding has-border" id="event-away-team"
+                               name="event-away-team"
+                               type="text"
+                               placeholder="کشور مهمان">
+                        <span class="cd-error-message">کشور مهمان نامعتبر است</span>
+                    </p>
+
+                    <h3>اطلاعات بیشتر رویداد سینمایی</h3>
+
+                    <p class="fieldset">
+                        <i class="fa fa-film"></i>
+                        <input class="full-width has-padding has-border" id="event-director"
+                               name="event-director"
+                               type="text"
+                               placeholder="کارگردان">
+                        <span class="cd-error-message">کارگردان نامعتبر است</span>
+                    </p>
+
+                    <p class="fieldset">
+                        <i class="fa fa-users"></i>
+                        <input class="full-width has-padding has-border" id="event-actors"
+                               name="event-actors"
+                               type="text"
+                               placeholder="بازیگرها">
+                        <span class="cd-error-message">بازیگران نامعتبر است</span>
+                    </p>
+
+                    <p class="fieldset">
+                        <i class="fa fa-calendar"></i>
+                        <input class="full-width has-padding has-border" id="event-year"
+                               name="event-year"
+                               type="text"
+                               placeholder="سال ساخت">
+                        <span class="cd-error-message">سال ساخت نامعتبر است</span>
+                    </p>
+
+                    <p class="fieldset">
+                        <i class="fa fa-paperclip"></i>
+                        <input class="full-width has-padding has-border" id="event-story-summary"
+                               name="event-story-summary"
+                               type="text"
+                               placeholder="خلاصه داستان">
+                        <span class="cd-error-message">خلاصه داستان نامعتبر است</span>
                     </p>
 
                     <p class="fieldset">
