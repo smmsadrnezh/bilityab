@@ -8,13 +8,16 @@
                     <img class="organizer-image" src={% static "img/azadi.jpg" %}>
 
                     <div class="organizer-details">
-                        نام مجموعه: سینما آزادی
+                        نام مجموعه:
+                            {{ organizer.title }}
                     </div>
                     <div class="organizer-details">
-                        آدرس: تهران - تقاطع خیابان شهید بهشتی و خیابان خالد اسلامبولی
+                        آدرس:
+                        {{ organizer.address }}
                     </div>
                     <div class="organizer-details">
-                        تلفن: 02188888888
+تلفن:
+                        {{ organizer.phone }}
                     </div>
                 </div>
 
