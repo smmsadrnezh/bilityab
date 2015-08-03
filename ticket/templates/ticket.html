@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% load staticfiles %}
 {% block pageBody %}
-    {% for ticket,event,type,showtime in ticket_event_type_list %}
+    {% for ticket,event,type,showtime,positions in ticket_event_type_list %}
 
     <div class="holder">
         <div id="body-container" class="col col-md-12">
@@ -10,7 +10,7 @@
                     <br/>
                     <a class="btn btn-primary btn-lg btn-block" href="#print">
                         <i class="fa fa-print"></i> پرینت
-                    </a><a class="btn btn-primary btn-lg btn-block" href="/events/{{ type }}/{{ ticket.event_id }}/">
+                    </a><a class="btn btn-primary btn-lg btn-block" href="/events/{{ type }}/{{ event.id }}/">
                     <i class="fa fa-info-circle"></i> صفحه رویداد</a></div>
                 <div class="col col-md-9">
 
@@ -44,15 +44,15 @@
                         <dt>تاریخ خرید</dt>
                         <dd>{{ ticket.purchased_date }}</dd>
                         <dt>زمان برگزاری رویداد</dt>
-                        <dd>{{ event. }}</dd>
+                        <dd>{{ showtime.date }} از ساعت {{ showtime.from_time }} تا {{ showtime.to_time }}</dd>
                         <dt>مکان استفاده</dt>
-                        <dd>سینما آزادی</dd>
+                        <dd>{{ event.address }}</dd>
+                        {% for position in positions %}
                         <dt>محل قرارگیری صندلی</dt>
-                        <dd>جایگاه A ردیف ۲ ستون ۵</dd>
+                        <dd>جایگاه {{ position.section }} ردیف {{ position.row }} ستون {{ position.column }}</dd>
+                            {% endfor %}
                         <dt>تعداد خریداری شده</dt>
                         <dd>{{ ticket.quantity }}</dd>
-                        <dt>قیمت واحد</dt>
-                        <dd>۵۰۰۰ تومان</dd>
                         <dt>قیمت کل</dt>
                         <dd>{{ ticket.price }} تومان</dd>
 

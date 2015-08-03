@@ -5,7 +5,7 @@ from event.models import Event, Categories, EventOrganizer
 
 
 def get_type(event_id):
-    sub_category = Categories.objects.get(id=event_id)
+    sub_category = Categories.objects.get(id=Event.objects.get(id=event_id).category_id)
     category = Categories.objects.get(id=sub_category.parent_id).title
     return {
         'ورزشی': 'sport',
