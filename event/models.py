@@ -9,6 +9,7 @@ class EventOrganizer(models.Model):
     title = models.CharField(max_length=60, unique=True)
     address = models.TextField()
     user = models.ForeignKey(CustomUser)
+    capacity = models.PositiveIntegerField()
 
     def __str__(self):
         return "%s" % self.title
