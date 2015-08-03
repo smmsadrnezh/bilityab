@@ -118,7 +118,7 @@
                 </ul>
                 <div id="events-list" class="tab-content">
                     <div role="tabpanel" class="tab-pane active fade in col col-md-12" id="action">
-                        {% for event in actionMovies %}
+                        {% for event,type in actionMovies %}
                             <div class="col col-md-6 event">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
                                     <div class="date">{{ event.date }}</div>
@@ -139,29 +139,10 @@
                                 </div>
                             </div>
                         {% endfor %}
-                        {#                        <div class="col col-md-6 event">#}
-                        {#                            <div class="image" style="background-image: url('/static/img/te-nflpromo.jpg')">#}
-                        {#                                <div class="date">۲۵ اردیبهشت ۹۴</div>#}
-                        {#                            </div>#}
-                        {#                            <div class="description cinema">#}
-                        {#                                <div class="vertical-center">#}
-                        {#                                    <div class="title">#}
-                        {#                                        فیلم سینمایی محافظ#}
-                        {#                                    </div>#}
-                        {#                                    <div class="place">#}
-                        {#                                        تهران، سینما آزادی#}
-                        {#                                    </div>#}
-                        {#                                    <div class="num-of-remaining-tickets">بلیط های باقیمانده: ۴۹ عدد</div>#}
-                        {#                                    <div class="price">#}
-                        {#                                        ۱۰ هزار تومان#}
-                        {#                                    </div>#}
-                        {#                                </div>#}
-                        {#                            </div>#}
-                        {#                        </div>#}
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="dram">
 
-                        {% for event in dramaticMovies %}
+                        {% for event,type in dramaticMovies %}
                             <div class="col col-md-6 event">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
                                     <div class="date">۲۵ اردیبهشت ۹۴</div>
@@ -182,47 +163,9 @@
                                 </div>
                             </div>
                         {% endfor %}
-                        {#                        <div class="col col-md-6 event">#}
-                        {#                            <div class="image" style="background-image: url('/static/img/arghavan.jpg')">#}
-                        {#                                <div class="date">۱ خرداد ۹۴</div>#}
-                        {#                            </div>#}
-                        {#                            <div class="description cinema">#}
-                        {#                                <div class="vertical-center">#}
-                        {#                                    <div class="title">#}
-                        {#                                        فیلم سینمایی به رنگ ارغوان#}
-                        {#                                    </div>#}
-                        {#                                    <div class="place">#}
-                        {#                                        تهران، مجموعه ورزشی آزادی#}
-                        {#                                    </div>#}
-                        {#                                    <div class="num-of-remaining-tickets">بلیط های باقیمانده: ۲ عدد</div>#}
-                        {#                                    <div class="price">#}
-                        {#                                        ۱۸ هزار تومان#}
-                        {#                                    </div>#}
-                        {#                                </div>#}
-                        {#                            </div>#}
-                        {#                        </div>#}
-                        {#                        <div class="col col-md-6 event">#}
-                        {#                            <div class="image" style="background-image: url('/static/img/iceage.jpg')">#}
-                        {#                                <div class="date">۲۵ اردیبهشت ۹۴</div>#}
-                        {#                            </div>#}
-                        {#                            <div class="description cinema">#}
-                        {#                                <div class="vertical-center">#}
-                        {#                                    <div class="title">#}
-                        {#                                        فیلم سینمایی عصر یخبندان#}
-                        {#                                    </div>#}
-                        {#                                    <div class="place">#}
-                        {#                                        تهران، سینما اریکه ایرانیان#}
-                        {#                                    </div>#}
-                        {#                                    <div class="num-of-remaining-tickets">بلیط های باقیمانده : ۱۰۰ عدد</div>#}
-                        {#                                    <div class="price">#}
-                        {#                                        ۵ هزار تومان#}
-                        {#                                    </div>#}
-                        {#                                </div>#}
-                        {#                            </div>#}
-                        {#                        </div>#}
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="comic">
-                        {% for event in comicMovies %}
+                        {% for event,type in comicMovies %}
                             <div class="col col-md-6 event">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
                                     <div class="date">{{ event.date }}</div>
@@ -243,28 +186,9 @@
                                 </div>
                             </div>
                         {% endfor %}
-                        {#                        <div class="col col-md-6 event">#}
-                        {#                            <div class="image" style="background-image: url('/static/img/volleyball.jpg')">#}
-                        {#                                <div class="date">۱ خرداد ۹۴</div>#}
-                        {#                            </div>#}
-                        {#                            <div class="description cinema">#}
-                        {#                                <div class="vertical-center">#}
-                        {#                                    <div class="title">#}
-                        {#                                        فیلم سینمایی گینس#}
-                        {#                                    </div>#}
-                        {#                                    <div class="place">#}
-                        {#                                        تهران، مجموعه ورزشی آزادی#}
-                        {#                                    </div>#}
-                        {#                                    <div class="num-of-remaining-tickets">بلیط های باقیمانده: ۲ عدد</div>#}
-                        {#                                    <div class="price">#}
-                        {#                                        ۱۸ هزار تومان#}
-                        {#                                    </div>#}
-                        {#                                </div>#}
-                        {#                            </div>#}
-                        {#                        </div>#}
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="volleyball">
-                        {% for event in volleyballEvents %}
+                        {% for event,type in volleyballEvents %}
                             <div class="col col-md-6 event">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
                                     <div class="date">۲۵ اردیبهشت ۹۴</div>
@@ -287,7 +211,7 @@
                         {% endfor %}
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="football">
-                        {% for event in footballEvents %}
+                        {% for event,type in footballEvents %}
                             <div class="col col-md-6 event">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
                                     <div class="date">۲۵ اردیبهشت ۹۴</div>
@@ -310,7 +234,7 @@
                         {% endfor %}
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="basketball">
-                        {% for event in basketballEvents %}
+                        {% for event,type in basketballEvents %}
                             <div class="col col-md-6 event">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
                                     <div class="date">۲۵ اردیبهشت ۹۴</div>
@@ -333,7 +257,7 @@
                         {% endfor %}
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="wrestling">
-                        {% for event in wrestleEvents %}
+                        {% for event,type in wrestleEvents %}
                             <div class="col col-md-6 event">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
                                     <div class="date">۲۵ اردیبهشت ۹۴</div>
@@ -356,7 +280,7 @@
                         {% endfor %}
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="tour">
-                        {% for event in tourEvents %}
+                        {% for event,type in tourEvents %}
                             <div class="col col-md-6 event">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
                                     <div class="date">۲۵ اردیبهشت ۹۴</div>
@@ -379,7 +303,7 @@
                         {% endfor %}
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="zoo">
-                        {% for event in zooEvents %}
+                        {% for event,type in zooEvents %}
                             <div class="col col-md-6 event">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
                                     <div class="date">۲۵ اردیبهشت ۹۴</div>
@@ -402,7 +326,7 @@
                         {% endfor %}
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="amusement-park">
-                        {% for event in amusementEvents %}
+                        {% for event,type in amusementEvents %}
                             <div class="col col-md-6 event">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
                                     <div class="date">۲۵ اردیبهشت ۹۴</div>
@@ -425,7 +349,7 @@
                         {% endfor %}
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="circus">
-                        {% for event in circusEvents %}
+                        {% for event,type in circusEvents %}
                             <div class="col col-md-6 event">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
                                     <div class="date">۲۵ اردیبهشت ۹۴</div>
@@ -448,7 +372,7 @@
                         {% endfor %}
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="traditional">
-                        {% for event in traditionalMusic %}
+                        {% for event,type in traditionalMusic %}
                             <div class="col col-md-6 event">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
                                     <div class="date">۲۵ اردیبهشت ۹۴</div>
@@ -471,7 +395,7 @@
                         {% endfor %}
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="pop">
-                        {% for event in popMusic %}
+                        {% for event,type in popMusic %}
                             <div class="col col-md-6 event">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
                                     <div class="date">۲۵ اردیبهشت ۹۴</div>
@@ -502,7 +426,7 @@
                         <span><i>پیشنهادهای ما</i></span>
                     </div>
                     <div class="col col-md-12 event-carousel">
-                        {% for event in suggestedEvents %}
+                        {% for event,type in suggestedEvents %}
                             <div class="medium-event col col-md-4">
                                 <div class="image"
                                      style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')"></div>
@@ -512,43 +436,13 @@
                                     {{ event.description }}
                                 </div>
                                 <div class="footer">
-                                    <div class="see-ticket"><a href="/events/sport/1">نمایش رویداد<i
+                                    <div class="see-ticket"><a href="/events/{{ event.category.title }}">نمایش رویداد<i
                                             class="fa fa-ticket"></i></a>
                                     </div>
                                     <div class="date"><i class="fa fa-calendar"></i>۲۵ تیر ۹۴</div>
                                 </div>
                             </div>
                         {% endfor %}
-                        {#                        <div class="medium-event col col-md-4">#}
-                        {#                            <div class="image" style="background-image: url('/static/img/te-nflpromo.jpg')"></div>#}
-                        {#                            <div class="title">والیبال ایران-آمریکا</div>#}
-                        {#                            <div class="place">مجموعه ورزشی آزادی</div>#}
-                        {#                            <div class="description"><i class="fa fa-quote-right"></i>#}
-                        {#                                این بازی از سری بازی های مرحله مقدماتی لیگ جهانی والیبال می باشد. ایران برای اینکه#}
-                        {#                                همچنان امیدش به صعود حفظ شود، باید در این بازی از آمریکا امتیاز بگیرد.#}
-                        {#                            </div>#}
-                        {#                            <div class="footer">#}
-                        {#                                <div class="see-ticket"><a href="/events/sport/1">نمایش رویداد<i#}
-                        {#                                        class="fa fa-ticket"></i></a>#}
-                        {#                                </div>#}
-                        {#                                <div class="date"><i class="fa fa-calendar"></i>۲۵ تیر ۹۴</div>#}
-                        {#                            </div>#}
-                        {#                        </div>#}
-                        {#                        <div class="medium-event col col-md-4">#}
-                        {#                            <div class="image" style="background-image: url('/static/img/volleyball.jpg')"></div>#}
-                        {#                            <div class="title">والیبال ایران-آمریکا</div>#}
-                        {#                            <div class="place">مجموعه ورزشی آزادی</div>#}
-                        {#                            <div class="description"><i class="fa fa-quote-right"></i>#}
-                        {#                                این بازی از سری بازی های مرحله مقدماتی لیگ جهانی والیبال می باشد. ایران برای اینکه#}
-                        {#                                همچنان امیدش به صعود حفظ شود، باید در این بازی از آمریکا امتیاز بگیرد.#}
-                        {#                            </div>#}
-                        {#                            <div class="footer">#}
-                        {#                                <div class="see-ticket"><a href="/events/sport/1">نمایش رویداد<i#}
-                        {#                                        class="fa fa-ticket"></i></a>#}
-                        {#                                </div>#}
-                        {#                                <div class="date"><i class="fa fa-calendar"></i>۲۵ تیر ۹۴</div>#}
-                        {#                            </div>#}
-                        {#                        </div>#}
                     </div>
                 </div>
             </div>
@@ -557,9 +451,9 @@
                     <div class="heading"><i class="fa fa-star"></i><span class="title">برترین رویدادها</span></div>
                     <div class="content">
 
-                        {% for event in bestEvents %}
+                        {% for event,type in bestEvents %}
                             <div class="small-event">
-                                <a href="events/sport/" +event.id>
+                                <a href="events/{{ type }}/{{ event.id }}/" >
                                     <div class="event-type">
                                         {{ event.category.title }}
                                     </div>
@@ -569,49 +463,13 @@
                                 </a>
                             </div>
                         {% endfor %}
-
-
-                        {#                        <div class="small-event">#}
-                        {#                            <a href="events/sport/1">#}
-                        {#                                <div class="event-type">#}
-                        {#                                    فوتبال#}
-                        {#                                </div>#}
-                        {#                                <div class="date">۲۵ تیر ۹۴</div>#}
-                        {#                                <div class="title">ایران-آمریکا</div>#}
-                        {#                                <div class="place">مجموعه ورزشی آزادی</div>#}
-                        {#                            </a>#}
-                        {#                        </div>#}
-
-
                     </div>
                 </div>
-                {#                <div id="random" class="widget">#}
-                {#                    <div class="heading"><i class="fa fa-random"></i><span class="title">رویدادهای تصادفی</span></div>#}
-                {#                    <div class="content">#}
-                {#                        <div class="small-event">#}
-                {#                            <div class="event-type">#}
-                {#                                والیبال#}
-                {#                            </div>#}
-                {#                            <div class="date">۲۵ تیر ۹۴</div>#}
-                {#                            <div class="title">ایران-آمریکا</div>#}
-                {#                            <div class="place">مجموعه ورزشی آزادی</div>#}
-                {#                        </div>#}
-                {#                        <div class="small-event">#}
-                {#                            <div class="event-type">#}
-                {#                                فوتبال#}
-                {#                            </div>#}
-                {#                            <div class="date">۲۵ تیر ۹۴</div>#}
-                {#                            <div class="title">ایران-آمریکا</div>#}
-                {#                            <div class="place">مجموعه ورزشی آزادی</div>#}
-                {#                        </div>#}
-                {##}
-                {#                    </div>#}
-                {#                </div>#}
                 <div id="nearest" class="widget">
                     <div class="heading"><i class="fa fa-newspaper-o"></i><span class="title">نزدیکترین رویدادها</span>
                     </div>
                     <div class="content">
-                        {% for event in nearestEvents %}
+                        {% for event,type in nearestEvents %}
                             <div class="small-event">
                                 <a href="events/sport/" +event.id>
                                     <div class="event-type">
@@ -622,46 +480,9 @@
                                     <div class="place"><a href="/organizer/{{ event.event_organizer.id }}/">{{ event.event_organizer.title }}</a></div>
                                 </a>
                             </div>
-                            {#                            <div class="small-event">#}
-                            {#                                <a href="events/sport/1">#}
-                            {#                                    <div class="event-type">#}
-                            {#                                        فوتبال#}
-                            {#                                    </div>#}
-                            {#                                    <div class="date">۲۵ تیر ۹۴</div>#}
-                            {#                                    <div class="title">ایران-آمریکا</div>#}
-                            {#                                    <div class="place">مجموعه ورزشی آزادی</div>#}
-                            {#                                </a>#}
-                            {#                            </div>#}
                         {% endfor %}
                     </div>
                 </div>
-                {#                <div id="newest" class="widget">#}
-                {#                    <div class="heading"><i class="fa fa-newspaper-o"></i><span class="title">جدیدترین رویدادها</span>#}
-                {#                    </div>#}
-                {#                    <div class="content">#}
-                {#                        <div class="small-event">#}
-                {#                            <a href="events/sport/1">#}
-                {#                                <div class="event-type">#}
-                {#                                    والیبال#}
-                {#                                </div>#}
-                {#                                <div class="date">۲۵ تیر ۹۴</div>#}
-                {#                                <div class="title">ایران-آمریکا</div>#}
-                {#                                <div class="place">مجموعه ورزشی آزادی</div>#}
-                {#                            </a>#}
-                {#                        </div>#}
-                {#                        <div class="small-event">#}
-                {#                            <a href="events/sport/1">#}
-                {#                                <div class="event-type">#}
-                {#                                    فوتبال#}
-                {#                                </div>#}
-                {#                                <div class="date">۲۵ تیر ۹۴</div>#}
-                {#                                <div class="title">ایران-آمریکا</div>#}
-                {#                                <div class="place">مجموعه ورزشی آزادی</div>#}
-                {#                            </a>#}
-                {#                        </div>#}
-                {##}
-                {#                    </div>#}
-                {#                </div>#}
             </div>
         </div>
     </div>
