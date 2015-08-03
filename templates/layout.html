@@ -84,7 +84,7 @@
                 <!-- cd-login -->
 
                 <div id="cd-signup"> <!-- sign up form -->
-                    <form class="cd-form" action="/register/" method="POST">{% csrf_token %}
+                    <form class="cd-form" id="signup-form" action="/register/" method="POST">{% csrf_token %}
                         <p class="fieldset">
                             <i class="fa fa-user"></i>
                             <input class="full-width has-padding has-border" id="signup-first-name"
@@ -105,8 +105,8 @@
 
                         <p class="fieldset">
                             <i class="fa fa-calendar"></i>
-                            <input class="full-width has-padding has-border" id="signup-birthday"
-                                   name="signup-birthday"
+                            <input class="full-width has-padding has-border" id="signup-birth-date"
+                                   name="signup-birth-date"
                                    type="text"
                                    placeholder="تاریخ تولد">
                             <span class="cd-error-message">تاریخ تولد نامعتبر</span>
@@ -135,7 +135,7 @@
                             <input class="full-width has-padding has-border" id="signup-username" name="signup-username"
                                    type="text"
                                    placeholder="نام کاربری">
-                            <span class="cd-error-message">نام کاربری نامعتبر</span>
+                            <span class="cd-error-message">این نام کاربری قبلا گرفته شده است</span>
                         </p>
 
                         <p class="fieldset">
@@ -143,6 +143,7 @@
                             <input class="full-width has-padding has-border" id="signup-email" name="signup-email"
                                    type="email"
                                    placeholder="پست الکترونیکی">
+                            <span class="cd-error-message">پست الکترونیکی نامعتبر</span>
                         </p>
 
 
