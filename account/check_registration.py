@@ -60,3 +60,11 @@ class CheckRegistration(object):
             return ''
         else:
             return 'invalid_email'
+
+    @staticmethod
+    def check_username(username):
+        try:
+            CustomUser.objects.get(username=username)
+            return 'taken_username'
+        except CustomUser.DoesNotExist:
+            return ''

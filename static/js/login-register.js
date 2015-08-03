@@ -104,11 +104,97 @@ jQuery(document).ready(function ($) {
                 } else {
                     $form_login.find('input[type="text"]').toggleClass('has-error').next('span').toggleClass('is-visible');
                     $form_login.find('input[type="password"]').toggleClass('has-error').next('a').next('span').toggleClass('is-visible');
+                    setTimeout(function () {
+                        hide_error($form_login.find('input[type="text"]'));
+                        hide_error($form_login.find('input[type="password"]'));
+                    }, 3000);
                 }
             }
         });
 
     });
+
+    function hide_error($elem) {
+        $elem.toggleClass('has-error').parent().find('span').toggleClass('is-visible');
+    }
+
+    $form_signup.find('input[type="submit"]').on('click', function (event) {
+        event.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: "/register/",
+            data: $("#signup-form").serialize(), // serializes the form's elements.
+            success: function (data) {
+                if (data == 'success') {
+                    window.location.replace(window.location.pathname);
+                } else {
+                    data = data.trim();
+                    var errors = data.split(' ');
+                    for(var error in errors)
+                    {
+                        switch(errors[error]) {
+                            case 'invalid_first_name':
+                                $('#signup-first-name').toggleClass('has-error').next('span').text('نام نامعتبر').toggleClass('is-visible');
+                                setTimeout(function () {
+                                    hide_error($('#signup-first-name'));
+                                }, 3000);
+                                break;
+                            case 'empty_first_name':
+                                $('#signup-first-name').toggleClass('has-error').next('span').text('نامتان را وارد کنید').toggleClass('is-visible');
+                                setTimeout(function () {
+                                    hide_error($('#signup-first-name'));
+                                }, 3000);
+                                break;
+                            case 'invalid_last_name':
+                                $('#signup-last-name').toggleClass('has-error').next('span').text('نام خانوادگی نامعتبر').toggleClass('is-visible');
+                                setTimeout(function () {
+                                    hide_error($('#signup-last-name'));
+                                }, 3000);
+                                break;
+                            case 'empty_last_name':
+                                $('#signup-last-name').toggleClass('has-error').next('span').text('نام خانوادگی تان را وارد کنید').toggleClass('is-visible');
+                                setTimeout(function () {
+                                    hide_error($('#signup-last-name'));
+                                }, 3000);
+                                break;
+                            case 'date':
+                                $('#signup-birth-date').toggleClass('has-error').next('span').toggleClass('is-visible');
+                                setTimeout(function () {
+                                    hide_error($('#signup-birth-date'));
+                                }, 3000);
+                                break;
+                            case 'password':
+                                $('#signup-password').toggleClass('has-error').next('a').next('span').toggleClass('is-visible');
+                                setTimeout(function () {
+                                    hide_error($('#signup-password'));
+                                }, 3000);
+                                break;
+                            case 'invalid_email':
+                                $('#signup-email').toggleClass('has-error').next('span').text('پست الکترونیکی نامعتبر').toggleClass('is-visible');
+                                setTimeout(function () {
+                                    hide_error($('#signup-email'));
+                                }, 3000);
+                                break;
+                            case 'registered_email':
+                                $('#signup-email').toggleClass('has-error').next('span').text('این پست الکترونیکی قبلا وارد شده است').toggleClass('is-visible');
+                                setTimeout(function () {
+                                    hide_error($('#signup-email'));
+                                }, 3000);
+                                break;
+                            case 'taken_username':
+                                $('#signup-username').toggleClass('has-error').next('span').toggleClass('is-visible');
+                                setTimeout(function () {
+                                    hide_error($('#signup-username'));
+                                }, 3000);
+                                break;
+                        }
+                    }
+                }
+            }
+        });
+
+    });
+
     //$form_signup.find('input[type="submit"]').on('click', function (event) {
     //    event.preventDefault();
     //    $form_signup.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');

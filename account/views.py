@@ -26,28 +26,23 @@ def logout(request):
     return HttpResponseRedirect(request.REQUEST.get('next', ''))
 
 
-def create_username(first_name, last_name):
-    last_num = CustomUser.objects.filter(first_name=first_name, last_name=last_name).count()
-    last_num += 1
-    username = first_name.replace(' ', '.') + '.' + last_name.replace(' ', '.') + '.' + str(last_num)
-    return username
-
-
 def register(request):
     if request.method == 'POST':
         errors = ''
         first_name = request.POST.get('signup-first-name', None)
         last_name = request.POST.get('signup-last-name', None)
-        username = request.POST.get('signup-username', None)
         birth_date = request.POST.get('signup-birth-date', None)
+        username = request.POST.get('signup-username', None)
         password = request.POST.get('signup-password', None)
         email = request.POST.get('signup-email', None)
         email = email.lower()
         errors += CheckRegistration.check_first_name(first_name) + ' '
         errors += CheckRegistration.check_last_name(last_name) + ' '
         errors += CheckRegistration.check_date(birth_date) + ' '
+        errors += CheckRegistration.check_username(username) + ' '
         errors += CheckRegistration.check_pass(password) + ' '
         errors += CheckRegistration.check_email(email)
+        print(errors)
         if not errors.strip():
             birth_date = birth_date.split('/')
             CustomUser.objects.create_user(username=username, first_name=first_name, last_name=last_name, email=email,
@@ -56,9 +51,9 @@ def register(request):
                                                                                   int(birth_date[2])))
             user = auth.authenticate(email=email, password=password)
             auth.login(request, user)
-            return HttpResponse('success ' + username)
+            return HttpResponse('success')
         else:
-            return HttpResponseForbidden(errors)
+            return HttpResponse(errors)
     else:
         return HttpResponseForbidden('post required')
 
