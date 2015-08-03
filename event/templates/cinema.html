@@ -26,25 +26,25 @@
                                 <div class="num-of-voters"><span>87</span> رأی</div>
                             </div>
                             <div class="col col-md-6 col-xs-4 image"
-                                 style="background-image: url('{% static 'img/guinness.jpg' %}')"></div>
+                                 style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')"></div>
                         </div>
                         <div class="col col-md-12">
                             <div class="vertical-center" style="text-align: center">
-                                <div class="producer"><span class="my-label">تهیه کننده: </span><span>سعید ملکان</span>
+                                <div class="producer"><span class="my-label">تهیه کننده: </span><span>{{ event.movie.producer }}</span>
                                 </div>
-                                <div class="writers"><span class="my-label">نویسندگان: </span><span>محسن تنابنده، احمد رفیع زاده</span>
+                                <div class="writers"><span class="my-label">نویسندگان: </span><span>{{ event.movie.writers }}</span>
                                 </div>
-                                <div class="actors"><span class="my-label">بازیگران:</span><span>رضا عطاران، محسن تنابنده، حسین اسکندری، جمال اجلالی و...</span>
+                                <div class="actors"><span class="my-label">بازیگران:</span><span>{{ event.movie.actors }}</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col col-md-6 cast"><span class="my-label">سایر عوامل: </span>
                         <span>
-                            مرتضی غفوری، سعید ملکان، حسن زاهدی، مجید شهبازی، سحر شهامت، حسین مصطفوی، مصطفی تنابنده، مجید فاضلی، امیر اسکندری و ...
+                            {{ event.movie.cast }}
                         </span>
                     </div>
-                    <div class="col col-md-6 synopsis"><span class="my-label">خلاصه داستان: </span><span>فردین: گینس سیخی چنده!؟ پول کجاست اینو بگو؟ غنچه: خاک بر سرت که نافتو از پول بریدن. بدبخت همش اعتباره... میدونی کیا اسمشون تو گینسه... علی دایی... رضا زاده... جنیفر لوپز.</span>
+                    <div class="col col-md-6 synopsis"><span class="my-label">خلاصه داستان: </span><span>{{ event.movie.story_summary }}</span>
                     </div>
                 </div>
                 <div class="col col-md-12" id="seat-select">

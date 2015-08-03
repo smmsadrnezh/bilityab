@@ -100,7 +100,7 @@ class Sport(models.Model):
 
 class EventRating(models.Model):
     rate = models.PositiveSmallIntegerField()
-    event = models.ForeignKey(Event)
+    event = models.ForeignKey(Event, related_name='rates')
     user = models.ForeignKey(CustomUser, default=1)
 
     def __str__(self):

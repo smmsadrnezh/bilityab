@@ -133,6 +133,7 @@ def tourism(request, event_id):
 def cinema(request, event_id):
     try:
         event = Event.objects.get(pk=event_id)
+
     except Event.DoesNotExist:
         raise Http404('cinema event does not exist!')
     return render(request, 'cinema.html', {
