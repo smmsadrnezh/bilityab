@@ -6,8 +6,8 @@ from event.models import Event
 
 def home(request):
     return render(request, 'home.html', {
-        'bestEvents': Event.objects.all(),
-        'nearestEvents': Event.objects.all(),
+        'bestEvents': Event.objects.all()[:3],
+        'nearestEvents': Event.objects.all()[:3],
         'actionMovies': Event.objects.filter(category__title='اکشن'),
         'dramaticMovies': Event.objects.filter(category__title='درام'),
         'comicMovies': Event.objects.filter(category__title='کمدی'),
