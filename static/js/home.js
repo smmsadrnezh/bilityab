@@ -5,9 +5,9 @@
     //    window.location.href = "events/cinema/";
     //});
 
-    var cinemaImage = $(".cinema");
-    cinemaImage.on('click', function () {
-        window.location.href = "events/cinema/"+cinemaImage.attr('event_id');
+    var cinema_events = $('.cinema').closest('.event');
+    cinema_events.on('click', function () {
+        window.location.href = "events/cinema/"+cinema_events.attr('event_id');
     });
 
     var sportImage = $(".sport");

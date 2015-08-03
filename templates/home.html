@@ -119,11 +119,11 @@
                 <div id="events-list" class="tab-content">
                     <div role="tabpanel" class="tab-pane active fade in col col-md-12" id="action">
                         {% for event,type in actionMovies %}
-                            <div class="col col-md-6 event">
+                            <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
                                     <div class="date">{{ event.date }}</div>
                                 </div>
-                                <div class="description cinema" event_id="{{ event.id }}">
+                                <div class="description cinema">
                                     <div class="vertical-center">
                                         <div class="title">
                                             {{ event.title }}
@@ -143,7 +143,7 @@
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="dram">
 
                         {% for event,type in dramaticMovies %}
-                            <div class="col col-md-6 event">
+                            <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
                                     <div class="date">۲۵ اردیبهشت ۹۴</div>
                                 </div>
@@ -166,7 +166,7 @@
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="comic">
                         {% for event,type in comicMovies %}
-                            <div class="col col-md-6 event">
+                            <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
                                     <div class="date">{{ event.date }}</div>
                                 </div>
@@ -189,7 +189,7 @@
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="volleyball">
                         {% for event,type in volleyballEvents %}
-                            <div class="col col-md-6 event">
+                            <div class="col col-md-6 event" >
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
                                     <div class="date">۲۵ اردیبهشت ۹۴</div>
                                 </div>
