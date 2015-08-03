@@ -5,7 +5,7 @@ from event.models import Event,Showtime
 
 
 class PurchasedTicket(models.Model):
-    event = models.OneToOneField(Showtime)
+    showtime = models.OneToOneField(Showtime)
     user = models.ForeignKey(CustomUser)
     quantity = models.PositiveSmallIntegerField()
     purchased_date = models.DateTimeField()
@@ -13,7 +13,7 @@ class PurchasedTicket(models.Model):
     receipt = models.CharField(max_length=50)
 
     class Meta:
-        unique_together = (("event", "user"),)
+        unique_together = (("showtime", "user", "purchased_date"),)
 
     def __str__(self):
         return "%s -- purchased by %s" % (self.event, self.user)
