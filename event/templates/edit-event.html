@@ -61,95 +61,95 @@
                                type="file">
                     </p>
                     {% if type == "sport" %}
-                    <h3>اطلاعات بیشتر رویداد ورزشی</h3>
+                        <h3>اطلاعات بیشتر رویداد ورزشی</h3>
 
-                    <p class="fieldset">
-                        <i class="fa fa-flag"></i>
-                        <input class="full-width has-padding has-border" id="event-home-team"
-                               name="event-home-team"
-                               type="text"
-                               value="{{ sport.home_team }}">
-                        <span class="cd-error-message">کشور میزبان نامعتبر است</span>
-                    </p>
+                        <p class="fieldset">
+                            <i class="fa fa-flag"></i>
+                            <input class="full-width has-padding has-border" id="event-home-team"
+                                   name="event-home-team"
+                                   type="text"
+                                   value="{{ sport.home_team }}">
+                            <span class="cd-error-message">کشور میزبان نامعتبر است</span>
+                        </p>
 
-                    <p class="fieldset">
-                        <i class="fa fa-flag-o"></i>
-                        <input class="full-width has-padding has-border" id="event-away-team"
-                               name="event-away-team"
-                               type="text"
-                               value="{{ sport.away_team }}">
-                        <span class="cd-error-message">کشور مهمان نامعتبر است</span>
-                    </p>
+                        <p class="fieldset">
+                            <i class="fa fa-flag-o"></i>
+                            <input class="full-width has-padding has-border" id="event-away-team"
+                                   name="event-away-team"
+                                   type="text"
+                                   value="{{ sport.away_team }}">
+                            <span class="cd-error-message">کشور مهمان نامعتبر است</span>
+                        </p>
 
-                {% elif type == "cinema" %}
+                    {% elif type == "cinema" %}
 
-                    <h3>اطلاعات بیشتر رویداد سینمایی</h3>
+                        <h3>اطلاعات بیشتر رویداد سینمایی</h3>
 
-                    <p class="fieldset">
-                        <i class="fa fa-film"></i>
-                        <input class="full-width has-padding has-border" id="event-director"
-                               name="event-director"
-                               type="text"
-                               value="{{ movie.director }}">
-                        <span class="cd-error-message">کارگردان نامعتبر است</span>
-                    </p>
+                        <p class="fieldset">
+                            <i class="fa fa-film"></i>
+                            <input class="full-width has-padding has-border" id="event-director"
+                                   name="event-director"
+                                   type="text"
+                                   value="{{ movie.director }}">
+                            <span class="cd-error-message">کارگردان نامعتبر است</span>
+                        </p>
 
-                    <p class="fieldset">
-                        <i class="fa fa-users"></i>
-                        <input class="full-width has-padding has-border" id="event-actors"
-                               name="event-actors"
-                               type="text"
-                               value="{{ movie.actors }}">
-                        <span class="cd-error-message">بازیگران نامعتبر است</span>
-                    </p>
+                        <p class="fieldset">
+                            <i class="fa fa-users"></i>
+                            <input class="full-width has-padding has-border" id="event-actors"
+                                   name="event-actors"
+                                   type="text"
+                                   value="{{ movie.actors }}">
+                            <span class="cd-error-message">بازیگران نامعتبر است</span>
+                        </p>
 
-                    <p class="fieldset">
-                        <i class="fa fa-calendar"></i>
-                        <input class="full-width has-padding has-border" id="event-year"
-                               name="event-year"
-                               type="text"
-                               value="{{ movie.year }}">
-                        <span class="cd-error-message">سال ساخت نامعتبر است</span>
-                    </p>
+                        <p class="fieldset">
+                            <i class="fa fa-calendar"></i>
+                            <input class="full-width has-padding has-border" id="event-year"
+                                   name="event-year"
+                                   type="text"
+                                   value="{{ movie.year }}">
+                            <span class="cd-error-message">سال ساخت نامعتبر است</span>
+                        </p>
 
-                    <p class="fieldset">
-                        <i class="fa fa-paperclip"></i>
-                        <input class="full-width has-padding has-border" id="event-story-summary"
-                               name="event-story-summary"
-                               type="text"
-                               value="{{ movie.story_summary }}">
-                        <span class="cd-error-message">خلاصه داستان نامعتبر است</span>
-                    </p>
-{% elif type == "concert" %}
-                    <h3>اطلاعات بیشتر رویداد کنسرت</h3>
+                        <p class="fieldset">
+                            <i class="fa fa-paperclip"></i>
+                            <input class="full-width has-padding has-border" id="event-story-summary"
+                                   name="event-story-summary"
+                                   type="text"
+                                   value="{{ movie.story_summary }}">
+                            <span class="cd-error-message">خلاصه داستان نامعتبر است</span>
+                        </p>
+                    {% elif type == "music" %}
+                        <h3>اطلاعات بیشتر رویداد کنسرت</h3>
 
-                    <p class="fieldset">
-                        <i class="fa fa-group"></i>
-                        <input class="full-width has-padding has-border" id="event-music-group"
-                               name="event-music-group"
-                               type="text"
-                               value="{{ concert.group_name }}">
-                        <span class="cd-error-message">نام گروه نامعتبر است</span>
-                    </p>
+                        <p class="fieldset">
+                            <i class="fa fa-group"></i>
+                            <input class="full-width has-padding has-border" id="event-music-group"
+                                   name="event-music-group"
+                                   type="text"
+                                   value="{{ concert.group_name }}">
+                            <span class="cd-error-message">نام گروه نامعتبر است</span>
+                        </p>
 
-                    <p class="fieldset">
-                        <i class="fa fa-microphone"></i>
-                        <input class="full-width has-padding has-border" id="event-vocalist"
-                               name="event-vocalist"
-                               type="text"
-                               value="{{ concert.vocalist }}">
-                        <span class="cd-error-message">نام خواننده نامعتبر است</span>
-                    </p>
+                        <p class="fieldset">
+                            <i class="fa fa-microphone"></i>
+                            <input class="full-width has-padding has-border" id="event-vocalist"
+                                   name="event-vocalist"
+                                   type="text"
+                                   value="{{ concert.vocalist }}">
+                            <span class="cd-error-message">نام خواننده نامعتبر است</span>
+                        </p>
 
-                    <p class="fieldset">
-                        <i class="fa fa-music"></i>
-                        <input class="full-width has-padding has-border" id="event-musicians"
-                               name="event-musicians"
-                               type="text"
-                               value="{{ concert.musicians }}">
-                        <span class="cd-error-message">نام نوازندگان نامعتبر است</span>
-                    </p>
-                {% endif %}
+                        <p class="fieldset">
+                            <i class="fa fa-music"></i>
+                            <input class="full-width has-padding has-border" id="event-musicians"
+                                   name="event-musicians"
+                                   type="text"
+                                   value="{{ concert.musicians }}">
+                            <span class="cd-error-message">نام نوازندگان نامعتبر است</span>
+                        </p>
+                    {% endif %}
 
                     <p class="fieldset">
                         <i class="fa fa-edit"></i>
