@@ -11,17 +11,14 @@
                     <div class="image away"
                          style="background-image: url('{% static 'flags/' %}{{ event.sport.away_team }}.png')"></div>
                     <div id="main-info">
-                        {{ event.show_times }}
-                        {{ persian_date }}
-                        {{ event.event_organizer.title }}
-                        یکشنبه ۱۲ تیر ۹۴ | مجموعه ورزشی آزادی | ساعت ۲۱:۰۰
+                        {{ persian_date }} | {{ event.event_organizer.title }} | ساعت{{ from_time }}
                     </div>
                     <div id="center-info">
                                 <span id="home-team">
                                     {{ event.sport.home_team }}
                                 </span>
 
-                        <div id="remaining-time" time-difference-milli-seconds="7300000">
+                        <div id="remaining-time" time-difference-milli-seconds="{{ remaining_time }}">
                             <div>
                                 <div id="day">25</div>
                                 <div>روز</div>
@@ -2849,7 +2846,7 @@
             </div>
             <div class="col col-md-12" id="more-info">
                 <div class="col col-md-12" id="organizer-info">
-                    <a href="#"><i class="fa fa-angle-double-left" style="margin-left: 0.5em"></i>برگزار کننده این
+                    <a href="{{ event.event_organizer }}"><i class="fa fa-angle-double-left" style="margin-left: 0.5em"></i>برگزار کننده این
                         رویداد</a>
                 </div>
             </div>

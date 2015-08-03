@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-from django.http import Http404, HttpResponseRedirect, HttpResponse
+import datetime
 from django.shortcuts import render
-
-from event.models import Event, Categories, Sport, Movie, Concert
 from bilityab.change_date import ChangeDate
+from event.models import Event, Categories, Sport, Movie, Concert
+from django.http import Http404, HttpResponseRedirect, HttpResponse
 
 
 def events(request):
@@ -111,12 +111,14 @@ def sport(request, event_id):
     try:
         event = Event.objects.get(pk=event_id)
         show_time = event.show_times.all()[0]
-        print(ChangeDate().get_persian_date(show_time.date))
+        event_date_time = datetime.datetime.combine(show_time.date, show_time.from_time)
     except Event.DoesNotExist:
         raise Http404("sport event does not exist!")
     return render(request, 'sport.html', {
         'event': event,
-        # 'persian_date': ChangeDate.get_persian_date(show_time.date)
+        'persian_date': ChangeDate().get_persian_date(show_time.date),
+        'from_time': show_time.from_time,
+        'remaining_time': int((event_date_time - datetime.datetime.now()).total_seconds()*1000)
     })
 
 
