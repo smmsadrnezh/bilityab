@@ -21,7 +21,7 @@ class PurchasedTicket(models.Model):
 
 class TicketPosition(models.Model):
     ticket = models.ForeignKey(PurchasedTicket)
-    section = models.CharField(max_length=2,null=True)
+    section = models.PositiveIntegerField(null=True)
     row = models.PositiveSmallIntegerField()
     column = models.PositiveSmallIntegerField()
 
