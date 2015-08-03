@@ -11,6 +11,7 @@ class EventOrganizer(models.Model):
     phone = models.IntegerField(default="02188888888")
     user = models.ForeignKey(CustomUser)
     capacity = models.PositiveIntegerField()
+    photo = models.ImageField(null=True)
 
     def __str__(self):
         return "%s" % self.title
