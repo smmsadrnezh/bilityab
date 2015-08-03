@@ -7,8 +7,8 @@
                 <div class="col col-md-12" id="ticket-info">
                     <div class="col col-md-8" id="film-trailer-container">
                         <video id="film-trailer" class="video-js vjs-default-skin" controls preload="none"
-                               poster="{% static 'img/guinness-poster.jpg' %}" data-setup="{}">
-                            <source src="{% static 'media/guinness.mp4' %}" type='video/mp4'/>
+                               poster="{% static 'posters/' %}{{ event.title }}-poster.jpg" data-setup="{}">
+                            <source src="{% static 'media/' %}{{ event.title }}.mp4" type='video/mp4'/>
                         </video>
                     </div>
                     <div class="col col-md-4" id="film-info">

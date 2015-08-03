@@ -6,7 +6,6 @@ from bilityab.change_date import ChangeDate
 from event.models import Event, Categories, Sport, Movie, Concert, EventRating
 from django.http import Http404, HttpResponseRedirect, HttpResponse, HttpResponseForbidden
 
-
 def events(request):
     return render(request, 'all-events.html', {
         'logged_in': request.user.is_authenticated()
@@ -194,7 +193,6 @@ def rate_event(request):
                     EventRating.objects.get(event=event, user=request.user)
                     return HttpResponseForbidden('already rated')
                 except Event.DoesNotExist:
-                    print('goog')
                     return HttpResponseForbidden('invalid event id')
                 except EventRating.DoesNotExist:
                     EventRating.objects.create(event=event, user=request.user, rate=rate)
