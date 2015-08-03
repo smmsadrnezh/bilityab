@@ -2,44 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c18b0d1-f6c7-403b-9305-c48120aa4f74" name="Default" comment="gender symbol in registration form">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/media/azadi-stadium.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/azadi-stadium.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/media/azadi-stadium_UyPBQul.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/media/azadi.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/media/n00001053-b.jpg" afterPath="$PROJECT_DIR$/media/n00001053-b1.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/media/n00001053-b.jpg" afterPath="$PROJECT_DIR$/media/n00001053-b.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ticket/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/ticket/migrations/0001_initial.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ticket/migrations/0002_auto_20150803_2011.py" afterPath="$PROJECT_DIR$/ticket/migrations/0002_auto_20150803_2011.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/account/migrations/0006_auto_20150803_1016.py" afterPath="$PROJECT_DIR$/account/migrations/0006_auto_20150803_1016.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/account/migrations/0007_auto_20150803_1019.py" afterPath="$PROJECT_DIR$/account/migrations/0007_auto_20150803_1019.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/event/migrations/0015_auto_20150803_0626.py" afterPath="$PROJECT_DIR$/event/migrations/0015_auto_20150803_0626.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/event/migrations/0016_movie_cast.py" afterPath="$PROJECT_DIR$/event/migrations/0016_movie_cast.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/event/migrations/0017_movie_duration.py" afterPath="$PROJECT_DIR$/event/migrations/0017_movie_duration.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/event/migrations/0018_movie_genre.py" afterPath="$PROJECT_DIR$/event/migrations/0018_movie_genre.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/event/migrations/0019_auto_20150803_1337.py" afterPath="$PROJECT_DIR$/event/migrations/0019_auto_20150803_1337.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/event/migrations/0020_auto_20150803_1346.py" afterPath="$PROJECT_DIR$/event/migrations/0020_auto_20150803_1346.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/event/migrations/0021_eventorganizer_phone.py" afterPath="$PROJECT_DIR$/event/migrations/0021_eventorganizer_phone.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/event/migrations/0022_auto_20150803_1611.py" afterPath="$PROJECT_DIR$/event/migrations/0022_auto_20150803_1611.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/event/migrations/0023_eventorganizer_photo.py" afterPath="$PROJECT_DIR$/event/migrations/0023_eventorganizer_photo.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/event/templates/add-event.html" afterPath="$PROJECT_DIR$/event/templates/add-event.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/event/templates/all-events.html" afterPath="$PROJECT_DIR$/event/templates/all-events.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ticket/templates/all-ticket.html" afterPath="$PROJECT_DIR$/ticket/templates/all-ticket.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/bilityab.iml" afterPath="$PROJECT_DIR$/.idea/bilityab.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/cinema-event.css" afterPath="$PROJECT_DIR$/static/css/cinema-event.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/cinema-event.js" afterPath="$PROJECT_DIR$/static/js/cinema-event.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/event/templates/cinema.html" afterPath="$PROJECT_DIR$/event/templates/cinema.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/media/azadi-stadium_upvGFig.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/media/azadi_OBS97P2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/media/milad_tower.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/milad_tower.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/event/templates/edit-event.html" afterPath="$PROJECT_DIR$/event/templates/edit-event.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/home.html" afterPath="$PROJECT_DIR$/templates/home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/home.js" afterPath="$PROJECT_DIR$/static/js/home.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/login-register.js" afterPath="$PROJECT_DIR$/static/js/login-register.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/event/templates/organizer.html" afterPath="$PROJECT_DIR$/event/templates/organizer.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/event/templates/sport.html" afterPath="$PROJECT_DIR$/event/templates/sport.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ticket/templates/ticket.html" afterPath="$PROJECT_DIR$/ticket/templates/ticket.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bilityab/views.py" afterPath="$PROJECT_DIR$/bilityab/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/event/views.py" afterPath="$PROJECT_DIR$/event/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ticket/views.py" afterPath="$PROJECT_DIR$/ticket/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="bilityab.iws" />
@@ -89,7 +59,7 @@
         <entry file="file://$PROJECT_DIR$/event/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="130" column="31" selection-start-line="130" selection-start-column="31" selection-end-line="130" selection-end-column="31" />
+              <caret line="161" column="31" selection-start-line="161" selection-start-column="31" selection-end-line="161" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -108,8 +78,8 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ticket/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.39045554">
-              <caret line="10" column="31" selection-start-line="0" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.4924078">
+              <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -241,20 +211,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="bilityab" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bilityab" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bilityab" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ticket" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -868,28 +824,28 @@
     <frame x="0" y="30" width="1366" height="738" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32861635" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290938" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22540382" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33227345" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2264151" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290938" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18942732" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32704404" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22012578" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33227345" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2264151" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290938" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36565977" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290938" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1142,7 +1098,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.0">
           <caret line="11" column="43" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1196,14 +1151,14 @@
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/b8fed207/88aabe8e-25e6-4d11-930c-9efb5f5ddec2/..auth_group_permissions">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -1222,62 +1177,62 @@
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/b8fed207/88aabe8e-25e6-4d11-930c-9efb5f5ddec2/..django_content_type">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/b8fed207/88aabe8e-25e6-4d11-930c-9efb5f5ddec2/..promotion_ticketpromotion">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/b8fed207/88aabe8e-25e6-4d11-930c-9efb5f5ddec2/..sqlite_sequence">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/b8fed207/88aabe8e-25e6-4d11-930c-9efb5f5ddec2/..event_sport">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/b8fed207/88aabe8e-25e6-4d11-930c-9efb5f5ddec2/..event_showtime">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -1289,26 +1244,26 @@
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/b8fed207/88aabe8e-25e6-4d11-930c-9efb5f5ddec2/..ticket_purchasedticket">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/b8fed207/88aabe8e-25e6-4d11-930c-9efb5f5ddec2/..ticket_ticketposition">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
         </state>
       </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/b8fed207/88aabe8e-25e6-4d11-930c-9efb5f5ddec2/..ticket_ticketposition">
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -1330,15 +1285,15 @@
     <entry file="file://$PROJECT_DIR$/event/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="130" column="31" selection-start-line="130" selection-start-column="31" selection-end-line="130" selection-end-column="31" />
+          <caret line="161" column="31" selection-start-line="161" selection-start-column="31" selection-end-line="161" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ticket/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.39045554">
-          <caret line="10" column="31" selection-start-line="0" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.4924078">
+          <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>

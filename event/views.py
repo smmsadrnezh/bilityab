@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 import datetime
-
 from django.shortcuts import render
 from django.http import Http404, HttpResponseRedirect, HttpResponse, HttpResponseForbidden
 
-from bilityab.views import make_event_type_list
+from bilityab.views import make_event_type_list, get_type
 from bilityab.change_date import ChangeDate
 from event.models import Event, Categories, Sport, Movie, Concert, EventRating, EventOrganizer
 
@@ -76,10 +75,42 @@ def add_event(request):
 
 
 def edit_event(request, event_id):
-    return render(request, 'edit-event.html', {
-        'logged_in': request.user.is_authenticated(),
-        'categories': Categories.objects.all()
-    })
+    if request.user.is_authenticated() and request.user.is_organizer:
+        type = get_type(Event.objects.get(id=event_id).id)
+        if (type == "music"):
+            return render(request, 'edit-event.html', {
+                'logged_in': request.user.is_authenticated(),
+                'categories': Categories.objects.all(),
+                'event': Event.objects.get(id=event_id),
+                'type': type,
+                'concert': Concert.objects.get(event_id=event_id),
+            })
+        elif (type == "cinema"):
+            return render(request, 'edit-event.html', {
+                'logged_in': request.user.is_authenticated(),
+                'categories': Categories.objects.all(),
+                'event': Event.objects.get(id=event_id),
+                'type': type,
+                'movie': Movie.objects.get(event_id=event_id)
+            })
+        elif (type == "sport"):
+            return render(request, 'edit-event.html', {
+                'logged_in': request.user.is_authenticated(),
+                'categories': Categories.objects.all(),
+                'event': Event.objects.get(id=event_id),
+                'type': type,
+                'sport': Sport.objects.get(event_id=event_id),
+            })
+        else:
+            return render(request, 'edit-event.html', {
+                'logged_in': request.user.is_authenticated(),
+                'categories': Categories.objects.all(),
+                'event': Event.objects.get(id=event_id),
+                'type': type,
+            })
+
+    else:
+        return HttpResponseRedirect('/')
 
 
 def all_sport(request):
@@ -175,7 +206,7 @@ def all_organizer(request):
 def organizer(request, organizer_id):
     return render(request, 'organizer.html', {
         'organizer': EventOrganizer.objects.get(id=organizer_id),
-        'organizer_events': Event.objects.filter(event_organizers__id=organizer_id),
+        'organizer_events': make_event_type_list(Event.objects.filter(event_organizers__id=organizer_id)),
         'logged_in': request.user.is_authenticated()
     })
 
