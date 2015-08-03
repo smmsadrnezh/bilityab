@@ -21,13 +21,13 @@
 
                 <div class="col col-md-12" id="ticket-info">
                     {% for event,type in event_type_list %}
-                    <img class="event-image" src={% static "img/{{ event.image }}" %}>
+                    <img class="event-image" src={% static "img/{{ event.photo }}" %}>
                     <a href="/events/{{ type }}/{{ event.id }}/" class="event-info">
                         {{ event.title }}
                     </a>
 
                     <div class="event-info">
-                        3 مرداد 94 ساعت 18:00
+                        {{ event.address }}
                     </div>
 
                     <div class="my-divider"></div>
