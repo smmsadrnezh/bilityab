@@ -4,33 +4,43 @@
     <div class="holder">
         <div class="col col-md-12">
             <div class="col col-md-12" id="ticket">
-                {#                <p style="display: inline;">#}
-                {#                    نمایش بر اساس#}
-                {#                </p>#}
-                {#                <select name="filter">#}
-                {#                    <option>#}
-                {#                        ورزشی#}
-                {#                    </option>#}
-                {#                    <option>#}
-                {#                        هنری#}
-                {#                    </option>#}
-                {#                    <option>#}
-                {#                        گردشگری#}
-                {#                    </option>#}
-                {#                </select>#}
+{#                <p style="display: inline;">#}
+{#                    نمایش بر اساس#}
+{#                </p>#}
+{#                <select name="filter">#}
+{#                    <option>#}
+{#                        ورزشی#}
+{#                    </option>#}
+{#                    <option>#}
+{#                        هنری#}
+{#                    </option>#}
+{#                    <option>#}
+{#                        گردشگری#}
+{#                    </option>#}
+{#                </select>#}
 
                 <div class="col col-md-12" id="ticket-info">
                     {% for event,type in event_type_list %}
-                    <img class="event-image" src={% static "img/{{ event.photo }}" %}>
-                    <a href="/events/{{ type }}/{{ event.id }}/" class="event-info">
-                        {{ event.title }}
-                    </a>
-
-                    <div class="event-info">
-                        {{ event.address }}
+                                            <div class="col col-md-2">
+                                            <a class="btn btn-primary btn-lg btn-block"
+                           href="/ticket/{{ request.user.id }}/{{ ticket.id }}">
+                            <i class="fa fa-edit"></i> ویرایش رویداد
+                        </a>
+                        <a class="btn btn-danger btn-lg btn-block"
+                           href="/ticket/{{ request.user.id }}/{{ ticket.id }}">
+                            <i class="fa fa-remove"></i> حذف رویداد
+                        </a>
                     </div>
+                        <img class="event-image" src={% static "img/{{ event.photo }}" %}>
+                        <a href="/events/{{ type }}/{{ event.id }}/" class="event-info">
+                            {{ event.title }}
+                        </a>
 
-                    <div class="my-divider"></div>
+                        <div class="event-info">
+                            {{ event.address }}
+                        </div>
+
+                        <div class="my-divider"></div>
 
                     {% endfor %}
 
