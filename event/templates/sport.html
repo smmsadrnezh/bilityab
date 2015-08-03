@@ -20,19 +20,19 @@
 
                         <div id="remaining-time" time-difference-milli-seconds="{{ remaining_time }}">
                             <div>
-                                <div id="day">25</div>
+                                <div id="day"></div>
                                 <div>روز</div>
                             </div>
                             <div>
-                                <div id="hour">18</div>
+                                <div id="hour"></div>
                                 <div>ساعت</div>
                             </div>
                             <div>
-                                <div id="minute">15</div>
+                                <div id="minute"></div>
                                 <div>دقیقه</div>
                             </div>
                             <div>
-                                <div id="second">45</div>
+                                <div id="second"></div>
                                 <div>ثانیه</div>
                             </div>
                         </div>
@@ -2846,7 +2846,7 @@
             </div>
             <div class="col col-md-12" id="more-info">
                 <div class="col col-md-12" id="organizer-info">
-                    <a href="{{ event.event_organizer }}"><i class="fa fa-angle-double-left" style="margin-left: 0.5em"></i>برگزار کننده این
+                    <a href="/organizer/{{ event.event_organizer.id }}/"><i class="fa fa-angle-double-left" style="margin-left: 0.5em"></i>برگزار کننده این
                         رویداد</a>
                 </div>
             </div>
