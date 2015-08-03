@@ -221,12 +221,8 @@ $(window).load(function () {
         $.ajax('/events/rate/', {type: 'POST', data: {
 				rate: user_rate/20, event_id: event_id
 			}, dataType: 'json'})
-			.done(function(data) {
-				if (data == 'success') {
-
-				}
-			})
-			.fail(function() {  });
+			.done(function(data) {})
+			.fail(function() {});
 
     });
 });
