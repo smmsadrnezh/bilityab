@@ -5,7 +5,7 @@ from event.models import Event,Showtime
 
 
 class PurchasedTicket(models.Model):
-    showtime = models.OneToOneField(Showtime)
+    showtime = models.ForeignKey(Showtime)
     user = models.ForeignKey(CustomUser)
     quantity = models.PositiveSmallIntegerField()
     purchased_date = models.DateTimeField()
@@ -18,6 +18,6 @@ class PurchasedTicket(models.Model):
 
 class TicketPosition(models.Model):
     ticket = models.ForeignKey(PurchasedTicket)
-    section = models.CharField(max_length=2)
+    section = models.PositiveIntegerField()
     row = models.PositiveSmallIntegerField()
     column = models.PositiveSmallIntegerField()
