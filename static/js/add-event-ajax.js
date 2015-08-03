@@ -7,7 +7,6 @@ jQuery(document).ready(function ($) {
             url: "/events/add/",
             data: $("#add-event-form").serialize(), // serializes the form's elements.
             success: function (data) {
-                alert("a");
                 if (parseInt(data)) {
                     window.location.replace(window.location.pathname);
                 } else {
@@ -15,7 +14,6 @@ jQuery(document).ready(function ($) {
                     $form_login.find('input[type="password"]').toggleClass('has-error').next('a').next('span').toggleClass('is-visible');
                 }
             }
-
         });
 
     });

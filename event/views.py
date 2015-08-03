@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-from django.http import Http404, HttpResponseRedirect
+from django.http import Http404, HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 
-from .models import *
+from event.models import Event
 from bilityab.change_date import ChangeDate
 
 
@@ -15,22 +15,28 @@ def events(request):
 
 
 def add_event(request):
-    print ("hello")
     if request.user.is_authenticated():
-
         if request.is_ajax():
-            print "a"
-            # if(True):
-            #
-            # Event(title=request.POST.get('event-title', ''), description=request.POST.get('event-description', ''),
-            #                     category_id=request.POST.get('event-type', ''), capacity=request.POST.get('event-capacity', ''),
-            #                     address=request.POST.get('event-address', ''),
-            #                     event_organizer_id=request.user.id,
-            #                     photo=request.POST.get('event-photo', '')
-            #     ).save()
-            #     return 1
-            # else:
-            #     return 0
+            if(True):
+                Event(title=request.POST.get('event-title', ''),
+                    description=request.POST.get('event-description', ''),
+                    category_id=request.POST.get('event-type', ''),
+                    capacity=request.POST.get('event-capacity', ''),
+                    address=request.POST.get('event-address', ''),
+                    event_organizer_id=request.user.id,
+                    photo="jingili.jpg"
+                    ).save()
+                # Event(title="سلام",
+                #     description="علیک",
+                #     category_id=3,
+                #     capacity=4,
+                #     address="هوی",
+                #     event_organizer_id=request.user.id,
+                #     photo="bale.jpg"
+                #     ).save()
+                return HttpResponse(1)
+            else:
+                return HttpResponse(0)
         else:
             return render(request, 'add-event.html', {
                 'logged_in': request.user.is_authenticated()
