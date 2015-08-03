@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
-from bilityab.views import make_event_type_list
-
 import datetime
+
 from django.shortcuts import render
+from django.http import Http404, HttpResponseRedirect, HttpResponse, HttpResponseForbidden
+
+from bilityab.views import make_event_type_list
 from bilityab.change_date import ChangeDate
 from event.models import Event, Categories, Sport, Movie, Concert, EventRating, EventOrganizer
-from django.http import Http404, HttpResponseRedirect, HttpResponse, HttpResponseForbidden
+
 
 def events(request):
     return render(request, 'all-events.html', {
@@ -24,17 +26,17 @@ def add_event(request):
                     'event-type', '') != "" and request.POST.get('event-capacity', '') != "" and request.POST.get(
                     'event-address', '') != ""):
                 event = Event(title=request.POST.get('event-title', ''),
-                      description=request.POST.get('event-description', ''),
-                      category_id=request.POST.get('event-type', ''),
-                      capacity=request.POST.get('event-capacity', ''),
-                      address=request.POST.get('event-address', ''),
-                      event_organizer_id=request.user.id,
-                      photo="jingili.jpg"
+                              description=request.POST.get('event-description', ''),
+                              category_id=request.POST.get('event-type', ''),
+                              capacity=request.POST.get('event-capacity', ''),
+                              address=request.POST.get('event-address', ''),
+                              event_organizer_id=request.user.id,
+                              photo="jingili.jpg"
                 )
                 event.save()
                 if (request.POST.get('event-home-team', '') != "" and request.POST.get('event-away-team', '') != ""):
                     Sport(
-                        event_id = event.id,
+                        event_id=event.id,
                         away_team=request.POST.get('event-home-team', ''),
                         home_team=request.POST.get('event-away-team', '')
                     ).save()
@@ -42,7 +44,7 @@ def add_event(request):
                                                                                         '') != "" and request.POST.get(
                         'event-year', '') != "" and request.POST.get('event-story-summary', '') != ""):
                     Movie(
-                        event_id = event.id,
+                        event_id=event.id,
                         director=request.POST.get('event-director', ''),
                         actors=request.POST.get('event-actors', ''),
                         year=request.POST.get('event-year', ''),
@@ -52,7 +54,7 @@ def add_event(request):
                                                                                         '') != "" and request.POST.get(
                         'event-music-group', '') != ""):
                     Concert(
-                        event_id = event.id,
+                        event_id=event.id,
                         group_name=request.POST.get('event-music-group', ''),
                         vocalist=request.POST.get('event-vocalist', ''),
                         musicians=request.POST.get('event-musicians', '')
@@ -75,8 +77,8 @@ def add_event(request):
 
 def edit_event(request, event_id):
     return render(request, 'edit-event.html', {
-        'logged_in': request.user.is_authenticated()
-
+        'logged_in': request.user.is_authenticated(),
+        'categories': Categories.objects.all()
     })
 
 
@@ -120,7 +122,7 @@ def sport(request, event_id):
         'event': event,
         'persian_date': ChangeDate().get_persian_date(show_time.date),
         'from_time': show_time.from_time,
-        'remaining_time': int((event_date_time - datetime.datetime.now()).total_seconds()*1000),
+        'remaining_time': int((event_date_time - datetime.datetime.now()).total_seconds() * 1000),
         'logged_in': request.user.is_authenticated(),
         'organizer': event.event_organizers.all()[0]
     })
@@ -145,14 +147,14 @@ def cinema(request, event_id):
             for rate in event_rates:
                 rates_sum += rate.rate
                 can_rate = can_rate and not (rate.user.id == request.user.id)
-            rates_average = rates_sum/num_of_votes
+            rates_average = rates_sum / num_of_votes
     except Event.DoesNotExist:
         raise Http404('cinema event does not exist!')
     return render(request, 'cinema.html', {
         'logged_in': request.user.is_authenticated(),
         'event': event,
         'num_of_votes': num_of_votes,
-        'rates_average_percent': rates_average*20,
+        'rates_average_percent': rates_average * 20,
         'can_rate': can_rate
     })
 

@@ -16,11 +16,13 @@
                             <div class="col col-md-6 col-xs-8" id="left-info">
                                 <div class="title">{{ event.title }}</div>
                                 <div class="release-date">{{ event.movie.year }}</div>
-                                <div class="director"><span class="my-label">فیلمی از </span><span>{{ event.movie.director }}</span>
+                                <div class="director"><span
+                                        class="my-label">فیلمی از </span><span>{{ event.movie.director }}</span>
                                 </div>
                                 <div class="duration">{{ event.movie.duration }} دقیقه</div>
                                 <div class="genre">{{ event.movie.genre }}</div>
-                                <div class="star-ratings-sprite {% if can_rate %}not-rated{% endif %}" initial-rate="{{ rates_average_percent }}%">
+                                <div class="star-ratings-sprite {% if can_rate %}not-rated{% endif %}"
+                                     initial-rate="{{ rates_average_percent }}%">
                                     <span style="width:{{ rates_average_percent }}%" class="rating"></span>
                                 </div>
                                 <div class="num-of-voters"><span>{{ num_of_votes }}</span> رأی</div>
@@ -30,11 +32,14 @@
                         </div>
                         <div class="col col-md-12">
                             <div class="vertical-center" style="text-align: center">
-                                <div class="producer"><span class="my-label">تهیه کننده: </span><span>{{ event.movie.producer }}</span>
+                                <div class="producer"><span
+                                        class="my-label">تهیه کننده: </span><span>{{ event.movie.producer }}</span>
                                 </div>
-                                <div class="writers"><span class="my-label">نویسندگان: </span><span>{{ event.movie.writers }}</span>
+                                <div class="writers"><span
+                                        class="my-label">نویسندگان: </span><span>{{ event.movie.writers }}</span>
                                 </div>
-                                <div class="actors"><span class="my-label">بازیگران:</span><span>{{ event.movie.actors }}</span>
+                                <div class="actors"><span
+                                        class="my-label">بازیگران:</span><span>{{ event.movie.actors }}</span>
                                 </div>
                             </div>
                         </div>
@@ -44,7 +49,8 @@
                             {{ event.movie.cast }}
                         </span>
                     </div>
-                    <div class="col col-md-6 synopsis"><span class="my-label">خلاصه داستان: </span><span>{{ event.movie.story_summary }}</span>
+                    <div class="col col-md-6 synopsis"><span
+                            class="my-label">خلاصه داستان: </span><span>{{ event.movie.story_summary }}</span>
                     </div>
                 </div>
                 <div class="col col-md-12" id="seat-select">
@@ -85,16 +91,16 @@
                         </div>
                         <div id="cinemas" class="row list-group">
                             {% for cinema in event.event_organizers.all %}
-                            <div class="item col-xs-4 col-lg-4">
-                                <div class="thumbnail"
-                                     style="background-image: url('{{ MEDIA_URL }}{{ cinema.photo }}')">
-                                    <div class="info">
-                                        <div class="title">{{ cinema.title }}</div>
-                                        <div class="capacity">{{ cinema.capacity }} نفر</div>
-                                        <div class="address">{{ cinema.address }}</div>
+                                <div class="item col-xs-4 col-lg-4">
+                                    <div class="thumbnail"
+                                         style="background-image: url('{{ MEDIA_URL }}{{ cinema.photo }}')">
+                                        <div class="info">
+                                            <div class="title">{{ cinema.title }}</div>
+                                            <div class="capacity">{{ cinema.capacity }} نفر</div>
+                                            <div class="address">{{ cinema.address }}</div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
                             {% endfor %}
                         </div>
                         <div id="show-times" class="row list-group">

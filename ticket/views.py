@@ -1,9 +1,11 @@
 from django.shortcuts import render
-from ticket.models import PurchasedTicket
 from django.http import HttpResponseRedirect
-from event.models import Event,Showtime
+
+from ticket.models import PurchasedTicket
+from event.models import Event, Showtime
 from ticket.models import TicketPosition
 from bilityab.views import get_type
+
 
 def buy(request, event_id):
     return render(request, 'buy.html', {
@@ -22,7 +24,7 @@ def ticket(request, user_id, purchased_id):
 
         # make list from event, event category and ticket
         ticket_event_type_list = []
-        ticket_event_type_list.append((ticket, event , get_type(event.id) , showtime , postitions))
+        ticket_event_type_list.append((ticket, event, get_type(event.id), showtime, postitions))
 
         return render(request, 'ticket.html', {
             'logged_in': request.user.is_authenticated(),
@@ -30,6 +32,7 @@ def ticket(request, user_id, purchased_id):
         })
     else:
         return HttpResponseRedirect('/')
+
 
 def all_ticket(request, user_id):
     if int(user_id) == request.user.id:

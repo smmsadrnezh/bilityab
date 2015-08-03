@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render
 
-from event.models import Event, Categories, EventOrganizer
+from event.models import Event, Categories
 
 
 def get_type(event_id):
@@ -10,7 +10,7 @@ def get_type(event_id):
     return {
         'ورزشی': 'sport',
         'سینمایی': 'cinema',
-'موسیقی'         : 'music',
+        'موسیقی': 'music',
         'گردشگری': 'tourism'
     }[category]
 
@@ -28,7 +28,8 @@ def make_event_type_list1(event_list):
     event_type_list = []
     for event in event_list:
         category = get_type(event.id)
-        organizer = EventOrganizer.objects.filter(event__id=event.id)[:1]
+        # organizer = EventOrganizer.objects.filter(event__id=event.id)[:1]
+        organizer = event.event_organizers.all()[0]
         event_type_list.append((event, category, organizer))
     return event_type_list
 
