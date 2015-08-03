@@ -3,7 +3,7 @@
 import datetime
 from django.shortcuts import render
 from bilityab.change_date import ChangeDate
-from event.models import Event, Categories, Sport, Movie, Concert, EventRating
+from event.models import Event, Categories, Sport, Movie, Concert, EventRating, EventOrganizer
 from django.http import Http404, HttpResponseRedirect, HttpResponse, HttpResponseForbidden
 
 def events(request):
@@ -170,8 +170,8 @@ def all_organizer(request):
 
 def organizer(request, organizer_id):
     return render(request, 'organizer.html', {
+        'organizer': EventOrganizer.objects.get(id=organizer_id),
         'logged_in': request.user.is_authenticated()
-
     })
 
 

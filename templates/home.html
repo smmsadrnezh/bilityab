@@ -189,7 +189,7 @@
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="volleyball">
                         {% for event,type in volleyballEvents %}
-                            <div class="col col-md-6 event" >
+                            <div class="col col-md-6 event " event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
                                     <div class="date">۲۵ اردیبهشت ۹۴</div>
                                 </div>
@@ -212,7 +212,7 @@
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="football">
                         {% for event,type in footballEvents %}
-                            <div class="col col-md-6 event">
+                            <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
                                     <div class="date">۲۵ اردیبهشت ۹۴</div>
                                 </div>
@@ -235,7 +235,7 @@
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="basketball">
                         {% for event,type in basketballEvents %}
-                            <div class="col col-md-6 event">
+                            <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
                                     <div class="date">۲۵ اردیبهشت ۹۴</div>
                                 </div>
@@ -258,7 +258,7 @@
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="wrestling">
                         {% for event,type in wrestleEvents %}
-                            <div class="col col-md-6 event">
+                            <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
                                     <div class="date">۲۵ اردیبهشت ۹۴</div>
                                 </div>
@@ -281,7 +281,7 @@
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="tour">
                         {% for event,type in tourEvents %}
-                            <div class="col col-md-6 event">
+                            <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
                                     <div class="date">۲۵ اردیبهشت ۹۴</div>
                                 </div>
@@ -304,7 +304,7 @@
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="zoo">
                         {% for event,type in zooEvents %}
-                            <div class="col col-md-6 event">
+                            <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
                                     <div class="date">۲۵ اردیبهشت ۹۴</div>
                                 </div>
@@ -327,7 +327,7 @@
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="amusement-park">
                         {% for event,type in amusementEvents %}
-                            <div class="col col-md-6 event">
+                            <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
                                     <div class="date">۲۵ اردیبهشت ۹۴</div>
                                 </div>
@@ -350,7 +350,7 @@
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="circus">
                         {% for event,type in circusEvents %}
-                            <div class="col col-md-6 event">
+                            <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
                                     <div class="date">۲۵ اردیبهشت ۹۴</div>
                                 </div>
@@ -373,7 +373,7 @@
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="traditional">
                         {% for event,type in traditionalMusic %}
-                            <div class="col col-md-6 event">
+                            <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
                                     <div class="date">۲۵ اردیبهشت ۹۴</div>
                                 </div>
@@ -396,7 +396,7 @@
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="pop">
                         {% for event,type in popMusic %}
-                            <div class="col col-md-6 event">
+                            <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
                                     <div class="date">۲۵ اردیبهشت ۹۴</div>
                                 </div>
