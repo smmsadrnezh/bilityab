@@ -357,7 +357,7 @@
                                 <div class="description tourism">
                                     <div class="vertical-center">
                                         <div class="title">
-                                            {#                                            {{ event.title }}#}
+                                            {{ event.title }}
                                         </div>
                                         <div class="place">
                                             {{ event.event_organizer.title }}
@@ -426,7 +426,7 @@
                         <span><i>پیشنهادهای ما</i></span>
                     </div>
                     <div class="col col-md-12 event-carousel">
-                        {% for event,type in suggestedEvents %}
+                        {% for event, type, organizer in suggestedEvents %}
                             <div class="medium-event col col-md-4">
                                 <div class="image"
                                      style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')"></div>
@@ -451,7 +451,7 @@
                     <div class="heading"><i class="fa fa-star"></i><span class="title">برترین رویدادها</span></div>
                     <div class="content">
 
-                        {% for event,type in bestEvents %}
+                        {% for event,type, organizer in bestEvents %}
                             <div class="small-event">
                                 <a href="events/{{ type }}/{{ event.id }}/" >
                                     <div class="event-type">
@@ -469,7 +469,7 @@
                     <div class="heading"><i class="fa fa-newspaper-o"></i><span class="title">نزدیکترین رویدادها</span>
                     </div>
                     <div class="content">
-                        {% for event,type in nearestEvents %}
+                        {% for event, type, organizer in nearestEvents %}
                             <div class="small-event">
                                 <a href="events/{{ type }}/{{ event.id }}" >
                                     <div class="event-type">

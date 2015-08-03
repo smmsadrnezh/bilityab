@@ -5,7 +5,7 @@
         <div class="col col-md-12">
             <div class="col col-md-12" id="ticket">
                 <div class="col col-md-12" id="ticket-info">
-                    <img class="organizer-image" src={% static "img/azadi.jpg" %}>
+                    <img class="organizer-image" src='{{ MEDIA_URL }}{{ organizer.photo }}'>
 
                     <div class="organizer-details">
                         نام مجموعه:
@@ -27,7 +27,7 @@
 
                 <div class="col col-md-12" id="ticket-info">
                     {% for event in organizer_events %}
-                        <img class="event-image" src={% static "img/iceage.jpg" %}>
+                        <img class="event-image" src='{{ MEDIA_URL }}{{ event.photo }}'>
                         <a href="#" class="event-info">
                             نام رویداد:
                             {{ event.title }}
