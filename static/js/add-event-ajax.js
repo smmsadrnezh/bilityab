@@ -10,8 +10,7 @@ jQuery(document).ready(function ($) {
                 if (parseInt(data)) {
                     window.location.replace(window.location.pathname);
                 } else {
-                    $form_login.find('input[type="text"]').toggleClass('has-error').next('span').toggleClass('is-visible');
-                    $form_login.find('input[type="password"]').toggleClass('has-error').next('a').next('span').toggleClass('is-visible');
+                    $('#add-event').find('input[type="text"]').toggleClass('has-error').next('span').toggleClass('is-visible');
                 }
             }
         });

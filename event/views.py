@@ -17,7 +17,7 @@ def events(request):
 def add_event(request):
     if request.user.is_authenticated():
         if request.is_ajax():
-            if(True):
+            if(request.POST.get('event-title', '') != "" and request.POST.get('event-description', '') != "" and request.POST.get('event-type', '') != "" and request.POST.get('event-capacity', '') != "" and request.POST.get('event-address', '') != ""):
                 Event(title=request.POST.get('event-title', ''),
                     description=request.POST.get('event-description', ''),
                     category_id=request.POST.get('event-type', ''),
@@ -26,14 +26,6 @@ def add_event(request):
                     event_organizer_id=request.user.id,
                     photo="jingili.jpg"
                     ).save()
-                # Event(title="سلام",
-                #     description="علیک",
-                #     category_id=3,
-                #     capacity=4,
-                #     address="هوی",
-                #     event_organizer_id=request.user.id,
-                #     photo="bale.jpg"
-                #     ).save()
                 return HttpResponse(1)
             else:
                 return HttpResponse(0)
