@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 import datetime
-
 from django.shortcuts import render
 from django.http import Http404, HttpResponseRedirect, HttpResponse, HttpResponseForbidden
 
-from bilityab.views import make_event_type_list
+from bilityab.views import make_event_type_list,get_type
 from bilityab.change_date import ChangeDate
 from event.models import Event, Categories, Sport, Movie, Concert, EventRating, EventOrganizer
 
@@ -76,10 +75,19 @@ def add_event(request):
 
 
 def edit_event(request, event_id):
-    return render(request, 'edit-event.html', {
-        'logged_in': request.user.is_authenticated(),
-        'categories': Categories.objects.all()
-    })
+    if request.user.is_authenticated() and request.user.is_organizer:
+
+        return render(request, 'edit-event.html', {
+            'logged_in': request.user.is_authenticated(),
+            'categories': Categories.objects.all(),
+            'event': Event.objects.get(id=event_id),
+            'type': get_type(Event.objects.get(id=event_id).id),
+            # 'sport': Sport.objects.get(event_id=event_id),
+            # 'concert': Concert.objects.get(event_id=event_id),
+            'movie': Movie.objects.get(event_id=event_id)
+        })
+    else:
+        return HttpResponseRedirect('/')
 
 
 def all_sport(request):

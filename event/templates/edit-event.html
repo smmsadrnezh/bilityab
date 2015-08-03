@@ -14,7 +14,7 @@
                         <input class="full-width has-padding has-border" id="event-title"
                                name="event-title"
                                type="text"
-                               placeholder="عنوان رویداد">
+                               value="{{ event.title }}">
                         <span class="cd-error-message">عنوان رویداد نامعتبر</span>
                     </p>
 
@@ -23,7 +23,7 @@
                         <input class="full-width has-padding has-border" id="event-description"
                                name="event-description"
                                type="text"
-                               placeholder="توضیحات">
+                               value="{{ event.description }}">
                         <span class="cd-error-message">توضیحات نامعتبر</span>
                     </p>
 
@@ -41,7 +41,7 @@
                         <input class="full-width has-padding has-border" id="event-address"
                                name="event-address"
                                type="text"
-                               placeholder="محل برگزاری">
+                               value="{{ event.address }}">
                         <span class="cd-error-message">محل برگزاری نامعتبر</span>
                     </p>
 
@@ -50,7 +50,7 @@
                         <input class="full-width has-padding has-border" id="event-capacity"
                                name="event-capacity"
                                type="text"
-                               placeholder="ظرفیت">
+                               value="{{ event.capacity }}">
                         <span class="cd-error-message">ظرفیت نامعتبر</span>
                     </p>
 
@@ -60,7 +60,7 @@
                                name="event-photo"
                                type="file">
                     </p>
-
+                    {% if type == "sport" %}
                     <h3>اطلاعات بیشتر رویداد ورزشی</h3>
 
                     <p class="fieldset">
@@ -68,7 +68,7 @@
                         <input class="full-width has-padding has-border" id="event-home-team"
                                name="event-home-team"
                                type="text"
-                               placeholder="کشور میزبان">
+                               value="{{ sport.home_team }}">
                         <span class="cd-error-message">کشور میزبان نامعتبر است</span>
                     </p>
 
@@ -77,9 +77,11 @@
                         <input class="full-width has-padding has-border" id="event-away-team"
                                name="event-away-team"
                                type="text"
-                               placeholder="کشور مهمان">
+                               value="{{ sport.away_team }}">
                         <span class="cd-error-message">کشور مهمان نامعتبر است</span>
                     </p>
+
+                {% elif type == "cinema" %}
 
                     <h3>اطلاعات بیشتر رویداد سینمایی</h3>
 
@@ -88,7 +90,7 @@
                         <input class="full-width has-padding has-border" id="event-director"
                                name="event-director"
                                type="text"
-                               placeholder="کارگردان">
+                               value="{{ movie.director }}">
                         <span class="cd-error-message">کارگردان نامعتبر است</span>
                     </p>
 
@@ -97,7 +99,7 @@
                         <input class="full-width has-padding has-border" id="event-actors"
                                name="event-actors"
                                type="text"
-                               placeholder="بازیگرها">
+                               value="{{ movie.actors }}">
                         <span class="cd-error-message">بازیگران نامعتبر است</span>
                     </p>
 
@@ -106,7 +108,7 @@
                         <input class="full-width has-padding has-border" id="event-year"
                                name="event-year"
                                type="text"
-                               placeholder="سال ساخت">
+                               value="{{ movie.year }}">
                         <span class="cd-error-message">سال ساخت نامعتبر است</span>
                     </p>
 
@@ -115,10 +117,10 @@
                         <input class="full-width has-padding has-border" id="event-story-summary"
                                name="event-story-summary"
                                type="text"
-                               placeholder="خلاصه داستان">
+                               value="{{ movie.story_summary }}">
                         <span class="cd-error-message">خلاصه داستان نامعتبر است</span>
                     </p>
-
+{% elif type == "concert" %}
                     <h3>اطلاعات بیشتر رویداد کنسرت</h3>
 
                     <p class="fieldset">
@@ -126,7 +128,7 @@
                         <input class="full-width has-padding has-border" id="event-music-group"
                                name="event-music-group"
                                type="text"
-                               placeholder="نام گروه">
+                               value="{{ concert.group_name }}">
                         <span class="cd-error-message">نام گروه نامعتبر است</span>
                     </p>
 
@@ -135,7 +137,7 @@
                         <input class="full-width has-padding has-border" id="event-vocalist"
                                name="event-vocalist"
                                type="text"
-                               placeholder="نام خواننده">
+                               value="{{ concert.vocalist }}">
                         <span class="cd-error-message">نام خواننده نامعتبر است</span>
                     </p>
 
@@ -144,13 +146,14 @@
                         <input class="full-width has-padding has-border" id="event-musicians"
                                name="event-musicians"
                                type="text"
-                               placeholder="نام نوازنده‌ها">
+                               value="{{ concert.musicians }}">
                         <span class="cd-error-message">نام نوازندگان نامعتبر است</span>
                     </p>
+                {% endif %}
 
                     <p class="fieldset">
                         <i class="fa fa-edit"></i>
-                        <input class="full-width" type="submit" value=" افزودن رویداد">
+                        <input class="full-width" type="submit" value=" ویرایش رویداد">
                     </p>
                 </form>
             </div>
