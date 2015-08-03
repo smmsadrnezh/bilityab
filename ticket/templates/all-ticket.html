@@ -2,59 +2,46 @@
 {% load staticfiles %}
 {% block pageBody %}
     <div class="holder">
-        <div id="body-container" class="col col-md-12">
-            <div class="col col-md-12">
-                <div class="col col-md-2">
-                    <br/>
-                    <a class="btn btn-primary btn-lg btn-block" href="/ticket/2/2">
-                        <i class="fa fa-ticket"></i> اطلاعات بلیط
-                    </a></div>
-                <div class="col col-md-9">
-
-                    <h1 class="">مسابقه فوتبال ایران و آمریکا (تعداد: ۵)</h1>
-
-                    <h2>شماره بلیط: ۷۹۷۰۹</h2>
+        <div class="col col-md-12">
+            <div class="col col-md-12" id="ticket">
+                <div class="col col-md-12" id="ticket-info">
+                    <h1>بلیط‌های من</h1>
                 </div>
-                <div class="col col-md-1">
-                    <i class="fa fa-ticket fa-3x" style="padding: 0.5em 0.2em 0  0 "></i>
-                </div>
+            <div class="col col-md-12" id="ticket-info">
+                {% for ticket in tickets %}
 
-                <div class="col col-md-2">
-                    <br/>
-                    <a class="btn btn-primary btn-lg btn-block" href="/ticket/2/2">
-                        <i class="fa fa-ticket"></i> اطلاعات بلیط
-                    </a></div>
-                <div class="col col-md-9">
+                    <div class="col col-md-2">
+                        <br/>
+                        <a class="btn btn-primary btn-lg btn-block"
+                           href="/ticket/{{ request.user.id }}/{{ ticket.id }}">
+                            <i class="fa fa-ticket"></i> اطلاعات بلیط
+                        </a>
+                    </div>
+                    <div class="event-image">
+                        <i class="fa fa-ticket fa-3x"></i>
+                    </div>
+                    <a href="/events/cinema/1/" class="event-info">
+                        مسابقه فوتبال ایران و آمریکا (تعداد: {{ ticket.quantity }})
+                    </a>
+                    <div class="event-info">
+                        شماره بلیط: {{ ticket.id }}
+                    </div>
 
-                    <h1 class="">فیلم سینمایی جان‌سخت ۳ (تعداد: ۳)</h1>
-
-                    <h2>شماره بلیط: ۷۹۷۰۹</h2>
-                </div>
-                <div class="col col-md-1">
-                    <i class="fa fa-ticket fa-3x" style="padding: 0.5em 0.2em 0  0 "></i>
-                </div>
-
-                <div class="col col-md-2">
-                    <br/>
-                    <a class="btn btn-primary btn-lg btn-block" href="/ticket/2/2">
-                        <i class="fa fa-ticket"></i> اطلاعات بلیط
-                    </a></div>
-                <div class="col col-md-9">
-
-                    <h1 class="">باغ وحش وکیل‌آباد (تعداد: ۱)</h1>
-
-                    <h2>شماره بلیط: ۷۹۷۰۹</h2>
-                </div>
-                <div class="col col-md-1">
-                    <i class="fa fa-ticket fa-3x" style="padding: 0.5em 0.2em 0  0 "></i>
+                    <div class="my-divider"></div>
+                {% endfor %}
                 </div>
             </div>
+
         </div>
     </div>
 {% endblock %}
 
+{% block js %}
+    {{ block.super }}
+    <script src="{% static "js/sport-event.js" %}"></script>
+{% endblock %}
+
 {% block css %}
     {{ block.super }}
-    <link rel="stylesheet" href="{% static "css/about.css" %}"/>
-    <link rel="stylesheet" href="{% static "css/ticket.css" %}"/>
+    <link rel="stylesheet" href="{% static "css/sport-event.css" %}"/>
 {% endblock %}

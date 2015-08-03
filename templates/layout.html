@@ -5,11 +5,10 @@
         <div class="holder">
             <ul class="col col-md-6">
                 <li class="active"><a href="/"><i class="fa fa-home"></i>خانه</a></li>
-                {% if logged_in %}
-                    <li><a href="/profile/1"><i class="fa fa-user"></i>حساب کاربری</a></li>{% endif %}
                 <li><a href="/events"><i class="fa fa-list"></i>رویدادها</a></li>
-                <li><a href="/ticket/2"><i class="fa fa-ticket"></i>بلیط‌های من</a></li>
                 {% if logged_in %}
+                    <li><a href="/profile/1"><i class="fa fa-user"></i>حساب کاربری</a></li>
+                    <li><a href="/ticket/{{ request.user.id }}"><i class="fa fa-ticket"></i>بلیط‌های من</a></li>
                     <li><a href="/logout/?next={{ request.path }}"><i class="fa fa-sign-out"></i>خروج</a></li>
                 {% endif %}
             </ul>
