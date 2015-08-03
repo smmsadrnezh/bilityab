@@ -20,47 +20,20 @@
                 {#                </select>#}
 
                 <div class="col col-md-12" id="ticket-info">
-                    <img class="event-image" src={% static "img/iceage.jpg" %}>
-                    <a href="/events/cinema/1/" class="event-info">
-                        فیلم سینمایی عصر یخبندان
+                    {% for event,type in event_type_list %}
+                    <img class="event-image" src={% static "img/{{ event.photo }}" %}>
+                    <a href="/events/{{ type }}/{{ event.id }}/" class="event-info">
+                        {{ event.title }}
                     </a>
 
                     <div class="event-info">
-                        3 مرداد 94 ساعت 18:00
+                        {{ event.address }}
                     </div>
 
                     <div class="my-divider"></div>
 
-                    <img class="event-image" src={% static "img/nahanganbar.jpg" %}>
-                    <a href="/events/cinema/2/" class="event-info">
-                        فیلم سینمایی نهنگ عنبر
-                    </a>
+                    {% endfor %}
 
-                    <div class="event-info">
-                        4 مرداد 94 ساعت 19:00
-                    </div>
-
-                    <div class="my-divider"></div>
-
-                    <img class="event-image" src={% static "img/eteraf.jpg" %}>
-                    <a href="/events/cinema/3/" class="event-info">
-                        فیلم سینمایی اعترافات ذهن خطرناک من
-                    </a>
-
-                    <div class="event-info">
-                        5 مرداد 94 ساعت 21:00
-                    </div>
-
-                    <div class="my-divider"></div>
-
-                    <img class="event-image" src={% static "img/concert.jpg" %}>
-                    <a href="/events/music/1/" class="event-info">
-                        کنسرت احسان خواجه امیری
-                    </a>
-
-                    <div class="event-info">
-                        1 شهریور 94 ساعت 20:00
-                    </div>
                 </div>
 
             </div>
