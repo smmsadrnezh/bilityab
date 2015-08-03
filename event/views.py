@@ -111,7 +111,7 @@ def sport(request, event_id):
     try:
         event = Event.objects.get(pk=event_id)
         show_time = event.show_times.all()[0]
-        print(ChangeDate().get_persian_date(show_time.date))
+        # print(ChangeDate().get_persian_date(show_time.date))
     except Event.DoesNotExist:
         raise Http404("sport event does not exist!")
     return render(request, 'sport.html', {
