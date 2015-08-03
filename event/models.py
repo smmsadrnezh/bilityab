@@ -25,16 +25,15 @@ class Categories(models.Model):
 
 
 class Event(models.Model):
-    title = models.CharField(max_length=90)
+    title = models.CharField(max_length=90, unique=True)
     description = models.CharField(max_length=300, null=True)
     category = models.ForeignKey(Categories, related_name='events')
     capacity = models.PositiveIntegerField()
-    event_organizer = models.ForeignKey(EventOrganizer)
+    event_organizers = models.ManyToManyField(EventOrganizer)
     address = models.CharField(max_length=300)
     photo = models.ImageField(null=True, default="default.jpg")
 
     class Meta:
-        unique_together = (("title", "event_organizer", "address"),)
         verbose_name = "رویداد"
         verbose_name_plural = "رویدادها"
 
