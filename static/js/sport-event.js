@@ -169,7 +169,7 @@
         var counter = 1;
         $(this).children().each(function () {
             if ($(this).hasClass('free-seat')) {
-                $(this).attr('data-original-title', counter);
+                $(this).attr('data-original-title', 'شماره '+counter+'  ،  '+parseInt($(this).parent().attr('price'))+' تومان');
                 counter++;
             }
             else if ($(this).hasClass('sold-seat'))
@@ -267,7 +267,6 @@
                 $callback(request.responseText);
             }
         };
-        console.log($params)
         request.send($params);
     }
 
@@ -293,23 +292,15 @@
                 seat_str = data.substring(indexes[i], indexes[i+1]);
             else
                 seat_str = data.substring(indexes[i]);
-
             info = seat_str.split(' ');
-
-            console.log(info)
-
             seat = $('#'+info[1]).find('.seat-row.'+info[3]);
-
             column = parseInt(info[5]);
-
             for(var j = 1 ; j <= column ; ) {
                 seat = seat.next();
                 if(seat.hasClass('free-seat') || seat.hasClass('sold-seat'))
                     j++;
             }
-            console.log(seat)
             seat.removeClass('free-seat').addClass('sold-seat');
-
         }
     }
     send_ajax_request('/events/sold_seats/', 'event_id='+$('#ticket').attr('event_id'), set_sold_seats);
