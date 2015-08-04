@@ -28,8 +28,8 @@
                 <div class="col col-md-12" id="ticket-info">
                     {% for event,type in organizer_events %}
                         <img class="event-image" src='{{ MEDIA_URL }}{{ event.photo }}'>
+                        نام رویداد:
                         <a href="/events/{{ type }}/{{ event.id }}" class="event-info">
-                            نام رویداد:
                             {{ event.title }}
                         </a>
 

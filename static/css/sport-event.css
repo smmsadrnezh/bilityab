@@ -240,8 +240,9 @@ body > .holder > div.col {
 
 .organizer-image {
     float: right;
-    /*margin-left: 10px;*/
+    margin-left: 10px;
     height: 150px;
+    width: 150px;
 }
 
 .organizer-details {

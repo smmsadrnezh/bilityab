@@ -3,7 +3,7 @@ import datetime
 from django.shortcuts import render
 from django.http import Http404, HttpResponseRedirect, HttpResponse, HttpResponseForbidden
 
-from bilityab.views import make_event_type_list, get_type
+from bilityab.views import make_event_type_list1, make_event_type_list, get_type
 from bilityab.change_date import ChangeDate
 from event.models import Event, Categories, Sport, Movie, Concert, EventRating, EventOrganizer
 
@@ -11,7 +11,7 @@ from event.models import Event, Categories, Sport, Movie, Concert, EventRating, 
 def events(request):
     return render(request, 'all-events.html', {
         'logged_in': request.user.is_authenticated(),
-        'event_type_list': make_event_type_list(Event.objects.all())
+        'event_type_list': make_event_type_list1(Event.objects.all())
 
     })
 
