@@ -287,11 +287,29 @@
 
     function set_sold_seats(data) {
         var indexes = getIndicesOf("section", data, false);
+        var column, seat, info, seat_str;
         for(var i = 0 ; i < indexes.length ; i++){
             if(i != indexes.length-1)
-                console.log(data.substring(indexes[i], indexes[i+1]))
+                seat_str = data.substring(indexes[i], indexes[i+1]);
             else
-                console.log(data.substring(indexes[i]))
+                seat_str = data.substring(indexes[i]);
+
+            info = seat_str.split(' ');
+
+            console.log(info)
+
+            seat = $('#'+info[1]).find('.seat-row.'+info[3]);
+
+            column = parseInt(info[5]);
+
+            for(var j = 1 ; j <= column ; ) {
+                seat = seat.next();
+                if(seat.hasClass('free-seat') || seat.hasClass('sold-seat'))
+                    j++;
+            }
+            console.log(seat)
+            seat.removeClass('free-seat').addClass('sold-seat');
+
         }
     }
     send_ajax_request('/events/sold_seats/', 'event_id='+$('#ticket').attr('event_id'), set_sold_seats);
