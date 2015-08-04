@@ -1,7 +1,6 @@
 {% extends "layout.html" %}
 {% load staticfiles %}
 {% block pageBody %}
-    {% load change-date-tags %}
     <div id="top-carousel" class="col col-md-12 carousel slide" style="padding: 0" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#top-carousel" data-slide-to="0" class="active"></li>
@@ -122,7 +121,7 @@
                         {% for event, type, organizer,date in actionMovies %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
-                                    <div class="date">{{ date.date | persian_date }}</div>
+                                    <div class="date">{{ date.date }}</div>
                                 </div>
                                 <div class="description cinema">
                                     <div class="vertical-center">
