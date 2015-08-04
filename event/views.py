@@ -279,6 +279,6 @@ def buy_seats(request):
                 row = info[1]
                 column = info[2]
                 TicketPosition.objects.create(ticket=ticket, section=section, row=row, column=column)
-        return HttpResponse('success')
+        return HttpResponse(ticket.id)
     else:
         return HttpResponseForbidden('post required')
