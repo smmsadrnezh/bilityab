@@ -43,8 +43,8 @@ def home(request):
 
     return render(request, 'home.html', {
         'bestEvents': make_event_type_list1(Event.objects.annotate(rate=Sum('rates')).order_by('-rates')[:3]),
-        # 'nearestEvents': make_event_type_list1(Event.objects.all()[:3]),
-        'newestEvents': make_event_type_list1(Event.objects.all().order_by('-show_times__date')[:3]),
+        # 'nearestEvents': make_event_type_list1(Event.objects.all().order_by('-show_times__date')[:3]),
+        'newestEvents': make_event_type_list1(Event.objects.all().order_by('-created-at')[:3]),
         'actionMovies': make_event_type_list1(Event.objects.filter(category__title='اکشن')),
         'dramaticMovies': make_event_type_list1(Event.objects.filter(category__title='درام')),
         'comicMovies': make_event_type_list1(Event.objects.filter(category__title='کمدی')),

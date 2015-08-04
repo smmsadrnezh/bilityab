@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.db import models
-
+from datetime import datetime
 from account.models import CustomUser
 
 
@@ -33,6 +33,7 @@ class Event(models.Model):
     event_organizers = models.ManyToManyField(EventOrganizer)
     address = models.CharField(max_length=300)
     photo = models.ImageField(null=True, default="default.jpg")
+    created_at = models.DateTimeField(default=datetime.now)
 
     class Meta:
         verbose_name = "رویداد"
@@ -100,7 +101,7 @@ class Sport(models.Model):
 
 
 class EventRating(models.Model):
-    rate = models.PositiveSmallIntegerField()
+    rate = models.FloatField()
     event = models.ForeignKey(Event, related_name='rates')
     user = models.ForeignKey(CustomUser, default=1)
 
