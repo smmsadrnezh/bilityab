@@ -106,6 +106,6 @@ class EventRating(models.Model):
     user = models.ForeignKey(CustomUser, default=1)
 
     def __str__(self):
-        return "%d" % self.rate
+        return "%f" % self.rate
 
 
