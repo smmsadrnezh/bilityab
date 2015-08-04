@@ -268,13 +268,17 @@ def buy_seats(request):
         show_time_id = request.POST.get('show_time_id')
         price = request.POST.get('price')
         show_time = Showtime.objects.get(pk=show_time_id)
-        print(show_time)
         ticket = PurchasedTicket.objects.create(user=request.user, quantity=int(quantity),
                                                 purchased_date=datetime.datetime.now(),
                                                 price=float(int(price)*int(quantity)),
-                                                receipt='123456789', show_time=show_time)
+                                                receipt='123456789', showtime=show_time)
         for seat in seats:
             if seat:
-                print(seat)
+                info = seat.split(',')
+                section = info[0]
+                row = info[1]
+                column = info[2]
+                TicketPosition.objects.create(ticket=ticket, section=section, row=row, column=column)
+        return HttpResponse('success')
     else:
         return HttpResponseForbidden('post required')
