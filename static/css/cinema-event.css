@@ -276,7 +276,6 @@ body > .holder > div.col {
 /* cinemas grid */
 
 #cinemas {
-    display: none;
     margin-bottom: 0;
 }
 
@@ -570,55 +569,4 @@ body > .holder > div.col {
     background-color: #c70a4a;
     border: none;
     font-family: 'BYekan', sans-serif;
-}
-
-/* dates */
-
-#dates {
-    text-align: center;
-}
-
-#dates .item {
-    text-align: center;
-    display: inline-block;
-    border-radius: 25px;
-    padding: 0;
-    background-color: #FFFFFF;
-    box-shadow: -3px 4px 10px 0 #cccccc;
-}
-
-#dates .item .show-times {
-    top: 50%;
-    transform: translate(0, -50%);
-}
-
-#dates .item .date {
-    border-radius: 25px;
-    height: 100%;
-    box-shadow: -3px 4px 10px 0 #cccccc;
-    padding: 0;
-}
-
-#dates .item .date .week-day {
-    padding: 0.5em 2em;
-    border-radius: 25px 25px 0 0;
-    color: #FDB707;
-    font-family: 'BYekan', sans-serif;
-    font-size: 0.6em;
-    background-color: #000000;
-}
-
-#dates .item .date .day {
-    color: #2981B2;
-    font-size: 1.5em;
-}
-
-#dates .item .date .month {
-    color: #ADABAB;
-    font-size: 0.8em;
-}
-
-#dates .item .date .year {
-    color: #ADABAB;
-    font-size: 0.8em;
 }

@@ -3,30 +3,33 @@
 {% block pageBody %}
     <div class="holder">
         <div id="body-container" class="col col-md-12">
-            <form class="cd-form">
+            <form class="cd-form" action="/events/buy_seats/" method="POST">
+                {% csrf_token %}
                 <p class="fieldset">
-                    <label for="signin-email" class="image-replace cd-username">مبلغ</label>
-                    <input type="email" placeholder="۱۰۰۰۰ تومان" id="signin-email"
-                           class="full-width has-padding has-border disabled">
+                    <label for="total_cost" class="image-replace cd-username">مبلغ</label>
+                    <input type="text" placeholder="۱۰۰۰۰ تومان" id="total_cost"
+                           class="full-width has-padding has-border disabled" value="{{ price }} هزار تومان">
                 </p>
 
                 <p class="fieldset">
-                    <label for="signin-password" class="image-replace cd-password">شماره کارت</label>
-                    <input type="text" placeholder="شماره کارت" id="signin-password"
+                    <label for="cart-serial" class="image-replace cd-password">شماره کارت</label>
+                    <input type="text" placeholder="شماره کارت" id="cart-serial"
                            class="full-width has-padding has-border">
                 </p>
 
                 <p class="fieldset">
-                    <label for="signin-password" class="image-replace cd-password">رمز کارت</label>
-                    <input type="text" placeholder="رمز کارت" id="signin-password"
+                    <label for="cart-pass" class="image-replace cd-password">رمز کارت</label>
+                    <input type="password" placeholder="رمز کارت" id="cart-pass"
                            class="full-width has-padding has-border">
                 </p>
-
-
+                <input type="hidden" id="price" name="price" value="{{ price }}"/>
+                <input type="hidden" id="show_time_id" name="show_time_id" value="{{ show_time_id }}"/>
+                <input type="hidden" id="quantity" name="quantity" value="{{ quantity }}"/>
+                <input type="hidden" id="seats" name="seats" value="{{ seats }}"/>
                 <p class="fieldset">
-                    <a class="btn btn-primary btn-lg btn-block" href="/ticket/1/2">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">
                         <i class="fa fa-dollar"></i> خرید بلیط
-                    </a>
+                    </button>
                 </p>
             </form>
 

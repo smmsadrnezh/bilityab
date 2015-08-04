@@ -8,36 +8,17 @@
             <li data-target="#top-carousel" data-slide-to="2"></li>
         </ol>
         <div class="carousel-inner" role="listbox">
-            <div class="item active">
-                <img src="{% static "img/te-greatamericanpark.jpg" %}">
-
-                <div class="carousel-caption">
-                    <div class="title">مسابقه فوتبال ایران-ترکیه</div>
-                    <br/>
-
-                    <div class="date">۲۵ تیر ۹۴</div>
+            {% for event,type, organizer,date in newestEvents %}
+                <div class="item {% if forloop.first %}active{% endif %}">
+                    <img src="{{ MEDIA_URL }}{{ event.photo }}">
+                    <div class="carousel-caption">
+                        <div class="title">{{ event.title }}</div>
+                        <br/>
+                        <div class="date">{{ date.date }}</div>
+                    </div>
                 </div>
-            </div>
-            <div class="item">
-                <img src="{% static "img/te-nflpromo.jpg" %}">
+            {% endfor %}
 
-                <div class="carousel-caption">
-                    <div class="title">مسابقه فوتبال ایران - آمریکا</div>
-                    <br/>
-
-                    <div class="date">۱۲ خرداد ۹۴</div>
-                </div>
-            </div>
-            <div class="item">
-                <img src="{% static "img/te-concert.jpg" %}">
-
-                <div class="carousel-caption">
-                    <div class="title">کنسرت رضا صادقی</div>
-                    <br/>
-
-                    <div class="date">۱۸ شهریور ۹۴</div>
-                </div>
-            </div>
         </div>
         <a class="left carousel-control" href="#top-carousel" role="button" data-slide="prev">
             <span class="fa fa-chevron-left" aria-hidden="true"></span>
@@ -465,24 +446,24 @@
                         {% endfor %}
                     </div>
                 </div>
-                <div id="nearest" class="widget">
-                    <div class="heading"><i class="fa fa-newspaper-o"></i><span class="title">نزدیکترین رویدادها</span>
-                    </div>
-                    <div class="content">
-                        {% for event, type, organizer, date in nearestEvents %}
-                            <div class="small-event">
-                                <a href="events/{{ type }}/{{ event.id }}" >
-                                    <div class="event-type">
-                                        {{ event.category.title }}
-                                    </div>
-                                    <div class="date">{{ date.date }}</div>
-                                    <div class="title">{{ event.title }}</div>
-                                    <div class="place"><a href="/organizer/{{ organizer.id }}/">{{organizer.title }}</a></div>
-                                </a>
-                            </div>
-                        {% endfor %}
-                    </div>
-                </div>
+{#                <div id="nearest" class="widget">#}
+{#                    <div class="heading"><i class="fa fa-newspaper-o"></i><span class="title">نزدیکترین رویدادها</span>#}
+{#                    </div>#}
+{#                    <div class="content">#}
+{#                        {% for event, type, organizer, date in nearestEvents %}#}
+{#                            <div class="small-event">#}
+{#                                <a href="events/{{ type }}/{{ event.id }}" >#}
+{#                                    <div class="event-type">#}
+{#                                        {{ event.category.title }}#}
+{#                                    </div>#}
+{#                                    <div class="date">{{ date.date }}</div>#}
+{#                                    <div class="title">{{ event.title }}</div>#}
+{#                                    <div class="place"><a href="/organizer/{{ organizer.id }}/">{{organizer.title }}</a></div>#}
+{#                                </a>#}
+{#                            </div>#}
+{#                        {% endfor %}#}
+{#                    </div>#}
+{#                </div>#}
             </div>
         </div>
     </div>

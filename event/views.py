@@ -25,15 +25,13 @@ def add_event(request):
                                                                                '') != "" and request.POST.get(
                     'event-type', '') != "" and request.POST.get('event-capacity', '') != "" and request.POST.get(
                     'event-address', '') != ""):
-                event = Event(title=request.POST.get('event-title', ''),
-                              description=request.POST.get('event-description', ''),
-                              category_id=request.POST.get('event-type', ''),
-                              capacity=request.POST.get('event-capacity', ''),
-                              address=request.POST.get('event-address', ''),
-                              event_organizer_id=request.user.id,
-                              photo="jingili.jpg"
-                )
-                event.save()
+                cat_id = int(request.POST.get('event-type', ''))
+                category = Categories.objects.get(pk=cat_id)
+                event = Event.objects.create(title=request.POST.get('event-title', ''),
+                                             description=request.POST.get('event-description', ''),
+                                             category=category, capacity=int(request.POST.get('event-capacity', '')),
+                                             address=request.POST.get('event-address', ''))
+                event.event_organizers.add(EventOrganizer.objects.get(user=request.user))
                 if (request.POST.get('event-home-team', '') != "" and request.POST.get('event-away-team', '') != ""):
                     Sport(
                         event_id=event.id,
@@ -264,7 +262,6 @@ def buy_seats(request):
     if request.method == 'POST':
         seats = request.POST.get('seats')
         seats = seats.split('A')
-        event_id = request.POST.get('event_id')
         quantity = request.POST.get('quantity')
         show_time_id = request.POST.get('show_time_id')
         price = request.POST.get('price')
@@ -279,8 +276,8 @@ def buy_seats(request):
                 section = info[0]
                 row = info[1]
                 column = info[2]
-                TicketPosition.objects.create(ticket=ticket, section=section, row=row, column=column)
-        return HttpResponse(ticket.id)
+                TicketPosition.objects.create(ticket=ticket, section=int(section), row=int(row), column=int(column))
+        return HttpResponseRedirect('/ticket/'+str(request.user.id)+'/'+str(ticket.id)+'/')
     else:
         return HttpResponseForbidden('post required')
 

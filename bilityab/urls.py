@@ -43,7 +43,7 @@ urlpatterns = [
 
 
     ### ticket urls
-    url(r'^buy/(?P<event_id>\d+)/$', 'ticket.views.buy'),
+    url(r'^buy/$', 'ticket.views.buy'),
     url(r'^ticket/(?P<user_id>\d+)/(?P<purchased_id>\d+)/$', 'ticket.views.ticket'),
     url(r'^ticket/(?P<user_id>\d+)/$', 'ticket.views.all_ticket'),
 

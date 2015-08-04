@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponseForbidden
 
 from ticket.models import PurchasedTicket
 from event.models import Event, Showtime
@@ -7,11 +7,21 @@ from ticket.models import TicketPosition
 from bilityab.views import get_type
 
 
-def buy(request, event_id):
-    return render(request, 'buy.html', {
-        'logged_in': request.user.is_authenticated()
-
-    })
+def buy(request):
+    if request.method == 'POST':
+        price = request.POST.get('price')
+        seats = request.POST.get('seats')
+        quantity = request.POST.get('quantity')
+        show_time_id = request.POST.get('show_time_id')
+        return render(request, 'buy.html', {
+            'logged_in': request.user.is_authenticated(),
+            'price': price,
+            'show_time_id': show_time_id,
+            'seats': seats,
+            'quantity': quantity
+        })
+    else:
+        return HttpResponseForbidden
 
 
 def ticket(request, user_id, purchased_id):

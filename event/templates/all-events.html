@@ -12,13 +12,10 @@
                                    href="/events/{{ event.id }}/edit/">
                                     <i class="fa fa-edit"></i> ویرایش رویداد
                                 </a>
-{#                                <a class="btn btn-danger btn-lg btn-block" data-toggle="modal"#}
-{#                                   data-target="#confirm-delete">#}
-{#                                    <i class="fa fa-remove"></i> حذف رویداد#}
-{#                                </a>#}
-                                  <a href="/events/delete/{{ event.id }}" class="btn btn-danger btn-lg btn-block">
-                                       <i class="fa fa-remove"></i> حذف رویداد
-                                  </a>
+                                <a class="btn btn-danger btn-lg btn-block" data-toggle="modal"
+                                   data-target="#confirm-delete-{{ event.id }}">
+                                    <i class="fa fa-remove"></i> حذف رویداد
+                                </a>
                             </div>
                         {% endif %}
                         <img class="event-image" src='{{ MEDIA_URL }}{{ event.photo }}'>
@@ -32,6 +29,29 @@
 
                         <div class="my-divider"></div>
 
+                        <!-- Delete Event Modal -->
+                        <div class="modal fade" id="confirm-delete-{{ event.id }}" tabindex="-1" role="dialog"
+                             aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"
+                                                aria-label="Close"><span
+                                                aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">حذف رویداد</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        آیا مطمئنید می‌خواهید رویداد {{ event.title }} را حذف کنید؟
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">انصراف
+                                        </button>
+                                        <a type="button" class="btn btn-danger" href="/events/delete/{{ event.id }}">حذف</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     {% endfor %}
 
                 </div>
@@ -40,27 +60,6 @@
             {% if request.user.is_organizer %}
                 <i class="fa fa-plus-circle"></i><a href="/events/add/"> اضافه کردن رویداد</a>
             {% endif %}
-        </div>
-    </div>
-
-
-    <!-- Delete Event Modal -->
-    <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">حذف رویداد</h4>
-                </div>
-                <div class="modal-body">
-                    آیا مطمئنید می‌خواهید این رویداد را حذف کنید؟
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">انصراف</button>
-                    <button type="button" class="btn btn-danger">حذف</button>
-                </div>
-            </div>
         </div>
     </div>
 
