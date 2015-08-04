@@ -43,7 +43,7 @@ class Event(models.Model):
 
 
 class PositionPrice(models.Model):
-    event = models.ForeignKey(Event)
+    event = models.ForeignKey(Event, related_name='position_prices')
     from_column = models.PositiveIntegerField()
     to_column = models.PositiveIntegerField()
     from_row = models.PositiveIntegerField()

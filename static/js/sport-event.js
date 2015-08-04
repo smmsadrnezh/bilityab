@@ -169,7 +169,7 @@
         var counter = 1;
         $(this).children().each(function () {
             if ($(this).hasClass('free-seat')) {
-                $(this).attr('data-original-title', counter);
+                $(this).attr('data-original-title', 'شماره '+counter+'  ،  '+parseInt($(this).parent().attr('price'))+' تومان');
                 counter++;
             }
             else if ($(this).hasClass('sold-seat'))
@@ -267,7 +267,6 @@
                 $callback(request.responseText);
             }
         };
-        console.log($params)
         request.send($params);
     }
 
@@ -287,12 +286,62 @@
 
     function set_sold_seats(data) {
         var indexes = getIndicesOf("section", data, false);
+        var column, seat, info, seat_str;
         for(var i = 0 ; i < indexes.length ; i++){
             if(i != indexes.length-1)
-                console.log(data.substring(indexes[i], indexes[i+1]))
+                seat_str = data.substring(indexes[i], indexes[i+1]);
             else
-                console.log(data.substring(indexes[i]))
+                seat_str = data.substring(indexes[i]);
+            info = seat_str.split(' ');
+            seat = $('#'+info[1]).find('.seat-row.'+info[3]);
+            column = parseInt(info[5]);
+            for(var j = 1 ; j <= column ; ) {
+                seat = seat.next();
+                if(seat.hasClass('free-seat') || seat.hasClass('sold-seat'))
+                    j++;
+            }
+            seat.removeClass('free-seat').addClass('sold-seat');
         }
     }
     send_ajax_request('/events/sold_seats/', 'event_id='+$('#ticket').attr('event_id'), set_sold_seats);
+
+    $.fn.find_prev_element = function ($class) {
+        var result = null;
+        var help = $(this);
+        var column = 0;
+        for(var i = 0 ; i < 100 ; i++){
+            help = help.prev();
+            if(!help.hasClass('disabled-seat'))
+                column++;
+            if(help.hasClass($class)) {
+                result = help;
+                break;
+            }
+        }
+        return [result, column];
+    };
+
+    $('#seat-maps .add-to-cart').on('click', function () {
+
+        var seats = '', seat;
+        $(this).parent().find('.selected-seat').each(function () {
+            var section = $(this).parent().attr('id');
+            var row_column = $(this).find_prev_element('seat-row');
+            var row = row_column[0].text();
+            var column = row_column[1];
+            var seat = ";"+section+','+row+','+column+';';
+            seats += seat;
+        });
+
+        console.log(seats.split(';'));
+
+        send_ajax_request('/events/buy_seats/', 'seats='+seats, finish_buy);
+
+    });
+
+    function finish_buy(){
+
+
+    }
+
 })(jQuery);

@@ -6,3 +6,4 @@ from .models import *
 admin.site.register(PurchasedTicket)
 admin.site.register(TicketPosition)
 
+
