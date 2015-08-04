@@ -156,7 +156,8 @@ def sport(request, event_id):
         'remaining_time': int((event_date_time - datetime.datetime.now()).total_seconds() * 1000),
         'logged_in': request.user.is_authenticated(),
         'organizer': event.event_organizers.all()[0],
-        'price': event.position_prices.all()[0]
+        'price': event.position_prices.all()[0],
+        'user': request.user
     })
 
 

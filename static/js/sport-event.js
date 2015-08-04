@@ -325,7 +325,6 @@
     };
 
     $('#seat-maps .add-to-cart').on('click', function () {
-
         var seats = '', seat, quantity = 0;
         $(this).parent().find('.selected-seat').each(function () {
             quantity++;
@@ -336,17 +335,10 @@
             var seat = "A"+section+','+row+','+column+'A';
             seats += seat;
         });
-        //window.location.href = '/buy/1/?'+'price='+price+'&show_time_id='+$('#ticket').attr('show_time')+'&quantity='+quantity+'&seats='+seats+'&event_id='+$('#ticket').attr('event_id')
-        send_ajax_request('/events/buy_seats/', 'price='+price+'&show_time_id='+$('#ticket').attr('show_time')+'&quantity='+quantity+'&seats='+seats+'&event_id='+$('#ticket').attr('event_id'), finish_buy);
+        $('#price').val(price);
+        $('#show_time_id').val($('#ticket').attr('show_time'));
+        $('#quantity').val(quantity);
+        $('#seats').val(seats);
     });
-
-    function finish_buy(data){
-
-        if(parseInt(data))
-        {
-            window.location.href = '/ticket/1/'+parseInt(data);
-        }
-
-    }
 
 })(jQuery);
