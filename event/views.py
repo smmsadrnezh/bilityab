@@ -293,7 +293,7 @@ def add_category(request):
     if request.user.is_authenticated() and request.user.is_organizer:
         if request.is_ajax():
             print (request.POST.get('event-type',''))
-            if (request.POST.get('event-type','')!=""):
+            if(request.POST.get('event-type','')!=""):
                 print ("oomad too in")
                 # insert event and it's additional information to database
                 if (request.POST.get('category-title', '') != "" ):
