@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render
 
-from event.models import Event, Categories
+from event.models import Event, Categories, Showtime
 
 
 def get_type(event_id):
@@ -30,7 +30,12 @@ def make_event_type_list1(event_list):
         category = get_type(event.id)
         # organizer = EventOrganizer.objects.filter(event__id=event.id)[:1]
         organizer = event.event_organizers.all()[0]
-        event_type_list.append((event, category, organizer))
+        dates = Showtime.objects.filter(event=event)
+        if dates:
+            date = dates[0]
+            event_type_list.append((event, category, organizer, date))
+        else:
+            event_type_list.append((event, category, organizer))
     return event_type_list
 
 

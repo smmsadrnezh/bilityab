@@ -118,10 +118,10 @@
                 </ul>
                 <div id="events-list" class="tab-content">
                     <div role="tabpanel" class="tab-pane active fade in col col-md-12" id="action">
-                        {% for event, type, organizer in actionMovies %}
+                        {% for event, type, organizer,date in actionMovies %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
-                                    <div class="date">{{ event.date }}</div>
+                                    <div class="date">{{ date.date }}</div>
                                 </div>
                                 <div class="description cinema">
                                     <div class="vertical-center">
@@ -142,10 +142,10 @@
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="dram">
 
-                        {% for event, type, organizer in dramaticMovies %}
+                        {% for event, type, organizer, date in dramaticMovies %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
-                                    <div class="date">۲۵ اردیبهشت ۹۴</div>
+                                    <div class="date">{{ date.date }}</div>
                                 </div>
                                 <div class="description cinema">
                                     <div class="vertical-center">
@@ -165,10 +165,10 @@
                         {% endfor %}
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="comic">
-                        {% for event, type, organizer in comicMovies %}
+                        {% for event, type, organizer, date in comicMovies %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
-                                    <div class="date">{{ event.date }}</div>
+                                    <div class="date">{{ date.date }}</div>
                                 </div>
                                 <div class="description cinema">
                                     <div class="vertical-center">
@@ -188,10 +188,10 @@
                         {% endfor %}
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="volleyball">
-                        {% for event, type, organizer in volleyballEvents %}
+                        {% for event, type, organizer, date in volleyballEvents %}
                             <div class="col col-md-6 event " event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
-                                    <div class="date">۲۵ اردیبهشت ۹۴</div>
+                                    <div class="date">{{ date.date }}</div>
                                 </div>
                                 <div class="description sport">
                                     <div class="vertical-center">
@@ -211,10 +211,10 @@
                         {% endfor %}
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="football">
-                        {% for event, type, organizer in footballEvents %}
+                        {% for event, type, organizer, date in footballEvents %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
-                                    <div class="date">۲۵ اردیبهشت ۹۴</div>
+                                    <div class="date">{{ date.date }}</div>
                                 </div>
                                 <div class="description sport">
                                     <div class="vertical-center">
@@ -234,10 +234,10 @@
                         {% endfor %}
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="basketball">
-                        {% for event,type, organizer in basketballEvents %}
+                        {% for event,type, organizer, date in basketballEvents %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
-                                    <div class="date">۲۵ اردیبهشت ۹۴</div>
+                                    <div class="date">{{ date.date }}</div>
                                 </div>
                                 <div class="description sport">
                                     <div class="vertical-center">
@@ -257,10 +257,10 @@
                         {% endfor %}
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="wrestling">
-                        {% for event,type, organizer in wrestleEvents %}
+                        {% for event,type, organizer, date in wrestleEvents %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
-                                    <div class="date">۲۵ اردیبهشت ۹۴</div>
+                                    <div class="date">{{ date.date }}</div>
                                 </div>
                                 <div class="description sport">
                                     <div class="vertical-center">
@@ -280,10 +280,10 @@
                         {% endfor %}
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="tour">
-                        {% for event, type, organizer in tourEvents %}
+                        {% for event, type, organizer, date in tourEvents %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
-                                    <div class="date">۲۵ اردیبهشت ۹۴</div>
+                                    <div class="date">{{ date.date }}</div>
                                 </div>
                                 <div class="description tourism">
                                     <div class="vertical-center">
@@ -303,10 +303,10 @@
                         {% endfor %}
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="zoo">
-                        {% for event,type, organizer in zooEvents %}
+                        {% for event,type, organizer, date in zooEvents %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
-                                    <div class="date">۲۵ اردیبهشت ۹۴</div>
+                                    <div class="date">۲{{ date.date }}</div>
                                 </div>
                                 <div class="description tourism">
                                     <div class="vertical-center">
@@ -326,10 +326,10 @@
                         {% endfor %}
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="amusement-park">
-                        {% for event,type, organizer in amusementEvents %}
+                        {% for event,type, organizer, date in amusementEvents %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
-                                    <div class="date">۲۵ اردیبهشت ۹۴</div>
+                                    <div class="date">{{ date.date }}</div>
                                 </div>
                                 <div class="description tourism">
                                     <div class="vertical-center">
@@ -349,10 +349,10 @@
                         {% endfor %}
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="circus">
-                        {% for event,type, organizer in circusEvents %}
+                        {% for event,type, organizer, date in circusEvents %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
-                                    <div class="date">۲۵ اردیبهشت ۹۴</div>
+                                    <div class="date">{{ date.date }}</div>
                                 </div>
                                 <div class="description tourism">
                                     <div class="vertical-center">
@@ -372,10 +372,10 @@
                         {% endfor %}
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="traditional">
-                        {% for event,type, organizer in traditionalMusic %}
+                        {% for event,type, organizer, date in traditionalMusic %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
-                                    <div class="date">۲۵ اردیبهشت ۹۴</div>
+                                    <div class="date">{{ date.date }}</div>
                                 </div>
                                 <div class="description music">
                                     <div class="vertical-center">
@@ -395,10 +395,10 @@
                         {% endfor %}
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="pop">
-                        {% for event,type, organizer in popMusic %}
+                        {% for event,type, organizer, date in popMusic %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
-                                    <div class="date">۲۵ اردیبهشت ۹۴</div>
+                                    <div class="date">{{ date.date }}</div>
                                 </div>
                                 <div class="description music">
                                     <div class="vertical-center">
@@ -426,7 +426,7 @@
                         <span><i>پیشنهادهای ما</i></span>
                     </div>
                     <div class="col col-md-12 event-carousel">
-                        {% for event, type, organizer in suggestedEvents %}
+                        {% for event, type, organizer, date in suggestedEvents %}
                             <div class="medium-event col col-md-4">
                                 <div class="image"
                                      style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')"></div>
@@ -439,7 +439,7 @@
                                     <div class="see-ticket"><a href="/events/{{ type }}/{{ event.id }}">نمایش رویداد<i
                                             class="fa fa-ticket"></i></a>
                                     </div>
-                                    <div class="date"><i class="fa fa-calendar"></i>۲۵ تیر ۹۴</div>
+                                    <div class="date"><i class="fa fa-calendar"></i>{{ date.date }}</div>
                                 </div>
                             </div>
                         {% endfor %}
@@ -451,13 +451,13 @@
                     <div class="heading"><i class="fa fa-star"></i><span class="title">برترین رویدادها</span></div>
                     <div class="content">
 
-                        {% for event,type, organizer in bestEvents %}
+                        {% for event,type, organizer,date in bestEvents %}
                             <div class="small-event">
                                 <a href="events/{{ type }}/{{ event.id }}/" >
                                     <div class="event-type">
                                         {{ event.category.title }}
                                     </div>
-                                    <div class="date">{{ event.date }}</div>
+                                    <div class="date">{{ date.date }}</div>
                                     <div class="title">{{ event.title }}</div>
                                     <div class="place"><a href="/organizer/{{ organizer.id }}/">{{ organizer.title }}</a></div>
                                 </a>
@@ -469,13 +469,13 @@
                     <div class="heading"><i class="fa fa-newspaper-o"></i><span class="title">نزدیکترین رویدادها</span>
                     </div>
                     <div class="content">
-                        {% for event, type, organizer in nearestEvents %}
+                        {% for event, type, organizer, date in nearestEvents %}
                             <div class="small-event">
                                 <a href="events/{{ type }}/{{ event.id }}" >
                                     <div class="event-type">
                                         {{ event.category.title }}
                                     </div>
-                                    <div class="date">{{ event.date }}</div>
+                                    <div class="date">{{ date.date }}</div>
                                     <div class="title">{{ event.title }}</div>
                                     <div class="place"><a href="/organizer/{{ organizer.id }}/">{{organizer.title }}</a></div>
                                 </a>
