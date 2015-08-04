@@ -73,6 +73,11 @@ def add_event(request):
         return HttpResponseRedirect('/')
 
 
+def apply_event(request):
+    if request.method == 'post':
+        print('')
+
+
 def edit_event(request, event_id):
     if request.user.is_authenticated() and request.user.is_organizer:
         type = get_type(Event.objects.get(id=event_id).id)

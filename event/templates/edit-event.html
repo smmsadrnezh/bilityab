@@ -7,8 +7,8 @@
 
                 <h3>ویرایش رویداد</h3>
 
-                <form class="cd-form" id="add-event-form">{% csrf_token %}
-
+                <form class="cd-form" action="#" id="edit-event-form" method="POST">
+                    {% csrf_token %}
                     <p class="fieldset">
                         <i class="fa fa-header"></i>
                         <input class="full-width has-padding has-border" id="event-title"
@@ -164,7 +164,7 @@
 
 {% block js %}
     {{ block.super }}
-    <script src="{% static "js/add-event-ajax.js" %}"></script>
+    <script src="{% static "js/edit-event.js" %}"></script>
     <script src="{% static "js/sport-event.js" %}"></script>
 {% endblock %}
 

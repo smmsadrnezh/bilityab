@@ -335,7 +335,7 @@
             var seat = "A"+section+','+row+','+column+'A';
             seats += seat;
         });
-        $('#price').val(price);
+        $('#price').val(price*quantity);
         $('#show_time_id').val($('#ticket').attr('show_time'));
         $('#quantity').val(quantity);
         $('#seats').val(seats);
