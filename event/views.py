@@ -257,3 +257,10 @@ def get_sold_seats(request):
 def delete_event(request, event_id):
     Event.objects.get(id=event_id).delete()
     return HttpResponseRedirect('/events')
+
+
+def buy_seats(request):
+    if request.method == 'POST':
+        print('')
+    else:
+        return HttpResponseForbidden('post required')

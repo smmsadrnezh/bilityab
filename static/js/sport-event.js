@@ -305,14 +305,41 @@
     }
     send_ajax_request('/events/sold_seats/', 'event_id='+$('#ticket').attr('event_id'), set_sold_seats);
 
+    $.fn.find_prev_element = function ($class) {
+        var result = null;
+        var help = $(this);
+        var column = 0;
+        for(var i = 0 ; i < 100 ; i++){
+            help = help.prev();
+            if(!help.hasClass('disabled-seat'))
+                column++;
+            if(help.hasClass($class)) {
+                result = help;
+                break;
+            }
+        }
+        return [result, column];
+    };
+
     $('#seat-maps .add-to-cart').on('click', function () {
 
-        send_ajax_request('/events/buy_seat', );
+        var seats = '', seat;
+        $(this).parent().find('.selected-seat').each(function () {
+            var section = $(this).parent().attr('id');
+            var row_column = $(this).find_prev_element('seat-row');
+            var row = row_column[0].text();
+            var column = row_column[1];
+            var seat = ";"+section+','+row+','+column+';';
+            seats += seat;
+        });
+
+        console.log(seats.split(';'));
+
+        send_ajax_request('/events/buy_seats/', 'seats='+seats, finish_buy);
 
     });
 
-    function buy_seats(){
-
+    function finish_buy(){
 
 
     }

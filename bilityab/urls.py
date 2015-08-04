@@ -23,6 +23,7 @@ urlpatterns = [
     url(r'^events/delete/(?P<event_id>\d+)$', 'event.views.delete_event'),
     url(r'^events/rate/$', 'event.views.rate_event'),
     url(r'^events/sold_seats/$', 'event.views.get_sold_seats'),
+    url(r'^events/buy_seats/$', 'event.views.buy_seats'),
     url(r'^events/(?P<event_id>\d+)/edit/$', 'event.views.edit_event'),
     url(r'^events/sport/$', 'event.views.all_sport'),
     url(r'^events/tourism/$', 'event.views.all_tourism'),
