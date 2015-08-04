@@ -38,6 +38,7 @@ urlpatterns = [
     url(r'^report/$', 'event.views.report'),
     url(r'^categories/$', 'event.views.categories'),
     url(r'^categories/add/$', 'event.views.add_category'),
+    url(r'^categories/edit/(?P<category_id>\d+)/$', 'event.views.edit_category'),
     url(r'^categories/delete/(?P<category_id>\d+)/$', 'event.views.delete_category'),
 
 

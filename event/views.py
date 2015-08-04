@@ -285,16 +285,57 @@ def buy_seats(request):
 def categories(request):
     return render(request, 'all_categories.html', {
         'logged_in': request.user.is_authenticated(),
-        'categories': Categories.objects.filter(parent_id=-1)
+        'categories': Categories.objects.filter(parent_id=0)
     })
 
 
 def add_category(request):
-    return render(request, 'add_category.html', {
+    if request.user.is_authenticated() and request.user.is_organizer:
+        if request.is_ajax():
+            print (request.POST.get('event-type',''))
+            if(request.POST.get('event-type','')!=""):
+                print ("oomad too in")
+                # insert event and it's additional information to database
+                if (request.POST.get('category-title', '') != "" ):
+                    event = Categories(title=request.POST.get('category-title', ''),
+                                  parent_id=request.POST.get('event-type','')
+                    ).save()
 
-    })
+                    # redirect to site homepage
+                    return HttpResponse(1)
+                else:
+                    # raise exception to user
+                    return HttpResponse(0)
+            else:
+                # insert event and it's additional information to database
+                if (request.POST.get('category-title', '') != "" ):
+                    event = Categories(title=request.POST.get('category-title', ''),
+                                  parent_id=0
+                    ).save()
+
+                    # redirect to site homepage
+                    return HttpResponse(1)
+                else:
+                    # raise exception to user
+                    return HttpResponse(0)
+        else:
+            # add new event template for organizer
+            return render(request, 'add_category.html', {
+                'categories': Categories.objects.filter(parent_id=0),
+                'logged_in': request.user.is_authenticated(),
+            })
+    else:
+        return HttpResponseRedirect('/')
 
 
 def delete_category(request, category_id):
     Categories.objects.get(id=category_id).delete()
     return HttpResponseRedirect('/categories')
+
+
+def edit_category(request,category_id):
+    category = Categories.objects.get(id = category_id)
+    return render(request, 'edit_category.html', {
+        'category': category,
+        'sub_categories':Categories.objects.filter(parent_id=category.id )
+    })

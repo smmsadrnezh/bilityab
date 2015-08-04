@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+{% load staticfiles %}
+{% block pageBody %}
+    <div class="holder">
+        <div class="col col-md-12">
+            <div id="add-event" class="col col-md-12">
+
+                <h3>ویرایش دسته</h3>
+
+                <form class="cd-form" id="add-event-form">{% csrf_token %}
+
+                    <p class="fieldset">
+                        <i class="fa fa-header"></i>
+                        <input class="full-width has-padding has-border" id="event-title"
+                               name="event-title"
+                               type="text"
+                               value="{{ category.title }}">
+                        <span class="cd-error-message">عنوان رویداد نامعتبر</span>
+                    </p>
+
+                    <h3>زیردسته ها</h3>
+
+                    {% for sub_category in sub_categories %}
+                        <p class="fieldset">
+                            <i class="fa fa-header"></i>
+                            <input class="full-width has-padding has-border" id="event-title"
+                                   name="event-title"
+                                   type="text"
+                                   value="{{ sub_category.title }}">
+                            <span class="cd-error-message">عنوان رویداد نامعتبر</span>
+                        </p>
+                    {% endfor %}
+                    <p class="fieldset">
+                         <input class="full-width has-padding has-border" id="new-category"
+                                   name="new-category"
+                                   type="text"
+                                   placeholder="افزودن زیردسته جدید">
+                    </p>
+
+                    <p class="fieldset">
+                        <i class="fa fa-edit"></i>
+                        <input class="full-width" type="submit" value="ویرایش دسته">
+                    </p>
+                </form>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+    {{ block.super }}
+    <script src="{% static "js/add-event-ajax.js" %}"></script>
+    <script src="{% static "js/sport-event.js" %}"></script>
+{% endblock %}
+
+{% block css %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static "css/sport-event.css" %}"/>
+{% endblock %}
