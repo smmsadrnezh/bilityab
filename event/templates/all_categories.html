@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+{% load staticfiles %}
+{% block pageBody %}
+
+<div class="holder">
+        <div class="col col-md-12">
+            <div class="col col-md-12" id="ticket">
+                <h2>
+                    دسته ها
+                </h2>
+
+                <div class="col col-md-12" id="ticket-info">
+                    {% for category in categories %}
+                        <div class="event-info" style="height: 60px;">
+                            {{ category.title }}
+                        </div>
+
+
+                        {% if request.user.is_organizer %}
+                            <div class="col col-md-2">
+                                <a class="btn btn-primary btn-lg btn-block"
+                                   href="/categories/{{ category.id }}/edit/">
+                                    <i class="fa fa-edit"></i> ویرایش دسته
+                                </a>
+{#                                <a class="btn btn-danger btn-lg btn-block" data-toggle="modal"#}
+{#                                   data-target="#confirm-delete">#}
+{#                                    <i class="fa fa-remove"></i> حذف رویداد#}
+{#                                </a>#}
+                                  <a href="/categories/delete/{{ category.id }}" class="btn btn-danger btn-lg btn-block">
+                                       <i class="fa fa-remove"></i> حذف دسته
+                                  </a>
+                            </div>
+                        {% endif %}
+                        <div class="my-divider"></div>
+                    {% endfor %}
+                </div>
+             {% if request.user.is_organizer %}
+                <i class="fa fa-plus-circle"></i><a href="/categories/add/">اضافه کردن دسته</a>
+            {% endif %}
+
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
+{% block js %}
+    {{ block.super }}
+    <script src="{% static "js/sport-event.js" %}"></script>
+{% endblock %}
+
+{% block css %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static "css/sport-event.css" %}"/>
+{% endblock %}

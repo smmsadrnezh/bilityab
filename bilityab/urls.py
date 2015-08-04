@@ -35,6 +35,10 @@ urlpatterns = [
     url(r'^organizer/$', 'event.views.all_organizer'),
     url(r'^organizer/(?P<organizer_id>\d+)/$', 'event.views.organizer'),
     url(r'^report/$', 'event.views.report'),
+    url(r'^categories/$', 'event.views.categories'),
+    url(r'^categories/add/$', 'event.views.add_category'),
+    url(r'^categories/delete/(?P<category_id>\d+)/$', 'event.views.delete_category'),
+
 
     ### ticket urls
     url(r'^buy/(?P<event_id>\d+)/$', 'ticket.views.buy'),
