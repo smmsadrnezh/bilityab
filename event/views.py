@@ -25,15 +25,13 @@ def add_event(request):
                                                                                '') != "" and request.POST.get(
                     'event-type', '') != "" and request.POST.get('event-capacity', '') != "" and request.POST.get(
                     'event-address', '') != ""):
-                event = Event(title=request.POST.get('event-title', ''),
-                              description=request.POST.get('event-description', ''),
-                              category_id=request.POST.get('event-type', ''),
-                              capacity=request.POST.get('event-capacity', ''),
-                              address=request.POST.get('event-address', ''),
-                              event_organizer_id=request.user.id,
-                              photo="jingili.jpg"
-                )
-                event.save()
+                cat_id = int(request.POST.get('event-type', ''))
+                category = Categories.objects.get(pk=cat_id)
+                event = Event.objects.create(title=request.POST.get('event-title', ''),
+                                             description=request.POST.get('event-description', ''),
+                                             category=category, capacity=int(request.POST.get('event-capacity', '')),
+                                             address=request.POST.get('event-address', ''))
+                event.event_organizers.add(EventOrganizer.objects.get(user=request.user))
                 if (request.POST.get('event-home-team', '') != "" and request.POST.get('event-away-team', '') != ""):
                     Sport(
                         event_id=event.id,
