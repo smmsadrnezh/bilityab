@@ -304,4 +304,17 @@
         }
     }
     send_ajax_request('/events/sold_seats/', 'event_id='+$('#ticket').attr('event_id'), set_sold_seats);
+
+    $('#seat-maps .add-to-cart').on('click', function () {
+
+        send_ajax_request('/events/buy_seat', );
+
+    });
+
+    function buy_seats(){
+
+
+
+    }
+
 })(jQuery);
