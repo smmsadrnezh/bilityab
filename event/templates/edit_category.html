@@ -5,7 +5,7 @@
         <div class="col col-md-12">
             <div id="add-event" class="col col-md-12">
 
-                <h3>ویرایش رویداد</h3>
+                <h3>ویرایش دسته</h3>
 
                 <form class="cd-form" id="add-event-form">{% csrf_token %}
 
@@ -14,13 +14,32 @@
                         <input class="full-width has-padding has-border" id="event-title"
                                name="event-title"
                                type="text"
-                               value="{{ event.title }}">
+                               value="{{ category.title }}">
                         <span class="cd-error-message">عنوان رویداد نامعتبر</span>
+                    </p>
+
+                    <h3>زیردسته ها</h3>
+
+                    {% for sub_category in sub_categories %}
+                        <p class="fieldset">
+                            <i class="fa fa-header"></i>
+                            <input class="full-width has-padding has-border" id="event-title"
+                                   name="event-title"
+                                   type="text"
+                                   value="{{ sub_category.title }}">
+                            <span class="cd-error-message">عنوان رویداد نامعتبر</span>
+                        </p>
+                    {% endfor %}
+                    <p class="fieldset">
+                         <input class="full-width has-padding has-border" id="new-category"
+                                   name="new-category"
+                                   type="text"
+                                   placeholder="افزودن زیردسته جدید">
                     </p>
 
                     <p class="fieldset">
                         <i class="fa fa-edit"></i>
-                        <input class="full-width" type="submit" value=" ویرایش رویداد">
+                        <input class="full-width" type="submit" value="ویرایش دسته">
                     </p>
                 </form>
             </div>
