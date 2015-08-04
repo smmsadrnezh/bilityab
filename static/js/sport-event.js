@@ -165,10 +165,13 @@
         $(this).tooltip();
     });
 
+    var price = null;
+
     $('#seat-maps > div').each(function () {
         var counter = 1;
         $(this).children().each(function () {
             if ($(this).hasClass('free-seat')) {
+                price = parseInt($(this).parent().attr('price'));
                 $(this).attr('data-original-title', 'شماره '+counter+'  ،  '+parseInt($(this).parent().attr('price'))+' تومان');
                 counter++;
             }
@@ -323,24 +326,20 @@
 
     $('#seat-maps .add-to-cart').on('click', function () {
 
-        var seats = '', seat;
+        var seats = '', seat, quantity = 0;
         $(this).parent().find('.selected-seat').each(function () {
+            quantity++;
             var section = $(this).parent().attr('id');
             var row_column = $(this).find_prev_element('seat-row');
             var row = row_column[0].text();
             var column = row_column[1];
-            var seat = ";"+section+','+row+','+column+';';
+            var seat = "A"+section+','+row+','+column+'A';
             seats += seat;
         });
-
-        console.log(seats.split(';'));
-
-        send_ajax_request('/events/buy_seats/', 'seats='+seats, finish_buy);
-
+        send_ajax_request('/events/buy_seats/', 'price='+price+'&show_time_id='+$('#ticket').attr('show_time')+'&quantity='+quantity+'&seats='+seats+'&event_id='+$('#ticket').attr('event_id'), finish_buy);
     });
 
     function finish_buy(){
-
 
     }
 

@@ -4,14 +4,14 @@
     {% load sport-tags %}
     <div class="holder">
         <div class="col col-md-12">
-            <div class="col col-md-12" id="ticket" event_id="{{ event.id }}">
+            <div class="col col-md-12" id="ticket" event_id="{{ event.id }}" show_time="{{ show_time.id }}">
                 <div class="col col-md-12" id="ticket-info">
                     <div class="image home"
                          style="background-image: url('{% static 'flags/' %}{{ event.sport.home_team }}.png')"></div>
                     <div class="image away"
                          style="background-image: url('{% static 'flags/' %}{{ event.sport.away_team }}.png')"></div>
                     <div id="main-info">
-                        {{ persian_date }} | {{ organizer.title }} | ساعت{{ from_time }}
+                        {{ persian_date }} | {{ organizer.title }} | ساعت{{ show_time.from_time }}
                     </div>
                     <div id="center-info">
                                 <span id="home-team">

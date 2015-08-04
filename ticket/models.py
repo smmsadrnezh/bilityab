@@ -13,7 +13,7 @@ class PurchasedTicket(models.Model):
     receipt = models.CharField(max_length=50)
 
     class Meta:
-        unique_together = (("showtime", "user", "purchased_date"),)
+        unique_together = (("user", "purchased_date"),)
 
     def __str__(self):
         return "%s -- purchased by %s" % (self.showtime, self.user)

@@ -6,6 +6,7 @@ from django.http import Http404, HttpResponseRedirect, HttpResponse, HttpRespons
 from bilityab.views import make_event_type_list1, make_event_type_list, get_type
 from bilityab.change_date import ChangeDate
 from event.models import Event, Categories, Sport, Movie, Concert, EventRating, EventOrganizer
+from ticket.models import *
 
 
 def events(request):
@@ -145,14 +146,13 @@ def sport(request, event_id):
     try:
         event = Event.objects.get(pk=event_id)
         show_time = event.show_times.all()[0]
-        print(show_time.date)
         event_date_time = datetime.datetime.combine(show_time.date, show_time.from_time)
     except Event.DoesNotExist:
         raise Http404("sport event does not exist!")
     return render(request, 'sport.html', {
         'event': event,
         'persian_date': ChangeDate().get_persian_date(show_time.date),
-        'from_time': show_time.from_time,
+        'show_time': show_time,
         'remaining_time': int((event_date_time - datetime.datetime.now()).total_seconds() * 1000),
         'logged_in': request.user.is_authenticated(),
         'organizer': event.event_organizers.all()[0],
@@ -261,6 +261,20 @@ def delete_event(request, event_id):
 
 def buy_seats(request):
     if request.method == 'POST':
-        print('')
+        seats = request.POST.get('seats')
+        seats = seats.split('A')
+        event_id = request.POST.get('event_id')
+        quantity = request.POST.get('quantity')
+        show_time_id = request.POST.get('show_time_id')
+        price = request.POST.get('price')
+        show_time = Showtime.objects.get(pk=show_time_id)
+        print(show_time)
+        ticket = PurchasedTicket.objects.create(user=request.user, quantity=int(quantity),
+                                                purchased_date=datetime.datetime.now(),
+                                                price=float(int(price)*int(quantity)),
+                                                receipt='123456789', show_time=show_time)
+        for seat in seats:
+            if seat:
+                print(seat)
     else:
         return HttpResponseForbidden('post required')
