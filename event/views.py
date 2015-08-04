@@ -282,3 +282,19 @@ def buy_seats(request):
         return HttpResponse(ticket.id)
     else:
         return HttpResponseForbidden('post required')
+def categories(request):
+    return render(request, 'all_categories.html', {
+        'logged_in': request.user.is_authenticated(),
+        'categories': Categories.objects.filter(parent_id=-1)
+    })
+
+
+def add_category(request):
+    return render(request, 'add_category.html', {
+
+    })
+
+
+def delete_category(request, category_id):
+    Categories.objects.get(id=category_id).delete()
+    return HttpResponseRedirect('/categories')
