@@ -326,7 +326,7 @@
 
     $('#seat-maps .add-to-cart').on('click', function () {
         var seats = '', seat, quantity = 0;
-        $(this).parent().find('.selected-seat').each(function () {
+        $(this).parent().parent().find('.selected-seat').each(function () {
             quantity++;
             var section = $(this).parent().attr('id');
             var row_column = $(this).find_prev_element('seat-row');

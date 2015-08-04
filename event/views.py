@@ -264,7 +264,6 @@ def buy_seats(request):
     if request.method == 'POST':
         seats = request.POST.get('seats')
         seats = seats.split('A')
-        event_id = request.POST.get('event_id')
         quantity = request.POST.get('quantity')
         show_time_id = request.POST.get('show_time_id')
         price = request.POST.get('price')
@@ -279,10 +278,13 @@ def buy_seats(request):
                 section = info[0]
                 row = info[1]
                 column = info[2]
-                TicketPosition.objects.create(ticket=ticket, section=section, row=row, column=column)
-        return HttpResponse(ticket.id)
+                TicketPosition.objects.create(ticket=ticket, section=int(section), row=int(row), column=int(column))
+        print('/ticket/'+str(ticket.id))
+        return HttpResponseRedirect('/ticket/'+str(request.user.id)+'/'+str(ticket.id)+'/')
     else:
         return HttpResponseForbidden('post required')
+
+
 def categories(request):
     return render(request, 'all_categories.html', {
         'logged_in': request.user.is_authenticated(),

@@ -1452,7 +1452,8 @@
                                 <div class="seat disabled-seat"></div>
                                 <div class="seat disabled-seat"></div>
                                 {% if user.is_authenticated %}
-                                    <form action="buy/{{ user.id }}" method="POST">
+                                    <form action="/buy/" method="POST">
+                                        {% csrf_token %}
                                         <input type="hidden" id="price" name="price" value=""/>
                                         <input type="hidden" id="show_time_id" name="show_time_id" value=""/>
                                         <input type="hidden" id="quantity" name="quantity" value=""/>
