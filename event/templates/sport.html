@@ -1451,10 +1451,18 @@
                                 <div class="seat free-seat"></div>
                                 <div class="seat disabled-seat"></div>
                                 <div class="seat disabled-seat"></div>
-                                <div class="btn btn-primary add-to-cart">
-                                    <i class="fa fa-shopping-cart"></i>
-                                    افزودن به سبد خرید
-                                </div>
+                                {% if user.is_authenticated %}
+                                    <form action="buy/{{ user.id }}" method="POST">
+                                        <input type="hidden" id="price" name="price" value=""/>
+                                        <input type="hidden" id="show_time_id" name="show_time_id" value=""/>
+                                        <input type="hidden" id="quantity" name="quantity" value=""/>
+                                        <input type="hidden" id="seats" name="seats" value=""/>
+                                        <button type="submit" class="btn btn-primary add-to-cart">
+                                            <i class="fa fa-shopping-cart"></i>
+                                            پرداخت اینترنتی
+                                        </button>
+                                    </form>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
