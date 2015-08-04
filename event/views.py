@@ -207,7 +207,7 @@ def all_organizer(request):
 def organizer(request, organizer_id):
     return render(request, 'organizer.html', {
         'organizer': EventOrganizer.objects.get(id=organizer_id),
-        'organizer_events': make_event_type_list(Event.objects.filter(event_organizers__id=organizer_id)),
+        'organizer_events': make_event_type_list1(Event.objects.filter(event_organizers__id=organizer_id)),
         'logged_in': request.user.is_authenticated()
     })
 
@@ -251,3 +251,8 @@ def get_sold_seats(request):
         return HttpResponse(tickets)
     else:
         return HttpResponseForbidden('post required')
+
+
+def delete_event(request, event_id):
+    Event.objects.get(id=event_id).delete()
+    return HttpResponseRedirect('/events')

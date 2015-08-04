@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render
 
-from event.models import Event, Categories, Showtime
+from event.models import Event, Categories, Showtime,EventRating
 
 
 def get_type(event_id):

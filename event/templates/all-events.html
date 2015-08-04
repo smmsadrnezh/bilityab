@@ -12,10 +12,13 @@
                                    href="/events/{{ event.id }}/edit/">
                                     <i class="fa fa-edit"></i> ویرایش رویداد
                                 </a>
-                                <a class="btn btn-danger btn-lg btn-block" data-toggle="modal"
-                                   data-target="#confirm-delete">
-                                    <i class="fa fa-remove"></i> حذف رویداد
-                                </a>
+{#                                <a class="btn btn-danger btn-lg btn-block" data-toggle="modal"#}
+{#                                   data-target="#confirm-delete">#}
+{#                                    <i class="fa fa-remove"></i> حذف رویداد#}
+{#                                </a>#}
+                                  <a href="/events/delete/{{ event.id }}" class="btn btn-danger btn-lg btn-block">
+                                       <i class="fa fa-remove"></i> حذف رویداد
+                                  </a>
                             </div>
                         {% endif %}
                         <img class="event-image" src='{{ MEDIA_URL }}{{ event.photo }}'>
@@ -24,7 +27,7 @@
                         </a>
 
                         <div class="event-info">
-                            <a href="/organizer/{{ organizer.id }}/">{{ organizer.title }}</a>
+                            <a href="/organizer/{{ organizer.id }}">{{ organizer.title }}</a>
                         </div>
 
                         <div class="my-divider"></div>

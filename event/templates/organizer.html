@@ -26,7 +26,7 @@
                 </h2>
 
                 <div class="col col-md-12" id="ticket-info">
-                    {% for event,type in organizer_events %}
+                    {% for event,type, organizer, date in organizer_events %}
                         <img class="event-image" src='{{ MEDIA_URL }}{{ event.photo }}'>
                         نام رویداد:
                         <a href="/events/{{ type }}/{{ event.id }}" class="event-info">
@@ -35,7 +35,7 @@
 
                         <div class="event-info">
                             زمان رویداد:
-                            {{ event__date }}
+                            {{ date.date }}
                         </div>
 
                         <div class="my-divider"></div>
