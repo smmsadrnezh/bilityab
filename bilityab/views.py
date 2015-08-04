@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
+from django.db.models import Sum
 from django.shortcuts import render
-
 from event.models import Event, Categories, Showtime,EventRating
 
 
@@ -40,9 +40,11 @@ def make_event_type_list1(event_list):
 
 
 def home(request):
+
     return render(request, 'home.html', {
-        'bestEvents': make_event_type_list1(Event.objects.all()[:3]),
-        'nearestEvents': make_event_type_list1(Event.objects.all()[:3]),
+        'bestEvents': make_event_type_list1(Event.objects.annotate(rate=Sum('rates')).order_by('-rates')[:3]),
+        # 'nearestEvents': make_event_type_list1(Event.objects.all()[:3]),
+        'newestEvents': make_event_type_list1(Event.objects.all().order_by('-show_times__date')[:3]),
         'actionMovies': make_event_type_list1(Event.objects.filter(category__title='اکشن')),
         'dramaticMovies': make_event_type_list1(Event.objects.filter(category__title='درام')),
         'comicMovies': make_event_type_list1(Event.objects.filter(category__title='کمدی')),
