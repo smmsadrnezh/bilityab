@@ -20,7 +20,7 @@ class PurchasedTicket(models.Model):
 
 
 class TicketPosition(models.Model):
-    ticket = models.ForeignKey(PurchasedTicket)
+    ticket = models.ForeignKey(PurchasedTicket, related_name='positions')
     section = models.PositiveIntegerField()
     row = models.PositiveSmallIntegerField()
     column = models.PositiveSmallIntegerField()

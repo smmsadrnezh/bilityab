@@ -3,7 +3,7 @@ import datetime
 from django.shortcuts import render
 from django.http import Http404, HttpResponseRedirect, HttpResponse, HttpResponseForbidden
 
-from bilityab.views import make_event_type_list, get_type
+from bilityab.views import make_event_type_list1, make_event_type_list, get_type
 from bilityab.change_date import ChangeDate
 from event.models import Event, Categories, Sport, Movie, Concert, EventRating, EventOrganizer
 
@@ -11,7 +11,7 @@ from event.models import Event, Categories, Sport, Movie, Concert, EventRating, 
 def events(request):
     return render(request, 'all-events.html', {
         'logged_in': request.user.is_authenticated(),
-        'event_type_list': make_event_type_list(Event.objects.all())
+        'event_type_list': make_event_type_list1(Event.objects.all())
 
     })
 
@@ -145,8 +145,8 @@ def sport(request, event_id):
     try:
         event = Event.objects.get(pk=event_id)
         show_time = event.show_times.all()[0]
+        print(show_time.date)
         event_date_time = datetime.datetime.combine(show_time.date, show_time.from_time)
-        print(event.show_times.all()[0].tickets.all())
     except Event.DoesNotExist:
         raise Http404("sport event does not exist!")
     return render(request, 'sport.html', {
@@ -207,7 +207,7 @@ def all_organizer(request):
 def organizer(request, organizer_id):
     return render(request, 'organizer.html', {
         'organizer': EventOrganizer.objects.get(id=organizer_id),
-        'organizer_events': make_event_type_list(Event.objects.filter(event_organizers__id=organizer_id)),
+        'organizer_events': make_event_type_list1(Event.objects.filter(event_organizers__id=organizer_id)),
         'logged_in': request.user.is_authenticated()
     })
 
@@ -240,3 +240,19 @@ def rate_event(request):
     else:
         return HttpResponseForbidden('login required')
 
+
+def get_sold_seats(request):
+    if request.method == 'POST':
+        event_id = request.POST.get('event_id')
+        event = Event.objects.get(pk=event_id)
+        tickets = []
+        for i in event.show_times.all()[0].tickets.all():
+            tickets.extend(i.positions.all())
+        return HttpResponse(tickets)
+    else:
+        return HttpResponseForbidden('post required')
+
+
+def delete_event(request, event_id):
+    Event.objects.get(id=event_id).delete()
+    return HttpResponseRedirect('/events')
