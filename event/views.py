@@ -145,6 +145,7 @@ def sport(request, event_id):
     try:
         event = Event.objects.get(pk=event_id)
         show_time = event.show_times.all()[0]
+        print(show_time.date)
         event_date_time = datetime.datetime.combine(show_time.date, show_time.from_time)
     except Event.DoesNotExist:
         raise Http404("sport event does not exist!")
