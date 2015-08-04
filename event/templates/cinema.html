@@ -57,38 +57,22 @@
                     <div class="col col-md-12 progress">
                         <div class="circle active">
                             <span class="label">1</span>
-                            <span class="title">انتخاب تاریخ</span>
+                            <span class="title">انتخاب سینما</span>
                         </div>
                         <span class="bar active"></span>
 
                         <div class="circle">
                             <span class="label">2</span>
-                            <span class="title">انتخاب سینما</span>
-                        </div>
-                        <span class="bar half"></span>
-
-                        <div class="circle">
-                            <span class="label">3</span>
                             <span class="title">انتخاب سانس</span>
                         </div>
                         <span class="bar half"></span>
 
                         <div class="circle">
-                            <span class="label">4</span>
+                            <span class="label">3</span>
                             <span class="title">انتخاب صندلی</span>
                         </div>
                     </div>
                     <div class="col col-md-12" id="selects">
-                        <div id="dates">
-                            <div class="item">
-                                <div class="date">
-                                    <div class="week-day">پنج شنبه</div>
-                                    <span class="day">2</span>
-                                    <span class="month">شهریور</span>
-                                    <span class="year">94</span>
-                                </div>
-                            </div>
-                        </div>
                         <div id="cinemas" class="row list-group">
                             {% for cinema in event.event_organizers.all %}
                                 <div class="item col-xs-4 col-lg-4">
