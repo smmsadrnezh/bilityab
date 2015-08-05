@@ -154,7 +154,6 @@ def sport(request, event_id):
         raise Http404("sport event does not exist!")
     return render(request, 'sport.html', {
         'event': event,
-        'persian_date': ChangeDate().get_persian_date(show_time.date),
         'show_time': show_time,
         'remaining_time': int((event_date_time - datetime.datetime.now()).total_seconds() * 1000),
         'logged_in': request.user.is_authenticated(),
