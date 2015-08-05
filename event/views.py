@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
 import datetime
+from htmldom import htmldom
 from django.shortcuts import render
 from django.http import Http404, HttpResponseRedirect, HttpResponse, HttpResponseForbidden
-
 from bilityab.views import make_event_type_list1, make_event_type_list, get_type
-from bilityab.change_date import ChangeDate
-from event.models import Event, Categories, Sport, Movie, Concert, EventRating, EventOrganizer
+from event.models import Categories, Sport, Movie, Concert, EventRating, EventOrganizer
 from ticket.models import *
 
 
@@ -270,6 +269,7 @@ def buy_seats(request):
         show_time_id = request.POST.get('show_time_id')
         price = request.POST.get('price')
         show_time = Showtime.objects.get(pk=show_time_id)
+        register_seats_in_map(show_time.organizer.id)
         ticket = PurchasedTicket.objects.create(user=request.user, quantity=int(quantity),
                                                 purchased_date=datetime.datetime.now(),
                                                 price=float(int(price)*int(quantity)),
@@ -284,6 +284,18 @@ def buy_seats(request):
         return HttpResponseRedirect('/ticket/'+str(request.user.id)+'/'+str(ticket.id)+'/')
     else:
         return HttpResponseForbidden('post required')
+
+
+import os
+
+
+def register_seats_in_map(map_id):
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    print(os.path.join(base_dir, "static/maps/templates/"+str(map_id)+'.html'))
+    with open(os.path.join(base_dir, "static/maps/templates/"+str(map_id)+'.html'), "r") as sample:
+        data = sample.read()
+    dom = htmldom.HtmlDom().createDom(data)
+    print(dom.find('div'))
 
 
 def categories(request):
