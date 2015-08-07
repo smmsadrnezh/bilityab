@@ -45,10 +45,7 @@ class Event(models.Model):
 
 class PositionPrice(models.Model):
     event = models.ForeignKey(Event, related_name='position_prices')
-    from_column = models.PositiveIntegerField()
-    to_column = models.PositiveIntegerField()
-    from_row = models.PositiveIntegerField()
-    to_row = models.PositiveIntegerField()
+    organizer = models.ForeignKey(EventOrganizer)
     price = models.FloatField(default=0)
 
     class Meta:

@@ -269,33 +269,97 @@ def buy_seats(request):
         show_time_id = request.POST.get('show_time_id')
         price = request.POST.get('price')
         show_time = Showtime.objects.get(pk=show_time_id)
-        register_seats_in_map(show_time.organizer.id)
         ticket = PurchasedTicket.objects.create(user=request.user, quantity=int(quantity),
                                                 purchased_date=datetime.datetime.now(),
                                                 price=float(int(price)*int(quantity)),
                                                 receipt='123456789', showtime=show_time)
-        for seat in seats:
-            if seat:
-                info = seat.split(',')
-                section = info[0]
-                row = info[1]
-                column = info[2]
-                TicketPosition.objects.create(ticket=ticket, section=int(section), row=int(row), column=int(column))
+        register_seats(show_time.organizer.id, seats, ticket)
         return HttpResponseRedirect('/ticket/'+str(request.user.id)+'/'+str(ticket.id)+'/')
     else:
         return HttpResponseForbidden('post required')
 
 
 import os
+from operator import itemgetter
 
 
-def register_seats_in_map(map_id):
+class Stack:
+    def __init__(self):
+        self.items = []
+
+    def isEmpty(self):
+        return self.items == []
+
+    def push(self, item):
+        self.items.append(item)
+
+    def pop(self):
+        return self.items.pop()
+
+    def peek(self):
+        return self.items[len(self.items)-1]
+
+    def size(self):
+        return len(self.items)
+
+
+def register_seats(map_id, seats, ticket):
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    print(os.path.join(base_dir, "static/maps/templates/"+str(map_id)+'.html'))
-    with open(os.path.join(base_dir, "static/maps/templates/"+str(map_id)+'.html'), "r") as sample:
-        data = sample.read()
-    dom = htmldom.HtmlDom().createDom(data)
-    print(dom.find('div'))
+    sections = []
+    rows = []
+    columns = []
+    seats_num = 0
+    for seat in seats:
+        if seat:
+            info = seat.split(',')
+            section = int(info[0])
+            sections.append(section)
+            row = int(info[1])
+            rows.append(row)
+            column = int(info[2])
+            columns.append(column)
+            TicketPosition.objects.create(ticket=ticket, section=section, row=row, column=column)
+            seats_num += 1
+    with open(os.path.join(base_dir, "static/maps/templates/"+str(map_id)+'.html'), "r+") as sample:
+        data = sample.readlines()
+        sample.seek(0)
+        sample.truncate()
+        seat_stack = Stack()
+        target_row = 0
+        target_column = 0
+        target_row_detected = False
+        target_column_detected = False
+        for line in data:
+            if seat_stack.size() and not target_row and not target_column:
+                target_seat = seat_stack.pop()
+                target_row = target_seat['row']
+                target_column = target_seat['column']
+                print(target_column)
+            if 'class="clear"' in line:
+                target_row_detected = False
+            if target_row and '>'+str(target_row)+'<' in line:
+                target_row_detected = True
+            if target_column and target_row_detected and 'col="'+str(target_column)+'"' in line:
+                target_column_detected = True
+            if target_row_detected and target_column_detected:
+                print('hey')
+                target_column_detected = False
+                target_row = 0
+                target_column = 0
+                line = line.replace('free-seat', 'sold-seat')
+                print(line)
+            elif 'class="section"' in line:
+                first = line.index('id="')
+                second = line.index('"', first+5)
+                section_id = int(line[first+4:second])
+                temp_rows_columns = []
+                for i in range(0, len(sections)):
+                    if sections[i] == section_id:
+                        temp_rows_columns.append({'row': rows[i], 'column': columns[i]})
+                for row_column in sorted(temp_rows_columns, key=itemgetter('row', 'column'), reverse=True):
+                    seat_stack.push(row_column)
+            sample.write(line)
+        sample.close()
 
 
 def categories(request):
