@@ -43,7 +43,6 @@ $(window).load(function () {
         }
     });
 
-
     var fixture_ticket = $('#ticket');
     var user_comments = $('#comments');
     var more_info = $('#more-info');
@@ -89,13 +88,11 @@ $(window).load(function () {
     var step3 = seat_progress.find('div:nth-of-type(3)');
     var step4 = seat_progress.find('div:nth-of-type(4)');
     var dates = $('#dates');
-    //var cinemas = $('#cinemas');
-    //var show_times = $('#show-times');
-    //var plans = $('#plans');
     var current_step = step1;
     var current_select = [dates];
     var organizer_ids = [];
     var show_time_ids = [];
+    var selected_organizer_id = 0;
 
     $('.show-time-date').on('click', function () {
         step1.removeClass('active').addClass('done');
@@ -131,7 +128,7 @@ $(window).load(function () {
         step2.next().removeClass('active').addClass('done');
         step3.addClass('active').next().addClass('active');
         current_step = step3;
-        var this_id = $(this).attr('cinema-id');
+        selected_organizer_id = $(this).attr('cinema-id');
         for(var j = 0 ; j < current_select.length ; j++)
         {
             if(j == current_select.length - 1)
@@ -141,7 +138,7 @@ $(window).load(function () {
                     current_select = [];
                     for(var i = 0 ; i < organizer_ids.length ; i++)
                     {
-                        if(organizer_ids[i] == this_id)
+                        if(organizer_ids[i] == selected_organizer_id)
                         {
                             temp = $('.show-time[time-id="'+show_time_ids[i]+'"');
                             current_select.push(temp);
@@ -154,7 +151,6 @@ $(window).load(function () {
                 current_select[j].fadeOut();
         }
     });
-
     $('.show-time').on('click', function () {
         step3.removeClass('active').addClass('done');
         step3.next().removeClass('active').addClass('done');
@@ -165,9 +161,11 @@ $(window).load(function () {
             if(i == current_select.length - 1)
             {
                 current_select[i].fadeOut(function () {
-                    var temp = null;
                     current_select = [];
-
+                    var temp = $('.map[organizer-id="'+selected_organizer_id+'"]');
+                    console.log('.map[organizer-id="'+selected_organizer_id+'"]')
+                    temp.fadeIn();
+                    current_select.push(temp);
                 });
             }
             else

@@ -62,7 +62,9 @@
                         </div>
                     </div>
                     <div class="col col-md-12" id="selects">
-                        {% include '6.html' %}
+                        {% with template_name=organizer.id|stringformat:"s"|add:".html" %}
+                            {% include ''|add:template_name %}
+                        {% endwith %}
                     </div>
                 </div>
             </div>

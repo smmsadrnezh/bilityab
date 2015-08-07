@@ -410,6 +410,7 @@ body > .holder > div.col {
 
 #plans > div
 {
+    font-size: 0;
     display: none;
 }
 
@@ -534,10 +535,10 @@ body > .holder > div.col {
 
 .seat-row {
     display: inline-block;
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     color: #B1B1B1;
-    top: -10px;
+    top: -7px;
     position: relative;
     font-family: 'BYekan', sans-serif;
     font-size: 15px;
@@ -546,8 +547,8 @@ body > .holder > div.col {
 .seat {
     margin: 0 2px;
     display: inline-block;
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
 }
 
 .disabled-seat {
@@ -577,11 +578,7 @@ body > .holder > div.col {
     cursor: pointer;
 }
 
-#plan-azadi {
-    font-size: 0;
-}
-
-#plan-azadi .btn {
+.map .btn {
     display: block;
     width: 77%;
     margin: 0 auto 1em;
