@@ -47,6 +47,7 @@ $(window).load(function () {
     var user_comments = $('#comments');
     var more_info = $('#more-info');
     var active_panel = fixture_ticket;
+    var your_comment = $('#your-comment');
     $('#for-ticket').on('click', function () {
         if (fixture_ticket.css('display') != 'block') {
             active_panel.fadeOut(function () {
@@ -71,7 +72,6 @@ $(window).load(function () {
             });
         }
     });
-    var your_comment = $('#your-comment');
     $('#submit-comment').on('click', function () {
         var comment = $('<div class="comment col col-md-12"><div class="col col-md-11">' +
         '<div class="name">کاربر ثبت نامی</div><div class="date">۲۵ خرداد ۱۳۹۴، ۲:۱۱ عصر</div>' +
@@ -93,6 +93,8 @@ $(window).load(function () {
     var organizer_ids = [];
     var show_time_ids = [];
     var selected_organizer_id = 0;
+    var selected_cinemas = [];
+    var selected_show_times = [];
 
     $('.show-time-date').on('click', function () {
         step1.removeClass('active').addClass('done');
@@ -107,11 +109,13 @@ $(window).load(function () {
             if(i == current_select.length-1)
                 current_select[i].fadeOut(function () {
                     current_select = [];
+                    selected_cinemas = [];
                     var temp = null;
                     for(var j = 0 ; j < cinemas_id.length ; j++)
                     {
                         temp = $('.cinema[cinema-id="'+cinemas_id[j]+'"');
                         current_select.push(temp);
+                        selected_cinemas.push(temp);
                         temp.css({
                             opacity: 0,
                             display: 'inline-block'
@@ -122,7 +126,6 @@ $(window).load(function () {
                 current_select[i].fadeOut();
         }
     });
-
     $('.cinema').on('click', function () {
         step2.removeClass('active').addClass('done');
         step2.next().removeClass('active').addClass('done');
@@ -136,11 +139,13 @@ $(window).load(function () {
                 current_select[j].fadeOut(function () {
                     var temp = null;
                     current_select = [];
+                    selected_show_times = [];
                     for(var i = 0 ; i < organizer_ids.length ; i++)
                     {
                         if(organizer_ids[i] == selected_organizer_id)
                         {
                             temp = $('.show-time[time-id="'+show_time_ids[i]+'"');
+                            selected_show_times.push(temp);
                             current_select.push(temp);
                             temp.fadeIn();
                         }
@@ -163,7 +168,6 @@ $(window).load(function () {
                 current_select[i].fadeOut(function () {
                     current_select = [];
                     var temp = $('.map[organizer-id="'+selected_organizer_id+'"]');
-                    console.log('.map[organizer-id="'+selected_organizer_id+'"]')
                     temp.fadeIn();
                     current_select.push(temp);
                 });
@@ -177,37 +181,71 @@ $(window).load(function () {
         if (current_step == step1)
             return false;
         current_step = step1;
-        current_select.fadeOut(function () {
-            cinemas.fadeIn();
-            current_select = cinemas;
-        });
-
-        step1.removeClass('done').addClass('active');
-        step1.next().removeClass('done').addClass('active');
-
-        step2.removeClass('done').removeClass('active');
-        step2.next().removeClass('done').removeClass('active');
-
-        step3.removeClass('active');
+        for(var i = 0 ; i < current_select.length; i++)
+        {
+            if(i == current_select.length-1)
+            {
+                current_select[i].fadeOut(function () {
+                    current_select = [];
+                    current_select.push($('#dates'));
+                    $('#dates').fadeIn();
+                });
+            }
+            else
+                current_select[i].fadeOut();
+        }
+        step1.removeClass('done').addClass('active').next().removeClass('done').addClass('active');
+        step2.removeClass('done').removeClass('active').next().removeClass('done').removeClass('active');
+        step3.removeClass('done').removeClass('active').next().removeClass('done').removeClass('active');
+        step4.removeClass('active');
     });
-
     step2.on('click', function () {
         if (current_step == step2 || current_step == step1)
             return false;
         current_step = step2;
-        current_select.fadeOut(function () {
-            show_times.fadeIn();
-            current_select = show_times;
-        });
-
+        for(var i = 0 ; i < current_select.length ; i++)
+        {
+            if(i == current_select.length-1)
+            {
+                current_select[i].fadeOut(function () {
+                    current_select = [];
+                    for(var j = 0 ; j < selected_cinemas.length ; j++)
+                    {
+                        current_select.push(selected_cinemas[j]);
+                        selected_cinemas[j].fadeIn();
+                    }
+                });
+            }
+            else
+                current_select[i].fadeOut();
+        }
         step2.removeClass('done').addClass('active');
-        step2.next().removeClass('done').addClass('active');
-
-        step3.removeClass('active');
+        step3.removeClass('active').removeClass('done').next().removeClass('done').removeClass('active');
+        step4.removeClass('active');
     });
-
     step3.on('click', function () {
-
+        console.log(selected_show_times)
+        if (current_step != step4)
+            return false;
+        current_step = step3;
+        for(var i = 0 ; i < current_select.length ; i++)
+        {
+            if(i == current_select.length-1)
+            {
+                current_select[i].fadeOut(function () {
+                    current_select = [];
+                    for(var j = 0 ; j < selected_show_times.length ; j++)
+                    {
+                        current_select.push(selected_show_times[j]);
+                        selected_show_times[j].fadeIn();
+                    }
+                });
+            }
+            else
+                current_select[i].fadeOut();
+        }
+        step3.removeClass('done').addClass('active').next().removeClass('done').addClass('active');
+        step4.removeClass('active');
     });
 
     $('.seat').on('click', function () {
@@ -222,7 +260,6 @@ $(window).load(function () {
                     .removeClass('selected-seat').addClass('free-seat').fadeIn();
             });
     });
-
     $('.seat').each(function () {
         $(this).attr({
             'data-toggle': 'tooltip',

@@ -275,6 +275,11 @@ body > .holder > div.col {
 
 /* cinemas grid */
 
+.show-time-date
+{
+    cursor: pointer;
+}
+
 #cinemas {
     text-align: center;
     margin-bottom: 0;
