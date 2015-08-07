@@ -156,14 +156,23 @@ $(window).load(function () {
     });
 
     $('.show-time').on('click', function () {
-        step2.removeClass('active').addClass('done');
-        step2.next().removeClass('active').addClass('done');
-        step3.addClass('active');
-        current_step = step3;
-        show_times.fadeOut(function () {
-            plans.fadeIn();
-            current_select = plans;
-        });
+        step3.removeClass('active').addClass('done');
+        step3.next().removeClass('active').addClass('done');
+        step4.addClass('active');
+        current_step = step4;
+        for(var i = 0 ; i < current_select.length ; i++)
+        {
+            if(i == current_select.length - 1)
+            {
+                current_select[i].fadeOut(function () {
+                    var temp = null;
+                    current_select = [];
+
+                });
+            }
+            else
+                current_select[i].fadeOut();
+        }
     });
 
     step1.on('click', function () {
@@ -197,6 +206,10 @@ $(window).load(function () {
         step2.next().removeClass('done').addClass('active');
 
         step3.removeClass('active');
+    });
+
+    step3.on('click', function () {
+
     });
 
     $('.seat').on('click', function () {
