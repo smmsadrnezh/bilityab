@@ -10,6 +10,7 @@ from bilityab.views import get_type
 def buy(request):
     if request.method == 'POST':
         price = request.POST.get('price')
+        print(price)
         seats = request.POST.get('seats')
         quantity = request.POST.get('quantity')
         show_time_id = request.POST.get('show_time_id')
@@ -21,7 +22,7 @@ def buy(request):
             'quantity': quantity
         })
     else:
-        return HttpResponseForbidden
+        return HttpResponseForbidden()
 
 
 def ticket(request, user_id, purchased_id):

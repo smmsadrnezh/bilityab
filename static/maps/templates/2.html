@@ -376,3 +376,16 @@
 <div class="seat free-seat"></div>
 <div class="seat disabled-seat"></div>
 <div class="btn btn-primary">پرده نمایش</div>
+{% if user.is_authenticated %}
+    <form action="/buy/" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="price" value=""/>
+        <input type="hidden" name="show_time_id" value=""/>
+        <input type="hidden" name="quantity" value=""/>
+        <input type="hidden" name="seats" value=""/>
+        <button type="submit" class="btn btn-primary add-to-cart">
+            <i class="fa fa-shopping-cart"></i>
+            پرداخت اینترنتی
+        </button>
+    </form>
+{% endif %}

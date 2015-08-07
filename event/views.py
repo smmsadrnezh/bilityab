@@ -201,7 +201,8 @@ def cinema(request, event_id):
         'num_of_votes': num_of_votes,
         'rates_average_percent': rates_average * 20,
         'can_rate': can_rate,
-        'show_dates': show_dates
+        'show_dates': show_dates,
+        'user': request.user
     })
 
 
@@ -276,16 +277,25 @@ def delete_event(request, event_id):
 def buy_seats(request):
     if request.method == 'POST':
         seats = request.POST.get('seats')
-        seats = seats.split('A')
+        cinema_ticket = seats[0] == 'C'
         quantity = request.POST.get('quantity')
         show_time_id = request.POST.get('show_time_id')
         price = request.POST.get('price')
         show_time = Showtime.objects.get(pk=show_time_id)
         ticket = PurchasedTicket.objects.create(user=request.user, quantity=int(quantity),
                                                 purchased_date=datetime.datetime.now(),
-                                                price=float(int(price)*int(quantity)),
+                                                price=float(int(price)),
                                                 receipt='123456789', showtime=show_time)
-        register_seats(show_time.organizer.id, seats, ticket)
+        if not cinema_ticket:
+            register_seats(show_time.organizer.id, seats, ticket)
+        else:
+            seats = seats.split('C')
+            for seat in seats:
+                if seat:
+                    info = seat.split(',')
+                    row = int(info[0])
+                    column = int(info[1])
+                    TicketPosition.objects.create(ticket=ticket, row=row, column=column)
         return HttpResponseRedirect('/ticket/'+str(request.user.id)+'/'+str(ticket.id)+'/')
     else:
         return HttpResponseForbidden('post required')
@@ -317,6 +327,7 @@ def register_seats(map_id, seats, ticket):
     rows = []
     columns = []
     seats_num = 0
+    seats = seats.split('A')
     for seat in seats:
         if seat:
             info = seat.split(',')

@@ -93,9 +93,71 @@ $(window).load(function () {
     var organizer_ids = [];
     var show_time_ids = [];
     var selected_organizer_id = 0;
+    var selected_show_time = 0;
     var selected_cinemas = [];
     var selected_show_times = [];
+    var bought_tickets = $('#bought-tickets');
+    var roll_back_seats = [];
 
+    $.fn.find_prev_element = function ($class) {
+        var result = null;
+        var help = $(this);
+        var column = 0;
+        for(var i = 0 ; i < 100 ; i++){
+            help = help.prev();
+            if(!help.hasClass('disabled-seat'))
+                column++;
+            if(help.hasClass($class)) {
+                result = help;
+                break;
+            }
+        }
+        return [result, column];
+    };
+
+    function set_sold_seats() {
+        var tickets = bought_tickets.find('div[show-time-id="'+selected_show_time+'"][organizer-id="'+selected_organizer_id+'"]');
+        var seats = tickets.text().split('/');
+        var row, column, temp;
+        var map = $('.map[organizer-id="'+selected_organizer_id+'"]');
+        for( var i = 0 ; i < seats.length ; i++)
+        {
+            if(seats[i] != '')
+            {
+                row = seats[i].split(',')[0];
+                column = seats[i].split(',')[1];
+                temp = map.find('.seat-row.'+row);
+                for(var j = 1 ; j <= column ; )
+                {
+                    if(!temp.hasClass('disabled-seat'))
+                        j++;
+                    temp = temp.next();
+                }
+                temp.removeClass('free-seat').addClass('sold-seat');
+                roll_back_seats.push(temp);
+            }
+        }
+    }
+    function roll_back_changes(){
+        for(var i in roll_back_seats)
+            roll_back_seats[i].removeClass('sold-seat').addClass('free-seat');
+        roll_back_seats = [];
+    }
+    $('.add-to-cart').on('click', function () {
+        var seats = '', seat, quantity = 0;
+        $(this).closest('.map').find('.selected-seat').each(function () {
+            quantity++;
+            var row_column = $(this).find_prev_element('seat-row');
+            var row = row_column[0].text();
+            var column = row_column[1];
+            seats += "C"+row+','+column+'C';
+        });
+        var parent = $(this).parent();
+        parent.find('input[name="price"]').val(parseInt($(this).closest('.map').attr('price'))*quantity);
+        parent.find('input[name="show_time_id"]').val(selected_show_time);
+        parent.find('input[name="quantity"]').val(quantity);
+        parent.find('input[name="seats"]').val(seats);
+    });
     $('.show-time-date').on('click', function () {
         step1.removeClass('active').addClass('done');
         step1.next().removeClass('active').addClass('done');
@@ -161,6 +223,7 @@ $(window).load(function () {
         step3.next().removeClass('active').addClass('done');
         step4.addClass('active');
         current_step = step4;
+        selected_show_time = $(this).attr('time-id');
         for(var i = 0 ; i < current_select.length ; i++)
         {
             if(i == current_select.length - 1)
@@ -168,6 +231,7 @@ $(window).load(function () {
                 current_select[i].fadeOut(function () {
                     current_select = [];
                     var temp = $('.map[organizer-id="'+selected_organizer_id+'"]');
+                    set_sold_seats();
                     temp.fadeIn();
                     current_select.push(temp);
                 });
@@ -180,6 +244,7 @@ $(window).load(function () {
     step1.on('click', function () {
         if (current_step == step1)
             return false;
+        roll_back_changes();
         current_step = step1;
         for(var i = 0 ; i < current_select.length; i++)
         {
@@ -187,8 +252,8 @@ $(window).load(function () {
             {
                 current_select[i].fadeOut(function () {
                     current_select = [];
-                    current_select.push($('#dates'));
-                    $('#dates').fadeIn();
+                    current_select.push(dates);
+                    dates.fadeIn();
                 });
             }
             else
@@ -202,6 +267,7 @@ $(window).load(function () {
     step2.on('click', function () {
         if (current_step == step2 || current_step == step1)
             return false;
+        roll_back_changes();
         current_step = step2;
         for(var i = 0 ; i < current_select.length ; i++)
         {
@@ -224,9 +290,9 @@ $(window).load(function () {
         step4.removeClass('active');
     });
     step3.on('click', function () {
-        console.log(selected_show_times)
         if (current_step != step4)
             return false;
+        roll_back_changes();
         current_step = step3;
         for(var i = 0 ; i < current_select.length ; i++)
         {
@@ -273,8 +339,9 @@ $(window).load(function () {
             $(this).attr('data-original-title', 'فروخته شده');
         $(this).tooltip();
     });
-    var counter = 1;
-    $('#plan-azadi').children().each(function () {
+    $('.map').each(function () {
+        var counter = 1;
+        $(this).children().each(function () {
         if ($(this).hasClass('free-seat')) {
             $(this).attr('data-original-title', counter);
             counter++;
@@ -283,6 +350,7 @@ $(window).load(function () {
             counter++;
         else if ($(this).hasClass('seat-row'))
             counter = 1;
+        });
     });
 
     // user rating

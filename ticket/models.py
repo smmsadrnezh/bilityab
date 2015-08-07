@@ -21,9 +21,9 @@ class PurchasedTicket(models.Model):
 
 class TicketPosition(models.Model):
     ticket = models.ForeignKey(PurchasedTicket, related_name='positions')
-    section = models.PositiveIntegerField()
+    section = models.PositiveIntegerField(null=True, blank=True)
     row = models.PositiveSmallIntegerField()
     column = models.PositiveSmallIntegerField()
 
     def __str__(self):
-        return "section: %s row: %s column: %s" % (self.section, self.row, self.column)
+        return "row: %s column: %s" % (self.row, self.column)
