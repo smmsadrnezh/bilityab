@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
+import os
 import datetime
-from htmldom import htmldom
+from operator import itemgetter
 from django.shortcuts import render
 from django.http import Http404, HttpResponseRedirect, HttpResponse, HttpResponseForbidden
 from bilityab.views import make_event_type_list1, make_event_type_list, get_type
@@ -279,10 +280,6 @@ def buy_seats(request):
         return HttpResponseForbidden('post required')
 
 
-import os
-from operator import itemgetter
-
-
 class Stack:
     def __init__(self):
         self.items = []
@@ -342,12 +339,10 @@ def register_seats(map_id, seats, ticket):
             if target_column and target_row_detected and 'col="'+str(target_column)+'"' in line:
                 target_column_detected = True
             if target_row_detected and target_column_detected:
-                print('hey')
                 target_column_detected = False
                 target_row = 0
                 target_column = 0
                 line = line.replace('free-seat', 'sold-seat')
-                print(line)
             elif 'class="section"' in line:
                 first = line.index('id="')
                 second = line.index('"', first+5)

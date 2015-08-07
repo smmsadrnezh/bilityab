@@ -51,6 +51,9 @@ class PositionPrice(models.Model):
     class Meta:
         verbose_name_plural = "قیمت ها"
 
+    def __str__(self):
+        return "%s - %s - %f" % (self.organizer.title, self.event.title, self.price)
+
 
 class Showtime(models.Model):
     event = models.ForeignKey(Event, related_name='show_times')
