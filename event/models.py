@@ -63,7 +63,7 @@ class Showtime(models.Model):
     to_time = models.TimeField()
 
     def __str__(self):
-        return "%s -> %s to %s" % (self.date, self.from_time, self.to_time)
+        return "%s -> %s to %s -- %s -- %s" % (self.date, self.from_time, self.to_time, self.event.title, self.organizer.title)
 
 
 class Concert(models.Model):

@@ -183,6 +183,16 @@ def cinema(request, event_id):
                 rates_sum += rate.rate
                 can_rate = can_rate and not (rate.user.id == request.user.id)
             rates_average = rates_sum / num_of_votes
+        show_dates = []
+        for i in event.show_times.all():
+            added = False
+            for j in show_dates:
+                if i.date == j['date']:
+                    j['org_id'] += '-' + str(i.organizer.id)
+                    j['id'] += '-' + str(i.id)
+                    added = True
+            if not added:
+                show_dates.append({'date': i.date, 'org_id': ''+str(i.organizer.id), 'id': ''+str(i.id)})
     except Event.DoesNotExist:
         raise Http404('cinema event does not exist!')
     return render(request, 'cinema.html', {
@@ -190,7 +200,8 @@ def cinema(request, event_id):
         'event': event,
         'num_of_votes': num_of_votes,
         'rates_average_percent': rates_average * 20,
-        'can_rate': can_rate
+        'can_rate': can_rate,
+        'show_dates': show_dates
     })
 
 

@@ -57,25 +57,36 @@
                     <div class="col col-md-12 progress">
                         <div class="circle active">
                             <span class="label">1</span>
-                            <span class="title">انتخاب سینما</span>
+                            <span class="title">انتخاب تاریخ</span>
                         </div>
                         <span class="bar active"></span>
 
                         <div class="circle">
                             <span class="label">2</span>
-                            <span class="title">انتخاب سانس</span>
+                            <span class="title">انتخاب سینما</span>
                         </div>
                         <span class="bar half"></span>
 
                         <div class="circle">
                             <span class="label">3</span>
+                            <span class="title">انتخاب سانس</span>
+                        </div>
+                        <span class="bar half"></span>
+
+                        <div class="circle">
+                            <span class="label">4</span>
                             <span class="title">انتخاب صندلی</span>
                         </div>
                     </div>
                     <div class="col col-md-12" id="selects">
+                        <div id="dates">
+                            {% for show_date in show_dates %}
+                                <div class="show-time-date" show-time-id="{{ show_date.id }}" organizer-id="{{ show_date.org_id }}">{% with show_date.date as date %}{% include 'persian-date.html' %}{% endwith %}</div>
+                            {% endfor %}
+                        </div>
                         <div id="cinemas" class="row list-group">
                             {% for cinema in event.event_organizers.all %}
-                                <div class="item col-xs-4 col-lg-4">
+                                <div class="item col-xs-4 col-lg-4 cinema" cinema-id="{{ cinema.id }}">
                                     <div class="thumbnail"
                                          style="background-image: url('{{ MEDIA_URL }}{{ cinema.photo }}')">
                                         <div class="info">
@@ -87,55 +98,17 @@
                                 </div>
                             {% endfor %}
                         </div>
-                        <div id="show-times" class="row list-group">
-                            <div class="item col-xs-4 col-lg-4">
-                                <div class="col col-md-8 show-times">
-                                    <div class="show-time">
-                                        22:00
+                        <div id="show-times">
+                            {% for show_time in event.show_times.all %}
+                                <div class="show-time" time-id="{{ show_time.id }}">
+                                    <div class="">
+                                        {{ show_time.from_time }}
                                     </div>
-                                    <div class="show-time">
-                                        20:00
-                                    </div>
-                                </div>
-                                <div class="col col-md-4 date">
-                                    <div class="week-day">پنج شنبه</div>
-                                    <div class="day">2</div>
-                                    <div class="month">شهریور</div>
-                                    <div class="year">94</div>
-                                </div>
-                            </div>
-                            <div class="item col-xs-4 col-lg-4">
-                                <div class="col col-md-8 show-times">
-                                    <div class="show-time">
-                                        22:00
-                                    </div>
-                                    <div class="show-time">
-                                        20:00
+                                    <div class="">
+                                        {{ show_time.to_time }}
                                     </div>
                                 </div>
-                                <div class="col col-md-4 date">
-                                    <div class="week-day">شنبه</div>
-                                    <div class="day">۴</div>
-                                    <div class="month">شهریور</div>
-                                    <div class="year">94</div>
-                                </div>
-                            </div>
-                            <div class="item col-xs-4 col-lg-4">
-                                <div class="col col-md-8 show-times">
-                                    <div class="show-time">
-                                        22:00
-                                    </div>
-                                    <div class="show-time">
-                                        20:00
-                                    </div>
-                                </div>
-                                <div class="col col-md-4 date">
-                                    <div class="week-day">یک شنبه</div>
-                                    <div class="day">۵</div>
-                                    <div class="month">شهریور</div>
-                                    <div class="year">94</div>
-                                </div>
-                            </div>
+                            {% endfor %}
                         </div>
                         <div class="col col-md-12" id="plans">
                             <div id="plan-azadi">

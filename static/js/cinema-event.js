@@ -87,22 +87,72 @@ $(window).load(function () {
     var step1 = seat_progress.find('div:nth-of-type(1)');
     var step2 = seat_progress.find('div:nth-of-type(2)');
     var step3 = seat_progress.find('div:nth-of-type(3)');
-    var cinemas = $('#cinemas');
-    var show_times = $('#show-times');
-    var plans = $('#plans');
+    var step4 = seat_progress.find('div:nth-of-type(4)');
+    var dates = $('#dates');
+    //var cinemas = $('#cinemas');
+    //var show_times = $('#show-times');
+    //var plans = $('#plans');
     var current_step = step1;
-    var current_select = cinemas;
+    var current_select = [dates];
+    var organizer_ids = [];
+    var show_time_ids = [];
 
-    $('#cinemas .item').on('click', function () {
+    $('.show-time-date').on('click', function () {
         step1.removeClass('active').addClass('done');
         step1.next().removeClass('active').addClass('done');
-        step2.next().addClass('active');
-        step2.addClass('active');
+        step2.addClass('active').next().addClass('active');
         current_step = step2;
-        cinemas.fadeOut(function () {
-            show_times.fadeIn();
-            current_select = show_times;
-        });
+        var cinemas_id = $(this).attr('organizer-id').split('-');
+        organizer_ids = $(this).attr('organizer-id').split('-');
+        show_time_ids = $(this).attr('show-time-id').split('-');
+        for(var i = 0 ; i < current_select.length ; i++)
+        {
+            if(i == current_select.length-1)
+                current_select[i].fadeOut(function () {
+                    current_select = [];
+                    var temp = null;
+                    for(var j = 0 ; j < cinemas_id.length ; j++)
+                    {
+                        temp = $('.cinema[cinema-id="'+cinemas_id[j]+'"');
+                        current_select.push(temp);
+                        temp.css({
+                            opacity: 0,
+                            display: 'inline-block'
+                        }).animate({opacity:1},600);
+                    }
+                });
+            else
+                current_select[i].fadeOut();
+        }
+    });
+
+    $('.cinema').on('click', function () {
+        step2.removeClass('active').addClass('done');
+        step2.next().removeClass('active').addClass('done');
+        step3.addClass('active').next().addClass('active');
+        current_step = step3;
+        var this_id = $(this).attr('cinema-id');
+        for(var j = 0 ; j < current_select.length ; j++)
+        {
+            if(j == current_select.length - 1)
+            {
+                current_select[j].fadeOut(function () {
+                    var temp = null;
+                    current_select = [];
+                    for(var i = 0 ; i < organizer_ids.length ; i++)
+                    {
+                        if(organizer_ids[i] == this_id)
+                        {
+                            temp = $('.show-time[time-id="'+show_time_ids[i]+'"');
+                            current_select.push(temp);
+                            temp.fadeIn();
+                        }
+                    }
+                });
+            }
+            else
+                current_select[j].fadeOut();
+        }
     });
 
     $('.show-time').on('click', function () {

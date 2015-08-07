@@ -276,7 +276,18 @@ body > .holder > div.col {
 /* cinemas grid */
 
 #cinemas {
+    text-align: center;
     margin-bottom: 0;
+}
+
+#cinemas > div
+{
+    display: none;
+}
+
+.cinema
+{
+    float: none;
 }
 
 #cinemas .item .thumbnail {
@@ -325,8 +336,12 @@ body > .holder > div.col {
     padding-left: 2%;
     padding-right: 2%;
     font-family: 'BYekan', sans-serif;
-    display: none;
     text-align: center;
+}
+
+#show-times > div
+{
+    display: none;
 }
 
 #show-times .item {
@@ -391,6 +406,10 @@ body > .holder > div.col {
 
 #plans {
     text-align: center;
+}
+
+#plans > div
+{
     display: none;
 }
 
