@@ -67,7 +67,7 @@ def add_event(request):
             # add new event template for organizer
             return render(request, 'add-event.html', {
                 'logged_in': request.user.is_authenticated(),
-                'categories': Categories.objects.all()
+                'categories': Categories.objects.all().exclude(parent_id=0)
             })
     else:
         return HttpResponseRedirect('/')

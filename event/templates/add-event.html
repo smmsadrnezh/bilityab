@@ -27,9 +27,9 @@
                         <span class="cd-error-message">توضیحات نامعتبر</span>
                     </p>
 
-                    <p class="fieldset">
-                        <i class="fa fa-th-list"></i>
-                        <select name="event-type">
+                    <p class="fieldset" style="padding-top: 5px; padding-right: 5px;">
+                        <i class="fa fa-th-list" ></i>
+                        <select name="event-type" style="padding-right: 50px;">
                             {% for category in categories %}
                                 <option value="{{ category.id }}">{{ category.title }}</option>
                             {% endfor %}
