@@ -209,7 +209,10 @@ $(window).load(function () {
                             temp = $('.show-time[time-id="'+show_time_ids[i]+'"');
                             selected_show_times.push(temp);
                             current_select.push(temp);
-                            temp.fadeIn();
+                            temp.css({
+                                opacity: 0,
+                                display: 'inline-block'
+                            }).animate({opacity:1},100);
                         }
                     }
                 });

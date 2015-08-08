@@ -101,12 +101,13 @@
                         <div id="show-times">
                             {% for show_time in event.show_times.all %}
                                 <div class="show-time" time-id="{{ show_time.id }}">
-                                    <div class="">
+                                    <span>
                                         {{ show_time.from_time }}
-                                    </div>
-                                    <div class="">
+                                    </span>
+                                     الی
+                                    <span>
                                         {{ show_time.to_time }}
-                                    </div>
+                                    </span>
                                 </div>
                             {% endfor %}
                         </div>
