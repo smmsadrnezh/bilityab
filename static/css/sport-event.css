@@ -254,8 +254,8 @@ body > .holder > div.col {
 
 .event-image {
     border-radius: 15px;
-    height: 70px;
-    width: 115px;
+    height: 90px;
+    width: 147px;
     float: right;
     margin-left: 15px;
 }
@@ -263,13 +263,13 @@ body > .holder > div.col {
 .event-info {
     font-family: 'BYekan', sans-serif;
     font-size: 0.7em;
-    margin: 5px;
+    margin: 10px;
 }
 
 .my-divider {
     color: #dddddd;
     border-bottom: 1px solid;
-    margin: 20px 0;
+    margin: 25px 0 15px 0;
 }
 
 .org-image {

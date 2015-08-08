@@ -14,9 +14,11 @@
                      <a href="/events/{{ type }}/{{ event.id }}">
                         <img src="{{ MEDIA_URL }}{{ event.landscape }}">
                         <div class="carousel-caption">
-                            <div class="title">{{ event.title }}</div>
-                            <br/>
-                            <div class="date">{% with date.date as date %}{% include 'persian-date.html' %}{% endwith %}</div>
+                            <div class="title">
+                                {{ event.title }}
+                                <br/>
+                                {% with date.date as date %}{% include 'persian-date.html' %}{% endwith %}
+                            </div>
                         </div>
                     </a>
                 </div>

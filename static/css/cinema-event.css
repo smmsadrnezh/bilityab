@@ -255,13 +255,13 @@ body > .holder > div.col {
     margin-right: 180px;
 }
 
-.event-image {
-    height: 70px;
-    width: 115px;
+/*.event-image {*/
+    /*height: 90px;*/
+    /*width: 147px;*/
     /*width: 100px;*/
-    float: right;
-    margin-left: 30px;
-}
+    /*float: right;*/
+    /*margin-left: 30px;*/
+/*}*/
 
 .event-info {
     font-size: 19px;
