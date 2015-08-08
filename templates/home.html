@@ -436,7 +436,11 @@
                             <div class="small-event">
                                 <a href="events/{{ type }}/{{ event.id }}/" >
                                     <div class="event-type">
-                                        {{ event.category.title }}
+                                        {% if type == 'cinema' %}
+                                            سینمایی
+                                        {% else %}
+                                            {{ event.category.title }}
+                                        {% endif %}
                                     </div>
                                     <div class="date">{% with date.date as minimal_date %}{% include 'minima-date.html' %}{% endwith %}</div>
                                     <div class="title">{{ event.title }}</div>
