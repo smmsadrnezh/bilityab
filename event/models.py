@@ -29,7 +29,6 @@ class Event(models.Model):
     title = models.CharField(max_length=90, unique=True)
     description = models.CharField(max_length=300, null=True)
     category = models.ForeignKey(Categories, related_name='events')
-    capacity = models.PositiveIntegerField()
     event_organizers = models.ManyToManyField(EventOrganizer)
     address = models.CharField(max_length=300)
     landscape = models.ImageField(null=True, default="default.jpg")
@@ -62,9 +61,11 @@ class Showtime(models.Model):
     date = models.DateField()
     from_time = models.TimeField()
     to_time = models.TimeField()
+    capacity = models.PositiveIntegerField()
 
     def __str__(self):
-        return "%s -> %s to %s -- %s -- %s" % (self.date, self.from_time, self.to_time, self.event.title, self.organizer.title)
+        return "%s -> %s to %s -- %s -- %s" % (self.date, self.from_time, self.to_time,
+                                               self.event.title, self.organizer.title)
 
 
 class Concert(models.Model):

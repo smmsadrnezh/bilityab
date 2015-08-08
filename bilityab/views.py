@@ -28,14 +28,16 @@ def make_event_type_list1(event_list):
     event_type_list = []
     for event in event_list:
         category = get_type(event.id)
-        # organizer = EventOrganizer.objects.filter(event__id=event.id)[:1]
         organizer = event.event_organizers.all()[0]
         dates = Showtime.objects.filter(event=event)
+        total_capacity = 0
+        for show_time in event.show_times.all():
+            total_capacity += show_time.capacity
         if dates:
             date = get_nearest_date(dates)
-            event_type_list.append((event, category, organizer, date))
+            event_type_list.append((event, category, organizer, date, total_capacity))
         else:
-            event_type_list.append((event, category, organizer))
+            event_type_list.append((event, category, organizer, total_capacity))
     return event_type_list
 
 

@@ -9,7 +9,6 @@
         </ol>
         <div class="carousel-inner" role="listbox">
             {% for event,type, organizer,date in newestEvents %}
-
                 <div class="item {% if forloop.first %}active{% endif %}">
                      <a href="/events/{{ type }}/{{ event.id }}">
                         <img src="{{ MEDIA_URL }}{{ event.landscape }}">
@@ -22,9 +21,7 @@
                         </div>
                     </a>
                 </div>
-
             {% endfor %}
-
         </div>
         <a class="left carousel-control" href="#top-carousel" role="button" data-slide="prev">
             <span class="fa fa-chevron-left" aria-hidden="true"></span>
@@ -110,7 +107,7 @@
                             برای این بخش رویدادی وجود ندارد
                         </div>
                     {% else %}
-                        {% for event, type, organizer,date in actionMovies %}
+                        {% for event, type, organizer,date, capacity in actionMovies %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
                                     <div class="date">{% with date.date as date %}{% include 'persian-date.html' %}{% endwith %}</div>
@@ -123,7 +120,7 @@
                                         <div class="place">
                                               {{ organizer.title}}
                                         </div>
-                                        <div class="num-of-remaining-tickets">بلیط های باقیمانده: {{ event.capacity }} عدد</div>
+                                        <div class="num-of-remaining-tickets">بلیط های باقیمانده: {{ capacity }} عدد</div>
                                         <div class="price">
                                             {{ event.price }}
                                         </div>
