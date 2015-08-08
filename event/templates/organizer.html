@@ -35,7 +35,9 @@
 
                         <div class="event-info">
                             زمان رویداد:
-                            {{ date.date }}
+                            {% with date.date as date %}
+                                {% include 'persian-date.html' %}
+                            {% endwith %}
                         </div>
 
                         <div class="my-divider"></div>

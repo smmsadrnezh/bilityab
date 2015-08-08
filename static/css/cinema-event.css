@@ -275,9 +275,27 @@ body > .holder > div.col {
 
 /* cinemas grid */
 
+#dates
+{
+    text-align: center;
+    padding-top: 0.5em;
+}
+
 .show-time-date
 {
+    transition: all 0.5s;
+    display: inline-block;
+    font-family: 'BYekan', sans-serif;
+    font-size: 0.6em;
+    padding: 0.5em;
+    background-color: cadetblue;
+    border-radius: 10px;
     cursor: pointer;
+}
+
+.show-time-date:hover
+{
+    background-color: #d3af51;
 }
 
 #cinemas {
@@ -349,64 +367,18 @@ body > .holder > div.col {
     display: none;
 }
 
-#show-times .item {
-    float: right;
-    border-radius: 25px;
-    height: 6em;
-    padding: 0;
-    background-color: #FFFFFF;
-    box-shadow: -3px 4px 10px 0 #cccccc;
-}
-
-#show-times .item .show-times {
-    top: 50%;
-    transform: translate(0, -50%);
-}
-
-#show-times .item .date {
-    border-radius: 25px;
-    height: 100%;
-    box-shadow: -3px 4px 10px 0 #cccccc;
-    padding: 0;
-}
-
-#show-times .item .date .week-day {
-    padding: 0.2em 0;
-    border-radius: 25px 25px 0 0;
-    color: #FDB707;
-    font-family: 'BYekan', sans-serif;
-    font-size: 0.6em;
-    background-color: #000000;
-}
-
-#show-times .item .date .day {
-    color: #2981B2;
-    font-size: 1.5em;
-}
-
-#show-times .item .date .month {
-    color: #ADABAB;
-    font-size: 0.8em;
-}
-
-#show-times .item .date .year {
-    color: #ADABAB;
-    font-size: 0.8em;
-}
-
 .show-time {
-    color: #5A5757;
-    transition: all 1s;
-    font-size: 0.8em;
+    transition: all 0.5s;
+    font-size: 0.7em;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 10px;
     display: inline-block;
     padding: 0.2em 0.5em;
-    background-color: #B0B6BB;
+    background-color: cadetblue;
 }
 
 .show-time:hover {
-    background-color: #31b3f1;
+    background-color: #d3af51;
 }
 
 #plans {

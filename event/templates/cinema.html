@@ -28,7 +28,7 @@
                                 <div class="num-of-voters"><span>{{ num_of_votes }}</span> رأی</div>
                             </div>
                             <div class="col col-md-6 col-xs-4 image"
-                                 style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')"></div>
+                                 style="background-image: url('{{ MEDIA_URL }}{{ event.portrait }}')"></div>
                         </div>
                         <div class="col col-md-12">
                             <div class="vertical-center" style="text-align: center">
@@ -101,12 +101,13 @@
                         <div id="show-times">
                             {% for show_time in event.show_times.all %}
                                 <div class="show-time" time-id="{{ show_time.id }}">
-                                    <div class="">
+                                    <span>
                                         {{ show_time.from_time }}
-                                    </div>
-                                    <div class="">
+                                    </span>
+                                     الی
+                                    <span>
                                         {{ show_time.to_time }}
-                                    </div>
+                                    </span>
                                 </div>
                             {% endfor %}
                         </div>

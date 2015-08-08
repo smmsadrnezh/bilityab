@@ -32,11 +32,20 @@ def make_event_type_list1(event_list):
         organizer = event.event_organizers.all()[0]
         dates = Showtime.objects.filter(event=event)
         if dates:
-            date = dates[0]
+            date = get_nearest_date(dates)
             event_type_list.append((event, category, organizer, date))
         else:
             event_type_list.append((event, category, organizer))
     return event_type_list
+
+
+def get_nearest_date(dates):
+    if dates:
+        result = dates[0]
+        for date in dates:
+            if date.date < result.date:
+                result = date
+        return result
 
 
 def home(request):

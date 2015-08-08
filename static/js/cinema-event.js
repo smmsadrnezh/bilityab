@@ -125,13 +125,13 @@ $(window).load(function () {
             if(seats[i] != '')
             {
                 row = seats[i].split(',')[0];
-                column = seats[i].split(',')[1];
+                column = parseInt(seats[i].split(',')[1]);
                 temp = map.find('.seat-row.'+row);
                 for(var j = 1 ; j <= column ; )
                 {
+                    temp = temp.next();
                     if(!temp.hasClass('disabled-seat'))
                         j++;
-                    temp = temp.next();
                 }
                 temp.removeClass('free-seat').addClass('sold-seat');
                 roll_back_seats.push(temp);
@@ -209,7 +209,10 @@ $(window).load(function () {
                             temp = $('.show-time[time-id="'+show_time_ids[i]+'"');
                             selected_show_times.push(temp);
                             current_select.push(temp);
-                            temp.fadeIn();
+                            temp.css({
+                                opacity: 0,
+                                display: 'inline-block'
+                            }).animate({opacity:1},100);
                         }
                     }
                 });
