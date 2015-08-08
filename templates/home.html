@@ -9,14 +9,18 @@
         </ol>
         <div class="carousel-inner" role="listbox">
             {% for event,type, organizer,date in newestEvents %}
+
                 <div class="item {% if forloop.first %}active{% endif %}">
-                    <img src="{{ MEDIA_URL }}{{ event.landscape }}">
-                    <div class="carousel-caption">
-                        <div class="title">{{ event.title }}</div>
-                        <br/>
-{#                        <div class="date">{% with date.date as date %}{% include 'persian-date.html' %}{% endwith %}</div>#}
-                    </div>
+                     <a href="/events/{{ type }}/{{ event.id }}">
+                        <img src="{{ MEDIA_URL }}{{ event.landscape }}">
+                        <div class="carousel-caption">
+                            <div class="title">{{ event.title }}</div>
+                            <br/>
+                            <div class="date">{% with date.date as date %}{% include 'persian-date.html' %}{% endwith %}</div>
+                        </div>
+                    </a>
                 </div>
+
             {% endfor %}
 
         </div>
