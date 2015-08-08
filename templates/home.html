@@ -14,7 +14,7 @@
                     <div class="carousel-caption">
                         <div class="title">{{ event.title }}</div>
                         <br/>
-                        <div class="date">{% with date.date as date %}{% include 'persian-date.html' %}{% endwith %}</div>
+{#                        <div class="date">{% with date.date as date %}{% include 'persian-date.html' %}{% endwith %}</div>#}
                     </div>
                 </div>
             {% endfor %}
@@ -99,6 +99,11 @@
                 </ul>
                 <div id="events-list" class="tab-content">
                     <div role="tabpanel" class="tab-pane active fade in col col-md-12" id="action">
+                    {% if actionMovies|length == 0 %}
+                        <div class="text-center text-info" style="margin:30px;">
+                            برای این بخش رویدادی وجود ندارد
+                        </div>
+                    {% else %}
                         {% for event, type, organizer,date in actionMovies %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
@@ -120,9 +125,14 @@
                                 </div>
                             </div>
                         {% endfor %}
+                    {% endif %}
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="dram">
-
+                    {% if dramaticMovies|length == 0 %}
+                        <div class="text-center text-info" style="margin:30px;">
+                            برای این بخش رویدادی وجود ندارد
+                        </div>
+                    {% else %}
                         {% for event, type, organizer, date in dramaticMovies %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
@@ -144,8 +154,14 @@
                                 </div>
                             </div>
                         {% endfor %}
+                    {% endif %}
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="comic">
+                    {% if comicEvents|length == 0 %}
+                        <div class="text-center text-info" style="margin:30px;">
+                            برای این بخش رویدادی وجود ندارد
+                        </div>
+                    {% else %}
                         {% for event, type, organizer, date in comicMovies %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
@@ -167,8 +183,14 @@
                                 </div>
                             </div>
                         {% endfor %}
+                    {% endif %}
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="volleyball">
+                    {% if volleyballEvents|length == 0 %}
+                        <div class="text-center text-info" style="margin:30px;">
+                            برای این بخش رویدادی وجود ندارد
+                        </div>
+                    {% else %}
                         {% for event, type, organizer, date in volleyballEvents %}
                             <div class="col col-md-6 event " event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
@@ -190,9 +212,14 @@
                                 </div>
                             </div>
                         {% endfor %}
+                    {% endif %}
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="football">
-                        {% for event, type, organizer, date in footballEvents %}
+                    {% if footballEvents|length == 0 %}
+                        <div class="text-center text-info" style="margin:30px;">
+                            برای این بخش رویدادی وجود ندارد
+                        </div>
+                    {% else %}{% for event, type, organizer, date in footballEvents %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
                                     <div class="date">{% with date.date as date %}{% include 'persian-date.html' %}{% endwith %}</div>
@@ -213,8 +240,14 @@
                                 </div>
                             </div>
                         {% endfor %}
+                    {% endif %}
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="basketball">
+                    {% if basketballEvents|length == 0 %}
+                        <div class="text-center text-info" style="margin:30px;">
+                            برای این بخش رویدادی وجود ندارد
+                        </div>
+                    {% else %}
                         {% for event,type, organizer, date in basketballEvents %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
@@ -236,8 +269,14 @@
                                 </div>
                             </div>
                         {% endfor %}
+                    {% endif %}
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="wrestling">
+                    {% if wrestleEvents|length == 0 %}
+                        <div class="text-center text-info" style="margin:30px;">
+                            برای این بخش رویدادی وجود ندارد
+                        </div>
+                    {% else %}
                         {% for event,type, organizer, date in wrestleEvents %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
@@ -259,8 +298,14 @@
                                 </div>
                             </div>
                         {% endfor %}
+                    {% endif %}
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="tour">
+                    {% if tourEvents|length == 0 %}
+                        <div class="text-center text-info" style="margin:30px;">
+                            برای این بخش رویدادی وجود ندارد
+                        </div>
+                    {% else %}
                         {% for event, type, organizer, date in tourEvents %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
@@ -282,8 +327,14 @@
                                 </div>
                             </div>
                         {% endfor %}
+                    {% endif %}
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="zoo">
+                    {% if zooEvents|length == 0 %}
+                        <div class="text-center text-info" style="margin:30px;">
+                            برای این بخش رویدادی وجود ندارد
+                        </div>
+                    {% else %}
                         {% for event,type, organizer, date in zooEvents %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
@@ -305,8 +356,14 @@
                                 </div>
                             </div>
                         {% endfor %}
+                    {% endif %}
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="amusement-park">
+                    {% if amusementEvents|length == 0 %}
+                        <div class="text-center text-info" style="margin:30px;">
+                            برای این بخش رویدادی وجود ندارد
+                        </div>
+                    {% else %}
                         {% for event,type, organizer, date in amusementEvents %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
@@ -328,8 +385,14 @@
                                 </div>
                             </div>
                         {% endfor %}
+                    {% endif %}
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="circus">
+                    {% if circusEvents|length == 0 %}
+                        <div class="text-center text-info" style="margin:30px;">
+                            برای این بخش رویدادی وجود ندارد
+                        </div>
+                    {% else %}
                         {% for event,type, organizer, date in circusEvents %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
@@ -351,8 +414,14 @@
                                 </div>
                             </div>
                         {% endfor %}
+                    {% endif %}
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="traditional">
+                    {% if traditionalMusic|length == 0 %}
+                        <div class="text-center text-info" style="margin:30px;">
+                            برای این بخش رویدادی وجود ندارد
+                        </div>
+                    {% else %}
                         {% for event,type, organizer, date in traditionalMusic %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
@@ -374,8 +443,14 @@
                                 </div>
                             </div>
                         {% endfor %}
+                    {% endif %}
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="pop">
+                    {% if popMusic|length == 0 %}
+                        <div>
+                            برای این بخش رویدادی وجود ندارد
+                        </div>
+                    {% else %}
                         {% for event,type, organizer, date in popMusic %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
@@ -397,6 +472,7 @@
                                 </div>
                             </div>
                         {% endfor %}
+                    {% endif %}
                     </div>
                 </div>
 
@@ -407,6 +483,11 @@
                         <span><i>پیشنهادهای ما</i></span>
                     </div>
                     <div class="col col-md-12 event-carousel">
+                    {% if suggestedEvents|length == 0 %}
+                        <div class="text-center text-info" style="margin:30px;">
+                            برای این بخش رویدادی وجود ندارد
+                        </div>
+                    {% else %}
                         {% for event, type, organizer, date in suggestedEvents %}
                             <div class="medium-event col col-md-4">
                                 <div class="image"
@@ -424,6 +505,7 @@
                                 </div>
                             </div>
                         {% endfor %}
+                    {% endif %}
                     </div>
                 </div>
             </div>
