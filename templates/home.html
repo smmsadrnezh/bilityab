@@ -404,7 +404,7 @@
                 <div class="col col-md-12" id="suggestions">
                     <div class="or-spacer">
                         <div class="mask"></div>
-                        <span><i>پیشنهادهای ما</i></span>
+                        <span><i>پرفروش ترین ها</i></span>
                     </div>
                     <div class="col col-md-12 event-carousel">
                         {% for event, type, organizer, date in suggestedEvents %}
@@ -438,7 +438,7 @@
                                     <div class="event-type">
                                         {{ event.category.title }}
                                     </div>
-                                    <div class="date">{% with date.date as date %}{% include 'persian-date.html' %}{% endwith %}</div>
+                                    <div class="date">{% with date.date as minimal_date %}{% include 'minima-date.html' %}{% endwith %}</div>
                                     <div class="title">{{ event.title }}</div>
                                     <div class="place"><a href="/organizer/{{ organizer.id }}/">{{ organizer.title }}</a></div>
                                 </a>
