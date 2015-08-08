@@ -49,12 +49,19 @@ a:hover {
 /* top-header */
 
 #top-header {
+    opacity: 0.3;
+    transition: all 0.5s;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 16;
     height: 2em;
     background-color: #2981b2;
+}
+
+#top-header:hover
+{
+    opacity: 1;
 }
 
 #top-header > .container-fluid {

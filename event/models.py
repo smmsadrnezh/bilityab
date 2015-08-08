@@ -32,7 +32,8 @@ class Event(models.Model):
     capacity = models.PositiveIntegerField()
     event_organizers = models.ManyToManyField(EventOrganizer)
     address = models.CharField(max_length=300)
-    photo = models.ImageField(null=True, default="default.jpg")
+    landscape = models.ImageField(null=True, default="default.jpg")
+    portrait = models.ImageField(null=True, default="default.jpg")
     created_at = models.DateTimeField(default=datetime.now)
 
     class Meta:
