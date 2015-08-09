@@ -109,7 +109,7 @@
                     {% else %}
                         {% for event, type, organizer,date, capacity in actionMovies %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
-                                <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
+                                <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
                                     <div class="date">{% with date.date as date %}{% include 'persian-date.html' %}{% endwith %}</div>
                                 </div>
                                 <div class="description cinema">
