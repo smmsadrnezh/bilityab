@@ -46,13 +46,13 @@ class Event(models.Model):
 class PositionPrice(models.Model):
     event = models.ForeignKey(Event, related_name='position_prices')
     organizer = models.ForeignKey(EventOrganizer)
-    price = models.FloatField(default=0)
+    price = models.IntegerField(default=0)
 
     class Meta:
         verbose_name_plural = "قیمت ها"
 
     def __str__(self):
-        return "%s - %s - %f" % (self.organizer.title, self.event.title, self.price)
+        return "%s - %s - %d هزار تومان" % (self.organizer.title, self.event.title, self.price)
 
 
 class Showtime(models.Model):

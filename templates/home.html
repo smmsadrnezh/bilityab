@@ -101,13 +101,13 @@
                     </li>
                 </ul>
                 <div id="events-list" class="tab-content">
-                    <div role="tabpanel" class="tab-pane active fade in col col-md-12" id="action">
+                    <div role="tabpanel" class="tab-pane fade in col col-md-12" id="action">
                     {% if actionMovies|length == 0 %}
                         <div class="text-center text-info" style="margin:30px;">
                             برای این بخش رویدادی وجود ندارد
                         </div>
                     {% else %}
-                        {% for event, type, organizer,date, capacity in actionMovies %}
+                        {% for event, type, organizer,date, capacity, price in actionMovies %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
                                     <div class="date">{% with date.date as date %}{% include 'persian-date.html' %}{% endwith %}</div>
@@ -122,7 +122,7 @@
                                         </div>
                                         <div class="num-of-remaining-tickets">بلیط های باقیمانده: {{ capacity }} عدد</div>
                                         <div class="price">
-                                            {{ event.price }}
+                                            {{ price }} هزار تومان
                                         </div>
                                     </div>
                                 </div>
@@ -136,7 +136,7 @@
                             برای این بخش رویدادی وجود ندارد
                         </div>
                     {% else %}
-                        {% for event, type, organizer, date in dramaticMovies %}
+                        {% for event, type, organizer, date, capacity, price in dramaticMovies %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
                                     <div class="date">{% with date.date as date %}{% include 'persian-date.html' %}{% endwith %}</div>
@@ -149,9 +149,9 @@
                                         <div class="place">
                                             {{ organizer.title }}
                                         </div>
-                                        <div class="num-of-remaining-tickets">بلیط های باقیمانده: {{ event.capacity }} عدد</div>
+                                        <div class="num-of-remaining-tickets">بلیط های باقیمانده: {{ capacity }} عدد</div>
                                         <div class="price">
-                                            {{ event.price }}
+                                            {{ price }} هزار تومان
                                         </div>
                                     </div>
                                 </div>
@@ -159,13 +159,13 @@
                         {% endfor %}
                     {% endif %}
                     </div>
-                    <div role="tabpanel" class="tab-pane fade in col col-md-12" id="comic">
-                    {% if comicEvents|length == 0 %}
+                    <div role="tabpanel" class="tab-pane active fade in col col-md-12" id="comic">
+                    {% if comicMovies|length == 0 %}
                         <div class="text-center text-info" style="margin:30px;">
                             برای این بخش رویدادی وجود ندارد
                         </div>
                     {% else %}
-                        {% for event, type, organizer, date in comicMovies %}
+                        {% for event, type, organizer, date, capacity, price in comicMovies %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
                                     <div class="date">{% with date.date as date %}{% include 'persian-date.html' %}{% endwith %}</div>
@@ -178,9 +178,9 @@
                                         <div class="place">
                                             {{ organizer.title }}
                                         </div>
-                                        <div class="num-of-remaining-tickets">بلیط های باقیمانده: {{ event.capacity }} عدد</div>
+                                        <div class="num-of-remaining-tickets">بلیط های باقیمانده: {{ capacity }} عدد</div>
                                         <div class="price">
-                                            {{ event.price }}
+                                            {{ price }} هزار تومان
                                         </div>
                                     </div>
                                 </div>
@@ -194,7 +194,7 @@
                             برای این بخش رویدادی وجود ندارد
                         </div>
                     {% else %}
-                        {% for event, type, organizer, date in volleyballEvents %}
+                        {% for event, type, organizer, date, capacity, price in volleyballEvents %}
                             <div class="col col-md-6 event " event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
                                     <div class="date">{% with date.date as date %}{% include 'persian-date.html' %}{% endwith %}</div>
@@ -207,9 +207,9 @@
                                         <div class="place">
                                             {{ organizer.title }}
                                         </div>
-                                        <div class="num-of-remaining-tickets">بلیط های باقیمانده: {{ event.capacity }} عدد</div>
+                                        <div class="num-of-remaining-tickets">بلیط های باقیمانده: {{ capacity }} عدد</div>
                                         <div class="price">
-                                            {{ event.price }}
+                                            {{ price }} هزار تومان
                                         </div>
                                     </div>
                                 </div>
@@ -222,7 +222,7 @@
                         <div class="text-center text-info" style="margin:30px;">
                             برای این بخش رویدادی وجود ندارد
                         </div>
-                    {% else %}{% for event, type, organizer, date in footballEvents %}
+                    {% else %}{% for event, type, organizer, date, capacity, price in footballEvents %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
                                     <div class="date">{% with date.date as date %}{% include 'persian-date.html' %}{% endwith %}</div>
@@ -235,9 +235,9 @@
                                         <div class="place">
                                             {{ organizer.title }}
                                         </div>
-                                        <div class="num-of-remaining-tickets">بلیط های باقیمانده: {{ event.capacity }} عدد</div>
+                                        <div class="num-of-remaining-tickets">بلیط های باقیمانده: {{ capacity }} عدد</div>
                                         <div class="price">
-                                            {{ event.price }}
+                                            {{ price }} هزار تومان
                                         </div>
                                     </div>
                                 </div>
@@ -251,7 +251,7 @@
                             برای این بخش رویدادی وجود ندارد
                         </div>
                     {% else %}
-                        {% for event,type, organizer, date in basketballEvents %}
+                        {% for event,type, organizer, date, capacity, price in basketballEvents %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
                                     <div class="date">{% with date.date as date %}{% include 'persian-date.html' %}{% endwith %}</div>
@@ -264,9 +264,9 @@
                                         <div class="place">
                                             {{ organizer.title }}
                                         </div>
-                                        <div class="num-of-remaining-tickets">بلیط های باقیمانده: {{ event.capacity }} عدد</div>
+                                        <div class="num-of-remaining-tickets">بلیط های باقیمانده: {{ capacity }} عدد</div>
                                         <div class="price">
-                                            {{ event.price }}
+                                            {{ price }} هزار تومان
                                         </div>
                                     </div>
                                 </div>
@@ -280,7 +280,7 @@
                             برای این بخش رویدادی وجود ندارد
                         </div>
                     {% else %}
-                        {% for event,type, organizer, date in wrestleEvents %}
+                        {% for event,type, organizer, date, capacity, price in wrestleEvents %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
                                     <div class="date">{% with date.date as date %}{% include 'persian-date.html' %}{% endwith %}</div>
@@ -293,9 +293,9 @@
                                         <div class="place">
                                             {{ organizer.title }}
                                         </div>
-                                        <div class="num-of-remaining-tickets">بلیط های باقیمانده: {{ event.capacity }} عدد</div>
+                                        <div class="num-of-remaining-tickets">بلیط های باقیمانده: {{ capacity }} عدد</div>
                                         <div class="price">
-                                            {{ event.price }}
+                                            {{ price }} هزار تومان
                                         </div>
                                     </div>
                                 </div>
@@ -309,7 +309,7 @@
                             برای این بخش رویدادی وجود ندارد
                         </div>
                     {% else %}
-                        {% for event, type, organizer, date in tourEvents %}
+                        {% for event, type, organizer, date, capacity, price in tourEvents %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
                                     <div class="date">{% with date.date as date %}{% include 'persian-date.html' %}{% endwith %}</div>
@@ -322,9 +322,9 @@
                                         <div class="place">
                                             {{ organizer.title }}
                                         </div>
-                                        <div class="num-of-remaining-tickets">بلیط های باقیمانده: {{ event.capacity }} عدد</div>
+                                        <div class="num-of-remaining-tickets">بلیط های باقیمانده: {{ capacity }} عدد</div>
                                         <div class="price">
-                                            {{ event.price }}
+                                            {{ price }} هزار تومان
                                         </div>
                                     </div>
                                 </div>
@@ -338,7 +338,7 @@
                             برای این بخش رویدادی وجود ندارد
                         </div>
                     {% else %}
-                        {% for event,type, organizer, date in zooEvents %}
+                        {% for event,type, organizer, date, capacity, price in zooEvents %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
                                     <div class="date">۲{% with date.date as date %}{% include 'persian-date.html' %}{% endwith %}</div>
@@ -353,7 +353,7 @@
                                         </div>
                                         <div class="num-of-remaining-tickets">بلیط های باقیمانده: بدون محدودیت</div>
                                         <div class="price">
-                                            {{ event.price }}
+                                            {{ price }} هزار تومان
                                         </div>
                                     </div>
                                 </div>
@@ -367,7 +367,7 @@
                             برای این بخش رویدادی وجود ندارد
                         </div>
                     {% else %}
-                        {% for event,type, organizer, date in amusementEvents %}
+                        {% for event,type, organizer, date, capacity, price in amusementEvents %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
                                     <div class="date">{% with date.date as date %}{% include 'persian-date.html' %}{% endwith %}</div>
@@ -380,9 +380,9 @@
                                         <div class="place">
                                             {{ organizer.title }}
                                         </div>
-                                        <div class="num-of-remaining-tickets">بلیط های باقیمانده: {{ event.capacity }} عدد</div>
+                                        <div class="num-of-remaining-tickets">بلیط های باقیمانده: {{ capacity }} عدد</div>
                                         <div class="price">
-                                            {{ event.price }}
+                                            {{ price }} هزار تومان
                                         </div>
                                     </div>
                                 </div>
@@ -396,7 +396,7 @@
                             برای این بخش رویدادی وجود ندارد
                         </div>
                     {% else %}
-                        {% for event,type, organizer, date in circusEvents %}
+                        {% for event,type, organizer, date, capacity, price in circusEvents %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
                                     <div class="date">{% with date.date as date %}{% include 'persian-date.html' %}{% endwith %}</div>
@@ -409,9 +409,9 @@
                                         <div class="place">
                                             {{ organizer.title }}
                                         </div>
-                                        <div class="num-of-remaining-tickets">بلیط های باقیمانده: {{ event.capacity }} عدد</div>
+                                        <div class="num-of-remaining-tickets">بلیط های باقیمانده: {{ capacity }} عدد</div>
                                         <div class="price">
-                                            {{ event.price }}
+                                            {{ price }} هزار تومان
                                         </div>
                                     </div>
                                 </div>
@@ -425,7 +425,7 @@
                             برای این بخش رویدادی وجود ندارد
                         </div>
                     {% else %}
-                        {% for event,type, organizer, date in traditionalMusic %}
+                        {% for event,type, organizer, date, capacity, price in traditionalMusic %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
                                     <div class="date">{% with date.date as date %}{% include 'persian-date.html' %}{% endwith %}</div>
@@ -438,9 +438,9 @@
                                         <div class="place">
                                             {{ organizer.title }}
                                         </div>
-                                        <div class="num-of-remaining-tickets">بلیط های باقیمانده: {{ event.capacity }} عدد</div>
+                                        <div class="num-of-remaining-tickets">بلیط های باقیمانده: {{ capacity }} عدد</div>
                                         <div class="price">
-                                            {{ event.price }}
+                                            {{ price }} هزار تومان
                                         </div>
                                     </div>
                                 </div>
@@ -454,7 +454,7 @@
                             برای این بخش رویدادی وجود ندارد
                         </div>
                     {% else %}
-                        {% for event,type, organizer, date in popMusic %}
+                        {% for event,type, organizer, date, capacity, price in popMusic %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
                                 <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
                                     <div class="date">{% with date.date as date %}{% include 'persian-date.html' %}{% endwith %}</div>
@@ -467,9 +467,9 @@
                                         <div class="place">
                                             {{ organizer.title }}
                                         </div>
-                                        <div class="num-of-remaining-tickets">بلیط های باقیمانده: {{ event.capacity }} عدد</div>
+                                        <div class="num-of-remaining-tickets">بلیط های باقیمانده: {{ capacity }} عدد</div>
                                         <div class="price">
-                                            {{ event.price }}
+                                            {{ price }} هزار تومان
                                         </div>
                                     </div>
                                 </div>
@@ -478,32 +478,28 @@
                     {% endif %}
                     </div>
                 </div>
-
-
                 <div class="col col-md-12" id="suggestions">
                     <div class="or-spacer">
                         <div class="mask"></div>
                         <span><i>پرفروش ترین ها</i></span>
                     </div>
                     <div class="col col-md-12 event-carousel">
-                    {% if suggestedEvents|length == 0 %}
+                    {% if bestSellerEvents|length == 0 %}
                         <div class="text-center text-info" style="margin:30px;">
                             برای این بخش رویدادی وجود ندارد
                         </div>
                     {% else %}
-                        {% for event, type, organizer, date in suggestedEvents %}
+                        {% for event, type, organizer, date, capacity, price in bestSellerEvents %}
                             <div class="medium-event col col-md-4">
                                 <div class="image"
-                                     style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')"></div>
-                                <div class="title">{{ event.title }}</div>
+                                     style="background-image: url('{{ MEDIA_URL }}{{ event.portrait }}')"></div>
+                                <div class="title"><a href="/events/{{ type }}/{{ event.id }}">{{ event.title }}</a></div>
                                 <div class="place"><a href="/organizer/{{ organizer.id}}/">{{ organizer.title }}</a></div>
                                 <div class="description"><i class="fa fa-quote-right"></i>
                                     {{ event.description }}
                                 </div>
                                 <div class="footer">
-                                    <div class="see-ticket"><a href="/events/{{ type }}/{{ event.id }}">نمایش رویداد<i
-                                            class="fa fa-ticket"></i></a>
-                                    </div>
+                                    <div class="see-ticket">{{ price }} هزار تومان</div>
                                     <div class="date"><i class="fa fa-calendar"></i>{% with date.date as date %}{% include 'persian-date.html' %}{% endwith %}</div>
                                 </div>
                             </div>
@@ -535,24 +531,24 @@
                         {% endfor %}
                     </div>
                 </div>
-{#                <div id="nearest" class="widget">#}
-{#                    <div class="heading"><i class="fa fa-newspaper-o"></i><span class="title">نزدیکترین رویدادها</span>#}
-{#                    </div>#}
-{#                    <div class="content">#}
-{#                        {% for event, type, organizer, date in nearestEvents %}#}
-{#                            <div class="small-event">#}
-{#                                <a href="events/{{ type }}/{{ event.id }}" >#}
-{#                                    <div class="event-type">#}
-{#                                        {{ event.category.title }}#}
-{#                                    </div>#}
-{#                                    <div class="date">{% with date.date as date %}{% include 'persian-date.html' %}{% endwith %}</div>#}
-{#                                    <div class="title">{{ event.title }}</div>#}
-{#                                    <div class="place"><a href="/organizer/{{ organizer.id }}/">{{organizer.title }}</a></div>#}
-{#                                </a>#}
-{#                            </div>#}
-{#                        {% endfor %}#}
-{#                    </div>#}
-{#                </div>#}
+                <div id="nearest" class="widget">
+                    <div class="heading"><i class="fa fa-newspaper-o"></i><span class="title">نزدیکترین رویدادها</span>
+                    </div>
+                    <div class="content">
+                        {% for event, type, organizer, date in nearestEvents %}
+                            <div class="small-event">
+                                <a href="events/{{ type }}/{{ event.id }}" >
+                                    <div class="event-type">
+                                        {{ event.category.title }}
+                                    </div>
+                                    <div class="date">{% with date.date as minimal_date %}{% include 'minima-date.html' %}{% endwith %}</div>
+                                    <div class="title">{{ event.title }}</div>
+                                    <div class="place"><a href="/organizer/{{ organizer.id }}/">{{organizer.title }}</a></div>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
             </div>
         </div>
     </div>

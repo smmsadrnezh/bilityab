@@ -282,6 +282,8 @@ def buy_seats(request):
         show_time_id = request.POST.get('show_time_id')
         price = request.POST.get('price')
         show_time = Showtime.objects.get(pk=show_time_id)
+        show_time.capacity -= 1
+        show_time.save()
         ticket = PurchasedTicket.objects.create(user=request.user, quantity=int(quantity),
                                                 purchased_date=datetime.datetime.now(),
                                                 price=float(int(price)),
