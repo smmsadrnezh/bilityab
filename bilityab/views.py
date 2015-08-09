@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.db.models import Sum
 from django.shortcuts import render
-from event.models import Event, Categories, Showtime,EventRating
+from event.models import Event, Categories, Showtime, PositionPrice
 
 
 def get_type(event_id):
@@ -30,14 +30,15 @@ def make_event_type_list1(event_list):
         category = get_type(event.id)
         organizer = event.event_organizers.all()[0]
         dates = Showtime.objects.filter(event=event)
+        position_price = PositionPrice.objects.get(organizer=organizer, event=event)
         total_capacity = 0
         for show_time in event.show_times.all():
             total_capacity += show_time.capacity
         if dates:
             date = get_nearest_date(dates)
-            event_type_list.append((event, category, organizer, date, total_capacity))
+            event_type_list.append((event, category, organizer, date, total_capacity, position_price.price))
         else:
-            event_type_list.append((event, category, organizer, total_capacity))
+            event_type_list.append((event, category, organizer, total_capacity, position_price.price))
     return event_type_list
 
 
