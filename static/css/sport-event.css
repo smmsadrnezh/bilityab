@@ -22,6 +22,26 @@ body > .holder > div.col {
     background-color: rgba(221, 221, 221, 0.39);
 }
 
+.round-box-gray {
+    border-radius: 25px;
+    /*box-shadow: 1px 3px 1px #dfdfe0, -1px -1px 0 #f2f2f2;*/
+    margin-top: 0;
+    margin-bottom: 4vh;
+    background-color: #DDD;
+    padding: 1em 1em;
+
+}
+
+#round-box-white {
+    border-radius: 25px;
+    box-shadow: 1px 3px 1px #dfdfe0, -1px -1px 0 #f2f2f2;
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+    background-color: #FFFFFF;
+    padding: 0 1.5em;
+
+}
+
 #ticket-info {
     border-radius: 25px;
     box-shadow: 1px 3px 1px #dfdfe0, -1px -1px 0 #f2f2f2;
@@ -31,6 +51,7 @@ body > .holder > div.col {
     padding: 1em 2em;
 
 }
+
 
 #ticket-info .image {
     transition: all 0.5s;
@@ -263,7 +284,14 @@ body > .holder > div.col {
 .event-info {
     font-family: 'BYekan', sans-serif;
     font-size: 0.7em;
-    margin: 10px;
+    margin-right: 10px;
+}
+
+.category-info {
+    font-family: 'BYekan', sans-serif;
+    font-size: 1em;
+    margin-right: 10px;
+    margin-top: 40px;
 }
 
 .my-divider {
@@ -271,6 +299,13 @@ body > .holder > div.col {
     border-bottom: 1px solid;
     margin: 25px 0 15px 0;
 }
+
+.my-divider-white {
+    color: #ffffff;
+    border-bottom: 1px solid;
+    margin: 25px 0 15px 0;
+}
+
 
 .org-image {
     height: 60px;

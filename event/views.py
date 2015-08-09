@@ -382,30 +382,30 @@ def register_seats(map_id, seats, ticket):
 def categories(request):
     return render(request, 'all_categories.html', {
         'logged_in': request.user.is_authenticated(),
-        'categories': Categories.objects.filter(parent_id=0)
+        'categories': Categories.objects.filter(parent_id=0),
+        'sub_categories': Categories.objects.all().exclude(parent_id=0)
     })
 
 
 def add_category(request):
     if request.user.is_authenticated() and request.user.is_organizer:
         if request.is_ajax():
-            print (request.POST.get('event-type',''))
-            if(request.POST.get('event-type','')!=""):
-                print ("oomad too in")
+            if request.POST.get('event-type', '') != "":
                 # insert event and it's additional information to database
-                if (request.POST.get('category-title', '') != "" ):
-                    event = Categories(title=request.POST.get('category-title', ''),
-                                  parent_id=request.POST.get('event-type','')
+                if request.POST.get('sub-category-title', '') != "":
+                    event = Categories(title=request.POST.get('sub-category-title', ''),
+                                parent_id=request.POST.get('event-type', '')
                     ).save()
 
                     # redirect to site homepage
                     return HttpResponse(1)
                 else:
                     # raise exception to user
+                    print("raise1")
                     return HttpResponse(0)
             else:
                 # insert event and it's additional information to database
-                if (request.POST.get('category-title', '') != "" ):
+                if request.POST.get('category-title', '') != "":
                     event = Categories(title=request.POST.get('category-title', ''),
                                   parent_id=0
                     ).save()
@@ -413,6 +413,7 @@ def add_category(request):
                     # redirect to site homepage
                     return HttpResponse(1)
                 else:
+                    print("raiese2")
                     # raise exception to user
                     return HttpResponse(0)
         else:
@@ -430,9 +431,29 @@ def delete_category(request, category_id):
     return HttpResponseRedirect('/categories')
 
 
-def edit_category(request,category_id):
-    category = Categories.objects.get(id = category_id)
-    return render(request, 'edit_category.html', {
-        'category': category,
-        'sub_categories':Categories.objects.filter(parent_id=category.id )
-    })
+def edit_category(request, category_id):
+
+    if request.user.is_authenticated() and request.user.is_organizer:
+        if request.is_ajax():
+                # insert event and it's additional information to database
+                if request.POST.get('category-title', '') != "":
+                    category = Categories.objects.get(id=category_id)
+                    category.title = request.POST.get('category-title', '')
+                    category.save()
+
+                    return HttpResponse(1)
+                else:
+                    # raise exception to user
+                    return HttpResponse(0)
+        else:
+            category = Categories.objects.get(id=category_id)
+            return render(request, 'edit_category.html', {
+                'category': category,
+                'sub_categories':Categories.objects.filter(parent_id=category.id)
+            })
+    else:
+        return HttpResponseRedirect('/')
+
+
+
+

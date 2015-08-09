@@ -109,7 +109,7 @@
                     {% else %}
                         {% for event, type, organizer,date, capacity in actionMovies %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
-                                <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
+                                <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
                                     <div class="date">{% with date.date as date %}{% include 'persian-date.html' %}{% endwith %}</div>
                                 </div>
                                 <div class="description cinema">
@@ -138,7 +138,7 @@
                     {% else %}
                         {% for event, type, organizer, date in dramaticMovies %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
-                                <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
+                                <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
                                     <div class="date">{% with date.date as date %}{% include 'persian-date.html' %}{% endwith %}</div>
                                 </div>
                                 <div class="description cinema">
@@ -167,7 +167,7 @@
                     {% else %}
                         {% for event, type, organizer, date in comicMovies %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
-                                <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
+                                <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
                                     <div class="date">{% with date.date as date %}{% include 'persian-date.html' %}{% endwith %}</div>
                                 </div>
                                 <div class="description cinema">
@@ -196,7 +196,7 @@
                     {% else %}
                         {% for event, type, organizer, date in volleyballEvents %}
                             <div class="col col-md-6 event " event_id="{{ event.id }}">
-                                <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
+                                <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
                                     <div class="date">{% with date.date as date %}{% include 'persian-date.html' %}{% endwith %}</div>
                                 </div>
                                 <div class="description sport">
@@ -224,7 +224,7 @@
                         </div>
                     {% else %}{% for event, type, organizer, date in footballEvents %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
-                                <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
+                                <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
                                     <div class="date">{% with date.date as date %}{% include 'persian-date.html' %}{% endwith %}</div>
                                 </div>
                                 <div class="description sport">
@@ -253,7 +253,7 @@
                     {% else %}
                         {% for event,type, organizer, date in basketballEvents %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
-                                <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
+                                <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
                                     <div class="date">{% with date.date as date %}{% include 'persian-date.html' %}{% endwith %}</div>
                                 </div>
                                 <div class="description sport">
@@ -282,7 +282,7 @@
                     {% else %}
                         {% for event,type, organizer, date in wrestleEvents %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
-                                <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
+                                <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
                                     <div class="date">{% with date.date as date %}{% include 'persian-date.html' %}{% endwith %}</div>
                                 </div>
                                 <div class="description sport">
@@ -311,7 +311,7 @@
                     {% else %}
                         {% for event, type, organizer, date in tourEvents %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
-                                <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
+                                <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
                                     <div class="date">{% with date.date as date %}{% include 'persian-date.html' %}{% endwith %}</div>
                                 </div>
                                 <div class="description tourism">
@@ -340,7 +340,7 @@
                     {% else %}
                         {% for event,type, organizer, date in zooEvents %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
-                                <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
+                                <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
                                     <div class="date">۲{% with date.date as date %}{% include 'persian-date.html' %}{% endwith %}</div>
                                 </div>
                                 <div class="description tourism">
@@ -369,7 +369,7 @@
                     {% else %}
                         {% for event,type, organizer, date in amusementEvents %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
-                                <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
+                                <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
                                     <div class="date">{% with date.date as date %}{% include 'persian-date.html' %}{% endwith %}</div>
                                 </div>
                                 <div class="description tourism">
@@ -398,7 +398,7 @@
                     {% else %}
                         {% for event,type, organizer, date in circusEvents %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
-                                <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
+                                <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
                                     <div class="date">{% with date.date as date %}{% include 'persian-date.html' %}{% endwith %}</div>
                                 </div>
                                 <div class="description tourism">
@@ -427,7 +427,7 @@
                     {% else %}
                         {% for event,type, organizer, date in traditionalMusic %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
-                                <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
+                                <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
                                     <div class="date">{% with date.date as date %}{% include 'persian-date.html' %}{% endwith %}</div>
                                 </div>
                                 <div class="description music">
@@ -456,7 +456,7 @@
                     {% else %}
                         {% for event,type, organizer, date in popMusic %}
                             <div class="col col-md-6 event" event_id="{{ event.id }}">
-                                <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')">
+                                <div class="image" style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
                                     <div class="date">{% with date.date as date %}{% include 'persian-date.html' %}{% endwith %}</div>
                                 </div>
                                 <div class="description music">
@@ -494,7 +494,7 @@
                         {% for event, type, organizer, date in suggestedEvents %}
                             <div class="medium-event col col-md-4">
                                 <div class="image"
-                                     style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')"></div>
+                                     style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')"></div>
                                 <div class="title">{{ event.title }}</div>
                                 <div class="place"><a href="/organizer/{{ organizer.id}}/">{{ organizer.title }}</a></div>
                                 <div class="description"><i class="fa fa-quote-right"></i>

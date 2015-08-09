@@ -3,40 +3,63 @@
 {% block pageBody %}
 
 <div class="holder">
+
         <div class="col col-md-12">
             <div class="col col-md-12" id="ticket">
-                <h2>
+
+                <h2 style="margin-bottom: 0;">
                     دسته ها
                 </h2>
 
-                <div class="col col-md-12" id="ticket-info">
+                <div class="col col-md-12" id="round-box-white">
                     {% for category in categories %}
-                        <div class="event-info" style="height: 60px;">
+                        <div class="category-info" style="height: 60px;">
                             {{ category.title }}
+                            <a class="btn btn-primary " href="/categories/edit/{{ category.id }}/" style="margin-right: 20px;">
+                                <i class="fa fa-edit"></i> ویرایش دسته
+                            </a>
+                            <a href="/categories/delete/{{ category.id }}" class="btn btn-danger ">
+                                <i class="fa fa-remove"></i> حذف دسته
+                            </a>
                         </div>
 
+                        <div class="round-box-gray">
+                            {% for sub_category in sub_categories %}
+                                {% if sub_category.parent_id == category.id %}
+                                    <div style="margin: 10px;">
+                                            <span style="margin-left: 10px;">{{ sub_category.title }}</span>
+                                            <a class="btn btn-primary btn-sm" href="/categories/edit/{{ sub_category.id }}/">
+                                                <i class="fa fa-edit"></i>
+                                            </a>
+                                            <a href="/categories/delete/{{ sub_category.id }}" class="btn btn-danger btn-sm ">
+                                                <i class="fa fa-remove"></i>
+                                            </a>
+                                        <div class="my-divider-white"></div>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
 
-                        {% if request.user.is_organizer %}
-                            <div class="col col-md-2">
-                                <a class="btn btn-primary btn-lg btn-block"
-                                   href="/categories/edit/{{ category.id }}/">
-                                    <i class="fa fa-edit"></i> ویرایش دسته
-                                </a>
-{#                                <a class="btn btn-danger btn-lg btn-block" data-toggle="modal"#}
-{#                                   data-target="#confirm-delete">#}
-{#                                    <i class="fa fa-remove"></i> حذف رویداد#}
+{#                        {% if request.user.is_organizer %}#}
+{#                            <div class="col col-md-2">#}
+{#                                <a class="btn btn-primary btn-lg btn-block"#}
+{#                                   href="/categories/edit/{{ category.id }}/">#}
+{#                                    <i class="fa fa-edit"></i> ویرایش دسته#}
 {#                                </a>#}
-                                  <a href="/categories/delete/{{ category.id }}" class="btn btn-danger btn-lg btn-block">
-                                       <i class="fa fa-remove"></i> حذف دسته
-                                  </a>
-                            </div>
-                        {% endif %}
-                        <div class="my-divider"></div>
+{#                                <a href="/categories/delete/{{ category.id }}" class="btn btn-danger btn-lg btn-block">#}
+{#                                    <i class="fa fa-remove"></i> حذف دسته#}
+{#                                </a>#}
+{#                            </div>#}
+{#                        {% endif %}#}
+{#                        <div class="my-divider"></div>#}
                     {% endfor %}
                 </div>
-             {% if request.user.is_organizer %}
-                <i class="fa fa-plus-circle"></i><a href="/categories/add/">اضافه کردن دسته</a>
-            {% endif %}
+                  {% if request.user.is_organizer %}
+                  <a class="btn btn-primary" href="/categories/add/" style="margin-bottom:20px; font-size: 0.8em;">
+                      <i class="fa fa-plus-circle" style="margin-left: 5px;"></i>
+                    اضافه کردن دسته جدید
+                  </a>
+              {% endif %}
 
             </div>
 

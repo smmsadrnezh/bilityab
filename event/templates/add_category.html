@@ -28,8 +28,8 @@
                                            placeholder="عنوان دسته">
                                 </p>
                                 <p class="fieldset">
-                                    <i class="fa fa-plus"></i>
                                     <input class="full-width" type="submit" value="افزودن دسته">
+{#                                    <i class="fa fa-plus"></i>#}
                                 </p>
                             </form>
                         </div>
@@ -53,8 +53,8 @@
                                            placeholder="عنوان زیردسته">
                                 </p>
                                 <p class="fieldset">
-                                    <i class="fa fa-plus"></i>
-                                    <input class="full-width" type="submit" value="افزودن دسته">
+{#                                    <i class="fa fa-plus"></i>#}
+                                    <input class="full-width" type="submit" value="افزودن زیردسته">
                                 </p>
                             </form>
                         </div>
@@ -70,7 +70,7 @@
 
 {% block js %}
     {{ block.super }}
-    <script src="{% static "js/add-category-ajax.js" %}"></script>
+    <script src="{% static "js/category-ajax.js" %}"></script>
     <script src="{% static "js/sport-event.js" %}"></script>
 {% endblock %}
 
