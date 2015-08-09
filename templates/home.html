@@ -160,7 +160,7 @@
                     {% endif %}
                     </div>
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="comic">
-                    {% if comicEvents|length == 0 %}
+                    {% if comicMovies|length == 0 %}
                         <div class="text-center text-info" style="margin:30px;">
                             برای این بخش رویدادی وجود ندارد
                         </div>
@@ -489,10 +489,10 @@
                             برای این بخش رویدادی وجود ندارد
                         </div>
                     {% else %}
-                        {% for event, type, organizer, date in suggestedEvents %}
+                        {% for event, type, organizer, date, capacity, price in suggestedEvents %}
                             <div class="medium-event col col-md-4">
                                 <div class="image"
-                                     style="background-image: url('{{ MEDIA_URL }}{{ event.photo }}')"></div>
+                                     style="background-image: url('{{ MEDIA_URL }}{{ event.portrait }}')"></div>
                                 <div class="title">{{ event.title }}</div>
                                 <div class="place"><a href="/organizer/{{ organizer.id}}/">{{ organizer.title }}</a></div>
                                 <div class="description"><i class="fa fa-quote-right"></i>

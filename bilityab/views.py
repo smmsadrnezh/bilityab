@@ -30,7 +30,6 @@ def make_event_type_list1(event_list):
         category = get_type(event.id)
         organizer = event.event_organizers.all()[0]
         dates = Showtime.objects.filter(event=event)
-        print(organizer, event)
         position_price = PositionPrice.objects.get(organizer=organizer, event=event)
         total_capacity = 0
         for show_time in event.show_times.all():
@@ -53,7 +52,6 @@ def get_nearest_date(dates):
 
 
 def home(request):
-
     return render(request, 'home.html', {
         'bestEvents': make_event_type_list1(Event.objects.annotate(rate=Sum('rates')).order_by('-rates')[:3]),
         # 'nearestEvents': make_event_type_list1(Event.objects.all().order_by('-show_times__date')[:3]),
