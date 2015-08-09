@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from operator import itemgetter
 from django.db.models import Sum
 from django.shortcuts import render
 from event.models import Event, Categories, Showtime, PositionPrice
@@ -58,6 +59,21 @@ def get_show_times_events(show_times):
     return result
 
 
+def get_best_seller_events():
+    event_price = []
+    result = []
+    events = Event.objects.all()
+    for event in events:
+        bought_tickets = 0
+        for show_time in event.show_times.all():
+            for ticket in show_time.tickets.all():
+                bought_tickets += ticket.price
+        event_price.append({'event': event, 'price': bought_tickets})
+    for temp in sorted(event_price, key=itemgetter('price'), reverse=True):
+        result.append(temp['event'])
+    return result[:3]
+
+
 def home(request):
     return render(request, 'home.html', {
         'bestEvents': make_event_type_list1(Event.objects.annotate(rate=Sum('rates')).order_by('-rates')[:3]),
@@ -75,7 +91,7 @@ def home(request):
         'circusEvents': make_event_type_list1(Event.objects.filter(category__title='سیرک')),
         'traditionalMusic': make_event_type_list1(Event.objects.filter(category__title='سنتی')),
         'popMusic': make_event_type_list1(Event.objects.filter(category__title='پاپ')),
-        'bestSellerEvents': make_event_type_list1(Event.objects.all()[:3]),
+        'bestSellerEvents': make_event_type_list1(get_best_seller_events()),
         'logged_in': request.user.is_authenticated()
 
     })

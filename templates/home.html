@@ -493,15 +493,13 @@
                             <div class="medium-event col col-md-4">
                                 <div class="image"
                                      style="background-image: url('{{ MEDIA_URL }}{{ event.portrait }}')"></div>
-                                <div class="title">{{ event.title }}</div>
+                                <div class="title"><a href="/events/{{ type }}/{{ event.id }}">{{ event.title }}</a></div>
                                 <div class="place"><a href="/organizer/{{ organizer.id}}/">{{ organizer.title }}</a></div>
                                 <div class="description"><i class="fa fa-quote-right"></i>
                                     {{ event.description }}
                                 </div>
                                 <div class="footer">
-                                    <div class="see-ticket"><a href="/events/{{ type }}/{{ event.id }}">نمایش رویداد<i
-                                            class="fa fa-ticket"></i></a>
-                                    </div>
+                                    <div class="see-ticket">{{ price }} هزار تومان</div>
                                     <div class="date"><i class="fa fa-calendar"></i>{% with date.date as date %}{% include 'persian-date.html' %}{% endwith %}</div>
                                 </div>
                             </div>

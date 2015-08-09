@@ -326,11 +326,16 @@
 
 .medium-event .title {
     background-color: rgba(52, 52, 52, 0.61);
-    color: rgb(242, 189, 96);
+    color: rgb(255, 255, 255);
     font-family: 'BYekan', sans-serif;
     font-size: 0.8em;
     padding-top: 0.2em;
     text-align: center;
+}
+
+.medium-event .title a
+{
+    color: inherit;
 }
 
 .medium-event .place {
@@ -340,7 +345,7 @@
     font-family: 'BYekan', sans-serif;
     font-size: 0.6em;
     border-bottom: 1px solid #ddd;
-    padding-bottom: 0.5em;
+    padding-bottom: 0.4em;
     padding-top: 0.5em;
 }
 
@@ -364,6 +369,7 @@
     font-family: 'BYekan', sans-serif;
     font-size: 0.6em;
     float: right;
+    color: rgb(242, 189, 96);
     padding: 0.5em 0.7em 0.4em 0.4em;
 }
 
