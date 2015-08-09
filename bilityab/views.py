@@ -51,10 +51,17 @@ def get_nearest_date(dates):
         return result
 
 
+def get_show_times_events(show_times):
+    result = []
+    for show_time in show_times:
+        result.append(show_time.event)
+    return result
+
+
 def home(request):
     return render(request, 'home.html', {
         'bestEvents': make_event_type_list1(Event.objects.annotate(rate=Sum('rates')).order_by('-rates')[:3]),
-        # 'nearestEvents': make_event_type_list1(Event.objects.all().order_by('-show_times__date')[:3]),
+        'nearestEvents': make_event_type_list1(get_show_times_events(Showtime.objects.all().order_by('date')[:3])),
         'newestEvents': make_event_type_list1(Event.objects.all().order_by('-created_at')[:3]),
         'actionMovies': make_event_type_list1(Event.objects.filter(category__title='اکشن')),
         'dramaticMovies': make_event_type_list1(Event.objects.filter(category__title='درام')),
@@ -68,7 +75,7 @@ def home(request):
         'circusEvents': make_event_type_list1(Event.objects.filter(category__title='سیرک')),
         'traditionalMusic': make_event_type_list1(Event.objects.filter(category__title='سنتی')),
         'popMusic': make_event_type_list1(Event.objects.filter(category__title='پاپ')),
-        'suggestedEvents': make_event_type_list1(Event.objects.all()[:3]),
+        'bestSellerEvents': make_event_type_list1(Event.objects.all()[:3]),
         'logged_in': request.user.is_authenticated()
 
     })

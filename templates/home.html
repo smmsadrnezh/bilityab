@@ -484,12 +484,12 @@
                         <span><i>پرفروش ترین ها</i></span>
                     </div>
                     <div class="col col-md-12 event-carousel">
-                    {% if suggestedEvents|length == 0 %}
+                    {% if bestSellerEvents|length == 0 %}
                         <div class="text-center text-info" style="margin:30px;">
                             برای این بخش رویدادی وجود ندارد
                         </div>
                     {% else %}
-                        {% for event, type, organizer, date, capacity, price in suggestedEvents %}
+                        {% for event, type, organizer, date, capacity, price in bestSellerEvents %}
                             <div class="medium-event col col-md-4">
                                 <div class="image"
                                      style="background-image: url('{{ MEDIA_URL }}{{ event.portrait }}')"></div>
@@ -533,24 +533,24 @@
                         {% endfor %}
                     </div>
                 </div>
-{#                <div id="nearest" class="widget">#}
-{#                    <div class="heading"><i class="fa fa-newspaper-o"></i><span class="title">نزدیکترین رویدادها</span>#}
-{#                    </div>#}
-{#                    <div class="content">#}
-{#                        {% for event, type, organizer, date in nearestEvents %}#}
-{#                            <div class="small-event">#}
-{#                                <a href="events/{{ type }}/{{ event.id }}" >#}
-{#                                    <div class="event-type">#}
-{#                                        {{ event.category.title }}#}
-{#                                    </div>#}
-{#                                    <div class="date">{% with date.date as date %}{% include 'persian-date.html' %}{% endwith %}</div>#}
-{#                                    <div class="title">{{ event.title }}</div>#}
-{#                                    <div class="place"><a href="/organizer/{{ organizer.id }}/">{{organizer.title }}</a></div>#}
-{#                                </a>#}
-{#                            </div>#}
-{#                        {% endfor %}#}
-{#                    </div>#}
-{#                </div>#}
+                <div id="nearest" class="widget">
+                    <div class="heading"><i class="fa fa-newspaper-o"></i><span class="title">نزدیکترین رویدادها</span>
+                    </div>
+                    <div class="content">
+                        {% for event, type, organizer, date in nearestEvents %}
+                            <div class="small-event">
+                                <a href="events/{{ type }}/{{ event.id }}" >
+                                    <div class="event-type">
+                                        {{ event.category.title }}
+                                    </div>
+                                    <div class="date">{% with date.date as minimal_date %}{% include 'minima-date.html' %}{% endwith %}</div>
+                                    <div class="title">{{ event.title }}</div>
+                                    <div class="place"><a href="/organizer/{{ organizer.id }}/">{{organizer.title }}</a></div>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
             </div>
         </div>
     </div>
