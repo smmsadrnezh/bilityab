@@ -23,16 +23,14 @@ def add_event(request):
             # insert event and it's additional information to database
             if (request.POST.get('event-title', '') != "" and request.POST.get('event-description',
                                                                                '') != "" and request.POST.get(
-                    'event-type', '') != "" and request.POST.get('event-capacity', '') != "" and request.POST.get(
-                    'event-address', '') != ""):
+                    'event-type', '') != "" and request.POST.get('event-address', '') != ""):
                 cat_id = int(request.POST.get('event-type', ''))
                 category = Categories.objects.get(pk=cat_id)
                 event = Event.objects.create(title=request.POST.get('event-title', ''),
                                              description=request.POST.get('event-description', ''),
-                                             category=category, capacity=int(request.POST.get('event-capacity', '')),
-                                             address=request.POST.get('event-address', ''))
+                                             category=category, address=request.POST.get('event-address', ''))
                 event.event_organizers.add(EventOrganizer.objects.get(user=request.user))
-                if (request.POST.get('event-home-team', '') != "" and request.POST.get('event-away-team', '') != ""):
+                if request.POST.get('event-home-team', '') != "" and request.POST.get('event-away-team', '') != "":
                     Sport(
                         event_id=event.id,
                         away_team=request.POST.get('event-home-team', ''),
@@ -80,39 +78,90 @@ def apply_event(request):
 
 def edit_event(request, event_id):
     if request.user.is_authenticated() and request.user.is_organizer:
-        type = get_type(Event.objects.get(id=event_id).id)
-        if (type == "music"):
-            return render(request, 'edit-event.html', {
-                'logged_in': request.user.is_authenticated(),
-                'categories': Categories.objects.all(),
-                'event': Event.objects.get(id=event_id),
-                'type': type,
-                'concert': Concert.objects.get(event_id=event_id),
-            })
-        elif (type == "cinema"):
-            return render(request, 'edit-event.html', {
-                'logged_in': request.user.is_authenticated(),
-                'categories': Categories.objects.all(),
-                'event': Event.objects.get(id=event_id),
-                'type': type,
-                'movie': Movie.objects.get(event_id=event_id)
-            })
-        elif (type == "sport"):
-            return render(request, 'edit-event.html', {
-                'logged_in': request.user.is_authenticated(),
-                'categories': Categories.objects.all(),
-                'event': Event.objects.get(id=event_id),
-                'type': type,
-                'sport': Sport.objects.get(event_id=event_id),
-            })
-        else:
-            return render(request, 'edit-event.html', {
-                'logged_in': request.user.is_authenticated(),
-                'categories': Categories.objects.all(),
-                'event': Event.objects.get(id=event_id),
-                'type': type,
-            })
+        if request.is_ajax():
+            # insert event and it's additional information to database
+            # if (request.POST.get('event-title', '') != "" and request.POST.get('event-description',
+            #                                                                    '') != "" and request.POST.get(
+            #         'event-type', '') != "" and request.POST.get('event-capacity', '') != "" and request.POST.get(
+            #         'event-address', '') != ""):
+            cat_id = int(request.POST.get('event-type', ''))
+            category = Categories.objects.get(pk=cat_id)
 
+            event = Event.objects.get(id = event_id)
+            event.title = request.POST.get('event-title', '')
+            event.description = request.POST.get('event-description', '')
+            event.category = category
+            event.address = request.POST.get('event-address', '')
+            event.save()
+            # event = Event.objects.create(title=request.POST.get('event-title', ''),
+            #                                  description=request.POST.get('event-description', ''),
+            #                                  category=category, capacity=int(request.POST.get('event-capacity', '')),
+            #                                  address=request.POST.get('event-address', ''))
+            # event.event_organizers.add(EventOrganizer.objects.get(user=request.user))
+            if request.POST.get('event-home-team', '') != "" and request.POST.get('event-away-team', '') != "":
+                sport_event = Sport.objects.get(event_id=event.id)
+                sport_event.home_team = request.POST.get('event-home-team', '')
+                sport_event.away_team = request.POST.get('event-away-team', '')
+                sport_event.save()
+
+                return HttpResponse(1)
+            elif request.POST.get('event-director', '') != "" and request.POST.get('event-actors',
+                                                                                        '') != "" and request.POST.get(
+                        'event-year', '') != "" and request.POST.get('event-story-summary', '') != "":
+                movie_event = Movie.objects.get(event_id=event_id)
+
+                movie_event.director = request.POST.get('event-director', ''),
+                movie_event.actors = request.POST.get('event-actors', ''),
+                # movie_event.year = request.POST.get('event-year', ''),
+                # print(int(request.POST.get('event-year', ''))),
+                movie_event.story_summary = request.POST.get('event-story-summary', '')
+                movie_event.save()
+                return HttpResponse(1)
+            elif request.POST.get('event-vocalist', '') != "" and request.POST.get('event-musicians', '') != "" and request.POST.get('event-music-group', '') != "":
+                concert_event = Concert.objects.get(event_id=event.id)
+                concert_event.group_name = request.POST.get('event-music-group', ''),
+                concert_event.vocalist = request.POST.get('event-vocalist', ''),
+                concert_event.musicians = request.POST.get('event-musicians', '')
+                concert_event.save()
+
+                return HttpResponse(1)
+            else:
+                print("error")
+                # raise exception to user
+                return HttpResponse(0)
+        else:
+            type = get_type(Event.objects.get(id=event_id).id)
+            if type == "music":
+                return render(request, 'edit-event.html', {
+                    'logged_in': request.user.is_authenticated(),
+                    'categories': Categories.objects.all(),
+                    'event': Event.objects.get(id=event_id),
+                    'type': type,
+                    'concert': Concert.objects.get(event_id=event_id),
+                })
+            elif type == "cinema":
+                return render(request, 'edit-event.html', {
+                    'logged_in': request.user.is_authenticated(),
+                    'categories': Categories.objects.all(),
+                    'event': Event.objects.get(id=event_id),
+                    'type': type,
+                    'movie': Movie.objects.get(event_id=event_id)
+                })
+            elif type == "sport":
+                return render(request, 'edit-event.html', {
+                    'logged_in': request.user.is_authenticated(),
+                    'categories': Categories.objects.all(),
+                    'event': Event.objects.get(id=event_id),
+                    'type': type,
+                    'sport': Sport.objects.get(event_id=event_id),
+                })
+            else:
+                return render(request, 'edit-event.html', {
+                    'logged_in': request.user.is_authenticated(),
+                    'categories': Categories.objects.all(),
+                    'event': Event.objects.get(id=event_id),
+                    'type': type,
+                })
     else:
         return HttpResponseRedirect('/')
 
