@@ -29,7 +29,8 @@
 
                     <p class="fieldset" style="padding-top: 5px; padding-right: 5px;">
                         <i class="fa fa-th-list" ></i>
-                        <select name="event-type" style="padding-right: 50px;">
+                        <select id="event-type" name="event-type" onchange="handle()" style="padding-right: 50px;" >
+                            <option selected="selected" value="انتخاب گروه"  >انتخاب گروه</option>
                             {% for category in categories %}
                                 <option value="{{ category.id }}">{{ category.title }}</option>
                             {% endfor %}
@@ -45,14 +46,14 @@
                         <span class="cd-error-message">محل برگزاری نامعتبر</span>
                     </p>
 
-                    <p class="fieldset">
-                        <i class="fa fa-slack"></i>
-                        <input class="full-width has-padding has-border" id="event-capacity"
-                               name="event-capacity"
-                               type="text"
-                               placeholder="ظرفیت">
-                        <span class="cd-error-message">ظرفیت نامعتبر</span>
-                    </p>
+{#                    <p class="fieldset">#}
+{#                        <i class="fa fa-slack"></i>#}
+{#                        <input class="full-width has-padding has-border" id="event-capacity"#}
+{#                               name="event-capacity"#}
+{#                               type="text"#}
+{#                               placeholder="ظرفیت">#}
+{#                        <span class="cd-error-message">ظرفیت نامعتبر</span>#}
+{#                    </p>#}
 
                     <p class="fieldset">
                         <i class="fa fa-file-image-o"></i>
@@ -60,66 +61,68 @@
                                name="event-photo"
                                type="file">
                     </p>
+                    <div id="sport-extra-data" style="display: none;">
+                        <h3>اطلاعات بیشتر رویداد ورزشی</h3>
 
-                    <h3>اطلاعات بیشتر رویداد ورزشی</h3>
+                        <p class="fieldset">
+                            <i class="fa fa-flag"></i>
+                            <input class="full-width has-padding has-border" id="event-home-team"
+                                   name="event-home-team"
+                                   type="text"
+                                   placeholder="کشور میزبان">
+                            <span class="cd-error-message">کشور میزبان نامعتبر است</span>
+                        </p>
 
-                    <p class="fieldset">
-                        <i class="fa fa-flag"></i>
-                        <input class="full-width has-padding has-border" id="event-home-team"
-                               name="event-home-team"
-                               type="text"
-                               placeholder="کشور میزبان">
-                        <span class="cd-error-message">کشور میزبان نامعتبر است</span>
-                    </p>
+                        <p class="fieldset">
+                            <i class="fa fa-flag-o"></i>
+                            <input class="full-width has-padding has-border" id="event-away-team"
+                                   name="event-away-team"
+                                   type="text"
+                                   placeholder="کشور مهمان">
+                            <span class="cd-error-message">کشور مهمان نامعتبر است</span>
+                        </p>
+                    </div>
+                    <div id="cinema-extra-data" style="display: none;">
+                        <h3>اطلاعات بیشتر رویداد سینمایی</h3>
+                        <p class="fieldset">
+                            <i class="fa fa-film"></i>
+                            <input class="full-width has-padding has-border" id="event-director"
+                                   name="event-director"
+                                   type="text"
+                                   placeholder="کارگردان">
+                            <span class="cd-error-message">کارگردان نامعتبر است</span>
+                        </p>
 
-                    <p class="fieldset">
-                        <i class="fa fa-flag-o"></i>
-                        <input class="full-width has-padding has-border" id="event-away-team"
-                               name="event-away-team"
-                               type="text"
-                               placeholder="کشور مهمان">
-                        <span class="cd-error-message">کشور مهمان نامعتبر است</span>
-                    </p>
+                        <p class="fieldset">
+                            <i class="fa fa-users"></i>
+                            <input class="full-width has-padding has-border" id="event-actors"
+                                   name="event-actors"
+                                   type="text"
+                                   placeholder="بازیگرها">
+                            <span class="cd-error-message">بازیگران نامعتبر است</span>
+                        </p>
 
-                    <h3>اطلاعات بیشتر رویداد سینمایی</h3>
+                        <p class="fieldset">
+                            <i class="fa fa-calendar"></i>
+                            <input class="full-width has-padding has-border" id="event-year"
+                                   name="event-year"
+                                   type="text"
+                                   placeholder="سال ساخت">
+                            <span class="cd-error-message">سال ساخت نامعتبر است</span>
+                        </p>
 
-                    <p class="fieldset">
-                        <i class="fa fa-film"></i>
-                        <input class="full-width has-padding has-border" id="event-director"
-                               name="event-director"
-                               type="text"
-                               placeholder="کارگردان">
-                        <span class="cd-error-message">کارگردان نامعتبر است</span>
-                    </p>
+                        <p class="fieldset">
+                            <i class="fa fa-paperclip"></i>
+                            <input class="full-width has-padding has-border" id="event-story-summary"
+                                   name="event-story-summary"
+                                   type="text"
+                                   placeholder="خلاصه داستان">
+                            <span class="cd-error-message">خلاصه داستان نامعتبر است</span>
+                        </p>
+                    </div>
 
-                    <p class="fieldset">
-                        <i class="fa fa-users"></i>
-                        <input class="full-width has-padding has-border" id="event-actors"
-                               name="event-actors"
-                               type="text"
-                               placeholder="بازیگرها">
-                        <span class="cd-error-message">بازیگران نامعتبر است</span>
-                    </p>
-
-                    <p class="fieldset">
-                        <i class="fa fa-calendar"></i>
-                        <input class="full-width has-padding has-border" id="event-year"
-                               name="event-year"
-                               type="text"
-                               placeholder="سال ساخت">
-                        <span class="cd-error-message">سال ساخت نامعتبر است</span>
-                    </p>
-
-                    <p class="fieldset">
-                        <i class="fa fa-paperclip"></i>
-                        <input class="full-width has-padding has-border" id="event-story-summary"
-                               name="event-story-summary"
-                               type="text"
-                               placeholder="خلاصه داستان">
-                        <span class="cd-error-message">خلاصه داستان نامعتبر است</span>
-                    </p>
-
-                    <h3>اطلاعات بیشتر رویداد کنسرت</h3>
+                <div id="music-extra-data" style="display: none;">
+                    <h3>اطلاعات بیشتر رویداد موسیقی</h3>
 
                     <p class="fieldset">
                         <i class="fa fa-group"></i>
@@ -147,6 +150,7 @@
                                placeholder="نام نوازنده‌ها">
                         <span class="cd-error-message">نام نوازندگان نامعتبر است</span>
                     </p>
+                </div>
 
                     <p class="fieldset">
                         <i class="fa fa-plus"></i>
@@ -163,6 +167,7 @@
     {{ block.super }}
     <script src="{% static "js/add-event-ajax.js" %}"></script>
     <script src="{% static "js/sport-event.js" %}"></script>
+    <script src="{% static "js/category.js" %}"></script>
 {% endblock %}
 
 {% block css %}

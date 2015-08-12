@@ -1,16 +1,17 @@
 jQuery(document).ready(function ($) {
-    $('#add-event').find('input[type="submit"]').on('click', function (event) {
+    $('#edit-event').find('input[type="submit"]').on('click', function (event) {
         event.preventDefault();
-
         $.ajax({
             type: "POST",
-            url: "/events/edit/",
+            url: window.location.pathname,
             data: $("#edit-event-form").serialize(), // serializes the form's elements.
             success: function (data) {
                 if (parseInt(data)) {
-                    window.location.replace(window.location.pathname);
+                    alert("test");
+                    window.location.replace("/events");
                 } else {
-                    $('#add-event').find('input[type="text"]').toggleClass('has-error').next('span').toggleClass('is-visible');
+                    alert("error")
+                    $('#edit-event').find('input[type="text"]').toggleClass('has-error').next('span').toggleClass('is-visible');
                 }
             }
         });

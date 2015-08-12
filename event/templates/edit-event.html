@@ -3,7 +3,7 @@
 {% block pageBody %}
     <div class="holder">
         <div class="col col-md-12">
-            <div id="add-event" class="col col-md-12">
+            <div id="edit-event" class="col col-md-12">
 
                 <h3>ویرایش رویداد</h3>
 
@@ -29,9 +29,13 @@
 
                     <p class="fieldset">
                         <i class="fa fa-th-list"></i>
-                        <select name="event-type">
+                        <select name="event-type" >
                             {% for category in categories %}
-                                <option value="{{ category.id }}">{{ category.title }}</option>
+                                {% if event.category == category %}
+                                    <option value="{{ category.id }}" selected="selected">{{ category.title }}</option>
+                                {% else %}
+                                    <option value="{{ category.id }}">{{ category.title }}</option>
+                                {% endif %}
                             {% endfor %}
                         </select>
                     </p>
@@ -45,14 +49,14 @@
                         <span class="cd-error-message">محل برگزاری نامعتبر</span>
                     </p>
 
-                    <p class="fieldset">
-                        <i class="fa fa-slack"></i>
-                        <input class="full-width has-padding has-border" id="event-capacity"
-                               name="event-capacity"
-                               type="text"
-                               value="{{ event.capacity }}">
-                        <span class="cd-error-message">ظرفیت نامعتبر</span>
-                    </p>
+{#                    <p class="fieldset">#}
+{#                        <i class="fa fa-slack"></i>#}
+{#                        <input class="full-width has-padding has-border" id="event-capacity"#}
+{#                               name="event-capacity"#}
+{#                               type="text"#}
+{#                               value="{{ event.capacity }}">#}
+{#                        <span class="cd-error-message">ظرفیت نامعتبر</span>#}
+{#                    </p>#}
 
                     <p class="fieldset">
                         <i class="fa fa-file-image-o"></i>
@@ -107,7 +111,7 @@
                             <i class="fa fa-calendar"></i>
                             <input class="full-width has-padding has-border" id="event-year"
                                    name="event-year"
-                                   type="text"
+                                   type="number"
                                    value="{{ movie.year }}">
                             <span class="cd-error-message">سال ساخت نامعتبر است</span>
                         </p>
