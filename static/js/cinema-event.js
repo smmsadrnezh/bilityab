@@ -344,9 +344,10 @@ $(window).load(function () {
     });
     $('.map').each(function () {
         var counter = 1;
+        var price = $(this).attr('price');
         $(this).children().each(function () {
         if ($(this).hasClass('free-seat')) {
-            $(this).attr('data-original-title', counter);
+            $(this).attr('data-original-title', 'صندلی '+counter+'، '+price+' هزار تومان');
             counter++;
         }
         else if ($(this).hasClass('sold-seat'))

@@ -109,11 +109,9 @@ def edit_event(request, event_id):
                                                                                         '') != "" and request.POST.get(
                         'event-year', '') != "" and request.POST.get('event-story-summary', '') != "":
                 movie_event = Movie.objects.get(event_id=event_id)
-
-                movie_event.director = request.POST.get('event-director', ''),
-                movie_event.actors = request.POST.get('event-actors', ''),
-                # movie_event.year = request.POST.get('event-year', ''),
-                # print(int(request.POST.get('event-year', ''))),
+                movie_event.director = request.POST.get('event-director', '')
+                movie_event.actors = request.POST.get('event-actors', '')
+                movie_event.year = int(request.POST.get('event-year', ''))
                 movie_event.story_summary = request.POST.get('event-story-summary', '')
                 movie_event.save()
                 return HttpResponse(1)
@@ -130,29 +128,29 @@ def edit_event(request, event_id):
                 # raise exception to user
                 return HttpResponse(0)
         else:
-            type = get_type(Event.objects.get(id=event_id).id)
-            if type == "music":
+            event_type = get_type(Event.objects.get(id=event_id).id)
+            if event_type == "music":
                 return render(request, 'edit-event.html', {
                     'logged_in': request.user.is_authenticated(),
                     'categories': Categories.objects.all(),
                     'event': Event.objects.get(id=event_id),
-                    'type': type,
+                    'type': event_type,
                     'concert': Concert.objects.get(event_id=event_id),
                 })
-            elif type == "cinema":
+            elif event_type == "cinema":
                 return render(request, 'edit-event.html', {
                     'logged_in': request.user.is_authenticated(),
                     'categories': Categories.objects.all(),
                     'event': Event.objects.get(id=event_id),
-                    'type': type,
+                    'type': event_type,
                     'movie': Movie.objects.get(event_id=event_id)
                 })
-            elif type == "sport":
+            elif event_type == "sport":
                 return render(request, 'edit-event.html', {
                     'logged_in': request.user.is_authenticated(),
                     'categories': Categories.objects.all(),
                     'event': Event.objects.get(id=event_id),
-                    'type': type,
+                    'type': event_type,
                     'sport': Sport.objects.get(event_id=event_id),
                 })
             else:
@@ -160,7 +158,7 @@ def edit_event(request, event_id):
                     'logged_in': request.user.is_authenticated(),
                     'categories': Categories.objects.all(),
                     'event': Event.objects.get(id=event_id),
-                    'type': type,
+                    'type': event_type,
                 })
     else:
         return HttpResponseRedirect('/')
