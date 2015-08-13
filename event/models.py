@@ -72,7 +72,7 @@ class Concert(models.Model):
     event = models.OneToOneField(Event, primary_key=True)
     group_name = models.CharField(unique=True, max_length=40)
     vocalist = models.CharField(null=True, max_length=30)
-    musicians = models.TimeField(max_length=1000)
+    musicians = models.CharField(max_length=1000)
 
     def __str__(self):
         return "%s -> %s" % (self.group_name, self.vocalist)
