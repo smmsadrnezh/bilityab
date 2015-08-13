@@ -5,7 +5,7 @@
     <div class="holder">
         <div class="col col-md-12">
             <div class="col col-md-12" id="ticket">
-                <div class="col col-md-12" id="ticket-info">
+                <div class="col col-md-12" id="ticket-info-music">
                     <div id="top-carousel" class="col col-md-8 carousel slide" style="padding: 0" data-ride="carousel">
                         <div class="carousel-inner" role="listbox">
                             {% for photo in event.gallery_photos.all %}
@@ -23,12 +23,15 @@
                             <span class="sr-only">Next</span>
                         </a>
                     </div>
-                    <div class="col col-md-4 info">
-                        <div class="director">اجرایی از سالار عقیلی</div>
-                        <div class="actors">نوازندگان: علی علوی ، محمد محمدی، تقی تقوی، عباس عباسی، بهروز بهروزی
-                        </div>
-                        <div class="synopsis">این کنسرت بااجرای آخرین آثار سالار عقیلی همراه است
-                        </div>
+                    <div class="col col-md-4 music-info ">
+                        <div class="vocalist">با اجرای <span>{{ event.concert.vocalist }}</span></div>
+                        <div class="date">{% with show_time.date as date %}{% include 'persian-date.html' %}{% endwith %}</div>
+                        <span class="time">از ساعت {{ show_time.from_time }} الی  {{ show_time.to_time }}</span>
+                        <br/>
+                        <span class="place">{{ organizer.title }}</span>
+                        <br/>
+                        <span class="group-name">کاری از گروه {{ event.concert.group_name }}</span>
+                        <div class="musicians">نوازندگان: {{ event.concert.musicians }}</div>
                     </div>
                 </div>
                 {# select cinema seat #}

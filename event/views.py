@@ -256,9 +256,12 @@ def cinema(request, event_id):
 def music(request, event_id):
     try:
         event = Event.objects.get(pk=event_id)
+        event_organizer = event.event_organizers.all()[0]
         return render(request, 'music.html', {
             'logged_in': request.user.is_authenticated(),
-            'event': event
+            'event': event,
+            'organizer': event_organizer,
+            'show_time': event.show_times.all()[0]
         })
     except Event.DoesNotExist:
         return Http404('event not found!')

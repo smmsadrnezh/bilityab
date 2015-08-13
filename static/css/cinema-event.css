@@ -583,3 +583,74 @@ body > .holder > div.col {
     position: absolute;
     transform: translate(0, -50%);
 }
+
+#ticket-info-music .music-info
+{
+    background-color: #9A9A9A;
+    height: 100%;
+    cursor: pointer;
+    padding: 0;
+    font-family: 'BYekan', sans-serif;
+    font-size: 0.7em;
+    text-align: center;
+}
+
+#ticket-info-music
+{
+    height: 60vh;
+    box-shadow: 1px 3px 1px #dfdfe0, -1px -1px 0 #f2f2f2;
+    margin: 4vh auto;
+    background-color: #FFFFFF;
+    padding: 0;
+}
+
+.music-info .date
+{
+    padding: 0.5em 0;
+    font-size: 1.5em;
+    color: #F7AD30;
+    background-color: #000;
+}
+
+.music-info .time
+{
+    border-radius: 0 0 10px 10px;
+    padding: 0.2em 0.5em;
+    background-color: #DECB2F;
+}
+
+.music-info .musicians
+{
+    line-height: 1.2em;
+    padding: 1em;
+    font-family: 'BMitra', sans-serif;
+    font-size: 1.1em;
+}
+
+.music-info .vocalist
+{
+    font-family: 'BMitra', sans-serif;
+    background-color: #BFC2C5;
+    padding: 1em 0;
+}
+
+.music-info .vocalist span
+{
+    font-family: 'BYekan', sans-serif;
+    font-size: 2em;
+}
+
+.music-info .place
+{
+    border-radius: 10px 10px 0 0;
+    margin-top: 1em;
+    padding: 0.5em 1em;
+    display: inline-block;
+    background-color: #0073ea;
+}
+
+.music-info .group-name
+{
+    background-color: #0073ea;
+    display: inline-block;
+}
