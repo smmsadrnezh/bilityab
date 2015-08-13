@@ -112,3 +112,6 @@ class EventRating(models.Model):
         return "%f" % self.rate
 
 
+class GalleryPhoto(models.Model):
+    event = models.ForeignKey(Event, related_name='gallery_photos')
+    pic = models.ImageField()
