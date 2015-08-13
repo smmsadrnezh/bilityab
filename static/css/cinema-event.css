@@ -642,15 +642,33 @@ body > .holder > div.col {
 
 .music-info .place
 {
-    border-radius: 10px 10px 0 0;
-    margin-top: 1em;
     padding: 0.5em 1em;
-    display: inline-block;
-    background-color: #0073ea;
 }
 
 .music-info .group-name
 {
-    background-color: #0073ea;
+    border-radius: 0 0 10px 10px;
+    padding: 0.2em 1em;
+    background-color: #5A6169;
+    color: #DDDDDD;
     display: inline-block;
 }
+
+.additional-info
+{
+    box-shadow: -2px -2px 10px 0 rgba(0, 0, 0, 0.7);
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    margin-top: 2em;
+    background-color: #2981B2;
+    font-family: 'BMitra', sans-serif;
+}
+
+.additional-info span:nth-of-type(2n)
+{
+    background-color: #FFFFFF;
+    font-size: 1.2em;
+    font-family: 'BYekan', sans-serif;
+}
+

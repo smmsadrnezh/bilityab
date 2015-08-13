@@ -261,7 +261,8 @@ def music(request, event_id):
             'logged_in': request.user.is_authenticated(),
             'event': event,
             'organizer': event_organizer,
-            'show_time': event.show_times.all()[0]
+            'show_time': event.show_times.all()[0],
+            'price': event.position_prices.all()[0].price
         })
     except Event.DoesNotExist:
         return Http404('event not found!')

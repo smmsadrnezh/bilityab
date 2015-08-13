@@ -28,10 +28,25 @@
                         <div class="date">{% with show_time.date as date %}{% include 'persian-date.html' %}{% endwith %}</div>
                         <span class="time">از ساعت {{ show_time.from_time }} الی  {{ show_time.to_time }}</span>
                         <br/>
-                        <span class="place">{{ organizer.title }}</span>
-                        <br/>
                         <span class="group-name">کاری از گروه {{ event.concert.group_name }}</span>
-                        <div class="musicians">نوازندگان: {{ event.concert.musicians }}</div>
+                        <br/>
+                        <div class="additional-info">
+                            <span class="place">مکان:</span>
+                            <br/>
+                            <span>{{ organizer.title }}</span>
+                            <br/>
+                            <span class="capacity">ظرفیت باقیمانده:</span>
+                            <br/>
+                            <span>{{ show_time.capacity }}</span> نفر
+                            <br/>
+                            <span class="price">هزینه :</span>
+                            <br/>
+                            <span>{{ price }}</span> هزار تومان
+                            <br/>
+                            <span class="musicians">نوازندگان: </span>
+                            <br/>
+                            <span>{{ event.concert.musicians }}</span>
+                        </div>
                     </div>
                 </div>
                 {# select cinema seat #}
