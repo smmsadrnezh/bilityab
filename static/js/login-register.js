@@ -70,6 +70,7 @@ jQuery(document).ready(function ($) {
     });
 
     function login_selected() {
+        is_registering = false;
         $form_login.addClass('is-selected');
         $form_signup.removeClass('is-selected');
         $form_forgot_password.removeClass('is-selected');
@@ -78,6 +79,7 @@ jQuery(document).ready(function ($) {
     }
 
     function signup_selected() {
+        is_registering = true;
         $form_login.removeClass('is-selected');
         $form_signup.addClass('is-selected');
         $form_forgot_password.removeClass('is-selected');
@@ -86,9 +88,41 @@ jQuery(document).ready(function ($) {
     }
 
     function forgot_password_selected() {
+        is_registering = false;
         $form_login.removeClass('is-selected');
         $form_signup.removeClass('is-selected');
         $form_forgot_password.addClass('is-selected');
+    }
+
+    var is_registering = false;
+
+    $form_forgot_password.find('input[type="submit"]').on('click', function (event) {
+        event.preventDefault();
+        if(!isEmail($('#reset-email').val()))
+        {
+            $('#reset-email').toggleClass('has-error').next('span').text('پست الکترونیکی نامعتبر!').toggleClass('is-visible');
+            setTimeout(function () {
+                hide_error($('#reset-email'));
+            }, 3000);
+        }
+        else
+        {
+            var message = $form_forgot_password.find('.cd-form-message');
+            var old_message = message.text();
+            message.fadeOut(function () {
+                message.text('لینک دریافت رمز عبور جدید به ایمیل شما ارسال شد.').fadeIn();
+            });
+            setTimeout(function () {
+                message.text(old_message);
+                if(!is_registering)
+                    $back_to_login_link.click();
+            }, 4000);
+        }
+    });
+
+    function isEmail(email){
+        var emailReg = /^([a-zA-Z0-9_.+-])+@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        return emailReg.test(email);
     }
 
     ////REMOVE THIS - it's just to show error messages
@@ -193,11 +227,6 @@ jQuery(document).ready(function ($) {
         });
 
     });
-
-    //$form_signup.find('input[type="submit"]').on('click', function (event) {
-    //    event.preventDefault();
-    //    $form_signup.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
-    //});
 
 });
 
