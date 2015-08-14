@@ -4,7 +4,8 @@
 
     <div class="holder">
         <div class="col col-md-12">
-            <div class="col col-md-12" id="ticket" organizer_id="{{ organizer.id }}" event_id="{{ event.id }}" show_time_id="{{ show_time.id }}">
+            <div class="col col-md-12" id="ticket" organizer_id="{{ organizer.id }}" event_id="{{ event.id }}"
+                 show_time_id="{{ show_time.id }}">
                 <div class="col col-md-12" id="ticket-info-music">
                     <div id="top-carousel" class="col col-md-8 carousel slide" style="padding: 0" data-ride="carousel">
                         <div class="carousel-inner" role="listbox">
@@ -25,11 +26,13 @@
                     </div>
                     <div class="col col-md-4 music-info ">
                         <div class="vocalist">با اجرای <span>{{ event.concert.vocalist }}</span></div>
-                        <div class="date">{% with show_time.date as date %}{% include 'persian-date.html' %}{% endwith %}</div>
-                        <span class="time">از ساعت {{ show_time.from_time }} الی  {{ show_time.to_time }}</span>
+                        <div class="date">
+                            {% with show_time.date as date %}{% include 'persian-date.html' %}{% endwith %}</div>
+                        <span class="time">از ساعت {{ show_time.from_time }} الی {{ show_time.to_time }}</span>
                         <br/>
                         <span class="group-name">کاری از گروه {{ event.concert.group_name }}</span>
                         <br/>
+
                         <div class="star-ratings-sprite {% if can_rate %}not-rated{% endif %}"
                              initial-rate="{{ rates_average_percent }}%">
                             <span style="width:{{ rates_average_percent }}%" class="rating"></span>
@@ -51,7 +54,9 @@
                     </div>
                 </div>
                 <div style="display: none" id="bought-tickets">
-                    <div show-time-id="{{ show_time.id }}" organizer-id="{{ organizer.id }}">{% for ticket in show_time.tickets.all %}{% for position in ticket.positions.all %}/{{ position.row }},{{ position.column }}/{% endfor %}{% endfor %}</div>
+                    <div show-time-id="{{ show_time.id }}" organizer-id="{{ organizer.id }}">
+                        {% for ticket in show_time.tickets.all %}{% for position in ticket.positions.all %}/
+                            {{ position.row }},{{ position.column }}/{% endfor %}{% endfor %}</div>
                 </div>
                 <div id="plans">
                     <div class="map" price="{{ price }}" organizer-id="{{ organizer.id }}" style="display: block">

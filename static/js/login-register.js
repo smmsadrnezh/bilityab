@@ -10,6 +10,19 @@ jQuery(document).ready(function ($) {
         $back_to_login_link = $form_forgot_password.find('.cd-form-bottom-message a'),
         $main_nav = $('#login-register');
 
+    if(parseInt($('#body-container').attr('going_recovery')))
+    {
+        $('#recovery-message').css('display', 'block');
+        $main_nav.children('ul').removeClass('is-visible');
+        $form_modal.addClass('is-visible');
+        login_selected();
+        setTimeout(function () {
+            $('#recovery-message').slideUp(function () {
+                $(this).css('display', 'none');
+            });
+        }, 3000);
+    }
+
     //open modal
     $main_nav.on('click', function (event) {
 
@@ -98,22 +111,19 @@ jQuery(document).ready(function ($) {
 
     $form_forgot_password.find('input[type="submit"]').on('click', function (event) {
         event.preventDefault();
-        if(!isEmail($('#reset-email').val()))
-        {
+        if (!isEmail($('#reset-email').val())) {
             $('#reset-email').toggleClass('has-error').next('span').text('پست الکترونیکی نامعتبر!').toggleClass('is-visible');
             setTimeout(function () {
                 hide_error($('#reset-email'));
             }, 3000);
         }
-        else
-        {
+        else {
             $.ajax({
-            type: "POST",
-            url: "/recover/",
-            data: $("#recover-form").serialize(),
+                type: "POST",
+                url: "/recover/",
+                data: $("#recover-form").serialize(),
                 success: function (data) {
-                    if(parseInt(data))
-                    {
+                    if (parseInt(data)) {
                         var message = $form_forgot_password.find('.cd-form-message');
                         var old_message = message.text();
                         message.fadeOut(function () {
@@ -121,7 +131,7 @@ jQuery(document).ready(function ($) {
                         });
                         setTimeout(function () {
                             message.css('color', '#000').text(old_message);
-                            if(!is_registering)
+                            if (!is_registering)
                                 $back_to_login_link.click();
                         }, 4000);
                     }
@@ -130,7 +140,7 @@ jQuery(document).ready(function ($) {
         }
     });
 
-    function isEmail(email){
+    function isEmail(email) {
         var emailReg = /^([a-zA-Z0-9_.+-])+@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
         return emailReg.test(email);
     }

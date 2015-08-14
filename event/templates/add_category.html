@@ -8,9 +8,11 @@
                 <h3>افزودن دسته جدید</h3>
 
                 <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#add-category" aria-controls="add-category" role="tab"
+                    <li role="presentation" class="active"><a href="#add-category" aria-controls="add-category"
+                                                              role="tab"
                                                               data-toggle="tab">افزودن دسته</a></li>
-                    <li role="presentation"><a href="#add-sub-category" aria-controls="home" role="tab" data-toggle="tab">
+                    <li role="presentation"><a href="#add-sub-category" aria-controls="home" role="tab"
+                                               data-toggle="tab">
                         افزودن زیر دسته
                     </a></li>
                 </ul>
@@ -27,9 +29,10 @@
                                            type="text"
                                            placeholder="عنوان دسته">
                                 </p>
+
                                 <p class="fieldset">
                                     <input class="full-width" type="submit" value="افزودن دسته">
-{#                                    <i class="fa fa-plus"></i>#}
+                                    {#                                    <i class="fa fa-plus"></i>#}
                                 </p>
                             </form>
                         </div>
@@ -38,13 +41,14 @@
                         <div class="col col-md-12">
 
 
-                          <form class="cd-form" id="add-sub-category-form">{% csrf_token %}
+                            <form class="cd-form" id="add-sub-category-form">{% csrf_token %}
 
                                 <select name="event-type" id="event-type">
                                     {% for category in categories %}
                                         <option value="{{ category.id }}">{{ category.title }}</option>
                                     {% endfor %}
                                 </select>
+
                                 <p class="fieldset">
                                     <i class="fa fa-header"></i>
                                     <input class="full-width has-padding has-border" id="sub-category-title"
@@ -52,8 +56,9 @@
                                            type="text"
                                            placeholder="عنوان زیردسته">
                                 </p>
+
                                 <p class="fieldset">
-{#                                    <i class="fa fa-plus"></i>#}
+                                    {#                                    <i class="fa fa-plus"></i>#}
                                     <input class="full-width" type="submit" value="افزودن زیردسته">
                                 </p>
                             </form>

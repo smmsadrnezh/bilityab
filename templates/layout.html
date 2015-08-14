@@ -6,12 +6,18 @@
             <ul class="col col-md-6">
                 <li class="active"><a href="/"><i class="fa fa-home"></i>خانه</a></li>
                 <li><a href="/events"><i class="fa fa-list"></i>رویدادها</a></li>
-                {% if logged_in %}
+                {% if request.user.is_authenticated %}
                     <li><a href="/profile/1"><i class="fa fa-user"></i>حساب کاربری</a></li>
                     <li><a href="/ticket/{{ request.user.id }}"><i class="fa fa-ticket"></i>بلیط‌های من</a></li>
                     <li><a href="/categories"><i class="fa fa-th-list"></i>دسته ها</a></li>
                     <li><a href="/logout/?next={{ request.path }}"><i class="fa fa-sign-out"></i>خروج</a></li>
                 {% endif %}
+                {% if not request.user.is_authenticated %}
+                    <li><a href="/about"><i class="fa fa-info-circle"></i> دربارهٔ ما</a></li>
+                    <li><a href="/terms"><i class="fa fa-flag"></i> شرایط و ضوابط</a></li>
+                    <li><a href="/contact"><i class="fa fa-phone"></i> تماس با ما</a></li>
+                {% endif %}
+
             </ul>
             <div id="left-bar" class="col col-md-6">
                 <input type="text" id="autocomplete" name="search" placeholder="جستجوی رویداد ...">
@@ -25,11 +31,14 @@
     <div id="footer" class="col col-md-12"
          style="height: 6em; background-color: #080808 ;">
         <p class="footer-text" align="center" style="margin-bottom: 12px;">
-تمامی خدمات این وبگاه، حسب مورد دارای مجوزهای لازم از مراجع مربوطه می باشند و فعالیت های این وبگاه تابع قوانین و مقررات جمهوری اسلامی ایران است.
+            تمامی خدمات این وبگاه، حسب مورد دارای مجوزهای لازم از مراجع مربوطه می باشند و فعالیت های این وبگاه تابع
+            قوانین و مقررات جمهوری اسلامی ایران است.
         </p>
+
         <p class="footer-text" align="center">
             کلیه حقوق این وبگاه متعلق به شرکت رایان شریف می باشد.
         </p>
+
         <div align="center">
             <a href="/about" class="footer-link"><i class="fa fa-info-circle"></i> دربارهٔ ما</a>
             -
@@ -39,7 +48,7 @@
         </div>
 
     </div>
-    {% if not logged_in %}
+    {% if not request.user.is_authenticated %}
         <div id="login-register">
             <div id="for-login" style="background-color: #c9302c"><i class="fa fa-sign-in"></i>ورود</div>
             <div id="for-register" style="background-color: #555"><i class="fa fa-user-plus"></i>ثبت نام</div>
@@ -50,7 +59,10 @@
                     <li><a href="#0">ورود</a></li>
                     <li><a href="#0">ثبت نام</a></li>
                 </ul>
-                <div id="cd-login"> <!-- log in form -->
+                <div id="cd-login">
+                    <p class="cd-form-message" id="recovery-message" style="display: none;color: rgb(11, 68, 8);margin-bottom: 0; font-size: 0.8em">
+                        رمز عبور جدید به پست الکترونیکی شما ارسال شد.
+                    </p>
                     <form class="cd-form" id="signin-form" method="POST">{% csrf_token %}
                         <p class="fieldset">
                             <i class="fa fa-user"></i>
@@ -174,14 +186,15 @@
 
                 <div id="cd-reset-password"> <!-- reset password form -->
                     <p class="cd-form-message" style="margin-bottom: 0; font-size: 0.8em">
-                       برای دریافت رمز عبور جدید، پست الکترونیکی خود را وارد کنید.
+                        برای دریافت رمز عبور جدید، پست الکترونیکی خود را وارد کنید.
                     </p>
 
                     <form class="cd-form" id="recover-form" style="padding-top: 0">
                         {% csrf_token %}
                         <p class="fieldset">
                             <i class="fa fa-envelope"></i>
-                            <input class="full-width has-padding has-border" name="reset-email" id="reset-email" type="email"
+                            <input class="full-width has-padding has-border" name="reset-email" id="reset-email"
+                                   type="email"
                                    placeholder="پست الکترونیکی">
                             <span class="cd-error-message">پست الکترونیکی نامعتبر</span>
                         </p>

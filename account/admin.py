@@ -1,5 +1,5 @@
 from django.contrib import admin
-
+from .models import RecoveryRequests
 from event.models import Event, PositionPrice
 
 
@@ -14,5 +14,5 @@ class EventAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Event, EventAdmin)
-
+admin.site.register(RecoveryRequests)
 

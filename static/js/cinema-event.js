@@ -103,11 +103,11 @@ $(window).load(function () {
         var result = null;
         var help = $(this);
         var column = 0;
-        for(var i = 0 ; i < 100 ; i++){
+        for (var i = 0; i < 100; i++) {
             help = help.prev();
-            if(!help.hasClass('disabled-seat'))
+            if (!help.hasClass('disabled-seat'))
                 column++;
-            if(help.hasClass($class)) {
+            if (help.hasClass($class)) {
                 result = help;
                 break;
             }
@@ -117,28 +117,25 @@ $(window).load(function () {
 
     var music_page = false;
 
-    if(selected_show_time)
+    if (selected_show_time)
         music_page = true;
 
-    if(music_page)
+    if (music_page)
         set_sold_seats();
 
     function set_sold_seats() {
-        var tickets = bought_tickets.find('div[show-time-id="'+selected_show_time+'"][organizer-id="'+selected_organizer_id+'"]');
+        var tickets = bought_tickets.find('div[show-time-id="' + selected_show_time + '"][organizer-id="' + selected_organizer_id + '"]');
         var seats = tickets.text().split('/');
         var row, column, temp;
-        var map = $('.map[organizer-id="'+selected_organizer_id+'"]');
-        for( var i = 0 ; i < seats.length ; i++)
-        {
-            if(seats[i] != '')
-            {
+        var map = $('.map[organizer-id="' + selected_organizer_id + '"]');
+        for (var i = 0; i < seats.length; i++) {
+            if (seats[i] != '') {
                 row = seats[i].split(',')[0];
                 column = parseInt(seats[i].split(',')[1]);
-                temp = map.find('.seat-row.'+row);
-                for(var j = 1 ; j <= column ; )
-                {
+                temp = map.find('.seat-row.' + row);
+                for (var j = 1; j <= column;) {
                     temp = temp.next();
-                    if(!temp.hasClass('disabled-seat'))
+                    if (!temp.hasClass('disabled-seat'))
                         j++;
                 }
                 temp.removeClass('free-seat').addClass('sold-seat');
@@ -146,11 +143,13 @@ $(window).load(function () {
             }
         }
     }
-    function roll_back_changes(){
-        for(var i in roll_back_seats)
+
+    function roll_back_changes() {
+        for (var i in roll_back_seats)
             roll_back_seats[i].removeClass('sold-seat').addClass('free-seat');
         roll_back_seats = [];
     }
+
     $('.add-to-cart').on('click', function () {
         var seats = '', seat, quantity = 0;
         $(this).closest('.map').find('.selected-seat').each(function () {
@@ -158,10 +157,10 @@ $(window).load(function () {
             var row_column = $(this).find_prev_element('seat-row');
             var row = row_column[0].text();
             var column = row_column[1];
-            seats += "C"+row+','+column+'C';
+            seats += "C" + row + ',' + column + 'C';
         });
         var parent = $(this).parent();
-        parent.find('input[name="price"]').val(parseInt($(this).closest('.map').attr('price'))*quantity);
+        parent.find('input[name="price"]').val(parseInt($(this).closest('.map').attr('price')) * quantity);
         parent.find('input[name="show_time_id"]').val(selected_show_time);
         parent.find('input[name="quantity"]').val(quantity);
         parent.find('input[name="seats"]').val(seats);
@@ -174,22 +173,20 @@ $(window).load(function () {
         var cinemas_id = $(this).attr('organizer-id').split('-');
         organizer_ids = $(this).attr('organizer-id').split('-');
         show_time_ids = $(this).attr('show-time-id').split('-');
-        for(var i = 0 ; i < current_select.length ; i++)
-        {
-            if(i == current_select.length-1)
+        for (var i = 0; i < current_select.length; i++) {
+            if (i == current_select.length - 1)
                 current_select[i].fadeOut(function () {
                     current_select = [];
                     selected_cinemas = [];
                     var temp = null;
-                    for(var j = 0 ; j < cinemas_id.length ; j++)
-                    {
-                        temp = $('.cinema[cinema-id="'+cinemas_id[j]+'"');
+                    for (var j = 0; j < cinemas_id.length; j++) {
+                        temp = $('.cinema[cinema-id="' + cinemas_id[j] + '"');
                         current_select.push(temp);
                         selected_cinemas.push(temp);
                         temp.css({
                             opacity: 0,
                             display: 'inline-block'
-                        }).animate({opacity:1},600);
+                        }).animate({opacity: 1}, 600);
                     }
                 });
             else
@@ -202,25 +199,21 @@ $(window).load(function () {
         step3.addClass('active').next().addClass('active');
         current_step = step3;
         selected_organizer_id = $(this).attr('cinema-id');
-        for(var j = 0 ; j < current_select.length ; j++)
-        {
-            if(j == current_select.length - 1)
-            {
+        for (var j = 0; j < current_select.length; j++) {
+            if (j == current_select.length - 1) {
                 current_select[j].fadeOut(function () {
                     var temp = null;
                     current_select = [];
                     selected_show_times = [];
-                    for(var i = 0 ; i < organizer_ids.length ; i++)
-                    {
-                        if(organizer_ids[i] == selected_organizer_id)
-                        {
-                            temp = $('.show-time[time-id="'+show_time_ids[i]+'"');
+                    for (var i = 0; i < organizer_ids.length; i++) {
+                        if (organizer_ids[i] == selected_organizer_id) {
+                            temp = $('.show-time[time-id="' + show_time_ids[i] + '"');
                             selected_show_times.push(temp);
                             current_select.push(temp);
                             temp.css({
                                 opacity: 0,
                                 display: 'inline-block'
-                            }).animate({opacity:1},100);
+                            }).animate({opacity: 1}, 100);
                         }
                     }
                 });
@@ -235,13 +228,11 @@ $(window).load(function () {
         step4.addClass('active');
         current_step = step4;
         selected_show_time = $(this).attr('time-id');
-        for(var i = 0 ; i < current_select.length ; i++)
-        {
-            if(i == current_select.length - 1)
-            {
+        for (var i = 0; i < current_select.length; i++) {
+            if (i == current_select.length - 1) {
                 current_select[i].fadeOut(function () {
                     current_select = [];
-                    var temp = $('.map[organizer-id="'+selected_organizer_id+'"]');
+                    var temp = $('.map[organizer-id="' + selected_organizer_id + '"]');
                     set_sold_seats();
                     temp.fadeIn();
                     current_select.push(temp);
@@ -257,10 +248,8 @@ $(window).load(function () {
             return false;
         roll_back_changes();
         current_step = step1;
-        for(var i = 0 ; i < current_select.length; i++)
-        {
-            if(i == current_select.length-1)
-            {
+        for (var i = 0; i < current_select.length; i++) {
+            if (i == current_select.length - 1) {
                 current_select[i].fadeOut(function () {
                     current_select = [];
                     current_select.push(dates);
@@ -280,14 +269,11 @@ $(window).load(function () {
             return false;
         roll_back_changes();
         current_step = step2;
-        for(var i = 0 ; i < current_select.length ; i++)
-        {
-            if(i == current_select.length-1)
-            {
+        for (var i = 0; i < current_select.length; i++) {
+            if (i == current_select.length - 1) {
                 current_select[i].fadeOut(function () {
                     current_select = [];
-                    for(var j = 0 ; j < selected_cinemas.length ; j++)
-                    {
+                    for (var j = 0; j < selected_cinemas.length; j++) {
                         current_select.push(selected_cinemas[j]);
                         selected_cinemas[j].fadeIn();
                     }
@@ -305,14 +291,11 @@ $(window).load(function () {
             return false;
         roll_back_changes();
         current_step = step3;
-        for(var i = 0 ; i < current_select.length ; i++)
-        {
-            if(i == current_select.length-1)
-            {
+        for (var i = 0; i < current_select.length; i++) {
+            if (i == current_select.length - 1) {
                 current_select[i].fadeOut(function () {
                     current_select = [];
-                    for(var j = 0 ; j < selected_show_times.length ; j++)
-                    {
+                    for (var j = 0; j < selected_show_times.length; j++) {
                         current_select.push(selected_show_times[j]);
                         selected_show_times[j].fadeIn();
                     }
@@ -354,14 +337,14 @@ $(window).load(function () {
         var counter = 1;
         var price = $(this).attr('price');
         $(this).children().each(function () {
-        if ($(this).hasClass('free-seat')) {
-            $(this).attr('data-original-title', 'صندلی '+counter+'، '+price+' هزار تومان');
-            counter++;
-        }
-        else if ($(this).hasClass('sold-seat'))
-            counter++;
-        else if ($(this).hasClass('seat-row'))
-            counter = 1;
+            if ($(this).hasClass('free-seat')) {
+                $(this).attr('data-original-title', 'صندلی ' + counter + '، ' + price + ' هزار تومان');
+                counter++;
+            }
+            else if ($(this).hasClass('sold-seat'))
+                counter++;
+            else if ($(this).hasClass('seat-row'))
+                counter = 1;
         });
     });
 

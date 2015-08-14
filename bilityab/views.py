@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 from operator import itemgetter
+
 from django.db.models import Sum
 from django.shortcuts import render
+
 from event.models import Event, Categories, Showtime, PositionPrice
 
 
@@ -74,8 +76,12 @@ def get_best_seller_events():
     return result[:3]
 
 
-def home(request):
+def home(request, *args):
+    going_recovery = 0
+    if args:
+        going_recovery = args[0]
     return render(request, 'home.html', {
+        'going_recovery': going_recovery,
         'bestEvents': make_event_type_list1(Event.objects.annotate(rate=Sum('rates')).order_by('-rates')[:3]),
         'nearestEvents': make_event_type_list1(get_show_times_events(Showtime.objects.all().order_by('date')[:3])),
         'newestEvents': make_event_type_list1(Event.objects.all().order_by('-created_at')[:3]),
@@ -92,15 +98,12 @@ def home(request):
         'traditionalMusic': make_event_type_list1(Event.objects.filter(category__title='سنتی')),
         'popMusic': make_event_type_list1(Event.objects.filter(category__title='پاپ')),
         'bestSellerEvents': make_event_type_list1(get_best_seller_events()),
-        'logged_in': request.user.is_authenticated()
-
     })
 
 
 def terms(request):
     return render(request, 'terms.html', {
         'pageTitle': " - شرایط و ضوابط",
-        'logged_in': request.user.is_authenticated()
 
     })
 
@@ -108,7 +111,6 @@ def terms(request):
 def about(request):
     return render(request, 'about.html', {
         'pageTitle': " - درباره",
-        'logged_in': request.user.is_authenticated()
 
     })
 
@@ -116,6 +118,4 @@ def about(request):
 def contact(request):
     return render(request, 'contact-us.html', {
         'pageTitle': " - تماس با ما",
-        'logged_in': request.user.is_authenticated()
-
     })
