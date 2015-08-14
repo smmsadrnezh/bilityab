@@ -120,23 +120,23 @@ def set_disable_schedule(user):
 
 def reset_password(request, random_num):
     try:
-        # recovery_request = RecoveryRequests.objects.get(random_num=random_num)
-        # user = recovery_request.user
-        # new_password = random_generator(16)
-        # user.set_password(new_password)
-        # user.save()
-        # t = loader.get_template('new-password.html')
-        # c = Context({
-        #     'user': user,
-        #     'new_password': new_password
-        # })
-        # try:
-        #     send_mail(subject='رمز عبور جدید', message='', recipient_list=[user.email],
-        #               from_email='bilityab@sadrnezhaad.ir', fail_silently=False, html_message=t.render(c))
-        #     RecoveryRequests.objects.create(user=user, random_num=random_num)
-        # except SMTPException:
-        #     pass
-        # recovery_request.delete()
+        recovery_request = RecoveryRequests.objects.get(random_num=random_num)
+        user = recovery_request.user
+        new_password = random_generator(16)
+        user.set_password(new_password)
+        user.save()
+        t = loader.get_template('new-password.html')
+        c = Context({
+            'user': user,
+            'new_password': new_password
+        })
+        try:
+            send_mail(subject='رمز عبور جدید', message='', recipient_list=[user.email],
+                      from_email='bilityab@sadrnezhaad.ir', fail_silently=False, html_message=t.render(c))
+            RecoveryRequests.objects.create(user=user, random_num=random_num)
+        except SMTPException:
+            pass
+        recovery_request.delete()
         return home(request, 1)
     except RecoveryRequests.DoesNotExist:
         return HttpResponseRedirect('/')
