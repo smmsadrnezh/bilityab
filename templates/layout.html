@@ -12,6 +12,12 @@
                     <li><a href="/categories"><i class="fa fa-th-list"></i>دسته ها</a></li>
                     <li><a href="/logout/?next={{ request.path }}"><i class="fa fa-sign-out"></i>خروج</a></li>
                 {% endif %}
+                {% if not request.user.is_authenticated %}
+                    <li><a href="/about"><i class="fa fa-info-circle"></i> دربارهٔ ما</a></li>
+                    <li><a href="/terms"><i class="fa fa-flag"></i> شرایط و ضوابط</a></li>
+                    <li><a href="/contact"><i class="fa fa-phone"></i> تماس با ما</a></li>
+                {% endif %}
+
             </ul>
             <div id="left-bar" class="col col-md-6">
                 <input type="text" id="autocomplete" name="search" placeholder="جستجوی رویداد ...">
