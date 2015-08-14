@@ -172,7 +172,7 @@
         $(this).children().each(function () {
             if ($(this).hasClass('free-seat')) {
                 price = parseInt($(this).parent().attr('price'));
-                $(this).attr('data-original-title', 'شماره '+counter+'  ،  '+parseInt($(this).parent().attr('price'))+' تومان');
+                $(this).attr('data-original-title', 'شماره ' + counter + '  ،  ' + parseInt($(this).parent().attr('price')) + ' تومان');
                 counter++;
             }
             else if ($(this).hasClass('sold-seat'))
@@ -243,14 +243,14 @@
         });
     });
 
-    function getCookie(name){
-        var cooki=null;
-        if(document.cookie && String(document.cookie)!=""){
+    function getCookie(name) {
+        var cooki = null;
+        if (document.cookie && String(document.cookie) != "") {
             var cookies = document.cookie.split(';');
-            for(var i=0;i<cookies.length;i++){
+            for (var i = 0; i < cookies.length; i++) {
                 var temp = cookies[i].trim();
-                if(temp.substring(0,name.length+1) == (name + '=')){
-                    cooki = decodeURIComponent(temp.substring(name.length +1));
+                if (temp.substring(0, name.length + 1) == (name + '=')) {
+                    cooki = decodeURIComponent(temp.substring(name.length + 1));
                     break;
                 }
             }
@@ -260,13 +260,13 @@
 
     /* Ajax-Code */
 
-    function send_ajax_request($url, $params, $callback){
+    function send_ajax_request($url, $params, $callback) {
         var request = new XMLHttpRequest();
         request.open('POST', $url, true);
         request.setRequestHeader('X-CSRFToken', getCookie('csrftoken'));
         request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
         request.onreadystatechange = function () {
-            if(request.readyState == 4 && request.status == 200){
+            if (request.readyState == 4 && request.status == 200) {
                 $callback(request.responseText);
             }
         };
@@ -312,11 +312,11 @@
         var result = null;
         var help = $(this);
         var column = 0;
-        for(var i = 0 ; i < 100 ; i++){
+        for (var i = 0; i < 100; i++) {
             help = help.prev();
-            if(!help.hasClass('disabled-seat'))
+            if (!help.hasClass('disabled-seat'))
                 column++;
-            if(help.hasClass($class)) {
+            if (help.hasClass($class)) {
                 result = help;
                 break;
             }
@@ -332,10 +332,10 @@
             var row_column = $(this).find_prev_element('seat-row');
             var row = row_column[0].text();
             var column = row_column[1];
-            var seat = "A"+section+','+row+','+column+'A';
+            var seat = "A" + section + ',' + row + ',' + column + 'A';
             seats += seat;
         });
-        $('#price').val(price*quantity);
+        $('#price').val(price * quantity);
         $('#show_time_id').val($('#ticket').attr('show_time'));
         $('#quantity').val(quantity);
         $('#seats').val(seats);

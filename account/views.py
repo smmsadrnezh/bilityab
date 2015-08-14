@@ -1,12 +1,12 @@
 from datetime import datetime
+
 from django.contrib import auth
-from smtplib import SMTPException
 from django.shortcuts import render
-from account.models import CustomUser
 from django.core.mail import send_mail
-from django.template import loader, Context
-from .check_registration import CheckRegistration
 from django.http import HttpResponseForbidden, HttpResponse, HttpResponseRedirect
+
+from account.models import CustomUser
+from .check_registration import CheckRegistration
 
 
 def login(request):
@@ -59,7 +59,6 @@ def register(request):
 def profile_edit(request, user_id):
     if request.user.is_authenticated():
         return render(request, 'profile.html', {
-            'logged_in': request.user.is_authenticated()
         })
     else:
         return HttpResponseRedirect('/')
@@ -68,7 +67,6 @@ def profile_edit(request, user_id):
 def charge(request, user_id):
     if request.user.is_authenticated():
         return render(request, 'charge.html', {
-            'logged_in': request.user.is_authenticated()
 
         })
     else:
@@ -79,21 +77,14 @@ def recover(request):
     if request.method == 'POST':
         email = request.POST.get('reset-email', None)
         if email:
-            try:
-                user = CustomUser.objects.get(email=email)
-                t = loader.get_template('reset-password.html')
-                c = Context({
-                    'user': user,
-                })
-                try:
-                    print('sending...')
-                    send_mail(subject='درخواست تغییر رمز عبور', message='Here is the message.', recipient_list=[email],
-                              fail_silently=False, html_message=t.render(c))
-                    print('sent!')
-                except SMTPException:
-                    pass
-            except CustomUser.DoesNotExist:
-                pass
+            user = CustomUser.objects.get(email=email)
+            print(user)
+            html_message = '<p>Hello dear user, ' + user.first_name
+            print('sending...')
+            send_mail(subject='درخواست تغییر رمز عبور', message='Here is the message.',
+                      from_email='bilityab@sadrnezhaad.ir', recipient_list=[email], fail_silently=False,
+                      html_message=html_message)
+            print('sent!')
             return HttpResponse(1)
     else:
         return HttpResponseForbidden('post required')

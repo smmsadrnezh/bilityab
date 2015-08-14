@@ -28,9 +28,9 @@
                     </p>
 
                     <p class="fieldset" style="padding-top: 5px; padding-right: 5px;">
-                        <i class="fa fa-th-list" ></i>
-                        <select id="event-type" name="event-type" onchange="handle()" style="padding-right: 50px;" >
-                            <option selected="selected" value="انتخاب گروه"  >انتخاب گروه</option>
+                        <i class="fa fa-th-list"></i>
+                        <select id="event-type" name="event-type" onchange="handle()" style="padding-right: 50px;">
+                            <option selected="selected" value="انتخاب گروه">انتخاب گروه</option>
                             {% for category in categories %}
                                 <option value="{{ category.id }}">{{ category.title }}</option>
                             {% endfor %}
@@ -46,14 +46,14 @@
                         <span class="cd-error-message">محل برگزاری نامعتبر</span>
                     </p>
 
-{#                    <p class="fieldset">#}
-{#                        <i class="fa fa-slack"></i>#}
-{#                        <input class="full-width has-padding has-border" id="event-capacity"#}
-{#                               name="event-capacity"#}
-{#                               type="text"#}
-{#                               placeholder="ظرفیت">#}
-{#                        <span class="cd-error-message">ظرفیت نامعتبر</span>#}
-{#                    </p>#}
+                    {#                    <p class="fieldset">#}
+                    {#                        <i class="fa fa-slack"></i>#}
+                    {#                        <input class="full-width has-padding has-border" id="event-capacity"#}
+                    {#                               name="event-capacity"#}
+                    {#                               type="text"#}
+                    {#                               placeholder="ظرفیت">#}
+                    {#                        <span class="cd-error-message">ظرفیت نامعتبر</span>#}
+                    {#                    </p>#}
 
                     <p class="fieldset">
                         <i class="fa fa-file-image-o"></i>
@@ -61,6 +61,7 @@
                                name="event-photo"
                                type="file">
                     </p>
+
                     <div id="sport-extra-data" style="display: none;">
                         <h3>اطلاعات بیشتر رویداد ورزشی</h3>
 
@@ -84,6 +85,7 @@
                     </div>
                     <div id="cinema-extra-data" style="display: none;">
                         <h3>اطلاعات بیشتر رویداد سینمایی</h3>
+
                         <p class="fieldset">
                             <i class="fa fa-film"></i>
                             <input class="full-width has-padding has-border" id="event-director"
@@ -121,36 +123,36 @@
                         </p>
                     </div>
 
-                <div id="music-extra-data" style="display: none;">
-                    <h3>اطلاعات بیشتر رویداد موسیقی</h3>
+                    <div id="music-extra-data" style="display: none;">
+                        <h3>اطلاعات بیشتر رویداد موسیقی</h3>
 
-                    <p class="fieldset">
-                        <i class="fa fa-group"></i>
-                        <input class="full-width has-padding has-border" id="event-music-group"
-                               name="event-music-group"
-                               type="text"
-                               placeholder="نام گروه">
-                        <span class="cd-error-message">نام گروه نامعتبر است</span>
-                    </p>
+                        <p class="fieldset">
+                            <i class="fa fa-group"></i>
+                            <input class="full-width has-padding has-border" id="event-music-group"
+                                   name="event-music-group"
+                                   type="text"
+                                   placeholder="نام گروه">
+                            <span class="cd-error-message">نام گروه نامعتبر است</span>
+                        </p>
 
-                    <p class="fieldset">
-                        <i class="fa fa-microphone"></i>
-                        <input class="full-width has-padding has-border" id="event-vocalist"
-                               name="event-vocalist"
-                               type="text"
-                               placeholder="نام خواننده">
-                        <span class="cd-error-message">نام خواننده نامعتبر است</span>
-                    </p>
+                        <p class="fieldset">
+                            <i class="fa fa-microphone"></i>
+                            <input class="full-width has-padding has-border" id="event-vocalist"
+                                   name="event-vocalist"
+                                   type="text"
+                                   placeholder="نام خواننده">
+                            <span class="cd-error-message">نام خواننده نامعتبر است</span>
+                        </p>
 
-                    <p class="fieldset">
-                        <i class="fa fa-music"></i>
-                        <input class="full-width has-padding has-border" id="event-musicians"
-                               name="event-musicians"
-                               type="text"
-                               placeholder="نام نوازنده‌ها">
-                        <span class="cd-error-message">نام نوازندگان نامعتبر است</span>
-                    </p>
-                </div>
+                        <p class="fieldset">
+                            <i class="fa fa-music"></i>
+                            <input class="full-width has-padding has-border" id="event-musicians"
+                                   name="event-musicians"
+                                   type="text"
+                                   placeholder="نام نوازنده‌ها">
+                            <span class="cd-error-message">نام نوازندگان نامعتبر است</span>
+                        </p>
+                    </div>
 
                     <p class="fieldset">
                         <i class="fa fa-plus"></i>

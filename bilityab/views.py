@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 from operator import itemgetter
+
 from django.db.models import Sum
 from django.shortcuts import render
+
 from event.models import Event, Categories, Showtime, PositionPrice
 
 
@@ -92,7 +94,6 @@ def home(request):
         'traditionalMusic': make_event_type_list1(Event.objects.filter(category__title='سنتی')),
         'popMusic': make_event_type_list1(Event.objects.filter(category__title='پاپ')),
         'bestSellerEvents': make_event_type_list1(get_best_seller_events()),
-        'logged_in': request.user.is_authenticated()
 
     })
 
@@ -100,7 +101,6 @@ def home(request):
 def terms(request):
     return render(request, 'terms.html', {
         'pageTitle': " - شرایط و ضوابط",
-        'logged_in': request.user.is_authenticated()
 
     })
 
@@ -108,7 +108,6 @@ def terms(request):
 def about(request):
     return render(request, 'about.html', {
         'pageTitle': " - درباره",
-        'logged_in': request.user.is_authenticated()
 
     })
 
@@ -116,6 +115,4 @@ def about(request):
 def contact(request):
     return render(request, 'contact-us.html', {
         'pageTitle': " - تماس با ما",
-        'logged_in': request.user.is_authenticated()
-
     })

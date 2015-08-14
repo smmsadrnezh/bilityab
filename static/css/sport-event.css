@@ -52,7 +52,6 @@ body > .holder > div.col {
 
 }
 
-
 #ticket-info .image {
     transition: all 0.5s;
     box-shadow: 2px 11px 13px -4px #BAB9B9;
@@ -305,7 +304,6 @@ body > .holder > div.col {
     border-bottom: 1px solid;
     margin: 25px 0 15px 0;
 }
-
 
 .org-image {
     height: 60px;
