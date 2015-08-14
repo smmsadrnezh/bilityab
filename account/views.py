@@ -4,6 +4,7 @@ import threading
 from datetime import datetime
 from datetime import timedelta
 from django.contrib import auth
+from bilityab.views import home
 from smtplib import SMTPException
 from django.shortcuts import render
 from django.core.mail import send_mail
@@ -97,7 +98,7 @@ def recover(request):
                     'random_num': random_num
                 })
                 try:
-                    send_mail(subject='درخواست تغییر رمز عبور', message='Here is the message.', recipient_list=[email],
+                    send_mail(subject='درخواست تغییر رمز عبور', message='', recipient_list=[email],
                               from_email='bilityab@sadrnezhaad.ir', fail_silently=False, html_message=t.render(c))
                     RecoveryRequests.objects.create(user=user, random_num=random_num)
                     set_disable_schedule(user)
@@ -118,7 +119,27 @@ def set_disable_schedule(user):
 
 
 def reset_password(request, random_num):
-    return HttpResponse(1)
+    try:
+        # recovery_request = RecoveryRequests.objects.get(random_num=random_num)
+        # user = recovery_request.user
+        # new_password = random_generator(16)
+        # user.set_password(new_password)
+        # user.save()
+        # t = loader.get_template('new-password.html')
+        # c = Context({
+        #     'user': user,
+        #     'new_password': new_password
+        # })
+        # try:
+        #     send_mail(subject='رمز عبور جدید', message='', recipient_list=[user.email],
+        #               from_email='bilityab@sadrnezhaad.ir', fail_silently=False, html_message=t.render(c))
+        #     RecoveryRequests.objects.create(user=user, random_num=random_num)
+        # except SMTPException:
+        #     pass
+        # recovery_request.delete()
+        return home(request, 1)
+    except RecoveryRequests.DoesNotExist:
+        return HttpResponseRedirect('/')
 
 
 def disable_reset_password(user):

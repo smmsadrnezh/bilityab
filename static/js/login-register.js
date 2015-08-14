@@ -10,6 +10,18 @@ jQuery(document).ready(function ($) {
         $back_to_login_link = $form_forgot_password.find('.cd-form-bottom-message a'),
         $main_nav = $('#login-register');
 
+    if(parseInt($('#body-container').attr('going_recovery')))
+    {
+        $main_nav.children('ul').removeClass('is-visible');
+        $form_modal.addClass('is-visible');
+        login_selected();
+        setTimeout(function () {
+            $('#recovery-message').slideUp(function () {
+                $(this).css('display', 'none');
+            });
+        }, 3000);
+    }
+
     //open modal
     $main_nav.on('click', function (event) {
 
