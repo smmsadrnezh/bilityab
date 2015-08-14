@@ -119,17 +119,21 @@ jQuery(document).ready(function ($) {
         }
         else {
             var spinner = $('#recover-message-spinner');
-
+            var message = $form_forgot_password.find('.cd-form-message');
+            message.slideUp(function () {
+                spinner.fadeIn();
+            });
             $.ajax({
                 type: "POST",
                 url: "/recover/",
                 data: $("#recover-form").serialize(),
                 success: function (data) {
                     if (parseInt(data)) {
-                        var message = $form_forgot_password.find('.cd-form-message');
                         var old_message = message.text();
-                        message.fadeOut(function () {
-                            message.css('color', '#147D0E').text('لینک دریافت رمز عبور جدید به ایمیل شما ارسال شد.').fadeIn();
+                        spinner.fadeOut(function () {
+                            message.fadeOut(function () {
+                                message.css('color', '#147D0E').text('لینک دریافت رمز عبور جدید به ایمیل شما ارسال شد.').fadeIn();
+                            });
                         });
                         setTimeout(function () {
                             message.css('color', '#000').text(old_message);
