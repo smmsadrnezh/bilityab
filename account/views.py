@@ -74,3 +74,7 @@ def charge(request, user_id):
         })
     else:
         return HttpResponseRedirect('/')
+
+
+def recover(request):
+    return None

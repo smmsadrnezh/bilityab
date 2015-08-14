@@ -107,6 +107,23 @@ jQuery(document).ready(function ($) {
         }
         else
         {
+            $.ajax({
+            type: "POST",
+            url: "/login/",
+            data: $("#signin-form").serialize(),
+            success: function (data) {
+                if (parseInt(data)) {
+                    window.location.replace(window.location.pathname);
+                } else {
+                    $form_login.find('input[type="text"]').toggleClass('has-error').next('span').toggleClass('is-visible');
+                    $form_login.find('input[type="password"]').toggleClass('has-error').next('a').next('span').toggleClass('is-visible');
+                    setTimeout(function () {
+                        hide_error($form_login.find('input[type="text"]'));
+                        hide_error($form_login.find('input[type="password"]'));
+                    }, 3000);
+                }
+            }
+        });
             var message = $form_forgot_password.find('.cd-form-message');
             var old_message = message.text();
             message.fadeOut(function () {
@@ -125,7 +142,6 @@ jQuery(document).ready(function ($) {
         return emailReg.test(email);
     }
 
-    ////REMOVE THIS - it's just to show error messages
     $form_login.find('input[type="submit"]').on('click', function (event) {
         event.preventDefault();
         $.ajax({
