@@ -81,7 +81,9 @@
                     <div class="col col-md-12" id="selects">
                         <div id="dates">
                             {% for show_date in show_dates %}
-                                <div class="show-time-date" show-time-id="{{ show_date.id }}" organizer-id="{{ show_date.org_id }}">{% with show_date.date as date %}{% include 'persian-date.html' %}{% endwith %}</div>
+                                <div class="show-time-date" show-time-id="{{ show_date.id }}"
+                                     organizer-id="{{ show_date.org_id }}">{% with show_date.date as date %}
+                                    {% include 'persian-date.html' %}{% endwith %}</div>
                             {% endfor %}
                         </div>
                         <div id="cinemas" class="row list-group">
@@ -104,7 +106,7 @@
                                     <span>
                                         {{ show_time.from_time }}
                                     </span>
-                                     الی
+                                    الی
                                     <span>
                                         {{ show_time.to_time }}
                                     </span>
@@ -114,11 +116,16 @@
                         <div class="col col-md-12" id="plans">
                             <div style="display: none" id="bought-tickets">
                                 {% for show_time in event.show_times.all %}
-                                    <div show-time-id="{{ show_time.id }}" organizer-id="{{ show_time.organizer.id }}">{% for ticket in show_time.tickets.all %}{% for position in ticket.positions.all %}/{{ position.row }},{{ position.column }}/{% endfor %}{% endfor %}</div>
+                                    <div show-time-id="{{ show_time.id }}" organizer-id="{{ show_time.organizer.id }}">
+                                        {% for ticket in show_time.tickets.all %}
+                                            {% for position in ticket.positions.all %}/{{ position.row }},
+                                                {{ position.column }}/{% endfor %}{% endfor %}</div>
                                 {% endfor %}
                             </div>
                             {% for organizer in event.event_organizers.all %}
-                                <div class="map" price="{% for position_price in event.position_prices.all %}{% if position_price.organizer.id == organizer.id %}{{ position_price.price }}{% endif %}{% endfor %}" organizer-id="{{ organizer.id }}">
+                                <div class="map" price="
+                                        {% for position_price in event.position_prices.all %}{% if position_price.organizer.id == organizer.id %}{{ position_price.price }}{% endif %}{% endfor %}"
+                                     organizer-id="{{ organizer.id }}">
                                     {% with template_name=organizer.id|stringformat:"s"|add:".html" %}
                                         {% include ''|add:template_name %}
                                     {% endwith %}

@@ -20,15 +20,15 @@
                         {% endif %}
                         <img class="event-image" src='{{ MEDIA_URL }}{{ event.landscape }}'>
                         <div class="event-info">
-                        <a href="/events/{{ type }}/{{ event.id }}/" >
-                            {{ event.title }}
-                        </a>
+                            <a href="/events/{{ type }}/{{ event.id }}/">
+                                {{ event.title }}
+                            </a>
                         </div>
                         <div class="event-info">
                             <a href="/organizer/{{ organizer.id }}">{{ organizer.title }}</a>
                         </div>
                         <div class="event-info">
-                             {% with date.date as date %}{% include 'persian-date.html' %}{% endwith %}
+                            {% with date.date as date %}{% include 'persian-date.html' %}{% endwith %}
                         </div>
 
 
@@ -51,7 +51,8 @@
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">انصراف
                                         </button>
-                                        <a type="button" class="btn btn-danger" href="/events/delete/{{ event.id }}">حذف</a>
+                                        <a type="button" class="btn btn-danger"
+                                           href="/events/delete/{{ event.id }}">حذف</a>
                                     </div>
                                 </div>
                             </div>

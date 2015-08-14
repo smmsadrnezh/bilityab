@@ -29,7 +29,7 @@
 
                     <p class="fieldset">
                         <i class="fa fa-th-list"></i>
-                        <select name="event-type" >
+                        <select name="event-type">
                             {% for category in categories %}
                                 {% if event.category == category %}
                                     <option value="{{ category.id }}" selected="selected">{{ category.title }}</option>
@@ -49,14 +49,14 @@
                         <span class="cd-error-message">محل برگزاری نامعتبر</span>
                     </p>
 
-{#                    <p class="fieldset">#}
-{#                        <i class="fa fa-slack"></i>#}
-{#                        <input class="full-width has-padding has-border" id="event-capacity"#}
-{#                               name="event-capacity"#}
-{#                               type="text"#}
-{#                               value="{{ event.capacity }}">#}
-{#                        <span class="cd-error-message">ظرفیت نامعتبر</span>#}
-{#                    </p>#}
+                    {#                    <p class="fieldset">#}
+                    {#                        <i class="fa fa-slack"></i>#}
+                    {#                        <input class="full-width has-padding has-border" id="event-capacity"#}
+                    {#                               name="event-capacity"#}
+                    {#                               type="text"#}
+                    {#                               value="{{ event.capacity }}">#}
+                    {#                        <span class="cd-error-message">ظرفیت نامعتبر</span>#}
+                    {#                    </p>#}
 
                     <p class="fieldset">
                         <i class="fa fa-file-image-o"></i>

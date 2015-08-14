@@ -2,18 +2,18 @@
 import os
 import datetime
 from operator import itemgetter
+
 from django.shortcuts import render
 from django.http import Http404, HttpResponseRedirect, HttpResponse, HttpResponseForbidden
-from bilityab.views import make_event_type_list1, make_event_type_list, get_type
+
+from bilityab.views import make_event_type_list1, get_type
 from event.models import Categories, Sport, Movie, Concert, EventRating, EventOrganizer
 from ticket.models import *
 
 
 def events(request):
     return render(request, 'all-events.html', {
-        'logged_in': request.user.is_authenticated(),
         'event_type_list': make_event_type_list1(Event.objects.all())
-
     })
 
 
@@ -64,7 +64,6 @@ def add_event(request):
         else:
             # add new event template for organizer
             return render(request, 'add-event.html', {
-                'logged_in': request.user.is_authenticated(),
                 'categories': Categories.objects.all().exclude(parent_id=0)
             })
     else:
@@ -81,13 +80,13 @@ def edit_event(request, event_id):
         if request.is_ajax():
             # insert event and it's additional information to database
             # if (request.POST.get('event-title', '') != "" and request.POST.get('event-description',
-            #                                                                    '') != "" and request.POST.get(
-            #         'event-type', '') != "" and request.POST.get('event-capacity', '') != "" and request.POST.get(
+            # '') != "" and request.POST.get(
+            # 'event-type', '') != "" and request.POST.get('event-capacity', '') != "" and request.POST.get(
             #         'event-address', '') != ""):
             cat_id = int(request.POST.get('event-type', ''))
             category = Categories.objects.get(pk=cat_id)
 
-            event = Event.objects.get(id = event_id)
+            event = Event.objects.get(id=event_id)
             event.title = request.POST.get('event-title', '')
             event.description = request.POST.get('event-description', '')
             event.category = category
@@ -106,8 +105,8 @@ def edit_event(request, event_id):
 
                 return HttpResponse(1)
             elif request.POST.get('event-director', '') != "" and request.POST.get('event-actors',
-                                                                                        '') != "" and request.POST.get(
-                        'event-year', '') != "" and request.POST.get('event-story-summary', '') != "":
+                                                                                   '') != "" and request.POST.get(
+                    'event-year', '') != "" and request.POST.get('event-story-summary', '') != "":
                 movie_event = Movie.objects.get(event_id=event_id)
                 movie_event.director = request.POST.get('event-director', '')
                 movie_event.actors = request.POST.get('event-actors', '')
@@ -115,7 +114,9 @@ def edit_event(request, event_id):
                 movie_event.story_summary = request.POST.get('event-story-summary', '')
                 movie_event.save()
                 return HttpResponse(1)
-            elif request.POST.get('event-vocalist', '') != "" and request.POST.get('event-musicians', '') != "" and request.POST.get('event-music-group', '') != "":
+            elif request.POST.get('event-vocalist', '') != "" and request.POST.get('event-musicians',
+                                                                                   '') != "" and request.POST.get(
+                    'event-music-group', '') != "":
                 concert_event = Concert.objects.get(event_id=event.id)
                 concert_event.group_name = request.POST.get('event-music-group', ''),
                 concert_event.vocalist = request.POST.get('event-vocalist', ''),
@@ -131,7 +132,6 @@ def edit_event(request, event_id):
             event_type = get_type(Event.objects.get(id=event_id).id)
             if event_type == "music":
                 return render(request, 'edit-event.html', {
-                    'logged_in': request.user.is_authenticated(),
                     'categories': Categories.objects.all(),
                     'event': Event.objects.get(id=event_id),
                     'type': event_type,
@@ -139,7 +139,6 @@ def edit_event(request, event_id):
                 })
             elif event_type == "cinema":
                 return render(request, 'edit-event.html', {
-                    'logged_in': request.user.is_authenticated(),
                     'categories': Categories.objects.all(),
                     'event': Event.objects.get(id=event_id),
                     'type': event_type,
@@ -147,7 +146,6 @@ def edit_event(request, event_id):
                 })
             elif event_type == "sport":
                 return render(request, 'edit-event.html', {
-                    'logged_in': request.user.is_authenticated(),
                     'categories': Categories.objects.all(),
                     'event': Event.objects.get(id=event_id),
                     'type': event_type,
@@ -155,7 +153,6 @@ def edit_event(request, event_id):
                 })
             else:
                 return render(request, 'edit-event.html', {
-                    'logged_in': request.user.is_authenticated(),
                     'categories': Categories.objects.all(),
                     'event': Event.objects.get(id=event_id),
                     'type': event_type,
@@ -166,28 +163,24 @@ def edit_event(request, event_id):
 
 def all_sport(request):
     return render(request, 'all-events.html', {
-        'logged_in': request.user.is_authenticated()
 
     })
 
 
 def all_music(request, event_id):
     return render(request, 'all-events.html', {
-        'logged_in': request.user.is_authenticated()
 
     })
 
 
 def all_cinema(request, event_id):
     return render(request, 'all-events.html', {
-        'logged_in': request.user.is_authenticated()
 
     })
 
 
 def all_tourism(request, event_id):
     return render(request, 'all-events.html', {
-        'logged_in': request.user.is_authenticated()
 
     })
 
@@ -203,7 +196,6 @@ def sport(request, event_id):
         'event': event,
         'show_time': show_time,
         'remaining_time': int((event_date_time - datetime.datetime.now()).total_seconds() * 1000),
-        'logged_in': request.user.is_authenticated(),
         'organizer': event.event_organizers.all()[0],
         'price': event.position_prices.all()[0],
         'user': request.user
@@ -225,7 +217,6 @@ def tourism(request, event_id):
             rates_average = rates_sum / num_of_votes
         event_organizer = event.event_organizers.all()[0]
         return render(request, 'tourism.html', {
-            'logged_in': request.user.is_authenticated(),
             'event': event,
             'organizer': event_organizer,
             'show_time': event.show_times.all()[0],
@@ -260,11 +251,10 @@ def cinema(request, event_id):
                     j['id'] += '-' + str(i.id)
                     added = True
             if not added:
-                show_dates.append({'date': i.date, 'org_id': ''+str(i.organizer.id), 'id': ''+str(i.id)})
+                show_dates.append({'date': i.date, 'org_id': '' + str(i.organizer.id), 'id': '' + str(i.id)})
     except Event.DoesNotExist:
         raise Http404('cinema event does not exist!')
     return render(request, 'cinema.html', {
-        'logged_in': request.user.is_authenticated(),
         'event': event,
         'num_of_votes': num_of_votes,
         'rates_average_percent': rates_average * 20,
@@ -289,7 +279,6 @@ def music(request, event_id):
             rates_average = rates_sum / num_of_votes
         event_organizer = event.event_organizers.all()[0]
         return render(request, 'music.html', {
-            'logged_in': request.user.is_authenticated(),
             'event': event,
             'organizer': event_organizer,
             'show_time': event.show_times.all()[0],
@@ -304,7 +293,6 @@ def music(request, event_id):
 
 def all_organizer(request):
     return render(request, 'all-organizer.html', {
-        'logged_in': request.user.is_authenticated()
 
     })
 
@@ -313,13 +301,11 @@ def organizer(request, organizer_id):
     return render(request, 'organizer.html', {
         'organizer': EventOrganizer.objects.get(id=organizer_id),
         'organizer_events': make_event_type_list1(Event.objects.filter(event_organizers__id=organizer_id)),
-        'logged_in': request.user.is_authenticated()
     })
 
 
 def report(request):
-    return render(request, 'report.html', {'logged_in': request.user.is_authenticated()
-    })
+    return render(request, 'report.html', {})
 
 
 def rate_event(request):
@@ -386,7 +372,7 @@ def buy_seats(request):
                     row = int(info[0])
                     column = int(info[1])
                     TicketPosition.objects.create(ticket=ticket, row=row, column=column)
-        return HttpResponseRedirect('/ticket/'+str(request.user.id)+'/'+str(ticket.id)+'/')
+        return HttpResponseRedirect('/ticket/' + str(request.user.id) + '/' + str(ticket.id) + '/')
     else:
         return HttpResponseForbidden('post required')
 
@@ -405,7 +391,7 @@ class Stack:
         return self.items.pop()
 
     def peek(self):
-        return self.items[len(self.items)-1]
+        return self.items[len(self.items) - 1]
 
     def size(self):
         return len(self.items)
@@ -429,7 +415,7 @@ def register_seats(map_id, seats, ticket):
             columns.append(column)
             TicketPosition.objects.create(ticket=ticket, section=section, row=row, column=column)
             seats_num += 1
-    with open(os.path.join(base_dir, "static/maps/templates/"+str(map_id)+'.html'), "r+") as sample:
+    with open(os.path.join(base_dir, "static/maps/templates/" + str(map_id) + '.html'), "r+") as sample:
         data = sample.readlines()
         sample.seek(0)
         sample.truncate()
@@ -446,9 +432,9 @@ def register_seats(map_id, seats, ticket):
                 print(target_column)
             if 'class="clear"' in line:
                 target_row_detected = False
-            if target_row and '>'+str(target_row)+'<' in line:
+            if target_row and '>' + str(target_row) + '<' in line:
                 target_row_detected = True
-            if target_column and target_row_detected and 'col="'+str(target_column)+'"' in line:
+            if target_column and target_row_detected and 'col="' + str(target_column) + '"' in line:
                 target_column_detected = True
             if target_row_detected and target_column_detected:
                 target_column_detected = False
@@ -457,8 +443,8 @@ def register_seats(map_id, seats, ticket):
                 line = line.replace('free-seat', 'sold-seat')
             elif 'class="section"' in line:
                 first = line.index('id="')
-                second = line.index('"', first+5)
-                section_id = int(line[first+4:second])
+                second = line.index('"', first + 5)
+                section_id = int(line[first + 4:second])
                 temp_rows_columns = []
                 for i in range(0, len(sections)):
                     if sections[i] == section_id:
@@ -471,7 +457,6 @@ def register_seats(map_id, seats, ticket):
 
 def categories(request):
     return render(request, 'all_categories.html', {
-        'logged_in': request.user.is_authenticated(),
         'categories': Categories.objects.filter(parent_id=0),
         'sub_categories': Categories.objects.all().exclude(parent_id=0)
     })
@@ -484,7 +469,7 @@ def add_category(request):
                 # insert event and it's additional information to database
                 if request.POST.get('sub-category-title', '') != "":
                     event = Categories(title=request.POST.get('sub-category-title', ''),
-                                parent_id=request.POST.get('event-type', '')
+                                       parent_id=request.POST.get('event-type', '')
                     ).save()
 
                     # redirect to site homepage
@@ -497,7 +482,7 @@ def add_category(request):
                 # insert event and it's additional information to database
                 if request.POST.get('category-title', '') != "":
                     event = Categories(title=request.POST.get('category-title', ''),
-                                  parent_id=0
+                                       parent_id=0
                     ).save()
 
                     # redirect to site homepage
@@ -510,7 +495,6 @@ def add_category(request):
             # add new event template for organizer
             return render(request, 'add_category.html', {
                 'categories': Categories.objects.filter(parent_id=0),
-                'logged_in': request.user.is_authenticated(),
             })
     else:
         return HttpResponseRedirect('/')
@@ -522,24 +506,23 @@ def delete_category(request, category_id):
 
 
 def edit_category(request, category_id):
-
     if request.user.is_authenticated() and request.user.is_organizer:
         if request.is_ajax():
-                # insert event and it's additional information to database
-                if request.POST.get('category-title', '') != "":
-                    category = Categories.objects.get(id=category_id)
-                    category.title = request.POST.get('category-title', '')
-                    category.save()
+            # insert event and it's additional information to database
+            if request.POST.get('category-title', '') != "":
+                category = Categories.objects.get(id=category_id)
+                category.title = request.POST.get('category-title', '')
+                category.save()
 
-                    return HttpResponse(1)
-                else:
-                    # raise exception to user
-                    return HttpResponse(0)
+                return HttpResponse(1)
+            else:
+                # raise exception to user
+                return HttpResponse(0)
         else:
             category = Categories.objects.get(id=category_id)
             return render(request, 'edit_category.html', {
                 'category': category,
-                'sub_categories':Categories.objects.filter(parent_id=category.id)
+                'sub_categories': Categories.objects.filter(parent_id=category.id)
             })
     else:
         return HttpResponseRedirect('/')

@@ -1,10 +1,13 @@
 from datetime import datetime
+
 from django.contrib import auth
 from django.shortcuts import render
-from account.models import CustomUser
 from django.core.mail import send_mail
-from .check_registration import CheckRegistration
 from django.http import HttpResponseForbidden, HttpResponse, HttpResponseRedirect
+
+from account.models import CustomUser
+from .check_registration import CheckRegistration
+
 
 def login(request):
     if request.method == "POST":
@@ -56,7 +59,6 @@ def register(request):
 def profile_edit(request, user_id):
     if request.user.is_authenticated():
         return render(request, 'profile.html', {
-            'logged_in': request.user.is_authenticated()
         })
     else:
         return HttpResponseRedirect('/')
@@ -65,7 +67,6 @@ def profile_edit(request, user_id):
 def charge(request, user_id):
     if request.user.is_authenticated():
         return render(request, 'charge.html', {
-            'logged_in': request.user.is_authenticated()
 
         })
     else:

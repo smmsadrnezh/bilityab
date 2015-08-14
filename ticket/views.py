@@ -14,7 +14,6 @@ def buy(request):
         quantity = request.POST.get('quantity')
         show_time_id = request.POST.get('show_time_id')
         return render(request, 'buy.html', {
-            'logged_in': request.user.is_authenticated(),
             'price': price,
             'show_time_id': show_time_id,
             'seats': seats,
@@ -37,7 +36,6 @@ def ticket(request, user_id, purchased_id):
         ticket_event_type_list.append((ticket, event, get_type(event.id), showtime, postitions))
 
         return render(request, 'ticket.html', {
-            'logged_in': request.user.is_authenticated(),
             'ticket_event_type_list': ticket_event_type_list
         })
     else:
@@ -47,7 +45,6 @@ def ticket(request, user_id, purchased_id):
 def all_ticket(request, user_id):
     if int(user_id) == request.user.id:
         return render(request, 'all-ticket.html', {
-            'logged_in': request.user.is_authenticated(),
             'tickets': PurchasedTicket.objects.filter(user_id=request.user.id)
         })
     else:

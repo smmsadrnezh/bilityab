@@ -2,7 +2,7 @@
 {% load staticfiles %}
 {% block pageBody %}
 
-<div class="holder">
+    <div class="holder">
 
         <div class="col col-md-12">
             <div class="col col-md-12" id="ticket">
@@ -15,7 +15,8 @@
                     {% for category in categories %}
                         <div class="category-info" style="height: 60px;">
                             {{ category.title }}
-                            <a class="btn btn-primary " href="/categories/edit/{{ category.id }}/" style="margin-right: 20px;">
+                            <a class="btn btn-primary " href="/categories/edit/{{ category.id }}/"
+                               style="margin-right: 20px;">
                                 <i class="fa fa-edit"></i> ویرایش دسته
                             </a>
                             <a href="/categories/delete/{{ category.id }}" class="btn btn-danger ">
@@ -27,39 +28,42 @@
                             {% for sub_category in sub_categories %}
                                 {% if sub_category.parent_id == category.id %}
                                     <div style="margin: 10px;">
-                                            <span style="margin-left: 10px;">{{ sub_category.title }}</span>
-                                            <a class="btn btn-primary btn-sm" href="/categories/edit/{{ sub_category.id }}/">
-                                                <i class="fa fa-edit"></i>
-                                            </a>
-                                            <a href="/categories/delete/{{ sub_category.id }}" class="btn btn-danger btn-sm ">
-                                                <i class="fa fa-remove"></i>
-                                            </a>
+                                        <span style="margin-left: 10px;">{{ sub_category.title }}</span>
+                                        <a class="btn btn-primary btn-sm"
+                                           href="/categories/edit/{{ sub_category.id }}/">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
+                                        <a href="/categories/delete/{{ sub_category.id }}"
+                                           class="btn btn-danger btn-sm ">
+                                            <i class="fa fa-remove"></i>
+                                        </a>
+
                                         <div class="my-divider-white"></div>
                                     </div>
                                 {% endif %}
                             {% endfor %}
                         </div>
 
-{#                        {% if request.user.is_organizer %}#}
-{#                            <div class="col col-md-2">#}
-{#                                <a class="btn btn-primary btn-lg btn-block"#}
-{#                                   href="/categories/edit/{{ category.id }}/">#}
-{#                                    <i class="fa fa-edit"></i> ویرایش دسته#}
-{#                                </a>#}
-{#                                <a href="/categories/delete/{{ category.id }}" class="btn btn-danger btn-lg btn-block">#}
-{#                                    <i class="fa fa-remove"></i> حذف دسته#}
-{#                                </a>#}
-{#                            </div>#}
-{#                        {% endif %}#}
-{#                        <div class="my-divider"></div>#}
+                        {#                        {% if request.user.is_organizer %}#}
+                        {#                            <div class="col col-md-2">#}
+                        {#                                <a class="btn btn-primary btn-lg btn-block"#}
+                        {#                                   href="/categories/edit/{{ category.id }}/">#}
+                        {#                                    <i class="fa fa-edit"></i> ویرایش دسته#}
+                        {#                                </a>#}
+                        {#                                <a href="/categories/delete/{{ category.id }}" class="btn btn-danger btn-lg btn-block">#}
+                        {#                                    <i class="fa fa-remove"></i> حذف دسته#}
+                        {#                                </a>#}
+                        {#                            </div>#}
+                        {#                        {% endif %}#}
+                        {#                        <div class="my-divider"></div>#}
                     {% endfor %}
                 </div>
-                  {% if request.user.is_organizer %}
-                  <a class="btn btn-primary" href="/categories/add/" style="margin-bottom:20px; font-size: 0.8em;">
-                      <i class="fa fa-plus-circle" style="margin-left: 5px;"></i>
-                    اضافه کردن دسته جدید
-                  </a>
-              {% endif %}
+                {% if request.user.is_organizer %}
+                    <a class="btn btn-primary" href="/categories/add/" style="margin-bottom:20px; font-size: 0.8em;">
+                        <i class="fa fa-plus-circle" style="margin-left: 5px;"></i>
+                        اضافه کردن دسته جدید
+                    </a>
+                {% endif %}
 
             </div>
 
