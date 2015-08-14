@@ -12,6 +12,7 @@ jQuery(document).ready(function ($) {
 
     if(parseInt($('#body-container').attr('going_recovery')))
     {
+        $('#recovery-message').css('display', 'block');
         $main_nav.children('ul').removeClass('is-visible');
         $form_modal.addClass('is-visible');
         login_selected();

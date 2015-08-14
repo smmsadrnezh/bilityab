@@ -133,7 +133,6 @@ def reset_password(request, random_num):
         try:
             send_mail(subject='رمز عبور جدید', message='', recipient_list=[user.email],
                       from_email='bilityab@sadrnezhaad.ir', fail_silently=False, html_message=t.render(c))
-            RecoveryRequests.objects.create(user=user, random_num=random_num)
         except SMTPException:
             pass
         recovery_request.delete()
