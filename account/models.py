@@ -16,3 +16,6 @@ class CustomUser(User):
 class RecoveryRequests(models.Model):
     user = models.OneToOneField(CustomUser)
     random_num = models.CharField(max_length=30)
+
+    def __str__(self):
+        return str(self.user) + ': ' + self.random_num

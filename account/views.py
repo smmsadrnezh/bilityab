@@ -6,10 +6,10 @@ from datetime import timedelta
 from django.contrib import auth
 from smtplib import SMTPException
 from django.shortcuts import render
-from account.models import CustomUser
 from django.core.mail import send_mail
 from django.template import loader, Context
 from .check_registration import CheckRegistration
+from account.models import CustomUser, RecoveryRequests
 from django.http import HttpResponseForbidden, HttpResponse, HttpResponseRedirect
 
 
@@ -79,7 +79,7 @@ def charge(request, user_id):
         return HttpResponseRedirect('/')
 
 
-def random_generator(size=6, chars=string.ascii_letters + string.digits + '!@#$%^&*()'):
+def random_generator(size=6, chars=string.ascii_letters + string.digits + '!@$%^&*()'):
     return ''.join(random.SystemRandom().choice(chars) for _ in range(size))
 
 
@@ -89,6 +89,7 @@ def recover(request):
         if email:
             try:
                 user = CustomUser.objects.get(email=email)
+                RecoveryRequests.objects.filter(user=user).delete()
                 random_num = random_generator(size=27)
                 t = loader.get_template('reset-password.html')
                 c = Context({
@@ -96,11 +97,10 @@ def recover(request):
                     'random_num': random_num
                 })
                 try:
-                    print('sending...')
                     send_mail(subject='درخواست تغییر رمز عبور', message='Here is the message.', recipient_list=[email],
                               from_email='bilityab@sadrnezhaad.ir', fail_silently=False, html_message=t.render(c))
-
-                    print('sent!')
+                    RecoveryRequests.objects.create(user=user, random_num=random_num)
+                    set_disable_schedule(user)
                 except SMTPException:
                     pass
             except CustomUser.DoesNotExist:
@@ -110,13 +110,16 @@ def recover(request):
         return HttpResponseForbidden('post required')
 
 
-def reset_password(request):
+def set_disable_schedule(user):
     now = datetime.now()
     run_at = now + timedelta(hours=24)
     delay = (run_at - now).total_seconds()
-    threading.Timer(delay, disable_reset_password()).start()
+    threading.Timer(delay, disable_reset_password, [user]).start()
+
+
+def reset_password(request, random_num):
     return HttpResponse(1)
 
 
-def disable_reset_password():
-    return None
+def disable_reset_password(user):
+    RecoveryRequests.objects.filter(user=user).delete()

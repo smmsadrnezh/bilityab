@@ -17,7 +17,7 @@ urlpatterns = [
     url(r'^logout/$', 'account.views.logout'),
     url(r'^register/$', 'account.views.register'),
     url(r'^recover/$', 'account.views.recover'),
-    url(r'^recover/[a-zA-z0-9!@#$%^&*()]+/$', 'account.views.reset_password'),
+    url(r'^recover/(?P<random_num>[a-zA-z0-9!@#$%^&*()]+)/$', 'account.views.reset_password'),
 
     ### event urls
     url(r'^events/$', 'event.views.events'),
