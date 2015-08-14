@@ -17,6 +17,7 @@ urlpatterns = [
     url(r'^logout/$', 'account.views.logout'),
     url(r'^register/$', 'account.views.register'),
     url(r'^recover/$', 'account.views.recover'),
+    url(r'^recover/[A-z0-9]+/$', 'account.views.recover'),
 
     ### event urls
     url(r'^events/$', 'event.views.events'),

@@ -87,9 +87,11 @@ def recover(request):
         if email:
             try:
                 user = CustomUser.objects.get(email=email)
+                random_num = random_generator(size=20)
                 t = loader.get_template('reset-password.html')
                 c = Context({
                     'user': user,
+                    'random_num': random_num
                 })
                 try:
                     print('sending...')
