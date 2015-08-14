@@ -6,6 +6,7 @@ from django.core.mail import send_mail
 from .check_registration import CheckRegistration
 from django.http import HttpResponseForbidden, HttpResponse, HttpResponseRedirect
 
+
 def login(request):
     if request.method == "POST":
         user = auth.authenticate(username=request.POST.get('signin-username', ''),
@@ -76,9 +77,14 @@ def recover(request):
     if request.method == 'POST':
         email = request.POST.get('reset-email', None)
         if email:
-            print('test')
-            send_mail('درخواست تغییر رمز عبور', 'Here is the message.', 'test@yahoo.com', ['mehran_t95@yahoo.com'],
-                      fail_silently=False)
+            user = CustomUser.objects.get(email=email)
+            print(user)
+            html_message = '<p>Hello dear user, ' + user.first_name
+            print('sending...')
+            send_mail(subject='درخواست تغییر رمز عبور', message='Here is the message.',
+                      from_email='bilityab@sadrnezhaad.ir', recipient_list=[email], fail_silently=False,
+                      html_message=html_message)
+            print('sent!')
             return HttpResponse(1)
     else:
         return HttpResponseForbidden('post required')
