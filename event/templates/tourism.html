@@ -48,7 +48,16 @@
                         </div>
                     </div>
                 </div>
-
+                <div style="display: none" id="bought-tickets">
+                    <div show-time-id="{{ show_time.id }}" organizer-id="{{ organizer.id }}">{% for ticket in show_time.tickets.all %}{% for position in ticket.positions.all %}/{{ position.row }},{{ position.column }}/{% endfor %}{% endfor %}</div>
+                </div>
+                <div id="plans">
+                    <div class="map" price="{{ price }}" organizer-id="{{ organizer.id }}" style="display: block">
+                        {% with template_name=organizer.id|stringformat:"s"|add:".html" %}
+                            {% include ''|add:template_name %}
+                        {% endwith %}
+                    </div>
+                </div>
             </div>
             <div class="col col-md-12" id="comments">
                 <div class="comment col col-md-12" id="your-comment">
