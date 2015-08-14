@@ -125,7 +125,7 @@ EMAIL_HOST = 'smtp.zoho.com'
 
 EMAIL_HOST_USER = 'bilityab@sadrnezhaad.ir'
 
-EMAIL_HOST_PASSWORD = 'sj&R"2HXc:%E\_PA'
+EMAIL_HOST_PASSWORD = 'asdfghjkl'
 
 EMAIL_PORT = 465
 
