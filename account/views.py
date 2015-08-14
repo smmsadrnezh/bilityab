@@ -1,6 +1,8 @@
 import string
 import random
+import threading
 from datetime import datetime
+from datetime import timedelta
 from django.contrib import auth
 from smtplib import SMTPException
 from django.shortcuts import render
@@ -77,7 +79,7 @@ def charge(request, user_id):
         return HttpResponseRedirect('/')
 
 
-def random_generator(size=6, chars=string.ascii_uppercase + string.digits):
+def random_generator(size=6, chars=string.ascii_letters + string.digits + '!@#$%^&*()'):
     return ''.join(random.SystemRandom().choice(chars) for _ in range(size))
 
 
@@ -87,7 +89,7 @@ def recover(request):
         if email:
             try:
                 user = CustomUser.objects.get(email=email)
-                random_num = random_generator(size=20)
+                random_num = random_generator(size=27)
                 t = loader.get_template('reset-password.html')
                 c = Context({
                     'user': user,
@@ -105,3 +107,15 @@ def recover(request):
             return HttpResponse(1)
     else:
         return HttpResponseForbidden('post required')
+
+
+def reset_password(request):
+    now = datetime.now()
+    run_at = now + timedelta(hours=24)
+    delay = (run_at - now).total_seconds()
+    threading.Timer(delay, disable_reset_password()).start()
+    return HttpResponse(1)
+
+
+def disable_reset_password():
+    return None
