@@ -4,57 +4,53 @@
 
     <div class="holder">
         <div class="col col-md-12">
-            <div class="col col-md-12" id="ticket">
-                <div class="col col-md-12" id="ticket-info">
-                    <div class="image"
-                         style="background-image: url('{% static 'img/sirk.jpg' %}') "></div>
-                    <div class="info">
-                        <div class="director">سیرک پهلوان خلیل عقاب</div>
-                        {#                        <div class="genre-duration">اجتماعی - ۱۰۰ دقیقه</div>#}
-                        <div class="actors">
-                            نمایش ببر بنگال، شیر، اسب، تمساح ، خرس، مار پیتون، ایگوانا، شتر مرغ و... به همراه امکان عکس
-                            برداری از غرفه حیوانات برای علاقمندان
+            <div class="col col-md-12" id="ticket" organizer_id="{{ organizer.id }}" event_id="{{ event.id }}" show_time_id="{{ show_time.id }}">
+                <div class="col col-md-12" id="ticket-info-music">
+                    <div id="top-carousel" class="col col-md-8 carousel slide" style="padding: 0" data-ride="carousel">
+                        <div class="carousel-inner" role="listbox">
+                            {% for photo in event.gallery_photos.all %}
+                                <div class="item {% if forloop.first %}active{% endif %}">
+                                    <img src="{{ MEDIA_URL }}{{ photo.pic }}">
+                                </div>
+                            {% endfor %}
                         </div>
-                        <div class="synopsis">
-                            به همراه آکروبات، ریمینی، آتش بازی، رنجر، نمایش دلقکی، آکروبات قرقره و..
-                            نمایش حیوانات: ببرهای بنگال و ببر سفید، شیر، خرس، اسب، تمساح، مارپیتون، ایگوانا، شترمرغ و...
-                            لیزر شو
+                        <a class="left carousel-control" href="#top-carousel" role="button" data-slide="prev">
+                            <span class="fa fa-chevron-left" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#top-carousel" role="button" data-slide="next">
+                            <span class="fa fa-chevron-right" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                    <div class="col col-md-4 music-info ">
+                        <div class="vocalist">با اجرای <span>{{ event.concert.vocalist }}</span></div>
+                        <div class="date">{% with show_time.date as date %}{% include 'persian-date.html' %}{% endwith %}</div>
+                        <span class="time">از ساعت {{ show_time.from_time }} الی  {{ show_time.to_time }}</span>
+                        <br/>
+                        <span class="group-name">کاری از گروه {{ event.concert.group_name }}</span>
+                        <br/>
+                        <div class="star-ratings-sprite {% if can_rate %}not-rated{% endif %}"
+                             initial-rate="{{ rates_average_percent }}%">
+                            <span style="width:{{ rates_average_percent }}%" class="rating"></span>
                         </div>
-
+                        <div class="num-of-voters"><span>{{ num_of_votes }}</span> رأی</div>
+                        <div class="additional-info">
+                            <span class="place">مکان:</span>
+                            <span>{{ organizer.title }}</span>
+                            <br/>
+                            <span class="capacity">ظرفیت باقیمانده:</span>
+                            <span>{{ show_time.capacity }} نفر</span>
+                            <br/>
+                            <span class="price">هزینه :</span>
+                            <span>{{ price }} هزار تومان</span>
+                            <br/>
+                            <span style="margin-top: 0; display: none"></span>
+                            <span class="musicians">{{ event.concert.musicians }}</span>
+                        </div>
                     </div>
                 </div>
-                {# select cinema seat #}
-                <div class="col col-md-12 bs-wizard" style="border-bottom:0;">
 
-                    <div class="col-xs-4 bs-wizard-step complete">
-                        <div class="text-center bs-wizard-stepnum">انتخاب سالن</div>
-                        <div class="progress">
-                            <div class="progress-bar"></div>
-                        </div>
-                        <a href="#" class="bs-wizard-dot"></a>
-                    </div>
-
-                    <div class="col-xs-4 bs-wizard-step active"><!-- complete -->
-                        <div class="text-center bs-wizard-stepnum">انتخاب سانس</div>
-                        <div class="progress">
-                            <div class="progress-bar"></div>
-                        </div>
-                        <a href="#" class="bs-wizard-dot"></a>
-                    </div>
-
-                    <div class="col-xs-4 bs-wizard-step disabled"><!-- complete -->
-                        <div class="text-center bs-wizard-stepnum">انتخاب جایگاه</div>
-                        <div class="progress">
-                            <div class="progress-bar"></div>
-                        </div>
-                        <a href="#" class="bs-wizard-dot"></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col col-md-12" id="buy">
-                <a class="btn btn-primary btn-lg btn-block" href="/buy/1">
-                    <i class="fa fa-ticket"></i> خرید بلیط
-                </a>
             </div>
             <div class="col col-md-12" id="comments">
                 <div class="comment col col-md-12" id="your-comment">
@@ -93,7 +89,7 @@
     </div>
     <div id="links">
         <div id="for-ticket" style="background-color: #c9302c">خرید بلیط<i class="fa fa-dollar"></i></div>
-        <div id="for-comments" style="background-color: #555">نظر کاربران<i class="fa fa-comments"></i></div>
+        <div id="for-comments" style="background-color: #777">نظر کاربران<i class="fa fa-comments"></i></div>
         <div id="for-more-info" style="background-color: #c9302c">اطلاعات بیشتر<i class="fa fa-info"></i></div>
     </div>
 {% endblock %}
@@ -107,4 +103,5 @@
 {% block css %}
     {{ block.super }}
     <link rel="stylesheet" href="{% static "css/cinema-event.css" %}"/>
+    <link rel="stylesheet" href="{% static 'css/star-rating.css' %}">
 {% endblock %}

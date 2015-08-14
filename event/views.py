@@ -211,10 +211,31 @@ def sport(request, event_id):
 
 
 def tourism(request, event_id):
-    return render(request, 'tourism.html', {
-        'logged_in': request.user.is_authenticated()
-
-    })
+    try:
+        event = Event.objects.get(pk=event_id)
+        event_rates = event.rates.all()
+        can_rate = request.user.is_authenticated()
+        rates_average = 0
+        num_of_votes = len(event_rates)
+        if num_of_votes:
+            rates_sum = 0
+            for rate in event_rates:
+                rates_sum += rate.rate
+                can_rate = can_rate and not (rate.user.id == request.user.id)
+            rates_average = rates_sum / num_of_votes
+        event_organizer = event.event_organizers.all()[0]
+        return render(request, 'tourism.html', {
+            'logged_in': request.user.is_authenticated(),
+            'event': event,
+            'organizer': event_organizer,
+            'show_time': event.show_times.all()[0],
+            'price': event.position_prices.all()[0].price,
+            'num_of_votes': num_of_votes,
+            'rates_average_percent': rates_average * 20,
+            'can_rate': can_rate
+        })
+    except Event.DoesNotExist:
+        return Http404('event not found!')
 
 
 def cinema(request, event_id):
