@@ -118,6 +118,8 @@ jQuery(document).ready(function ($) {
             }, 3000);
         }
         else {
+            var spinner = $('#recover-message-spinner');
+
             $.ajax({
                 type: "POST",
                 url: "/recover/",
