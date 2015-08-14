@@ -256,13 +256,26 @@ def cinema(request, event_id):
 def music(request, event_id):
     try:
         event = Event.objects.get(pk=event_id)
+        event_rates = event.rates.all()
+        can_rate = request.user.is_authenticated()
+        rates_average = 0
+        num_of_votes = len(event_rates)
+        if num_of_votes:
+            rates_sum = 0
+            for rate in event_rates:
+                rates_sum += rate.rate
+                can_rate = can_rate and not (rate.user.id == request.user.id)
+            rates_average = rates_sum / num_of_votes
         event_organizer = event.event_organizers.all()[0]
         return render(request, 'music.html', {
             'logged_in': request.user.is_authenticated(),
             'event': event,
             'organizer': event_organizer,
             'show_time': event.show_times.all()[0],
-            'price': event.position_prices.all()[0].price
+            'price': event.position_prices.all()[0].price,
+            'num_of_votes': num_of_votes,
+            'rates_average_percent': rates_average * 20,
+            'can_rate': can_rate
         })
     except Event.DoesNotExist:
         return Http404('event not found!')
@@ -294,7 +307,6 @@ def rate_event(request):
             if 'rate' in request.POST:
                 rate = int(request.POST['rate'])
                 if rate > 5 or rate < 0:
-                    print('sada;dw')
                     return HttpResponseForbidden('invalid rate')
                 event_id = request.POST['event_id']
                 try:
@@ -337,7 +349,7 @@ def buy_seats(request):
         show_time_id = request.POST.get('show_time_id')
         price = request.POST.get('price')
         show_time = Showtime.objects.get(pk=show_time_id)
-        show_time.capacity -= 1
+        show_time.capacity -= int(quantity)
         show_time.save()
         ticket = PurchasedTicket.objects.create(user=request.user, quantity=int(quantity),
                                                 purchased_date=datetime.datetime.now(),

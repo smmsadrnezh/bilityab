@@ -92,8 +92,8 @@ $(window).load(function () {
     var current_select = [dates];
     var organizer_ids = [];
     var show_time_ids = [];
-    var selected_organizer_id = 0;
-    var selected_show_time = 0;
+    var selected_organizer_id = $('#ticket').attr('organizer_id');
+    var selected_show_time = $('#ticket').attr('show_time_id');
     var selected_cinemas = [];
     var selected_show_times = [];
     var bought_tickets = $('#bought-tickets');
@@ -114,6 +114,14 @@ $(window).load(function () {
         }
         return [result, column];
     };
+
+    var music_page = false;
+
+    if(selected_show_time)
+        music_page = true;
+
+    if(music_page)
+        set_sold_seats();
 
     function set_sold_seats() {
         var tickets = bought_tickets.find('div[show-time-id="'+selected_show_time+'"][organizer-id="'+selected_organizer_id+'"]');
