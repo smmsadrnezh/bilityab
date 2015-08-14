@@ -13,6 +13,6 @@ class CustomUser(User):
     objects = UserManager()
 
 
-class RecoverRequests(models.Model):
+class RecoveryRequests(models.Model):
     user = models.OneToOneField(CustomUser)
     random_num = models.CharField(max_length=30)

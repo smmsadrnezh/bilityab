@@ -99,6 +99,7 @@ def recover(request):
                     print('sending...')
                     send_mail(subject='درخواست تغییر رمز عبور', message='Here is the message.', recipient_list=[email],
                               from_email='bilityab@sadrnezhaad.ir', fail_silently=False, html_message=t.render(c))
+
                     print('sent!')
                 except SMTPException:
                     pass
