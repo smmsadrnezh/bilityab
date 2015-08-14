@@ -24,11 +24,9 @@
                         </a>
                     </div>
                     <div class="col col-md-4 music-info ">
-                        <div class="vocalist">با اجرای <span>{{ event.concert.vocalist }}</span></div>
+                        <div class="vocalist"><span>{{ event.title }}</span></div>
                         <div class="date">{% with show_time.date as date %}{% include 'persian-date.html' %}{% endwith %}</div>
-                        <span class="time">از ساعت {{ show_time.from_time }} الی  {{ show_time.to_time }}</span>
-                        <br/>
-                        <span class="group-name">کاری از گروه {{ event.concert.group_name }}</span>
+                        <span style="margin-bottom: 0.5em;display: inline-block" class="time">از ساعت {{ show_time.from_time }} الی  {{ show_time.to_time }}</span>
                         <br/>
                         <div class="star-ratings-sprite {% if can_rate %}not-rated{% endif %}"
                              initial-rate="{{ rates_average_percent }}%">
@@ -46,7 +44,7 @@
                             <span>{{ price }} هزار تومان</span>
                             <br/>
                             <span style="margin-top: 0; display: none"></span>
-                            <span class="musicians">{{ event.concert.musicians }}</span>
+                            <span class="musicians">{{ event.description }}</span>
                         </div>
                     </div>
                 </div>
