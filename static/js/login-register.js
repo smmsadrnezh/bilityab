@@ -109,31 +109,24 @@ jQuery(document).ready(function ($) {
         {
             $.ajax({
             type: "POST",
-            url: "/login/",
-            data: $("#signin-form").serialize(),
-            success: function (data) {
-                if (parseInt(data)) {
-                    window.location.replace(window.location.pathname);
-                } else {
-                    $form_login.find('input[type="text"]').toggleClass('has-error').next('span').toggleClass('is-visible');
-                    $form_login.find('input[type="password"]').toggleClass('has-error').next('a').next('span').toggleClass('is-visible');
-                    setTimeout(function () {
-                        hide_error($form_login.find('input[type="text"]'));
-                        hide_error($form_login.find('input[type="password"]'));
-                    }, 3000);
+            url: "/recover/",
+            data: $("#recover-form").serialize(),
+                success: function (data) {
+                    if(parseInt(data))
+                    {
+                        var message = $form_forgot_password.find('.cd-form-message');
+                        var old_message = message.text();
+                        message.fadeOut(function () {
+                            message.css('color', '#147D0E').text('لینک دریافت رمز عبور جدید به ایمیل شما ارسال شد.').fadeIn();
+                        });
+                        setTimeout(function () {
+                            message.css('color', '#000').text(old_message);
+                            if(!is_registering)
+                                $back_to_login_link.click();
+                        }, 4000);
+                    }
                 }
-            }
-        });
-            var message = $form_forgot_password.find('.cd-form-message');
-            var old_message = message.text();
-            message.fadeOut(function () {
-                message.text('لینک دریافت رمز عبور جدید به ایمیل شما ارسال شد.').fadeIn();
             });
-            setTimeout(function () {
-                message.text(old_message);
-                if(!is_registering)
-                    $back_to_login_link.click();
-            }, 4000);
         }
     });
 

@@ -173,14 +173,15 @@
                 <!-- cd-signup -->
 
                 <div id="cd-reset-password"> <!-- reset password form -->
-                    <p class="cd-form-message">
-                        پست الکترونیکی خود را در فیلد زیر وارد کنید تا رمز عبور جدید برایتان ارسال شود.
+                    <p class="cd-form-message" style="margin-bottom: 0; font-size: 0.8em">
+                       برای دریافت رمز عبور جدید، پست الکترونیکی خود را وارد کنید.
                     </p>
 
-                    <form class="cd-form">
+                    <form class="cd-form" id="recover-form" style="padding-top: 0">
+                        {% csrf_token %}
                         <p class="fieldset">
                             <i class="fa fa-envelope"></i>
-                            <input class="full-width has-padding has-border" id="reset-email" type="email"
+                            <input class="full-width has-padding has-border" name="reset-email" id="reset-email" type="email"
                                    placeholder="پست الکترونیکی">
                             <span class="cd-error-message">پست الکترونیکی نامعتبر</span>
                         </p>

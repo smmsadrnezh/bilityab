@@ -1,14 +1,10 @@
 from datetime import datetime
-
-from django.shortcuts import render
 from django.contrib import auth
-from django.http import HttpResponseForbidden, HttpResponse, HttpResponseRedirect
-
-from .check_registration import CheckRegistration
+from django.shortcuts import render
 from account.models import CustomUser
-
-# Create your views here.
-
+from django.core.mail import send_mail
+from .check_registration import CheckRegistration
+from django.http import HttpResponseForbidden, HttpResponse, HttpResponseRedirect
 
 def login(request):
     if request.method == "POST":
@@ -77,4 +73,12 @@ def charge(request, user_id):
 
 
 def recover(request):
-    return None
+    if request.method == 'POST':
+        email = request.POST.get('reset-email', None)
+        if email:
+            print('test')
+            send_mail('درخواست تغییر رمز عبور', 'Here is the message.', 'test@yahoo.com', ['mehran_t95@yahoo.com'],
+                      fail_silently=False)
+            return HttpResponse(1)
+    else:
+        return HttpResponseForbidden('post required')
