@@ -55,7 +55,9 @@
                 </div>
                 <div id="plans">
                     <div class="map" price="{{ price }}" organizer-id="{{ organizer.id }}" style="display: block">
-                        {% include '2.html' %}
+                        {% with template_name=organizer.id|stringformat:"s"|add:".html" %}
+                            {% include ''|add:template_name %}
+                        {% endwith %}
                     </div>
                 </div>
             </div>
