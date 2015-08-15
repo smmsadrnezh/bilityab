@@ -10,6 +10,19 @@ jQuery(document).ready(function ($) {
         $back_to_login_link = $form_forgot_password.find('.cd-form-bottom-message a'),
         $main_nav = $('#login-register');
 
+    if(parseInt($('#body-container').attr('going_recovery')))
+    {
+        $('#recovery-message').css('display', 'block');
+        $main_nav.children('ul').removeClass('is-visible');
+        $form_modal.addClass('is-visible');
+        login_selected();
+        setTimeout(function () {
+            $('#recovery-message').slideUp(function () {
+                $(this).css('display', 'none');
+            });
+        }, 3000);
+    }
+
     //open modal
     $main_nav.on('click', function (event) {
 
@@ -105,16 +118,22 @@ jQuery(document).ready(function ($) {
             }, 3000);
         }
         else {
+            var spinner = $('#recover-message-spinner');
+            var message = $form_forgot_password.find('.cd-form-message');
+            message.slideUp(function () {
+                spinner.fadeIn();
+            });
             $.ajax({
                 type: "POST",
                 url: "/recover/",
                 data: $("#recover-form").serialize(),
                 success: function (data) {
                     if (parseInt(data)) {
-                        var message = $form_forgot_password.find('.cd-form-message');
                         var old_message = message.text();
-                        message.fadeOut(function () {
-                            message.css('color', '#147D0E').text('لینک دریافت رمز عبور جدید به ایمیل شما ارسال شد.').fadeIn();
+                        spinner.fadeOut(function () {
+                            message.fadeOut(function () {
+                                message.css('color', '#147D0E').text('لینک دریافت رمز عبور جدید به ایمیل شما ارسال شد.').fadeIn();
+                            });
                         });
                         setTimeout(function () {
                             message.css('color', '#000').text(old_message);

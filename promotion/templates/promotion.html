@@ -1,10 +1,57 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+{% extends "layout.html" %}
+{% load staticfiles %}
+{% block pageBody %}
+    <div class="holder">
+        <div class="col col-md-12">
+            <div class="col col-md-12" id="ticket">
 
-</body>
-</html>
+{#                <h2>#}
+{#                    رویدادهای این مجموعه#}
+{#                </h2>#}
+            <div id="add-promotion">
+                <form id="add-promotion-form" method="post">
+                    <p>
+                        سانس های مورد نظر برای اعمال تخفیف را انتخاب کرده و میزان تخفیف را در کادر زیر وارد کنید:
+                    </p>
+
+                    <input type="number" name="discount" placeholder="درصد تخفیف">
+                    <input type="submit" value="اعمال تخفیف">
+
+                    <div class="col col-md-12" id="ticket-info">
+
+                        {% for organizer,showtimes in organizers_showtimes %}
+                              <div>
+                                      {{ organizer.title }}
+                              </div>
+
+                              <h3>سانس ها</h3>
+                              <div class="round-box-gray">
+
+                                      {% for showtime in showtimes %}
+                                          <span style="margin-left: 20px">
+                                              <input type="checkbox" name="times[]" value="{{ showtime.id }}"> {{ showtime.from_time }}
+                                          </span>
+                                      {% endfor %}
+                              </div>
+                              <div class="my-divider"></div>
+                        {% endfor %}
+
+                    </div>
+                </form>
+            </div>
+
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+    {{ block.super }}
+    <script src="{% static "js/promotion.js" %}"></script>
+{% endblock %}
+
+{% block css %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static "css/sport-event.css" %}"/>
+{% endblock %}

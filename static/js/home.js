@@ -1,9 +1,8 @@
 (function ($) {
 
-    //var eventImage = $("#event_id");
-    //eventImage.on('click', function () {
-    //    window.location.href = "events/cinema/";
-    //});
+    var nav_tabs_length = $('#events .nav-tabs').children().length;
+
+    $('#events .nav-tabs > li').css('width', 100/nav_tabs_length+'%');
 
     var cinema_events = $('.cinema').closest('.event');
     cinema_events.on('click', function () {
@@ -24,20 +23,5 @@
     music_events.on('click', function () {
         window.location.href = "events/music/" + $(this).attr('event_id');
     });
-
-    //var sportImage = $(".sport");
-    //sportImage.on('click', function () {
-    //    window.location.href = "events/sport/1";
-    //});
-    //
-    //var tourismImage = $(".tourism");
-    //tourismImage.on('click', function () {
-    //    window.location.href = "events/tourism/1";
-    //});
-    //
-    //var musicImage = $(".music");
-    //musicImage.on('click', function () {
-    //    window.location.href = "events/music/1";
-    //});
 
 })(jQuery);

@@ -17,6 +17,7 @@ urlpatterns = [
     url(r'^logout/$', 'account.views.logout'),
     url(r'^register/$', 'account.views.register'),
     url(r'^recover/$', 'account.views.recover'),
+    url(r'^recover/(?P<random_num>[a-zA-z0-9!@#$%^&*()]+)/$', 'account.views.reset_password'),
 
     ### event urls
     url(r'^events/$', 'event.views.events'),
@@ -53,7 +54,8 @@ urlpatterns = [
     url(r'^ticket/(?P<user_id>\d+)/$', 'ticket.views.all_ticket'),
 
     ### promotion urls
-    url(r'^promotion/$', 'promotion.views.promotion'),
+    url(r'^promotion/$', 'promotion.views.all_promotion'),
+    url(r'^promotion/(?P<event_id>\d+)/$', 'promotion.views.promotion'),
 
     url(r'^admin/', include(admin.site.urls)),
 

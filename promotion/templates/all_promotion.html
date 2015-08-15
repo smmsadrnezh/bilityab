@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% load staticfiles %}
+{% block pageBody %}
+    <div class="holder">
+        <div class="col col-md-12">
+            <div class="col col-md-12" id="ticket">
+
+                <h1>
+تخفیف
+                </h1>
+
+            <p>
+                لطفا رویداد مورد نظر را برای درج تخفیف انتخاب کنید:
+            </p>
+                <div class="col col-md-12" id="ticket-info">
+                    <ul>
+                    {% for event,type, organizer, dates in events %}
+                          <div >
+                            <li type="circle">
+                                <a href="/promotion/{{ event.id }}" class="event-info">
+                                  {{ event.title }}
+                                </a>
+                            </li>
+                          </div>
+
+    {#                        <div class="event-info">#}
+    {#                            زمان رویداد:#}
+    {#                            {% with date.date as date %}#}
+    {#                                {% include 'persian-date.html' %}#}
+    {#                            {% endwith %}#}
+    {#                        </div>#}
+{#                          <div class="my-divider"></div>#}
+                    {% endfor %}
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
+
+{% block css %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static "css/sport-event.css" %}"/>
+{% endblock %}

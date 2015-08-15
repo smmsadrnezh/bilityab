@@ -3,9 +3,6 @@ from django.contrib.auth.models import User, UserManager
 
 
 class CustomUser(User):
-    """Consider that this class inherit django user class.
-    user class fields:  username, email, password, is_staff, is_active, date_joined and much more. """
-
     balance = models.FloatField(default=0)
     is_organizer = models.BooleanField(default=0)
     gender = models.BooleanField(default=0)
@@ -14,3 +11,11 @@ class CustomUser(User):
 
     # Use UserManager to get the create_user method, etc.
     objects = UserManager()
+
+
+class RecoveryRequests(models.Model):
+    user = models.OneToOneField(CustomUser)
+    random_num = models.CharField(max_length=30)
+
+    def __str__(self):
+        return str(self.user) + ': ' + self.random_num
