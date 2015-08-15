@@ -19,9 +19,36 @@
                                style="margin-right: 20px;">
                                 <i class="fa fa-edit"></i> ویرایش دسته
                             </a>
-                            <a href="/categories/delete/{{ category.id }}" class="btn btn-danger ">
+
+                            <a class="btn btn-danger" data-toggle="modal"
+                               data-target="#confirm-delete-{{ category.id }}">
                                 <i class="fa fa-remove"></i> حذف دسته
                             </a>
+                            <!-- Delete Category Modal -->
+                            <div class="modal fade" id="confirm-delete-{{ category.id }}" tabindex="-1" role="dialog"
+                                    >
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close"><span
+                                                    aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title" id="myModalLabel">حذف دسته</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            آیا مطمئنید می‌خواهید دستهٔ {{ category.title }} را حذف کنید؟
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">انصراف
+                                            </button>
+                                            <a type="button" class="btn btn-danger"
+                                               href="/categories/delete/{{ category.id }}">حذف</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
                         </div>
 
                         <div class="round-box-gray">
@@ -33,10 +60,37 @@
                                            href="/categories/edit/{{ sub_category.id }}/">
                                             <i class="fa fa-edit"></i>
                                         </a>
-                                        <a href="/categories/delete/{{ sub_category.id }}"
+                                        <a data-toggle="modal"
+                                           data-target="#confirm-delete-{{ sub_category.id }}"
                                            class="btn btn-danger btn-sm ">
                                             <i class="fa fa-remove"></i>
                                         </a>
+
+                                        <!-- Delete SubCategory Modal -->
+                                        <div class="modal fade" id="confirm-delete-{{ sub_category.id }}" tabindex="-1"
+                                             role="dialog"
+                                                >
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close"><span
+                                                                aria-hidden="true">&times;</span></button>
+                                                        <h4 class="modal-title" id="myModalLabel">حذف دسته</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+آیا مطمئنید می‌خواهید زیردستهٔ {{ sub_category.title }} را حذف کنید؟                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default"
+                                                                data-dismiss="modal">انصراف
+                                                        </button>
+                                                        <a type="button" class="btn btn-danger"
+                                                           href="/categories/delete/{{ sub_category.id }}">حذف</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
 
                                         <div class="my-divider-white"></div>
                                     </div>
