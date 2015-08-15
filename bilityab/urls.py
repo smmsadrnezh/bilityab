@@ -51,7 +51,8 @@ urlpatterns = [
     url(r'^ticket/(?P<user_id>\d+)/$', 'ticket.views.all_ticket'),
 
     ### promotion urls
-    url(r'^promotion/$', 'promotion.views.promotion'),
+    url(r'^promotion/$', 'promotion.views.all_promotion'),
+    url(r'^promotion/(?P<event_id>\d+)/$', 'promotion.views.promotion'),
 
     url(r'^admin/', include(admin.site.urls)),
 

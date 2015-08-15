@@ -7,10 +7,8 @@ jQuery(document).ready(function ($) {
             data: $("#edit-event-form").serialize(), // serializes the form's elements.
             success: function (data) {
                 if (parseInt(data)) {
-                    alert("test");
                     window.location.replace("/events");
                 } else {
-                    alert("error")
                     $('#edit-event').find('input[type="text"]').toggleClass('has-error').next('span').toggleClass('is-visible');
                 }
             }
