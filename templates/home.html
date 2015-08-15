@@ -35,8 +35,8 @@
     <div class="holder">
         <div id="body-container" going_recovery="{{ going_recovery }}" class="col col-md-12">
             <div id="events" class="col col-md-9">
-                <div class="col col-md-12">
-                    <ul class="nav nav-tabs" role="tablist">
+                <div class="col col-md-12 no-col-padding">
+                    <ul class="col col-md-12 nav nav-tabs no-col-padding" role="tablist">
                     <li role="presentation" class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                             <i class="fa fa-film"></i><br/>
@@ -101,7 +101,7 @@
                         </ul>
                     </li>
                 </ul>
-                    <div id="events-list" class="tab-content">
+                    <div id="events-list" class="col col-md-12 tab-content no-col-padding">
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="action">
                         {% if actionMovies|length == 0 %}
                             <div class="text-center text-info" style="margin:30px;">
@@ -109,7 +109,7 @@
                             </div>
                         {% else %}
                             {% for event, type, organizer,date, capacity, price in actionMovies %}
-                                <div class="col col-md-6 event" event_id="{{ event.id }}">
+                                <div class="col col-md-6 col-xs-6 event" event_id="{{ event.id }}">
                                     <div class="image"
                                          style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
                                         <div class="date">{% with date.date as date %}
@@ -142,7 +142,7 @@
                             </div>
                         {% else %}
                             {% for event, type, organizer, date, capacity, price in dramaticMovies %}
-                                <div class="col col-md-6 event" event_id="{{ event.id }}">
+                                <div class="col col-md-6 col-xs-6 event" event_id="{{ event.id }}">
                                     <div class="image"
                                          style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
                                         <div class="date">{% with date.date as date %}
@@ -175,7 +175,7 @@
                             </div>
                         {% else %}
                             {% for event, type, organizer, date, capacity, price in comicMovies %}
-                                <div class="col col-md-6 event" event_id="{{ event.id }}">
+                                <div class="col col-md-6 col-xs-6 event" event_id="{{ event.id }}">
                                     <div class="image"
                                          style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
                                         <div class="date">{% with date.date as date %}
@@ -208,7 +208,7 @@
                             </div>
                         {% else %}
                             {% for event, type, organizer, date, capacity, price in volleyballEvents %}
-                                <div class="col col-md-6 event " event_id="{{ event.id }}">
+                                <div class="col col-md-6 col-xs-6 event " event_id="{{ event.id }}">
                                     <div class="image"
                                          style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
                                         <div class="date">{% with date.date as date %}
@@ -240,7 +240,7 @@
                                 برای این بخش رویدادی وجود ندارد
                             </div>
                             {% else %}{% for event, type, organizer, date, capacity, price in footballEvents %}
-                                <div class="col col-md-6 event" event_id="{{ event.id }}">
+                                <div class="col col-md-6 col-xs-6 event" event_id="{{ event.id }}">
                                     <div class="image"
                                          style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
                                         <div class="date">{% with date.date as date %}
@@ -273,7 +273,7 @@
                             </div>
                         {% else %}
                             {% for event,type, organizer, date, capacity, price in basketballEvents %}
-                                <div class="col col-md-6 event" event_id="{{ event.id }}">
+                                <div class="col col-md-6 col-xs-6 event" event_id="{{ event.id }}">
                                     <div class="image"
                                          style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
                                         <div class="date">{% with date.date as date %}
@@ -306,7 +306,7 @@
                             </div>
                         {% else %}
                             {% for event,type, organizer, date, capacity, price in wrestleEvents %}
-                                <div class="col col-md-6 event" event_id="{{ event.id }}">
+                                <div class="col col-md-6 col-xs-6 event" event_id="{{ event.id }}">
                                     <div class="image"
                                          style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
                                         <div class="date">{% with date.date as date %}
@@ -339,7 +339,7 @@
                             </div>
                         {% else %}
                             {% for event, type, organizer, date, capacity, price in tourEvents %}
-                                <div class="col col-md-6 event" event_id="{{ event.id }}">
+                                <div class="col col-md-6 col-xs-6 event" event_id="{{ event.id }}">
                                     <div class="image"
                                          style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
                                         <div class="date">{% with date.date as date %}
@@ -372,7 +372,7 @@
                             </div>
                         {% else %}
                             {% for event,type, organizer, date, capacity, price in zooEvents %}
-                                <div class="col col-md-6 event" event_id="{{ event.id }}">
+                                <div class="col col-md-6 col-xs-6 event" event_id="{{ event.id }}">
                                     <div class="image"
                                          style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
                                         <div class="date">۲{% with date.date as date %}
@@ -403,7 +403,7 @@
                             </div>
                         {% else %}
                             {% for event,type, organizer, date, capacity, price in amusementEvents %}
-                                <div class="col col-md-6 event" event_id="{{ event.id }}">
+                                <div class="col col-md-6 col-xs-6 event" event_id="{{ event.id }}">
                                     <div class="image"
                                          style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
                                         <div class="date">{% with date.date as date %}
@@ -436,7 +436,7 @@
                             </div>
                         {% else %}
                             {% for event,type, organizer, date, capacity, price in circusEvents %}
-                                <div class="col col-md-6 event" event_id="{{ event.id }}">
+                                <div class="col col-md-6 col-xs-6 event" event_id="{{ event.id }}">
                                     <div class="image"
                                          style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
                                         <div class="date">{% with date.date as date %}
@@ -469,7 +469,7 @@
                             </div>
                         {% else %}
                             {% for event,type, organizer, date, capacity, price in traditionalMusic %}
-                                <div class="col col-md-6 event" event_id="{{ event.id }}">
+                                <div class="col col-md-6 col-xs-6 event" event_id="{{ event.id }}">
                                     <div class="image"
                                          style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
                                         <div class="date">{% with date.date as date %}
@@ -502,7 +502,7 @@
                             </div>
                         {% else %}
                             {% for event,type, organizer, date, capacity, price in popMusic %}
-                                <div class="col col-md-6 event" event_id="{{ event.id }}">
+                                <div class="col col-md-6 col-xs-6 event" event_id="{{ event.id }}">
                                     <div class="image"
                                          style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
                                         <div class="date">{% with date.date as date %}

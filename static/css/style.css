@@ -82,6 +82,7 @@
 }
 
 #events .tab-pane {
+    overflow: auto;
     padding-bottom: 2.8em;
     border: solid #dddddd;
     border-width: 0 1px 0 1px;
