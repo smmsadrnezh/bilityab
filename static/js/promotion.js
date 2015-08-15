@@ -8,10 +8,8 @@ jQuery(document).ready(function ($) {
             success: function (data) {
                 if (parseInt(data)) {
                     window.location.replace(window.location.pathname);
-                    alert("ok");
                 } else {
-                    alert("fail");
-                    $('#add-promotion').find('input[type="text"]').toggleClass('has-error').next('span').toggleClass('is-visible');
+                    $('#add-promotion').find('input[type="number"]').toggleClass('has-error').next('span').toggleClass('is-visible');
                 }
             }
         });

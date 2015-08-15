@@ -1,5 +1,7 @@
+import datetime
 from django.shortcuts import render
 from event.models import Event, Showtime, PositionPrice,EventOrganizer
+from promotion.models import Promotion
 from event.views import get_type
 from django.http import Http404, HttpResponseRedirect, HttpResponse, HttpResponseForbidden
 # Create your views here.
@@ -32,13 +34,20 @@ def all_promotion(request):
 
 def promotion(request, event_id):
     if request.user.is_authenticated() and request.user.is_organizer:
-        print("total")
         if request.is_ajax():
-            print("test")
-            print(request.POST.getlist('discount'))
-            return HttpResponse(1)
+            print("ajax")
+            if request.POST.get('discount') != "" and request.POST.get('remaining') != "" and request.POST.getlist('times[]') != []:
+                discount = (request.POST.get('discount', ''))
+                remaining = (request.POST.get('remaining', ''))
+                selected_show_times = request.POST.getlist('times[]', '')
+                for selected_show_time in selected_show_times:
+                    Promotion(showtime_id=selected_show_time, discount=discount, remaining=remaining, issued_time=datetime.datetime.now()).save()
+                    # promotion.showtime = Showtime.objects.get(id=selected_show_time)
+                return HttpResponse(1)
+            else:
+                print("error")
+                return HttpResponse(0)
         else:
-            print("no ajax")
             event = Event.objects.get(id=event_id)
             organizers = EventOrganizer.objects.filter(event=event)
             organizers_showtimes = []

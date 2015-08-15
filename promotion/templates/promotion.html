@@ -9,12 +9,16 @@
 {#                    رویدادهای این مجموعه#}
 {#                </h2>#}
             <div id="add-promotion">
-                <form id="add-promotion-form" method="post">
+                <form id="add-promotion-form" method="POST"> {% csrf_token %}
                     <p>
                         سانس های مورد نظر برای اعمال تخفیف را انتخاب کرده و میزان تخفیف را در کادر زیر وارد کنید:
                     </p>
 
                     <input type="number" name="discount" placeholder="درصد تخفیف">
+{#                    <span class="cd-error-message">عددی بین 1 تا 100 وارد کنید</span>#}
+                <br/>
+                    <input type="number" name="remaining" placeholder="تعداد تخفیف">
+                <br/>
                     <input type="submit" value="اعمال تخفیف">
 
                     <div class="col col-md-12" id="ticket-info">

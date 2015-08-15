@@ -479,7 +479,6 @@ def add_category(request):
                     return HttpResponse(1)
                 else:
                     # raise exception to user
-                    print("raise1")
                     return HttpResponse(0)
             else:
                 # insert event and it's additional information to database
@@ -491,7 +490,6 @@ def add_category(request):
                     # redirect to site homepage
                     return HttpResponse(1)
                 else:
-                    print("raiese2")
                     # raise exception to user
                     return HttpResponse(0)
         else:
