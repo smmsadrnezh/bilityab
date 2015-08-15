@@ -170,5 +170,19 @@ a:hover {
 
 @media screen and (max-width: 991px)
 {
+    #left-bar
+    {
+        height: 50%;
+    }
 
+    #top-header
+    {
+        height: 4em;
+    }
+
+    #top-header ul
+    {
+        height: auto;
+        text-align: center;
+    }
 }
