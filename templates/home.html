@@ -549,13 +549,18 @@
                                     </div>
                                     <div class="place"><a
                                             href="/organizer/{{ organizer.id }}/">{{ organizer.title }}</a></div>
-                                    <div class="description"><i class="fa fa-quote-right"></i>
-                                        {{ event.description }}
+                                    <div class="description">
+                                        <div class="vertical-center">
+                                            <i class="fa fa-quote-right"></i>
+                                            {{ event.description }}
+                                        </div>
                                     </div>
                                     <div class="footer">
-                                        <div class="see-ticket">{{ price }} هزار تومان</div>
-                                        <div class="date"><i class="fa fa-calendar"></i>{% with date.date as date %}
+                                        <div class="col col-md-12 col-xs-12 no-col-padding" style="padding-top: 0.3em; padding-bottom: 0.3em">
+                                            <div class="col col-md-6 col-xs-12 no-col-padding see-ticket">{{ price }} هزار تومان</div>
+                                            <div class="col col-md-6 col-xs-12 no-col-padding date"><i class="fa fa-calendar"></i>{% with date.date as date %}
                                             {% include 'persian-date.html' %}{% endwith %}</div>
+                                        </div>
                                     </div>
                                 </div>
                             {% endfor %}

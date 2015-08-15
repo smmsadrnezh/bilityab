@@ -307,6 +307,7 @@
 }
 
 .medium-event {
+    float: right;
     color: #dddddd;
     border-radius: 15px;
     margin-bottom: 1em;
@@ -349,16 +350,17 @@
 }
 
 .medium-event .description {
-    height: 6em;
+    text-align: center;
+    height: 9em;
     color: #030303;
     line-height: 20px;
     padding: 0.5em 0.7em;
     font-size: 0.8em;
     background-color: #ddd;
-    text-align: justify;
 }
 
 .medium-event .footer {
+    text-align: center;
     border-radius: 0 0 10px 10px;
     background-color: #343434;
     overflow: hidden;
@@ -369,7 +371,7 @@
     font-size: 0.6em;
     float: right;
     color: rgb(242, 189, 96);
-    padding: 0.5em 0.7em 0.4em 0.4em;
+    padding: 0;
 }
 
 .medium-event .footer .see-ticket i {
@@ -380,7 +382,7 @@
     font-family: 'BYekan', sans-serif;
     font-size: 0.6em;
     float: left;
-    padding: 0.5em 0.4em 0.4em 0.7em;
+    padding: 0 0 0 0.5em;
 }
 
 .medium-event .footer .date i {
