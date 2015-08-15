@@ -541,10 +541,18 @@
                                 برای این بخش رویدادی وجود ندارد
                             </div>
                         {% else %}
-                            {% for event, type, organizer, date, capacity, price in bestSellerEvents %}
+                            {% for event, type, organizer, date, capacity, price, discount in bestSellerEvents %}
                                 <div class="medium-event col col-md-4 col-xs-6">
                                     <div class="image"
                                          style="background-image: url('{{ MEDIA_URL }}{{ event.portrait }}')"></div>
+                                {% if discount != 0 %}
+                                    <img class="discount" src="{% static 'img/discount.gif' %}"/>
+                                    <p class="discount-text">
+                                        {{ discount }}%
+                                        <br/>
+                                        تخفیف
+                                    </p>
+                                {% endif %}
                                     <div class="title"><a href="/events/{{ type }}/{{ event.id }}">{{ event.title }}</a>
                                     </div>
                                     <div class="place"><a

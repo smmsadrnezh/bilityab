@@ -441,3 +441,18 @@
     font-style: normal;
     color: #ffffff;
 }
+
+.discount {
+    opacity: 0.9;
+    height: 70px;
+    position: absolute;
+    top: 0;
+}
+.discount-text{
+    position: absolute;
+    top: 10px;
+    color: #ffffff;
+    right: 20px;
+    text-align: center;
+    line-height: 25px;
+}

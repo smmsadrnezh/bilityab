@@ -5,6 +5,7 @@ from django.db.models import Sum
 from django.shortcuts import render
 
 from event.models import Event, Categories, Showtime, PositionPrice
+from promotion.models import Promotion
 
 
 def get_type(event_id):
@@ -34,14 +35,21 @@ def make_event_type_list1(event_list):
         organizer = event.event_organizers.all()[0]
         dates = Showtime.objects.filter(event=event)
         position_price = PositionPrice.objects.get(organizer=organizer, event=event)
+        show_times = Showtime.objects.filter(event_id=event.id)
+        max_promotion = 0
+        for show_time in show_times:
+            promotions = Promotion.objects.filter(showtime_id=show_time.id)
+            for promotion in promotions:
+                if promotion.discount > max_promotion:
+                    max_promotion = promotion.discount
         total_capacity = 0
         for show_time in event.show_times.all():
             total_capacity += show_time.capacity
         if dates:
             date = get_nearest_date(dates)
-            event_type_list.append((event, category, organizer, date, total_capacity, position_price.price))
+            event_type_list.append((event, category, organizer, date, total_capacity, position_price.price, max_promotion))
         else:
-            event_type_list.append((event, category, organizer, total_capacity, position_price.price))
+            event_type_list.append((event, category, organizer, total_capacity, position_price.price, max_promotion))
     return event_type_list
 
 
