@@ -129,7 +129,7 @@ $(window).load(function () {
         var row, column, temp;
         var map = $('.map[organizer-id="' + selected_organizer_id + '"]');
         for (var i = 0; i < seats.length; i++) {
-            if (seats[i] != '') {
+            if (parseInt(seats[i])) {
                 row = seats[i].split(',')[0];
                 column = parseInt(seats[i].split(',')[1]);
                 temp = map.find('.seat-row.' + row);
