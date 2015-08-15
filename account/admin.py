@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import RecoveryRequests
 from event.models import Event, PositionPrice
+from .models import RecoveryRequests, CustomUser
 
 
 class PositionInline(admin.StackedInline):
@@ -15,4 +15,4 @@ class EventAdmin(admin.ModelAdmin):
 
 admin.site.register(Event, EventAdmin)
 admin.site.register(RecoveryRequests)
-
+admin.site.register(CustomUser)
