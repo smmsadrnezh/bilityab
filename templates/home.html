@@ -33,10 +33,10 @@
         </a>
     </div>
     <div class="holder">
-        <div id="body-container" going_recovery="{{ going_recovery }}" class="col col-md-12">
-            <div id="events" class="col col-md-9">
-                <div class="col col-md-12 no-col-padding">
-                    <ul class="col col-md-12 nav nav-tabs no-col-padding" role="tablist">
+        <div id="body-container" going_recovery="{{ going_recovery }}" class="col col-md-12 col-xs-12">
+            <div id="events" class="col col-md-9 col-xs-12">
+                <div class="col col-md-12 col-xs-12 no-col-padding">
+                    <ul class="col col-md-12 col-xs-12 nav nav-tabs no-col-padding" role="tablist">
                     <li role="presentation" class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                             <i class="fa fa-film"></i><br/>
@@ -101,7 +101,7 @@
                         </ul>
                     </li>
                 </ul>
-                    <div id="events-list" class="col col-md-12 tab-content no-col-padding">
+                    <div id="events-list" class="col col-md-12 col-xs-12 tab-content no-col-padding">
                         <div role="tabpanel" class="tab-pane fade in col col-md-12" id="action">
                             {% if actionMovies|length == 0 %}
                                 <div class="text-center text-info" style="margin:30px;">
@@ -168,7 +168,7 @@
                                 {% endfor %}
                             {% endif %}
                         </div>
-                        <div role="tabpanel" class="tab-pane active fade in col col-md-12" id="comic">
+                        <div role="tabpanel" class="tab-pane active fade in col col-md-12 col-xs-12" id="comic">
                             {% if comicMovies|length == 0 %}
                                 <div class="text-center text-info" style="margin:30px;">
                                     برای این بخش رویدادی وجود ندارد
@@ -530,19 +530,19 @@
                         </div>
                     </div>
                 </div>
-                <div class="col col-md-12" id="suggestions">
+                <div class="col col-md-12 col-xs-12" id="suggestions">
                     <div class="or-spacer">
                         <div class="mask"></div>
                         <span><i>پرفروش ترین ها</i></span>
                     </div>
-                    <div class="col col-md-12 event-carousel">
+                    <div class="col col-md-12 col-xs-12 event-carousel">
                         {% if bestSellerEvents|length == 0 %}
                             <div class="text-center text-info" style="margin:30px;">
                                 برای این بخش رویدادی وجود ندارد
                             </div>
                         {% else %}
                             {% for event, type, organizer, date, capacity, price in bestSellerEvents %}
-                                <div class="medium-event col col-md-4">
+                                <div class="medium-event col col-md-4 col-xs-6">
                                     <div class="image"
                                          style="background-image: url('{{ MEDIA_URL }}{{ event.portrait }}')"></div>
                                     <div class="title"><a href="/events/{{ type }}/{{ event.id }}">{{ event.title }}</a>
@@ -563,11 +563,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col col-md-3" id="right-sidebar">
+            <div class="col col-md-3 col-xs-12" id="right-sidebar">
                 <div id="most-popular" class="widget">
                     <div class="heading"><i class="fa fa-star"></i><span class="title">برترین رویدادها</span></div>
                     <div class="content">
-
                         {% for event,type, organizer,date in bestEvents %}
                             <div class="small-event">
                                 <a href="events/{{ type }}/{{ event.id }}/">
