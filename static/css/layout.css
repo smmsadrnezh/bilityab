@@ -113,7 +113,7 @@ a:hover {
     height: 60%;
     top: 10%;
     position: relative;
-    width: 28em;
+    width: 100%;
     padding-right: 0.8em;
     padding-left: 2em;
     border: none;
@@ -139,7 +139,7 @@ a:hover {
 }
 
 .title-font {
-    font-family: 'BYekan';
+    font-family: 'BYekan', sans-serif;
     margin-bottom: 1em;
 }
 
@@ -166,4 +166,9 @@ a:hover {
 {
     padding-right: 0;
     padding-left: 0;
+}
+
+@media screen and (max-width: 991px)
+{
+
 }

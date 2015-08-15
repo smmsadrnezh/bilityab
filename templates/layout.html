@@ -3,7 +3,7 @@
 {% block pageLayout %}
     <header id="top-header">
         <div class="holder">
-            <ul class="col col-md-6">
+            <ul class="col col-md-8 col-xs-12">
                 <li class="active"><a href="/"><i class="fa fa-home"></i>خانه</a></li>
                 <li><a href="/events"><i class="fa fa-list"></i>رویدادها</a></li>
                 {% if request.user.is_authenticated %}
@@ -19,8 +19,7 @@
                 {% endif %}
 
             </ul>
-
-            <div id="left-bar" class="col col-md-6">
+            <div id="left-bar" class="col col-md-4 col-xs-12">
                 <form style="height: 100%;" action="/search/" method="POST" id="search-form" >{% csrf_token %}
                     <input type="text" id="autocomplete" name="search-string" placeholder="جستجوی رویداد ...">
                 </form>
