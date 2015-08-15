@@ -37,11 +37,11 @@ def promotion(request, event_id):
         if request.is_ajax():
             print("ajax")
             if request.POST.get('discount') != "" and request.POST.get('remaining') != "" and request.POST.getlist('times[]') != []:
-                discount = (request.POST.get('discount', ''))
-                remaining = (request.POST.get('remaining', ''))
+                discount = int(request.POST.get('discount', ''))
+                remaining = int(request.POST.get('remaining', ''))
                 selected_show_times = request.POST.getlist('times[]', '')
                 for selected_show_time in selected_show_times:
-                    Promotion(showtime_id=selected_show_time, discount=discount, remaining=remaining, issued_time=datetime.datetime.now()).save()
+                    Promotion(showtime_id=int(selected_show_time), discount=discount, remaining=remaining).save()
                     # promotion.showtime = Showtime.objects.get(id=selected_show_time)
                 return HttpResponse(1)
             else:

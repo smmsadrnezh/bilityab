@@ -185,4 +185,18 @@ a:hover {
         height: auto;
         text-align: center;
     }
+
+    #top-header ul li
+    {
+        padding-bottom: 0.8em;
+    }
+
+}
+
+@media screen and (max-width: 547px)
+{
+    #top-header
+    {
+        height: 7em;
+    }
 }
