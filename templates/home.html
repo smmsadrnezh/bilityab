@@ -102,433 +102,433 @@
                     </li>
                 </ul>
                     <div id="events-list" class="col col-md-12 tab-content no-col-padding">
-                    <div role="tabpanel" class="tab-pane fade in col col-md-12" id="action">
-                        {% if actionMovies|length == 0 %}
-                            <div class="text-center text-info" style="margin:30px;">
-                                برای این بخش رویدادی وجود ندارد
-                            </div>
-                        {% else %}
-                            {% for event, type, organizer,date, capacity, price in actionMovies %}
-                                <div class="col col-md-6 col-xs-6 event" event_id="{{ event.id }}">
-                                    <div class="image"
-                                         style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
-                                        <div class="date">{% with date.date as date %}
-                                            {% include 'persian-date.html' %}{% endwith %}</div>
-                                    </div>
-                                    <div class="description cinema">
-                                        <div class="vertical-center">
-                                            <div class="title">
-                                                {{ event.title }}
-                                            </div>
-                                            <div class="place">
-                                                {{ organizer.title }}
-                                            </div>
-                                            <div class="num-of-remaining-tickets">بلیط های باقیمانده: {{ capacity }}
-                                                عدد
-                                            </div>
-                                            <div class="price">
-                                                {{ price }} هزار تومان
+                        <div role="tabpanel" class="tab-pane fade in col col-md-12" id="action">
+                            {% if actionMovies|length == 0 %}
+                                <div class="text-center text-info" style="margin:30px;">
+                                    برای این بخش رویدادی وجود ندارد
+                                </div>
+                            {% else %}
+                                {% for event, type, organizer,date, capacity, price in actionMovies %}
+                                    <div class="col col-md-6 col-xs-6 event" event_id="{{ event.id }}">
+                                        <div class="image"
+                                             style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
+                                            <div class="date">{% with date.date as date %}
+                                                {% include 'persian-date.html' %}{% endwith %}</div>
+                                        </div>
+                                        <div class="description cinema">
+                                            <div class="vertical-center">
+                                                <div class="title">
+                                                    {{ event.title }}
+                                                </div>
+                                                <div class="place">
+                                                    {{ organizer.title }}
+                                                </div>
+                                                <div class="num-of-remaining-tickets">بلیط های باقیمانده: {{ capacity }}
+                                                    عدد
+                                                </div>
+                                                <div class="price">
+                                                    {{ price }} هزار تومان
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade in col col-md-12" id="dram">
+                            {% if dramaticMovies|length == 0 %}
+                                <div class="text-center text-info" style="margin:30px;">
+                                    برای این بخش رویدادی وجود ندارد
                                 </div>
-                            {% endfor %}
-                        {% endif %}
-                    </div>
-                    <div role="tabpanel" class="tab-pane fade in col col-md-12" id="dram">
-                        {% if dramaticMovies|length == 0 %}
-                            <div class="text-center text-info" style="margin:30px;">
-                                برای این بخش رویدادی وجود ندارد
-                            </div>
-                        {% else %}
-                            {% for event, type, organizer, date, capacity, price in dramaticMovies %}
-                                <div class="col col-md-6 col-xs-6 event" event_id="{{ event.id }}">
-                                    <div class="image"
-                                         style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
-                                        <div class="date">{% with date.date as date %}
-                                            {% include 'persian-date.html' %}{% endwith %}</div>
-                                    </div>
-                                    <div class="description cinema">
-                                        <div class="vertical-center">
-                                            <div class="title">
-                                                {{ event.title }}
-                                            </div>
-                                            <div class="place">
-                                                {{ organizer.title }}
-                                            </div>
-                                            <div class="num-of-remaining-tickets">بلیط های باقیمانده: {{ capacity }}
-                                                عدد
-                                            </div>
-                                            <div class="price">
-                                                {{ price }} هزار تومان
+                            {% else %}
+                                {% for event, type, organizer, date, capacity, price in dramaticMovies %}
+                                    <div class="col col-md-6 col-xs-6 event" event_id="{{ event.id }}">
+                                        <div class="image"
+                                             style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
+                                            <div class="date">{% with date.date as date %}
+                                                {% include 'persian-date.html' %}{% endwith %}</div>
+                                        </div>
+                                        <div class="description cinema">
+                                            <div class="vertical-center">
+                                                <div class="title">
+                                                    {{ event.title }}
+                                                </div>
+                                                <div class="place">
+                                                    {{ organizer.title }}
+                                                </div>
+                                                <div class="num-of-remaining-tickets">بلیط های باقیمانده: {{ capacity }}
+                                                    عدد
+                                                </div>
+                                                <div class="price">
+                                                    {{ price }} هزار تومان
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        <div role="tabpanel" class="tab-pane active fade in col col-md-12" id="comic">
+                            {% if comicMovies|length == 0 %}
+                                <div class="text-center text-info" style="margin:30px;">
+                                    برای این بخش رویدادی وجود ندارد
                                 </div>
-                            {% endfor %}
-                        {% endif %}
-                    </div>
-                    <div role="tabpanel" class="tab-pane active fade in col col-md-12" id="comic">
-                        {% if comicMovies|length == 0 %}
-                            <div class="text-center text-info" style="margin:30px;">
-                                برای این بخش رویدادی وجود ندارد
-                            </div>
-                        {% else %}
-                            {% for event, type, organizer, date, capacity, price in comicMovies %}
-                                <div class="col col-md-6 col-xs-6 event" event_id="{{ event.id }}">
-                                    <div class="image"
-                                         style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
-                                        <div class="date">{% with date.date as date %}
-                                            {% include 'persian-date.html' %}{% endwith %}</div>
-                                    </div>
-                                    <div class="description cinema">
-                                        <div class="vertical-center">
-                                            <div class="title">
-                                                {{ event.title }}
-                                            </div>
-                                            <div class="place">
-                                                {{ organizer.title }}
-                                            </div>
-                                            <div class="num-of-remaining-tickets">بلیط های باقیمانده: {{ capacity }}
-                                                عدد
-                                            </div>
-                                            <div class="price">
-                                                {{ price }} هزار تومان
+                            {% else %}
+                                {% for event, type, organizer, date, capacity, price in comicMovies %}
+                                    <div class="col col-md-6 col-xs-6 event" event_id="{{ event.id }}">
+                                        <div class="image"
+                                             style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
+                                            <div class="date">{% with date.date as date %}
+                                                {% include 'persian-date.html' %}{% endwith %}</div>
+                                        </div>
+                                        <div class="description cinema">
+                                            <div class="vertical-center">
+                                                <div class="title">
+                                                    {{ event.title }}
+                                                </div>
+                                                <div class="place">
+                                                    {{ organizer.title }}
+                                                </div>
+                                                <div class="num-of-remaining-tickets">بلیط های باقیمانده: {{ capacity }}
+                                                    عدد
+                                                </div>
+                                                <div class="price">
+                                                    {{ price }} هزار تومان
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade in col col-md-12" id="volleyball">
+                            {% if volleyballEvents|length == 0 %}
+                                <div class="text-center text-info" style="margin:30px;">
+                                    برای این بخش رویدادی وجود ندارد
                                 </div>
-                            {% endfor %}
-                        {% endif %}
-                    </div>
-                    <div role="tabpanel" class="tab-pane fade in col col-md-12" id="volleyball">
-                        {% if volleyballEvents|length == 0 %}
-                            <div class="text-center text-info" style="margin:30px;">
-                                برای این بخش رویدادی وجود ندارد
-                            </div>
-                        {% else %}
-                            {% for event, type, organizer, date, capacity, price in volleyballEvents %}
-                                <div class="col col-md-6 col-xs-6 event " event_id="{{ event.id }}">
-                                    <div class="image"
-                                         style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
-                                        <div class="date">{% with date.date as date %}
-                                            {% include 'persian-date.html' %}{% endwith %}</div>
-                                    </div>
-                                    <div class="description sport">
-                                        <div class="vertical-center">
-                                            <div class="title">
-                                                {{ event.title }}
-                                            </div>
-                                            <div class="place">
-                                                {{ organizer.title }}
-                                            </div>
-                                            <div class="num-of-remaining-tickets">بلیط های باقیمانده: {{ capacity }}
-                                                عدد
-                                            </div>
-                                            <div class="price">
-                                                {{ price }} هزار تومان
+                            {% else %}
+                                {% for event, type, organizer, date, capacity, price in volleyballEvents %}
+                                    <div class="col col-md-6 col-xs-6 event " event_id="{{ event.id }}">
+                                        <div class="image"
+                                             style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
+                                            <div class="date">{% with date.date as date %}
+                                                {% include 'persian-date.html' %}{% endwith %}</div>
+                                        </div>
+                                        <div class="description sport">
+                                            <div class="vertical-center">
+                                                <div class="title">
+                                                    {{ event.title }}
+                                                </div>
+                                                <div class="place">
+                                                    {{ organizer.title }}
+                                                </div>
+                                                <div class="num-of-remaining-tickets">بلیط های باقیمانده: {{ capacity }}
+                                                    عدد
+                                                </div>
+                                                <div class="price">
+                                                    {{ price }} هزار تومان
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade in col col-md-12" id="football">
+                            {% if footballEvents|length == 0 %}
+                                <div class="text-center text-info" style="margin:30px;">
+                                    برای این بخش رویدادی وجود ندارد
                                 </div>
-                            {% endfor %}
-                        {% endif %}
-                    </div>
-                    <div role="tabpanel" class="tab-pane fade in col col-md-12" id="football">
-                        {% if footballEvents|length == 0 %}
-                            <div class="text-center text-info" style="margin:30px;">
-                                برای این بخش رویدادی وجود ندارد
-                            </div>
-                            {% else %}{% for event, type, organizer, date, capacity, price in footballEvents %}
-                                <div class="col col-md-6 col-xs-6 event" event_id="{{ event.id }}">
-                                    <div class="image"
-                                         style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
-                                        <div class="date">{% with date.date as date %}
-                                            {% include 'persian-date.html' %}{% endwith %}</div>
-                                    </div>
-                                    <div class="description sport">
-                                        <div class="vertical-center">
-                                            <div class="title">
-                                                {{ event.title }}
-                                            </div>
-                                            <div class="place">
-                                                {{ organizer.title }}
-                                            </div>
-                                            <div class="num-of-remaining-tickets">بلیط های باقیمانده: {{ capacity }}
-                                                عدد
-                                            </div>
-                                            <div class="price">
-                                                {{ price }} هزار تومان
+                                {% else %}{% for event, type, organizer, date, capacity, price in footballEvents %}
+                                    <div class="col col-md-6 col-xs-6 event" event_id="{{ event.id }}">
+                                        <div class="image"
+                                             style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
+                                            <div class="date">{% with date.date as date %}
+                                                {% include 'persian-date.html' %}{% endwith %}</div>
+                                        </div>
+                                        <div class="description sport">
+                                            <div class="vertical-center">
+                                                <div class="title">
+                                                    {{ event.title }}
+                                                </div>
+                                                <div class="place">
+                                                    {{ organizer.title }}
+                                                </div>
+                                                <div class="num-of-remaining-tickets">بلیط های باقیمانده: {{ capacity }}
+                                                    عدد
+                                                </div>
+                                                <div class="price">
+                                                    {{ price }} هزار تومان
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade in col col-md-12" id="basketball">
+                            {% if basketballEvents|length == 0 %}
+                                <div class="text-center text-info" style="margin:30px;">
+                                    برای این بخش رویدادی وجود ندارد
                                 </div>
-                            {% endfor %}
-                        {% endif %}
-                    </div>
-                    <div role="tabpanel" class="tab-pane fade in col col-md-12" id="basketball">
-                        {% if basketballEvents|length == 0 %}
-                            <div class="text-center text-info" style="margin:30px;">
-                                برای این بخش رویدادی وجود ندارد
-                            </div>
-                        {% else %}
-                            {% for event,type, organizer, date, capacity, price in basketballEvents %}
-                                <div class="col col-md-6 col-xs-6 event" event_id="{{ event.id }}">
-                                    <div class="image"
-                                         style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
-                                        <div class="date">{% with date.date as date %}
-                                            {% include 'persian-date.html' %}{% endwith %}</div>
-                                    </div>
-                                    <div class="description sport">
-                                        <div class="vertical-center">
-                                            <div class="title">
-                                                {{ event.title }}
-                                            </div>
-                                            <div class="place">
-                                                {{ organizer.title }}
-                                            </div>
-                                            <div class="num-of-remaining-tickets">بلیط های باقیمانده: {{ capacity }}
-                                                عدد
-                                            </div>
-                                            <div class="price">
-                                                {{ price }} هزار تومان
+                            {% else %}
+                                {% for event,type, organizer, date, capacity, price in basketballEvents %}
+                                    <div class="col col-md-6 col-xs-6 event" event_id="{{ event.id }}">
+                                        <div class="image"
+                                             style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
+                                            <div class="date">{% with date.date as date %}
+                                                {% include 'persian-date.html' %}{% endwith %}</div>
+                                        </div>
+                                        <div class="description sport">
+                                            <div class="vertical-center">
+                                                <div class="title">
+                                                    {{ event.title }}
+                                                </div>
+                                                <div class="place">
+                                                    {{ organizer.title }}
+                                                </div>
+                                                <div class="num-of-remaining-tickets">بلیط های باقیمانده: {{ capacity }}
+                                                    عدد
+                                                </div>
+                                                <div class="price">
+                                                    {{ price }} هزار تومان
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade in col col-md-12" id="wrestling">
+                            {% if wrestleEvents|length == 0 %}
+                                <div class="text-center text-info" style="margin:30px;">
+                                    برای این بخش رویدادی وجود ندارد
                                 </div>
-                            {% endfor %}
-                        {% endif %}
-                    </div>
-                    <div role="tabpanel" class="tab-pane fade in col col-md-12" id="wrestling">
-                        {% if wrestleEvents|length == 0 %}
-                            <div class="text-center text-info" style="margin:30px;">
-                                برای این بخش رویدادی وجود ندارد
-                            </div>
-                        {% else %}
-                            {% for event,type, organizer, date, capacity, price in wrestleEvents %}
-                                <div class="col col-md-6 col-xs-6 event" event_id="{{ event.id }}">
-                                    <div class="image"
-                                         style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
-                                        <div class="date">{% with date.date as date %}
-                                            {% include 'persian-date.html' %}{% endwith %}</div>
-                                    </div>
-                                    <div class="description sport">
-                                        <div class="vertical-center">
-                                            <div class="title">
-                                                {{ event.title }}
-                                            </div>
-                                            <div class="place">
-                                                {{ organizer.title }}
-                                            </div>
-                                            <div class="num-of-remaining-tickets">بلیط های باقیمانده: {{ capacity }}
-                                                عدد
-                                            </div>
-                                            <div class="price">
-                                                {{ price }} هزار تومان
+                            {% else %}
+                                {% for event,type, organizer, date, capacity, price in wrestleEvents %}
+                                    <div class="col col-md-6 col-xs-6 event" event_id="{{ event.id }}">
+                                        <div class="image"
+                                             style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
+                                            <div class="date">{% with date.date as date %}
+                                                {% include 'persian-date.html' %}{% endwith %}</div>
+                                        </div>
+                                        <div class="description sport">
+                                            <div class="vertical-center">
+                                                <div class="title">
+                                                    {{ event.title }}
+                                                </div>
+                                                <div class="place">
+                                                    {{ organizer.title }}
+                                                </div>
+                                                <div class="num-of-remaining-tickets">بلیط های باقیمانده: {{ capacity }}
+                                                    عدد
+                                                </div>
+                                                <div class="price">
+                                                    {{ price }} هزار تومان
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade in col col-md-12" id="tour">
+                            {% if tourEvents|length == 0 %}
+                                <div class="text-center text-info" style="margin:30px;">
+                                    برای این بخش رویدادی وجود ندارد
                                 </div>
-                            {% endfor %}
-                        {% endif %}
-                    </div>
-                    <div role="tabpanel" class="tab-pane fade in col col-md-12" id="tour">
-                        {% if tourEvents|length == 0 %}
-                            <div class="text-center text-info" style="margin:30px;">
-                                برای این بخش رویدادی وجود ندارد
-                            </div>
-                        {% else %}
-                            {% for event, type, organizer, date, capacity, price in tourEvents %}
-                                <div class="col col-md-6 col-xs-6 event" event_id="{{ event.id }}">
-                                    <div class="image"
-                                         style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
-                                        <div class="date">{% with date.date as date %}
-                                            {% include 'persian-date.html' %}{% endwith %}</div>
-                                    </div>
-                                    <div class="description tourism">
-                                        <div class="vertical-center">
-                                            <div class="title">
-                                                {{ event.title }}
-                                            </div>
-                                            <div class="place">
-                                                {{ organizer.title }}
-                                            </div>
-                                            <div class="num-of-remaining-tickets">بلیط های باقیمانده: {{ capacity }}
-                                                عدد
-                                            </div>
-                                            <div class="price">
-                                                {{ price }} هزار تومان
+                            {% else %}
+                                {% for event, type, organizer, date, capacity, price in tourEvents %}
+                                    <div class="col col-md-6 col-xs-6 event" event_id="{{ event.id }}">
+                                        <div class="image"
+                                             style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
+                                            <div class="date">{% with date.date as date %}
+                                                {% include 'persian-date.html' %}{% endwith %}</div>
+                                        </div>
+                                        <div class="description tourism">
+                                            <div class="vertical-center">
+                                                <div class="title">
+                                                    {{ event.title }}
+                                                </div>
+                                                <div class="place">
+                                                    {{ organizer.title }}
+                                                </div>
+                                                <div class="num-of-remaining-tickets">بلیط های باقیمانده: {{ capacity }}
+                                                    عدد
+                                                </div>
+                                                <div class="price">
+                                                    {{ price }} هزار تومان
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade in col col-md-12" id="zoo">
+                            {% if zooEvents|length == 0 %}
+                                <div class="text-center text-info" style="margin:30px;">
+                                    برای این بخش رویدادی وجود ندارد
                                 </div>
-                            {% endfor %}
-                        {% endif %}
-                    </div>
-                    <div role="tabpanel" class="tab-pane fade in col col-md-12" id="zoo">
-                        {% if zooEvents|length == 0 %}
-                            <div class="text-center text-info" style="margin:30px;">
-                                برای این بخش رویدادی وجود ندارد
-                            </div>
-                        {% else %}
-                            {% for event,type, organizer, date, capacity, price in zooEvents %}
-                                <div class="col col-md-6 col-xs-6 event" event_id="{{ event.id }}">
-                                    <div class="image"
-                                         style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
-                                        <div class="date">۲{% with date.date as date %}
-                                            {% include 'persian-date.html' %}{% endwith %}</div>
-                                    </div>
-                                    <div class="description tourism">
-                                        <div class="vertical-center">
-                                            <div class="title">
-                                                {{ event.title }}
-                                            </div>
-                                            <div class="place">
-                                                {{ organizer.title }}
-                                            </div>
-                                            <div class="num-of-remaining-tickets">بلیط های باقیمانده: بدون محدودیت</div>
-                                            <div class="price">
-                                                {{ price }} هزار تومان
+                            {% else %}
+                                {% for event,type, organizer, date, capacity, price in zooEvents %}
+                                    <div class="col col-md-6 col-xs-6 event" event_id="{{ event.id }}">
+                                        <div class="image"
+                                             style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
+                                            <div class="date">۲{% with date.date as date %}
+                                                {% include 'persian-date.html' %}{% endwith %}</div>
+                                        </div>
+                                        <div class="description tourism">
+                                            <div class="vertical-center">
+                                                <div class="title">
+                                                    {{ event.title }}
+                                                </div>
+                                                <div class="place">
+                                                    {{ organizer.title }}
+                                                </div>
+                                                <div class="num-of-remaining-tickets">بلیط های باقیمانده: بدون محدودیت</div>
+                                                <div class="price">
+                                                    {{ price }} هزار تومان
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade in col col-md-12" id="amusement-park">
+                            {% if amusementEvents|length == 0 %}
+                                <div class="text-center text-info" style="margin:30px;">
+                                    برای این بخش رویدادی وجود ندارد
                                 </div>
-                            {% endfor %}
-                        {% endif %}
-                    </div>
-                    <div role="tabpanel" class="tab-pane fade in col col-md-12" id="amusement-park">
-                        {% if amusementEvents|length == 0 %}
-                            <div class="text-center text-info" style="margin:30px;">
-                                برای این بخش رویدادی وجود ندارد
-                            </div>
-                        {% else %}
-                            {% for event,type, organizer, date, capacity, price in amusementEvents %}
-                                <div class="col col-md-6 col-xs-6 event" event_id="{{ event.id }}">
-                                    <div class="image"
-                                         style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
-                                        <div class="date">{% with date.date as date %}
-                                            {% include 'persian-date.html' %}{% endwith %}</div>
-                                    </div>
-                                    <div class="description tourism">
-                                        <div class="vertical-center">
-                                            <div class="title">
-                                                {{ event.title }}
-                                            </div>
-                                            <div class="place">
-                                                {{ organizer.title }}
-                                            </div>
-                                            <div class="num-of-remaining-tickets">بلیط های باقیمانده: {{ capacity }}
-                                                عدد
-                                            </div>
-                                            <div class="price">
-                                                {{ price }} هزار تومان
+                            {% else %}
+                                {% for event,type, organizer, date, capacity, price in amusementEvents %}
+                                    <div class="col col-md-6 col-xs-6 event" event_id="{{ event.id }}">
+                                        <div class="image"
+                                             style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
+                                            <div class="date">{% with date.date as date %}
+                                                {% include 'persian-date.html' %}{% endwith %}</div>
+                                        </div>
+                                        <div class="description tourism">
+                                            <div class="vertical-center">
+                                                <div class="title">
+                                                    {{ event.title }}
+                                                </div>
+                                                <div class="place">
+                                                    {{ organizer.title }}
+                                                </div>
+                                                <div class="num-of-remaining-tickets">بلیط های باقیمانده: {{ capacity }}
+                                                    عدد
+                                                </div>
+                                                <div class="price">
+                                                    {{ price }} هزار تومان
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade in col col-md-12" id="circus">
+                            {% if circusEvents|length == 0 %}
+                                <div class="text-center text-info" style="margin:30px;">
+                                    برای این بخش رویدادی وجود ندارد
                                 </div>
-                            {% endfor %}
-                        {% endif %}
-                    </div>
-                    <div role="tabpanel" class="tab-pane fade in col col-md-12" id="circus">
-                        {% if circusEvents|length == 0 %}
-                            <div class="text-center text-info" style="margin:30px;">
-                                برای این بخش رویدادی وجود ندارد
-                            </div>
-                        {% else %}
-                            {% for event,type, organizer, date, capacity, price in circusEvents %}
-                                <div class="col col-md-6 col-xs-6 event" event_id="{{ event.id }}">
-                                    <div class="image"
-                                         style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
-                                        <div class="date">{% with date.date as date %}
-                                            {% include 'persian-date.html' %}{% endwith %}</div>
-                                    </div>
-                                    <div class="description tourism">
-                                        <div class="vertical-center">
-                                            <div class="title">
-                                                {{ event.title }}
-                                            </div>
-                                            <div class="place">
-                                                {{ organizer.title }}
-                                            </div>
-                                            <div class="num-of-remaining-tickets">بلیط های باقیمانده: {{ capacity }}
-                                                عدد
-                                            </div>
-                                            <div class="price">
-                                                {{ price }} هزار تومان
+                            {% else %}
+                                {% for event,type, organizer, date, capacity, price in circusEvents %}
+                                    <div class="col col-md-6 col-xs-6 event" event_id="{{ event.id }}">
+                                        <div class="image"
+                                             style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
+                                            <div class="date">{% with date.date as date %}
+                                                {% include 'persian-date.html' %}{% endwith %}</div>
+                                        </div>
+                                        <div class="description tourism">
+                                            <div class="vertical-center">
+                                                <div class="title">
+                                                    {{ event.title }}
+                                                </div>
+                                                <div class="place">
+                                                    {{ organizer.title }}
+                                                </div>
+                                                <div class="num-of-remaining-tickets">بلیط های باقیمانده: {{ capacity }}
+                                                    عدد
+                                                </div>
+                                                <div class="price">
+                                                    {{ price }} هزار تومان
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade in col col-md-12" id="traditional">
+                            {% if traditionalMusic|length == 0 %}
+                                <div class="text-center text-info" style="margin:30px;">
+                                    برای این بخش رویدادی وجود ندارد
                                 </div>
-                            {% endfor %}
-                        {% endif %}
-                    </div>
-                    <div role="tabpanel" class="tab-pane fade in col col-md-12" id="traditional">
-                        {% if traditionalMusic|length == 0 %}
-                            <div class="text-center text-info" style="margin:30px;">
-                                برای این بخش رویدادی وجود ندارد
-                            </div>
-                        {% else %}
-                            {% for event,type, organizer, date, capacity, price in traditionalMusic %}
-                                <div class="col col-md-6 col-xs-6 event" event_id="{{ event.id }}">
-                                    <div class="image"
-                                         style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
-                                        <div class="date">{% with date.date as date %}
-                                            {% include 'persian-date.html' %}{% endwith %}</div>
-                                    </div>
-                                    <div class="description music">
-                                        <div class="vertical-center">
-                                            <div class="title">
-                                                {{ event.title }}
-                                            </div>
-                                            <div class="place">
-                                                {{ organizer.title }}
-                                            </div>
-                                            <div class="num-of-remaining-tickets">بلیط های باقیمانده: {{ capacity }}
-                                                عدد
-                                            </div>
-                                            <div class="price">
-                                                {{ price }} هزار تومان
+                            {% else %}
+                                {% for event,type, organizer, date, capacity, price in traditionalMusic %}
+                                    <div class="col col-md-6 col-xs-6 event" event_id="{{ event.id }}">
+                                        <div class="image"
+                                             style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
+                                            <div class="date">{% with date.date as date %}
+                                                {% include 'persian-date.html' %}{% endwith %}</div>
+                                        </div>
+                                        <div class="description music">
+                                            <div class="vertical-center">
+                                                <div class="title">
+                                                    {{ event.title }}
+                                                </div>
+                                                <div class="place">
+                                                    {{ organizer.title }}
+                                                </div>
+                                                <div class="num-of-remaining-tickets">بلیط های باقیمانده: {{ capacity }}
+                                                    عدد
+                                                </div>
+                                                <div class="price">
+                                                    {{ price }} هزار تومان
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade in col col-md-12" id="pop">
+                            {% if popMusic|length == 0 %}
+                                <div>
+                                    برای این بخش رویدادی وجود ندارد
                                 </div>
-                            {% endfor %}
-                        {% endif %}
-                    </div>
-                    <div role="tabpanel" class="tab-pane fade in col col-md-12" id="pop">
-                        {% if popMusic|length == 0 %}
-                            <div>
-                                برای این بخش رویدادی وجود ندارد
-                            </div>
-                        {% else %}
-                            {% for event,type, organizer, date, capacity, price in popMusic %}
-                                <div class="col col-md-6 col-xs-6 event" event_id="{{ event.id }}">
-                                    <div class="image"
-                                         style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
-                                        <div class="date">{% with date.date as date %}
-                                            {% include 'persian-date.html' %}{% endwith %}</div>
-                                    </div>
-                                    <div class="description music">
-                                        <div class="vertical-center">
-                                            <div class="title">
-                                                {{ event.title }}
-                                            </div>
-                                            <div class="place">
-                                                {{ organizer.title }}
-                                            </div>
-                                            <div class="num-of-remaining-tickets">بلیط های باقیمانده: {{ capacity }}
-                                                عدد
-                                            </div>
-                                            <div class="price">
-                                                {{ price }} هزار تومان
+                            {% else %}
+                                {% for event,type, organizer, date, capacity, price in popMusic %}
+                                    <div class="col col-md-6 col-xs-6 event" event_id="{{ event.id }}">
+                                        <div class="image"
+                                             style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
+                                            <div class="date">{% with date.date as date %}
+                                                {% include 'persian-date.html' %}{% endwith %}</div>
+                                        </div>
+                                        <div class="description music">
+                                            <div class="vertical-center">
+                                                <div class="title">
+                                                    {{ event.title }}
+                                                </div>
+                                                <div class="place">
+                                                    {{ organizer.title }}
+                                                </div>
+                                                <div class="num-of-remaining-tickets">بلیط های باقیمانده: {{ capacity }}
+                                                    عدد
+                                                </div>
+                                                <div class="price">
+                                                    {{ price }} هزار تومان
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            {% endfor %}
-                        {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        </div>
                     </div>
-                </div>
                 </div>
                 <div class="col col-md-12" id="suggestions">
                     <div class="or-spacer">
