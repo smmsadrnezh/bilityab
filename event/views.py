@@ -9,7 +9,7 @@ from django.http import Http404, HttpResponseRedirect, HttpResponse, HttpRespons
 from bilityab.views import make_event_type_list1, get_type
 from event.models import Categories, Sport, Movie, Concert, EventRating, EventOrganizer
 from ticket.models import *
-
+import json
 
 def events(request):
     return render(request, 'all-events.html', {
@@ -527,6 +527,36 @@ def edit_category(request, category_id):
     else:
         return HttpResponseRedirect('/')
 
+def search(request):
+    if request.method == 'POST':
+        return render(request, 'search_result.html', {
+            # 'pageTitle': " - Search",
+            # 'search_string': request.POST.get('search_string'),
+            # 'movies_result': Movie.objects.filter(title__contains=request.POST.get('search_string')),
+            # 'users_result': CustomUser.objects.filter(username__contains=request.POST.get('search_string')),
+            # 'who_to_follows': social.views.who_to_follow(request),
+            # 'recom_movies': social.views.movies_recommended(request),
+            # 'popular_movies': social.views.popular_movies(request),
+            # 'chat_users': accounts.views.followings(request.user),
+            # 'notifications': social.views.notification_get(request.user.id)
+        })
+    else:
+        return HttpResponseRedirect('/')
 
 
+def ajax_search(request):
+    if request.is_ajax():
+        events = Event.objects.filter(title__contains=request.GET.get('term', ''))
 
+        results = []
+        for event in events:
+            event_json = {}
+            event_json['id'] = event.title
+            event_json['label'] = event.title
+            event_json['value'] = event.title
+            results.append(event_json)
+        data = json.dumps(results)
+    else:
+        data = 'fail'
+    mimetype = 'application/json'
+    return HttpResponse(data, mimetype)

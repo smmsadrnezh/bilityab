@@ -1,10 +1,5 @@
-var availableTags = [
-    "مسابقه والیبال ایران و آمریکا",
-    "مسابقه فوتبال ایران و ترکیه",
-    "کشتی پیشکسوتان جهان"
-];
 $("#autocomplete").autocomplete({
-    source: availableTags,
+    source: "/search/ajax/",
     delay: 400,
     minLength: 2
 });

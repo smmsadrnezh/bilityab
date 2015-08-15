@@ -43,6 +43,9 @@ urlpatterns = [
     url(r'^categories/edit/(?P<category_id>\d+)/$', 'event.views.edit_category'),
     url(r'^categories/delete/(?P<category_id>\d+)/$', 'event.views.delete_category'),
 
+    ### search urls
+    url(r'^search/$', 'event.views.search'),
+    url(r'^search/ajax/$', 'event.views.ajax_search'),
 
     ### ticket urls
     url(r'^buy/$', 'ticket.views.buy'),
@@ -57,5 +60,5 @@ urlpatterns = [
     ### serve media
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
         'document_root': settings.MEDIA_ROOT
-    })
+    }),
 ]
