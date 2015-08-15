@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+{% load staticfiles %}
+{% block pageBody %}
+    <div class="holder">
+        <div class="col col-md-12">
+            <div class="col col-md-12" id="ticket">
+                <div class="col col-md-12" id="ticket-info">
+                    {% for event, type, organizer, date in events_result %}
+                        {% if request.user.is_organizer %}
+                            <div class="col col-md-2">
+                                <a class="btn btn-primary btn-lg btn-block"
+                                   href="/events/{{ event.id }}/edit/">
+                                    <i class="fa fa-edit"></i> ویرایش رویداد
+                                </a>
+                                <a class="btn btn-danger btn-lg btn-block" data-toggle="modal"
+                                   data-target="#confirm-delete-{{ event.id }}">
+                                    <i class="fa fa-remove"></i> حذف رویداد
+                                </a>
+                            </div>
+                        {% endif %}
+                        <img class="event-image" src='{{ MEDIA_URL }}{{ event.landscape }}'>
+                        <div class="event-info">
+                            <a href="/events/{{ type }}/{{ event.id }}/">
+                                {{ event.title }}
+                            </a>
+                        </div>
+                        <div class="event-info">
+                            <a href="/organizer/{{ organizer.id }}">{{ organizer.title }}</a>
+                        </div>
+                        <div class="event-info">
+                            {% with date.date as date %}{% include 'persian-date.html' %}{% endwith %}
+                        </div>
+
+
+                        <div class="my-divider"></div>
+
+                        <!-- Delete Event Modal -->
+                        <div class="modal fade" id="confirm-delete-{{ event.id }}" tabindex="-1" role="dialog"
+                             aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"
+                                                aria-label="Close"><span
+                                                aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">حذف رویداد</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        آیا مطمئنید می‌خواهید رویداد {{ event.title }} را حذف کنید؟
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">انصراف
+                                        </button>
+                                        <a type="button" class="btn btn-danger"
+                                           href="/events/delete/{{ event.id }}">حذف</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+            {% if request.user.is_organizer %}
+                <i class="fa fa-plus-circle"></i><a href="/events/add/"> اضافه کردن رویداد</a>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block js %}
+    {{ block.super }}
+    <script src="{% static "js/sport-event.js" %}"></script>
+{% endblock %}
+
+{% block css %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static "css/sport-event.css" %}"/>
+{% endblock %}

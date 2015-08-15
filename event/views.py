@@ -530,15 +530,9 @@ def edit_category(request, category_id):
 def search(request):
     if request.method == 'POST':
         return render(request, 'search_result.html', {
-            # 'pageTitle': " - Search",
-            # 'search_string': request.POST.get('search_string'),
-            # 'movies_result': Movie.objects.filter(title__contains=request.POST.get('search_string')),
-            # 'users_result': CustomUser.objects.filter(username__contains=request.POST.get('search_string')),
-            # 'who_to_follows': social.views.who_to_follow(request),
-            # 'recom_movies': social.views.movies_recommended(request),
-            # 'popular_movies': social.views.popular_movies(request),
-            # 'chat_users': accounts.views.followings(request.user),
-            # 'notifications': social.views.notification_get(request.user.id)
+            'pageTitle': " - نتایج جستجو",
+            'search_string': request.POST.get('search_string'),
+            'events_result': make_event_type_list1(Event.objects.filter(title__contains=request.POST.get('search-string')))
         })
     else:
         return HttpResponseRedirect('/')
