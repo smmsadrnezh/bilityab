@@ -36,7 +36,8 @@
     <div class="holder">
         <div id="body-container" going_recovery="{{ going_recovery }}" class="col col-md-12">
             <div id="events" class="col col-md-9">
-                <ul class="nav nav-tabs" role="tablist">
+                <div class="col col-md-12">
+                    <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                             <i class="fa fa-film"></i><br/>
@@ -101,7 +102,7 @@
                         </ul>
                     </li>
                 </ul>
-                <div id="events-list" class="tab-content">
+                    <div id="events-list" class="tab-content">
                     <div role="tabpanel" class="tab-pane fade in col col-md-12" id="action">
                         {% if actionMovies|length == 0 %}
                             <div class="text-center text-info" style="margin:30px;">
@@ -528,6 +529,7 @@
                             {% endfor %}
                         {% endif %}
                     </div>
+                </div>
                 </div>
                 <div class="col col-md-12" id="suggestions">
                     <div class="or-spacer">
