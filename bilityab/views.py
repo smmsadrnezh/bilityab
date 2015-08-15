@@ -98,20 +98,19 @@ def home(request, *args):
         'traditionalMusic': make_event_type_list1(Event.objects.filter(category__title='سنتی')),
         'popMusic': make_event_type_list1(Event.objects.filter(category__title='پاپ')),
         'bestSellerEvents': make_event_type_list1(get_best_seller_events()),
+        'pageTitle': " - سامانهٔ جامع خرید و فروش بلیط",
     })
 
 
 def terms(request):
     return render(request, 'terms.html', {
         'pageTitle': " - شرایط و ضوابط",
-
     })
 
 
 def about(request):
     return render(request, 'about.html', {
         'pageTitle': " - درباره",
-
     })
 
 

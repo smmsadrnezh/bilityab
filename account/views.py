@@ -64,7 +64,7 @@ def register(request):
 def profile_edit(request, user_id):
     if request.user.is_authenticated():
         return render(request, 'profile.html', {
-            'logged_in': request.user.is_authenticated()
+            'pageTitle': " - پروفایل کاربر",
         })
     else:
         return HttpResponseRedirect('/')
@@ -73,8 +73,7 @@ def profile_edit(request, user_id):
 def charge(request, user_id):
     if request.user.is_authenticated():
         return render(request, 'charge.html', {
-            'logged_in': request.user.is_authenticated()
-
+            'pageTitle': " - شارژ حساب کاربری",
         })
     else:
         return HttpResponseRedirect('/')

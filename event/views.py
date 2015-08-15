@@ -13,6 +13,7 @@ import json
 
 def events(request):
     return render(request, 'all-events.html', {
+        'pageTitle': " - تمام رویدادها",
         'event_type_list': make_event_type_list1(Event.objects.all())
     })
 
@@ -64,6 +65,7 @@ def add_event(request):
         else:
             # add new event template for organizer
             return render(request, 'add-event.html', {
+                'pageTitle': " - اضافه کردن رویداد",
                 'categories': Categories.objects.all().exclude(parent_id=0)
             })
     else:
@@ -79,10 +81,6 @@ def edit_event(request, event_id):
     if request.user.is_authenticated() and request.user.is_organizer:
         if request.is_ajax():
             # insert event and it's additional information to database
-            # if (request.POST.get('event-title', '') != "" and request.POST.get('event-description',
-            # '') != "" and request.POST.get(
-            # 'event-type', '') != "" and request.POST.get('event-capacity', '') != "" and request.POST.get(
-            #         'event-address', '') != ""):
             cat_id = int(request.POST.get('event-type', ''))
             category = Categories.objects.get(pk=cat_id)
 
@@ -92,11 +90,6 @@ def edit_event(request, event_id):
             event.category = category
             event.address = request.POST.get('event-address', '')
             event.save()
-            # event = Event.objects.create(title=request.POST.get('event-title', ''),
-            #                                  description=request.POST.get('event-description', ''),
-            #                                  category=category, capacity=int(request.POST.get('event-capacity', '')),
-            #                                  address=request.POST.get('event-address', ''))
-            # event.event_organizers.add(EventOrganizer.objects.get(user=request.user))
             if request.POST.get('event-home-team', '') != "" and request.POST.get('event-away-team', '') != "":
                 sport_event = Sport.objects.get(event_id=event.id)
                 sport_event.home_team = request.POST.get('event-home-team', '')
@@ -132,6 +125,7 @@ def edit_event(request, event_id):
             event_type = get_type(Event.objects.get(id=event_id).id)
             if event_type == "music":
                 return render(request, 'edit-event.html', {
+                    'pageTitle': " - ویرایش رویداد",
                     'categories': Categories.objects.all(),
                     'event': Event.objects.get(id=event_id),
                     'type': event_type,
@@ -139,6 +133,7 @@ def edit_event(request, event_id):
                 })
             elif event_type == "cinema":
                 return render(request, 'edit-event.html', {
+                    'pageTitle': " - ویرایش رویداد",
                     'categories': Categories.objects.all(),
                     'event': Event.objects.get(id=event_id),
                     'type': event_type,
@@ -146,6 +141,7 @@ def edit_event(request, event_id):
                 })
             elif event_type == "sport":
                 return render(request, 'edit-event.html', {
+                    'pageTitle': " - ویرایش رویداد",
                     'categories': Categories.objects.all(),
                     'event': Event.objects.get(id=event_id),
                     'type': event_type,
@@ -153,6 +149,7 @@ def edit_event(request, event_id):
                 })
             else:
                 return render(request, 'edit-event.html', {
+                    'pageTitle': " - ویرایش رویداد",
                     'categories': Categories.objects.all(),
                     'event': Event.objects.get(id=event_id),
                     'type': event_type,
@@ -193,6 +190,7 @@ def sport(request, event_id):
     except Event.DoesNotExist:
         raise Http404("sport event does not exist!")
     return render(request, 'sport.html', {
+        'pageTitle': " - " + event.title,
         'event': event,
         'show_time': show_time,
         'remaining_time': int((event_date_time - datetime.datetime.now()).total_seconds() * 1000),
@@ -217,6 +215,7 @@ def tourism(request, event_id):
             rates_average = rates_sum / num_of_votes
         event_organizer = event.event_organizers.all()[0]
         return render(request, 'tourism.html', {
+            'pageTitle': " - " + event.title,
             'event': event,
             'organizer': event_organizer,
             'show_time': event.show_times.all()[0],
@@ -255,6 +254,7 @@ def cinema(request, event_id):
     except Event.DoesNotExist:
         raise Http404('cinema event does not exist!')
     return render(request, 'cinema.html', {
+        'pageTitle': " - " + event.title,
         'event': event,
         'num_of_votes': num_of_votes,
         'rates_average_percent': rates_average * 20,
@@ -279,6 +279,7 @@ def music(request, event_id):
             rates_average = rates_sum / num_of_votes
         event_organizer = event.event_organizers.all()[0]
         return render(request, 'music.html', {
+            'pageTitle': " - " + event.title,
             'event': event,
             'organizer': event_organizer,
             'show_time': event.show_times.all()[0],
@@ -299,6 +300,7 @@ def all_organizer(request):
 
 def organizer(request, organizer_id):
     return render(request, 'organizer.html', {
+        'pageTitle': " - " + EventOrganizer.objects.get(id=organizer_id).title,
         'organizer': EventOrganizer.objects.get(id=organizer_id),
         'organizer_events': make_event_type_list1(Event.objects.filter(event_organizers__id=organizer_id)),
     })
@@ -457,6 +459,7 @@ def register_seats(map_id, seats, ticket):
 
 def categories(request):
     return render(request, 'all_categories.html', {
+        'pageTitle': " - دسته‌ها",
         'categories': Categories.objects.filter(parent_id=0),
         'sub_categories': Categories.objects.all().exclude(parent_id=0)
     })
@@ -494,6 +497,7 @@ def add_category(request):
         else:
             # add new event template for organizer
             return render(request, 'add_category.html', {
+                'pageTitle': " - افزودن دسته",
                 'categories': Categories.objects.filter(parent_id=0),
             })
     else:
@@ -521,6 +525,7 @@ def edit_category(request, category_id):
         else:
             category = Categories.objects.get(id=category_id)
             return render(request, 'edit_category.html', {
+                'pageTitle': " - ویرایش "+ category.title,
                 'category': category,
                 'sub_categories': Categories.objects.filter(parent_id=category.id)
             })
