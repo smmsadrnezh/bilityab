@@ -67,7 +67,7 @@ a:hover {
     height: 100%;
 }
 
-#top-header ul {
+#top-header .holder > ul {
     font-family: 'BYekan', sans-serif;
     font-size: 0.65em;
     position: relative;
@@ -75,7 +75,7 @@ a:hover {
     height: 100%;
 }
 
-#top-header ul li {
+#top-header .holder > ul > li {
     margin-left: -0.25em;
     transition: all 1s;
     position: relative;
@@ -84,21 +84,57 @@ a:hover {
     display: inline-block;
 }
 
-#top-header ul li a {
+#top-header .holder > ul > li > a {
     color: #ffffff;
 }
 
-#top-header ul li i.fa {
+#top-header .holder > ul > li > i.fa {
     transition: all 0.5s;
     margin-left: 0.3em;
 }
 
-#top-header ul li:hover i.fa {
+#top-header .holder > ul > li:hover > i.fa {
     transform: scale(1.3);
 }
 
-#top-header ul li.active, #top-header ul li:hover {
+#top-header .holder > ul > li.active, #top-header .holder > ul > li:hover {
     box-shadow: inset 0 0 0 50px #080808;
+}
+
+#top-header li > ul
+{
+    color: #000000;
+}
+
+.dropdown-menu
+{
+    font-size: 0.9em;
+    text-align: right;
+    right: 0;
+    left: auto;
+    padding: 0.5em 1em;
+}
+
+.dropdown-menu > li > a
+{
+    padding: 0;
+    display: inline-block;
+}
+
+.dropdown-menu > li > i
+{
+    vertical-align: sub;
+    margin-left: 0.5em;
+}
+
+.dropdown-menu > li:first-of-type
+{
+    padding-bottom: 0!important;
+}
+
+.dropdown-menu > li:not(.divider)
+{
+    padding: 0.5em 0;
 }
 
 #left-bar {
