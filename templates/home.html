@@ -546,12 +546,8 @@
                                     <div class="image"
                                          style="background-image: url('{{ MEDIA_URL }}{{ event.portrait }}')"></div>
                                 {% if discount != 0 %}
-                                    <img class="discount" src="{% static 'img/discount.gif' %}"/>
-                                    <p class="discount-text">
-                                        {{ discount }}%
-                                        <br/>
-                                        تخفیف
-                                    </p>
+                                    <div class="discount-label"></div>
+                                    <p class="discount-text">{{ discount }}%</p>
                                 {% endif %}
                                     <div class="title"><a href="/events/{{ type }}/{{ event.id }}">{{ event.title }}</a>
                                     </div>
