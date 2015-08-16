@@ -102,6 +102,7 @@ def charge(request, user_id):
     else:
         return HttpResponseRedirect('/')
 
+
 def favorites(request, user_id):
     if request.user.is_authenticated():
         return render(request, 'favorites.html', {
@@ -203,3 +204,10 @@ def reset_password(request, random_num):
 
 def disable_reset_password(user):
     RecoveryRequests.objects.filter(user=user).delete()
+
+
+def users(request):
+    return render(request, 'all_users.html', {
+        'pageTitle': "کاربران",
+        'users': CustomUser.objects.all()
+    })

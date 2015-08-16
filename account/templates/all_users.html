@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+{% load staticfiles %}
+{% block pageBody %}
+    <div class="holder">
+        <div class="col col-md-12">
+            <div class="col col-md-12" id="ticket">
+                <div class="col col-md-12" id="ticket-info">
+                    <table>
+                        <tr>
+                            <th>نام کاربری</th>
+                            <th>وضعیت</th>
+                        </tr>
+                        {% for user in users %}
+                            {% if request.user.is_organizer %}
+                                <tr>
+                                       <td> {{ user.username }}</td>
+                                       <td>{{ user.is_organizer}}</td>
+                                </tr>
+                            {% endif %}
+    {#                        <img class="event-image" src='{{ MEDIA_URL }}{{ event.landscape }}'>#}
+    {#                        <div class="event-info">#}
+    {#                            <a href="/events/{{ type }}/{{ event.id }}/">#}
+    {#                                {{ event.title }}#}
+    {#                            </a>#}
+    {#                        </div>#}
+    {#                        <div class="event-info">#}
+    {#                            <a href="/organizer/{{ organizer.id }}">{{ organizer.title }}</a>#}
+    {#                        </div>#}
+    {#                        <div class="event-info">#}
+    {#                            {% with date.date as date %}{% include 'persian-date.html' %}{% endwith %}#}
+    {#                        </div>#}
+
+
+{#                            <div class="my-divider"></div>#}
+
+
+                        {% endfor %}
+                    </table>
+                </div>
+
+            </div>
+            {% if request.user.is_organizer %}
+                <i class="fa fa-plus-circle"></i><a href="/events/add/"> اضافه کردن رویداد</a>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block js %}
+    {{ block.super }}
+    <script src="{% static "js/sport-event.js" %}"></script>
+{% endblock %}
+
+{% block css %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static "css/sport-event.css" %}"/>
+{% endblock %}
