@@ -82,8 +82,9 @@ def profile_edit(request, user_id):
                 if (request.user.check_password(request.POST.get('edit-password', None))):
                     if (request.POST.get('edit-new-password', None) == request.POST.get('edit-new-password-repeat', None)):
                         user.set_password(request.POST.get('edit-new-password', None))
-                        print("3")
                 user.save()
+            elif(request.POST.get('type', None)) == "delete-account-form":
+                CustomUser.objects.filter(id=user_id).delete()
             return HttpResponseRedirect('/profile/'+str(request.user.id))
         else:
             return render(request, 'profile.html', {
