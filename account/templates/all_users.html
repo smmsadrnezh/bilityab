@@ -4,44 +4,49 @@
     <div class="holder">
         <div class="col col-md-12">
             <div class="col col-md-12" id="ticket">
+            <h2>کاربران</h2>
                 <div class="col col-md-12" id="ticket-info">
-                    <table>
-                        <tr>
-                            <th>نام کاربری</th>
-                            <th>وضعیت</th>
-                        </tr>
-                        {% for user in users %}
-                            {% if request.user.is_organizer %}
-                                <tr>
-                                       <td> {{ user.username }}</td>
-                                       <td>{{ user.is_organizer}}</td>
-                                </tr>
-                            {% endif %}
-    {#                        <img class="event-image" src='{{ MEDIA_URL }}{{ event.landscape }}'>#}
-    {#                        <div class="event-info">#}
-    {#                            <a href="/events/{{ type }}/{{ event.id }}/">#}
-    {#                                {{ event.title }}#}
-    {#                            </a>#}
-    {#                        </div>#}
-    {#                        <div class="event-info">#}
-    {#                            <a href="/organizer/{{ organizer.id }}">{{ organizer.title }}</a>#}
-    {#                        </div>#}
-    {#                        <div class="event-info">#}
-    {#                            {% with date.date as date %}{% include 'persian-date.html' %}{% endwith %}#}
-    {#                        </div>#}
-
-
-{#                            <div class="my-divider"></div>#}
-
-
-                        {% endfor %}
-                    </table>
+                    <form action="/users/" method="post">{% csrf_token %}
+                        <table>
+                            <tr>
+                                <th>کاربر عادی</th>
+                                <th>کاربر ویژه</th>
+                                <th>نام کاربری</th>
+                                <th>نام</th>
+                                <th>نام خانوادگی</th>
+                                <th>وضعیت</th>
+                                <th>تاریخ ثبت نام</th>
+                            </tr>
+                            {% for user in users %}
+                                {% if request.user.is_organizer %}
+                                    <tr>
+                                       <td style="text-align: center"><input type="checkbox" name="users[]" value="{{user.id}}"></td>
+                                       <td style="text-align: center"><input type="checkbox" name="superusers[]" value="{{ user.id }}"></td>
+                                       <td class="user-info"> {{ user.username }}</td>
+                                       <td class="user-info"> {{ user.first_name }}</td>
+                                       <td class="user-info"> {{ user.last_name }}</td>
+                                        {% if user.is_organizer == True %}
+                                            <td>کاربر ویژه</td>
+                                        {% else %}
+                                            <td>کاربر عادی</td>
+                                        {% endif %}
+                                    <td class="user-info">
+{#                                        <div class="date">{% with user.date_joined as date %}#}
+{#                                            {% include 'persian-date.html' %}{% endwith %}#}
+{#                                        </div>#}
+                                        {{ user.date_joined }}
+                                    </td>
+                                    </tr>
+                                {% endif %}
+    {#                            <div class="my-divider"></div>#}
+                            {% endfor %}
+                        </table>
+                    <br/>
+                    <button type="submit" name="submit" >ثبت تغییرات</button>
+                    </form>
                 </div>
 
             </div>
-            {% if request.user.is_organizer %}
-                <i class="fa fa-plus-circle"></i><a href="/events/add/"> اضافه کردن رویداد</a>
-            {% endif %}
         </div>
     </div>
 
@@ -55,4 +60,5 @@
 {% block css %}
     {{ block.super }}
     <link rel="stylesheet" href="{% static "css/sport-event.css" %}"/>
+    <link rel="stylesheet" href="{% static "css/user.css" %}"/>
 {% endblock %}

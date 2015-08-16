@@ -209,7 +209,21 @@ def disable_reset_password(user):
 
 
 def users(request):
-    return render(request, 'all_users.html', {
-        'pageTitle': "کاربران",
-        'users': CustomUser.objects.all()
-    })
+    if request.method == "POST":
+        print("post")
+        normal_users = request.POST.get('users[]', '')
+        super_users = request.POST.get('superusers[]', '')
+        for normal_user in normal_users:
+            user = CustomUser.objects.get(id=normal_user)
+            user.is_organizer = False
+        for super_user in super_users:
+            super_user = CustomUser.objects.get(id=super_user)
+            super_user.is_organizer = True
+        print("test")
+        return HttpResponseRedirect("/users/")
+    else:
+        print("get")
+        return render(request, 'all_users.html', {
+            'pageTitle': "- کاربران",
+            'users': CustomUser.objects.all()
+        })
