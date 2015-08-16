@@ -7,8 +7,7 @@ from event.models import Event, EventOrganizer
 class Comment(models.Model):
     user = models.ForeignKey(CustomUser)
     time = models.DateTimeField()
-    text = models.TimeField()
-
+    text = models.CharField(max_length=300)
 
     class Meta:
         unique_together = (("user", "time"),)
