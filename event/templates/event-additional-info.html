@@ -3,15 +3,17 @@
     <div class="comment col col-md-12" id="your-comment">
         <div id="for-ticket" style="background-color: #c9302c">بازگشت به صفحهٔ رویداد<i class="fa fa-share"></i></div>
         <div class="col col-md-11">
+            <form class="cd-form" action="." method="POST" id="comment-form">{% csrf_token %}
             <textarea placeholder="نظر شما ..."></textarea>
             <input type="button" class="btn btn-primary" value="ثبت نظر" id="submit-comment"/>
+                </form>
         </div>
     </div>
     {% for comment,writer in comments %}
     <div class="comment col col-md-12">
         <div class="col col-md-11">
             <div class="name">{{ writer }}</div>
-            <div class="date">{{ comment.time }}</div>
+            <div class="date">{{ comment.date }}</div>
             <div class="text">{{ comment.text }}</div>
         </div>
     </div>
