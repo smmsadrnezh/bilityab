@@ -2,6 +2,7 @@
 import os
 import datetime
 from operator import itemgetter
+from comment.views import comments
 
 from django.shortcuts import render
 from django.http import Http404, HttpResponseRedirect, HttpResponse, HttpResponseForbidden
@@ -196,8 +197,12 @@ def sport(request, event_id):
         'remaining_time': int((event_date_time - datetime.datetime.now()).total_seconds() * 1000),
         'organizer': event.event_organizers.all()[0],
         'price': event.position_prices.all()[0],
-        'user': request.user
+        'user': request.user,
+        'comments': comments(event_id)
     })
+
+
+
 
 
 def tourism(request, event_id):
@@ -222,7 +227,8 @@ def tourism(request, event_id):
             'price': event.position_prices.all()[0].price,
             'num_of_votes': num_of_votes,
             'rates_average_percent': rates_average * 20,
-            'can_rate': can_rate
+            'can_rate': can_rate,
+            'comments': comments(event_id)
         })
     except Event.DoesNotExist:
         return Http404('event not found!')
@@ -260,7 +266,8 @@ def cinema(request, event_id):
         'rates_average_percent': rates_average * 20,
         'can_rate': can_rate,
         'show_dates': show_dates,
-        'user': request.user
+        'user': request.user,
+        'comments': comments(event_id)
     })
 
 
@@ -286,7 +293,8 @@ def music(request, event_id):
             'price': event.position_prices.all()[0].price,
             'num_of_votes': num_of_votes,
             'rates_average_percent': rates_average * 20,
-            'can_rate': can_rate
+            'can_rate': can_rate,
+            'comments': comments(event_id)
         })
     except Event.DoesNotExist:
         return Http404('event not found!')
