@@ -1,10 +1,16 @@
 (function ($) {
 
-    $('.widget .content').hover(function () {
-        $(this).animate({opacity: 0}).text($(this).attr('discount')).animate({opacity: 1});
+    $('.widget .small-event').hover(function () {
+        $(this).find('.date span').fadeOut(200, function () {
+            $(this).text($(this).attr('discount')).css('color', '#D6134E').fadeIn();
+        });
     }, function () {
-        $(this).animate({opacity: 0}).text($(this).attr('date')).animate({opacity: 1});
-    }).each(function () {
+        $(this).find('.date span').fadeOut(200, function () {
+            $(this).text($(this).attr('date')).css('color', '#337ab7').fadeIn();
+        });
+    });
+
+    $('.small-event .date .inner-text').each(function () {
         $(this).attr('date', $(this).text());
     });
 
