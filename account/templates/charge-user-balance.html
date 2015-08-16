@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% load staticfiles %}
+{% block pageBody %}
+    <div class="holder">
+        <div id="body-container" class="col col-md-12">
+            <form class="cd-form" action="/charge/{{ request.user.id }}/" method="POST">
+                {% csrf_token %}
+                <p class="fieldset">
+                    <label for="total_cost" class="image-replace cd-username">مبلغ</label>
+                    <input type="text" placeholder="۱۰۰۰۰ تومان" id="total_cost"
+                           class="full-width has-padding has-border disabled" value="{{ price }} هزار تومان">
+                </p>
+
+                <p class="fieldset">
+                    <label for="cart-serial" class="image-replace cd-password">شماره کارت</label>
+                    <input type="text" placeholder="شماره کارت" id="cart-serial"
+                           class="full-width has-padding has-border">
+                </p>
+
+                <p class="fieldset">
+                    <label for="cart-pass" class="image-replace cd-password">رمز کارت</label>
+                    <input type="password" placeholder="رمز کارت" id="cart-pass"
+                           class="full-width has-padding has-border">
+                </p>
+                <input type="hidden" id="price" name="price" value="{{ price }}"/>
+
+                <p class="fieldset">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">
+                        <i class="fa fa-money"></i> شارژ موجودی
+                    </button>
+                </p>
+            </form>
+
+        </div>
+    </div>
+{% endblock %}
+
+{% block css %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static "css/about.css" %}"/>
+    <link rel="stylesheet" href="{% static "css/ticket.css" %}"/>
+{% endblock %}
