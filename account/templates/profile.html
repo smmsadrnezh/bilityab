@@ -109,15 +109,14 @@
                         <div class="col col-md-12">
 
                             <h3>ویرایش مشخصات</h3>
-
-                            <form class="cd-form">
-
+                            <form class="cd-form" action="." method="POST" id="edit-details-form">{% csrf_token %}
+                            <input type="hidden" id="type" name="type" value="edit-details-form"/>
                                 <p class="fieldset">
                                     <i class="fa fa-user"></i>
                                     <input class="full-width has-padding has-border" id="edit-first-name"
                                            name="edit-first-name"
                                            type="text"
-                                           placeholder="نام">
+                                           value={{ request.user.first_name }}>
                                     <span class="cd-error-message">نام نامعتبر</span>
                                 </p>
 
@@ -126,7 +125,7 @@
                                     <input class="full-width has-padding has-border" id="edit-last-name"
                                            name="edit-last-name"
                                            type="text"
-                                           placeholder="نام خانوادگی">
+                                           value={{ request.user.last_name }}>
                                     <span class="cd-error-message">نام خانوادگی نامعتبر</span>
                                 </p>
 
@@ -135,7 +134,7 @@
                                     <input class="full-width has-padding has-border" id="edit-birthday"
                                            name="edit-birthday"
                                            type="text"
-                                           placeholder="تاریخ تولد">
+                                           value={{ request.user.birth_date }}>
                                     <span class="cd-error-message">تاریخ تولد نامعتبر</span>
                                 </p>
 
@@ -144,7 +143,12 @@
                                     <input class="full-width has-padding has-border" id="edit-gender"
                                            name="edit-gender"
                                            type="text"
-                                           placeholder="جنسیت">
+                                           {% if request.user.gender == False %}
+                                           value="زن">
+                                            {% endif %}
+                                {% if request.user.gender == True %}
+                                           value="مرد">
+                                            {% endif %}
                                     <span class="cd-error-message">جنسیت نامعتبر</span>
                                 </p>
 
@@ -153,26 +157,26 @@
                                     <input class="full-width has-padding has-border" id="edit-phone"
                                            name="edit-phone"
                                            type="text"
-                                           placeholder="شماره تماس">
+                                           value={{ request.user.phone }}>
                                     <span class="cd-error-message">شماره تماس نامعتبر</span>
                                 </p>
-                                <a class="btn btn-primary btn-lg btn-block" href="/profile/1/">
-                                    <i class="fa fa-save"></i> ذخیره
-                                </a>
                             </form>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block"
+                                            form="edit-details-form"><i class="fa fa-save"></i> ذخیره
+                                    </button>
                         </div>
                     </div>
                     <div role="tabpanel" class="tab-pane" id="settings">
                         <div class="col col-md-12">
                             <h3>ویرایش اطلاعات حساب کاربری</h3>
-
-                            <form class="cd-form">
+                            <form class="cd-form" action="." method="POST" id="edit-account-form">{% csrf_token %}
+                                <input type="hidden" id="type" name="type" value="edit-account-form"/>
                                 <p class="fieldset">
                                     <i class="fa fa-user"></i>
                                     <input class="full-width has-padding has-border" id="edit-username"
                                            name="edit-username"
                                            type="text"
-                                           placeholder="نام کاربری">
+                                           value={{ request.user.username }}>
                                     <span class="cd-error-message">نام کاربری نامعتبر</span>
                                 </p>
 
@@ -180,7 +184,7 @@
                                     <i class="fa fa-envelope"></i>
                                     <input class="full-width has-padding has-border" id="edit-email" name="edit-email"
                                            type="email"
-                                           placeholder="پست الکترونیکی">
+                                           value={{ request.user.email }}>
                                 </p>
 
                                 <p class="fieldset">
@@ -211,17 +215,14 @@
                                 </p>
 
                                 <p class="fieldset">
-                                    <a class="btn btn-primary btn-lg btn-block" href="/profile/1/">
-                                        <i class="fa fa-save"></i> ذخیره
-                                    </a>
-                                </p>
-
-                                <p class="fieldset">
                                     <a class="btn btn-danger btn-lg btn-block" href="/">
                                         <i class="fa fa-remove"></i> حذف حساب کاربری
                                     </a>
                                 </p>
                             </form>
+                                                        <button type="submit" class="btn btn-primary btn-lg btn-block"
+                                            form="edit-account-form"><i class="fa fa-save"></i> ذخیره
+                                    </button>
                         </div>
                     </div>
                 </div>

@@ -63,9 +63,32 @@ def register(request):
 
 def profile_edit(request, user_id):
     if request.user.is_authenticated():
-        return render(request, 'profile.html', {
-            'pageTitle': " - پروفایل کاربر",
-        })
+        if request.method == 'POST':
+            if(request.POST.get('type', None)) == "edit-details-form":
+                user = CustomUser.objects.get(id=user_id)
+                user.first_name = request.POST.get('edit-first-name', None)
+                user.last_name = request.POST.get('edit-last-name', None)
+                user.birth_date = request.POST.get('edit-birthday', None)
+                if (request.POST.get('edit-gender', None)) == "مرد":
+                    user.gender = True
+                else:
+                    user.gender = False
+                user.phone = request.POST.get('edit-phone', None)
+                user.save()
+            elif(request.POST.get('type', None)) == "edit-account-form":
+                user = CustomUser.objects.get(id=user_id)
+                user.username = request.POST.get('edit-username', None)
+                user.email = request.POST.get('edit-email', None)
+                if (request.user.check_password(request.POST.get('edit-password', None))):
+                    if (request.POST.get('edit-new-password', None) == request.POST.get('edit-new-password-repeat', None)):
+                        user.set_password(request.POST.get('edit-new-password', None))
+                        print("3")
+                user.save()
+            return HttpResponseRedirect('/profile/'+str(request.user.id))
+        else:
+            return render(request, 'profile.html', {
+                'pageTitle': " - پروفایل کاربر",
+            })
     else:
         return HttpResponseRedirect('/')
 
