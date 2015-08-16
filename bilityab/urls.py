@@ -11,7 +11,7 @@ urlpatterns = [
 
     ### account urls
     url(r'^profile/(?P<user_id>\d+)/$', 'account.views.profile_edit'),
-    url(r'^profile/(?P<user_id>\d+)/charge/$', 'account.views.charge'),
+    url(r'^profile/(?P<user_id>\d+)/favorites/$', 'account.views.favorites'),
 
     url(r'^login/$', 'account.views.login'),
     url(r'^logout/$', 'account.views.logout'),

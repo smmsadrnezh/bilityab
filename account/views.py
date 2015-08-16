@@ -78,6 +78,14 @@ def charge(request, user_id):
     else:
         return HttpResponseRedirect('/')
 
+def favorites(request, user_id):
+    if request.user.is_authenticated():
+        return render(request, 'favorites.html', {
+            'pageTitle': " - شارژ حساب کاربری",
+        })
+    else:
+        return HttpResponseRedirect('/')
+
 
 def random_generator(size=6, chars=string.ascii_letters + string.digits + '!@$%^&*()'):
     return ''.join(random.SystemRandom().choice(chars) for _ in range(size))
