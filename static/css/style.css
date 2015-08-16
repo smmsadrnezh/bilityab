@@ -448,6 +448,7 @@
     position: absolute;
     top: 0;
 }
+
 .discount-text{
     position: absolute;
     top: 10px;
@@ -455,4 +456,31 @@
     right: 20px;
     text-align: center;
     line-height: 25px;
+}
+
+.user-info{
+    font-size: 30px;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+table#t01 tr:nth-child(even) {
+    background-color: #eee;
+}
+table#t01 tr:nth-child(odd) {
+   background-color:#fff;
+}
+table#t01 th	{
+    background-color: black;
+    color: white;
+}
+
+#test{
+    color: red;
 }
