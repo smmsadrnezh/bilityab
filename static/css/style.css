@@ -449,6 +449,8 @@
 }
 .discount-text
 {
+
+.discount-text{
     position: absolute;
     top: 0.5em;
     font-family: 'BYekan', sans-serif;

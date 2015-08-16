@@ -214,15 +214,25 @@
                                     <span class="cd-error-message">تکرار رمز عبور جدید یکسان نیست</span>
                                 </p>
 
-                                <p class="fieldset">
-                                    <a class="btn btn-danger btn-lg btn-block" href="/">
-                                        <i class="fa fa-remove"></i> حذف حساب کاربری
-                                    </a>
-                                </p>
+
+
+
                             </form>
+
+                            <form class="cd-form" action="." method="POST" id="delete-account-form">{% csrf_token %}
+                                <input type="hidden" id="type" name="type" value="delete-account-form"/>
+                            </form>
+
+                            <p class="fieldset">
                                                         <button type="submit" class="btn btn-primary btn-lg btn-block"
                                             form="edit-account-form"><i class="fa fa-save"></i> ذخیره
                                     </button>
+
+
+                                <button type="submit" class="btn btn-danger btn-lg btn-block"
+                                            form="delete-account-form"><i class="fa fa-remove"></i> حذف حساب کاربری
+                                </button>
+                            </p>
                         </div>
                     </div>
                 </div>

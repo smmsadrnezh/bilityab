@@ -14,11 +14,11 @@ urlpatterns = [
     url(r'^profile/(?P<user_id>\d+)/favorites/$', 'account.views.favorites'),
     url(r'^charge/$', 'account.views.charge_user_bank'),
     url(r'^charge/(?P<user_id>\d+)/$', 'account.views.charge_user_balance'),
-
     url(r'^login/$', 'account.views.login'),
     url(r'^logout/$', 'account.views.logout'),
     url(r'^register/$', 'account.views.register'),
     url(r'^recover/$', 'account.views.recover'),
+    url(r'^users/$', 'account.views.users'),
     url(r'^recover/(?P<random_num>[a-zA-z0-9!@#$%^&*()]+)/$', 'account.views.reset_password'),
 
     ### event urls
