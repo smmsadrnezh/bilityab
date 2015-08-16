@@ -8,9 +8,52 @@
                     <br/>
                     <a class="btn btn-primary btn-lg btn-block" href="/ticket/2/">
                         <i class="fa fa-ticket"></i> بلیط‌های من
-                    </a><a class="btn btn-primary btn-lg btn-block" href="charge">
-                    <i class="fa fa-dollar"></i> شارژ موجودی
-                </a></div>
+                    </a><a class="btn btn-primary btn-lg btn-block" data-toggle="modal"
+                           data-target="#charge-modal">
+                    <i class="fa fa-money"></i> شارژ موجودی
+                </a>
+
+                    <!-- Account Charge Modal -->
+                    <div class="modal fade" id="charge-modal" tabindex="-1"
+                         role="dialog"
+                            >
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal"
+                                            aria-label="Close"><span
+                                            aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="user-account-charge-lable">شارژ حساب کاربری</h4>
+                                </div>
+                                <div class="modal-body">
+                                    موجودی حساب کاربری شما {{ request.user.balance }} تومان است. جهت شارژ حساب کاربری مبلغ مورد نظر را وارد نمایید.
+                                </div>
+                                 <form class="cd-form" action="/charge/" method="POST" id="charge-account-form">{% csrf_token %}
+                                <p class="fieldset">
+                                    <input class="full-width has-padding has-border" id="price"
+                                           name="price"
+                                           type="text"
+                                           placeholder="مبلغ به تومان">
+                                </p>
+                                     </form>
+
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default"
+                                            data-dismiss="modal">انصراف
+                                    </button>
+                                    <button type="submit" class="btn btn-success"
+                                            form="charge-account-form">پرداخت
+                                    </button>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
                 <div class="col col-md-8">
 
                     <h1 class="">{{ request.user.first_name }} {{ request.user.last_name }}</h1>
@@ -188,17 +231,23 @@
 
         </div>
     </div>
-    <script>
+
+{% endblock %}
+
+{% block render_blocking_js %}
+            <script>
 
         $('#myTabs a').click(function (e) {
-            e.preventDefault()
-            $(this).tab('show')
+            e.preventDefault();
+            $(this).tab('show');
 
             $('#myTabs a[href="#profile"]').tab('show')
         })
 
-    </script>
+        </script>
 {% endblock %}
+
+
 
 {% block css %}
     {{ block.super }}

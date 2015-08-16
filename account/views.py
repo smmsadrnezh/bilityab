@@ -78,6 +78,43 @@ def charge(request, user_id):
     else:
         return HttpResponseRedirect('/')
 
+def favorites(request, user_id):
+    if request.user.is_authenticated():
+        return render(request, 'favorites.html', {
+            'pageTitle': " - شارژ حساب کاربری",
+        })
+    else:
+        return HttpResponseRedirect('/')
+
+
+def favorites(request, user_id):
+    if request.user.is_authenticated():
+        return render(request, 'favorites.html', {
+            'pageTitle': " - شارژ حساب کاربری",
+        })
+    else:
+        return HttpResponseRedirect('/')
+
+def charge_user_bank(request):
+    if request.method == 'POST':
+        price = request.POST.get('price')
+        return render(request, 'charge-user-balance.html', {
+            'pageTitle': " - خرید بلیط",
+            'price': price,
+        })
+    else:
+        return HttpResponseForbidden()
+
+
+def charge_user_balance(request, user_id):
+    if request.method == 'POST':
+        user = CustomUser.objects.get(id=request.user.id)
+        user.balance = user.balance + int(request.POST.get('price'))
+        user.save()
+        return HttpResponseRedirect('/profile/'+str(request.user.id))
+    else:
+        return HttpResponseForbidden()
+
 
 def random_generator(size=6, chars=string.ascii_letters + string.digits + '!@$%^&*()'):
     return ''.join(random.SystemRandom().choice(chars) for _ in range(size))
