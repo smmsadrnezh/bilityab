@@ -26,22 +26,28 @@
                                     <h4 class="modal-title" id="user-account-charge-lable">شارژ حساب کاربری</h4>
                                 </div>
                                 <div class="modal-body">
-                                    مبلغ مورد نظر را وارد نمایید
+                                    موجودی حساب کاربری شما {{ request.user.balance }} تومان است. جهت شارژ حساب کاربری مبلغ مورد نظر را وارد نمایید.
                                 </div>
+                                 <form class="cd-form" action="/charge/" method="POST" id="charge-account-form">{% csrf_token %}
                                 <p class="fieldset">
-                                    <input class="has-border" style="margin-right: 1em;" id="charge-amount"
-                                           name="charge-amount"
+                                    <input class="full-width has-padding has-border" id="price"
+                                           name="price"
                                            type="text"
                                            placeholder="مبلغ به تومان">
                                 </p>
+                                     </form>
+
 
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-default"
                                             data-dismiss="modal">انصراف
                                     </button>
-                                    <a type="button" class="btn btn-success"
-                                       href="/buy">پرداخت</a>
+                                    <button type="submit" class="btn btn-success"
+                                            form="charge-account-form">پرداخت
+                                    </button>
                                 </div>
+
+
                             </div>
                         </div>
                     </div>
@@ -225,17 +231,23 @@
 
         </div>
     </div>
-    <script>
+
+{% endblock %}
+
+{% block render_blocking_js %}
+            <script>
 
         $('#myTabs a').click(function (e) {
-            e.preventDefault()
-            $(this).tab('show')
+            e.preventDefault();
+            $(this).tab('show');
 
             $('#myTabs a[href="#profile"]').tab('show')
         })
 
-    </script>
+        </script>
 {% endblock %}
+
+
 
 {% block css %}
     {{ block.super }}
