@@ -606,8 +606,8 @@
                                     <div class="event-type">
                                         {{ event.category.title }}
                                     </div>
-                                    <div class="date">{% with date.date as minimal_date %}
-                                        {% include 'minima-date.html' %}{% endwith %}</div>
+                                    <div class="date" discount="۱۰٪ تخفیف">{% spaceless %}{% with date.date as minimal_date %}
+                                        {% include 'minima-date.html' %}{% endwith %}{% endspaceless %}</div>
                                     <div class="title">{{ event.title }}</div>
                                     <div class="place"><a
                                             href="/organizer/{{ organizer.id }}/">{{ organizer.title }}</a></div>

@@ -1,5 +1,13 @@
 (function ($) {
 
+    $('.widget .content').hover(function () {
+        $(this).animate({opacity: 0}).text($(this).attr('discount')).animate({opacity: 1});
+    }, function () {
+        $(this).animate({opacity: 0}).text($(this).attr('date')).animate({opacity: 1});
+    }).each(function () {
+        $(this).attr('date', $(this).text());
+    });
+
     var nav_tabs_length = $('#events .nav-tabs').children().length;
 
     $('#events .nav-tabs > li').css('width', 100/nav_tabs_length+'%');
