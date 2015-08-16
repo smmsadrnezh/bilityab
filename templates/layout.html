@@ -7,10 +7,33 @@
                 <li class="active"><a href="/"><i class="fa fa-home"></i>خانه</a></li>
                 <li><a href="/events"><i class="fa fa-list"></i>رویدادها</a></li>
                 {% if request.user.is_authenticated %}
-                    <li><a href="/profile/1"><i class="fa fa-user"></i>حساب کاربری</a></li>
+                    <li class="dropdown">
+                        <i class="fa fa-user"></i><a href="#" class="dropdown-toggle"
+                           data-toggle="dropdown">حساب کاربری<strong
+                                class="caret"></strong></a>
+                        <ul class="dropdown-menu" id="drop">
+                            <li>
+                                {{ request.user.first_name }} {{ request.user.last_name }}
+                            </li>
+                            <li class="divider">
+                            </li>
+                            <li>
+                                <i class="fa fa-edit"></i><a href="/profile/{{ request.user.id }}">ویرایش حساب</a>
+                            </li>
+                            <li>
+                                <i class="fa fa-money"></i><a href="/profile/{{ request.user.id }}">شارژ موجودی</a>
+                            </li>
+                            <li>
+                                <i class="fa fa-heart"></i><a href="/profile/{{ request.user.username }}/edit">فهرست
+                                علاقه‌مندی‌های من</a>
+                            </li>
+                            <li>
+                                <i class="fa fa-sign-out"></i><a href="/logout/?next={{ request.path }}">خروج</a>
+
+                        </ul>
+                    </li>
                     <li><a href="/ticket/{{ request.user.id }}"><i class="fa fa-ticket"></i>بلیط‌های من</a></li>
                     <li><a href="/categories"><i class="fa fa-th-list"></i>دسته ها</a></li>
-                    <li><a href="/logout/?next={{ request.path }}"><i class="fa fa-sign-out"></i>خروج</a></li>
                 {% endif %}
                 {% if not request.user.is_authenticated %}
                     <li><a href="/about"><i class="fa fa-info-circle"></i> دربارهٔ ما</a></li>
@@ -20,11 +43,10 @@
 
             </ul>
             <div id="left-bar" class="col col-md-4 col-xs-12">
-                <form style="height: 100%;" action="/search/" method="POST" id="search-form" >{% csrf_token %}
+                <form style="height: 100%;" action="/search/" method="POST" id="search-form">{% csrf_token %}
                     <input type="text" id="autocomplete" name="search-string" placeholder="جستجوی رویداد ...">
                 </form>
                 <a href="#" id="search-btn"><i class="fa fa-search"></i></a>
-
             </div>
         </div>
     </header>
@@ -63,9 +85,11 @@
                     <li><a href="#0">ثبت نام</a></li>
                 </ul>
                 <div id="cd-login">
-                    <p class="cd-form-message" id="recovery-message" style="display: none;color: rgb(11, 68, 8);margin-bottom: 0; font-size: 0.8em">
+                    <p class="cd-form-message" id="recovery-message"
+                       style="display: none;color: rgb(11, 68, 8);margin-bottom: 0; font-size: 0.8em">
                         رمز عبور جدید به پست الکترونیکی شما ارسال شد.
                     </p>
+
                     <form class="cd-form" id="signin-form" method="POST">{% csrf_token %}
                         <p class="fieldset">
                             <i class="fa fa-user"></i>
@@ -191,7 +215,9 @@
                     <p class="cd-form-message" style="margin-bottom: 0; font-size: 0.8em">
                         برای دریافت رمز عبور جدید، پست الکترونیکی خود را وارد کنید.
                     </p>
-                    <i id="recover-message-spinner" class="fa fa-gear fa-spin" style="top: 13px;right: 45%;display: none;position: relative"></i>
+                    <i id="recover-message-spinner" class="fa fa-gear fa-spin"
+                       style="top: 13px;right: 45%;display: none;position: relative"></i>
+
                     <form class="cd-form" id="recover-form" style="padding-top: 0">
                         {% csrf_token %}
                         <p class="fieldset">

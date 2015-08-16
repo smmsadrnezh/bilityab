@@ -200,3 +200,7 @@ a:hover {
         height: 7em;
     }
 }
+
+#top-header ul {
+    color: #ffffff;
+}
