@@ -5,20 +5,15 @@
         <div class="col col-md-12">
             <div class="col col-md-12" id="ticket">
                 <div class="col col-md-12" id="ticket-info">
-                    <img class="org-image" src={% static "img/azadi.jpg" %}>
-                    <a href="/organizer/1" class="event-info">
-                        نام برگزار کننده: سینما آزادی
-                    </a>
+                    {% for organizer in organizers %}
+                        <img class="org-image" src='{{ MEDIA_URL }}{{ organizer.photo }}'>
+                                                    نام برگزارکننده:
+                        <a href="/organizer/{{ organizer.id }}" class="event-info">
+                            {{ organizer.title }}
+                        </a>
 
-                    <div class="my-divider"></div>
-
-                    <img class="org-image" src={% static "img/vahdat.jpg" %}>
-                    <a href="/organizer/2" class="event-info">
-                        نام برگزارکننده: تالار وحدت
-                    </a>
-
-                    <div class="my-divider"></div>
-
+                        <div class="my-divider"></div>
+                    {% endfor%}
                 </div>
 
             </div>
