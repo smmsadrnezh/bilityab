@@ -88,12 +88,12 @@ a:hover {
     color: #ffffff;
 }
 
-#top-header .holder > ul > li > i.fa {
+#top-header .holder > ul > li > a > i.fa {
     transition: all 0.5s;
     margin-left: 0.3em;
 }
 
-#top-header .holder > ul > li:hover > i.fa {
+#top-header .holder > ul > li:hover > a > i.fa {
     transform: scale(1.3);
 }
 
@@ -129,7 +129,7 @@ a:hover {
 
 .dropdown-menu > li:first-of-type
 {
-    padding-bottom: 0!important;
+    padding-bottom: 0 !important;
 }
 
 .dropdown-menu > li:not(.divider)
