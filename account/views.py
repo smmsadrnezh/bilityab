@@ -5,6 +5,7 @@ from datetime import datetime
 from datetime import timedelta
 from django.contrib import auth
 from bilityab.views import home
+from ticket.models import PurchasedTicket
 from smtplib import SMTPException
 from django.shortcuts import render
 from django.core.mail import send_mail
@@ -88,6 +89,7 @@ def profile_edit(request, user_id):
             return HttpResponseRedirect('/profile/'+str(request.user.id))
         else:
             return render(request, 'profile.html', {
+                'ticketCount': len(PurchasedTicket.objects.filter(user_id=user_id)),
                 'pageTitle': " - پروفایل کاربر",
             })
     else:

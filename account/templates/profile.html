@@ -87,13 +87,13 @@
                         <div class="col col-md-12">
                             <dl class="dl-horizontal">
                                 <dt>تعداد دفعات خرید</dt>
-                                <dd>۴</dd>
+                                <dd>{{ ticketCount }}</dd>
                                 <dt>میزان موجودی</dt>
                                 <dd>
                                     {{ request.user.balance }} تومان
                                 </dd>
                                 <dt>تاریخ عضویت</dt>
-                                <dd>۱۳۹۴/۱۱/۱۳</dd>
+                                <dd>{{ request.user.date_joined }}</dd>
                                 <dt>جنسیت</dt>
                                 {% if request.user.gender %}
                                     <dd>مرد</dd>
