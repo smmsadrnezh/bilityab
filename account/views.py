@@ -124,6 +124,20 @@ def favorites(request, user_id):
     else:
         return HttpResponseRedirect('/')
 
+def delete_event(request, event_id):
+
+    return HttpResponseRedirect('/events')
+
+def favorites_delete(request, user_id,event_id):
+    if request.user.is_authenticated():
+        if request.user.id == int(user_id):
+            UserFavoriteEvents.objects.get(event_id=event_id,user_id=user_id).delete()
+            return HttpResponseRedirect('/profile/'+ user_id +'/favorites/')
+        else:
+            return HttpResponseForbidden()
+    else:
+        return HttpResponseRedirect('/')
+
 def charge_user_bank(request):
     if request.method == 'POST':
         price = request.POST.get('price')
