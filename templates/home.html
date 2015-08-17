@@ -576,7 +576,7 @@
                 <div id="most-popular" class="widget">
                     <div class="heading"><i class="fa fa-star"></i><span class="title">برترین رویدادها</span></div>
                     <div class="content">
-                        {% for event,type, organizer,date in bestEvents %}
+                        {% for event,type, organizer,date,discount in bestEvents %}
                             <div class="small-event">
                                 <a href="events/{{ type }}/{{ event.id }}/">
                                     <div class="event-type">
@@ -600,7 +600,7 @@
                     <div class="heading"><i class="fa fa-newspaper-o"></i><span class="title">نزدیکترین رویدادها</span>
                     </div>
                     <div class="content">
-                        {% for event, type, organizer, date in nearestEvents %}
+                        {% for event, type, organizer, date,discount in nearestEvents %}
                             <div class="small-event">
                                 <a href="events/{{ type }}/{{ event.id }}">
                                     <div class="event-type">
