@@ -36,7 +36,7 @@ def all_promotion(request):
 
 
 def promotion(request, event_id):
-    if request.user.is_authenticated() and request.user.is_organizer:
+    if request.user.is_authenticated() and (request.user.is_organizer or request.user.is_superuser):
         if request.is_ajax():
             if request.POST.get('discount') != "" and request.POST.get('remaining') != "" and request.POST.getlist('times[]') != []:
                 discount = int(request.POST.get('discount', ''))
@@ -49,7 +49,11 @@ def promotion(request, event_id):
                 return HttpResponse(0)
         else:
             event = Event.objects.get(id=event_id)
-            organizers = EventOrganizer.objects.filter(event=event)
+            if request.user.is_superuser:
+                organizers = EventOrganizer.objects.filter(event=event)
+            else:
+                print(request.user.id)
+                organizers = EventOrganizer.objects.filter(user_id=request.user.id, event=event)
             organizers_showtimes = []
             for organizer in organizers:
                 show_times = Showtime.objects.filter(organizer_id=organizer.id, event_id=event_id)
