@@ -117,3 +117,14 @@ class EventRating(models.Model):
 class GalleryPhoto(models.Model):
     event = models.ForeignKey(Event, related_name='gallery_photos')
     pic = models.ImageField()
+
+
+class UserFavoriteEvents(models.Model):
+    user = models.ForeignKey(CustomUser)
+    event = models.ForeignKey(Event)
+
+    class Meta:
+        unique_together = (("user", "event"),)
+
+    def __str__(self):
+        return str(self.user) + ': ' + self.event

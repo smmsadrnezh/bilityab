@@ -4,7 +4,7 @@ import threading
 from datetime import datetime
 from datetime import timedelta
 from django.contrib import auth
-from bilityab.views import home
+from bilityab.views import home,make_event_type_list1
 from ticket.models import PurchasedTicket
 from smtplib import SMTPException
 from django.shortcuts import render
@@ -13,6 +13,7 @@ from django.template import loader, Context
 from .check_registration import CheckRegistration
 from account.models import CustomUser, RecoveryRequests
 from django.http import HttpResponseForbidden, HttpResponse, HttpResponseRedirect
+from event.models import Event
 
 
 def login(request):
@@ -111,6 +112,7 @@ def favorites(request, user_id):
 
             return render(request, 'favorites.html', {
                 'pageTitle': " - فهرست علاقه‌مندی‌ها",
+                'event_type_list': make_event_type_list1(Event.objects.filter())
             })
     else:
         return HttpResponseRedirect('/')
