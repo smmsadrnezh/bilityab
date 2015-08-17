@@ -316,7 +316,7 @@
             seats += seat;
         });
         var actual_price = price * quantity;
-        $('#price').val(actual_price*parseInt(selected_discount));
+        $('#price').val(parseInt((actual_price*(100-parseInt(selected_discount)))/100));
         $('#show_time_id').val($('#ticket').attr('show_time'));
         $('#quantity').val(quantity);
         $('#seats').val(seats);

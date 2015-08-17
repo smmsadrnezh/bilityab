@@ -125,7 +125,7 @@ $(window).load(function () {
         });
         var parent = $(this).parent();
         var actual_price = parseInt($(this).closest('.map').attr('price')) * quantity;
-        parent.find('input[name="price"]').val(actual_price*parseInt(selected_discount));
+        parent.find('input[name="price"]').val(parseInt((actual_price*(100-parseInt(selected_discount)))/100));
         parent.find('input[name="show_time_id"]').val(selected_show_time);
         parent.find('input[name="quantity"]').val(quantity);
         parent.find('input[name="seats"]').val(seats);
