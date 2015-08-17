@@ -69,6 +69,11 @@
     float: right;
 }
 
+#events .dropdown-menu > li > a
+{
+    display: block;
+}
+
 #events .nav-tabs > li > a > i {
     transition: all 0.5s;
 }
