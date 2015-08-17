@@ -315,7 +315,8 @@
             var seat = "A" + section + ',' + row + ',' + column + 'A';
             seats += seat;
         });
-        $('#price').val(price * quantity);
+        var actual_price = price * quantity;
+        $('#price').val(actual_price*parseInt(selected_discount));
         $('#show_time_id').val($('#ticket').attr('show_time'));
         $('#quantity').val(quantity);
         $('#seats').val(seats);
