@@ -202,21 +202,25 @@ def disable_reset_password(user):
 
 
 def users(request):
-    if request.method == "POST":
-        print("post")
-        normal_users = request.POST.get('users[]', '')
-        super_users = request.POST.get('superusers[]', '')
-        for normal_user in normal_users:
-            user = CustomUser.objects.get(id=normal_user)
-            user.is_organizer = False
-        for super_user in super_users:
-            super_user = CustomUser.objects.get(id=super_user)
-            super_user.is_organizer = True
-        print("test")
-        return HttpResponseRedirect("/users/")
+    if request.user.is_superuser:
+        if request.method == "POST":
+            normal_users = request.POST.get('users[]', '')
+            super_users = request.POST.get('superusers[]', '')
+            for normal_user in normal_users:
+                print(normal_user)
+                user = CustomUser.objects.get(id=normal_user)
+                user.is_organizer = 0
+                user.save()
+            for super_user in super_users:
+                print(super_user)
+                super_user = CustomUser.objects.get(id=super_user)
+                super_user.is_organizer = 1
+                super_user.save()
+            return HttpResponseRedirect("/users/")
+        else:
+            return render(request, 'all_users.html', {
+                'pageTitle': "- کاربران",
+                'users': CustomUser.objects.all()
+            })
     else:
-        print("get")
-        return render(request, 'all_users.html', {
-            'pageTitle': "- کاربران",
-            'users': CustomUser.objects.all()
-        })
+        return HttpResponse("شما اجازه دسترسی به این صفحه را ندارید")

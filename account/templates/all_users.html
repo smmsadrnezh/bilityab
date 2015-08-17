@@ -6,7 +6,7 @@
             <div class="col col-md-12" id="ticket">
             <h2>کاربران</h2>
                 <div class="col col-md-12" id="ticket-info">
-                    <form action="/users/" method="post">{% csrf_token %}
+                    <form action="/users/" name="user-form" method="post" onsubmit="return validateForm();">{% csrf_token %}
                         <table>
                             <tr>
                                 <th>کاربر عادی</th>
@@ -55,6 +55,7 @@
 {% block js %}
     {{ block.super }}
     <script src="{% static "js/sport-event.js" %}"></script>
+    <script src="{% static "js/users.js" %}"></script>
 {% endblock %}
 
 {% block css %}
