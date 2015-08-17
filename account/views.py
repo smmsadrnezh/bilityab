@@ -111,11 +111,10 @@ def favorites(request, user_id):
         if request.user.id == int(user_id):
 
             if request.method == 'POST':
-                print("salam")
+                UserFavoriteEvents(event_id=request.POST.get('event',None),user_id=user_id).save()
+                return HttpResponseRedirect('/profile/' + user_id + '/favorites/')
             else:
                 events = Event.objects.filter(userfavoriteevents__user_id=user_id)
-                # for event in UserFavoriteEvents.objects.filter(user_id=):
-                #     Event.objects.get(id=event.event_id)
                 return render(request, 'favorites.html', {
                     'pageTitle': " - فهرست علاقه‌مندی‌ها",
                     'event_type_list': make_event_type_list1(events)
