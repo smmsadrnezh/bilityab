@@ -12,6 +12,7 @@ from event.models import Categories, Sport, Movie, Concert, EventRating, EventOr
 from ticket.models import *
 import json
 
+
 def events(request):
     return render(request, 'all-events.html', {
         'pageTitle': " - تمام رویدادها",
@@ -200,9 +201,6 @@ def sport(request, event_id):
         'user': request.user,
         'comments': comments(event_id)
     })
-
-
-
 
 
 def tourism(request, event_id):
@@ -540,6 +538,7 @@ def edit_category(request, category_id):
             })
     else:
         return HttpResponseRedirect('/')
+
 
 def search(request):
     if request.method == 'POST':

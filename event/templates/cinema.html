@@ -123,8 +123,7 @@
                                 {% endfor %}
                             </div>
                             {% for organizer in event.event_organizers.all %}
-                                <div class="map" price="
-                                        {% for position_price in event.position_prices.all %}{% if position_price.organizer.id == organizer.id %}{{ position_price.price }}{% endif %}{% endfor %}"
+                                <div class="map" price="{% for position_price in event.position_prices.all %}{% if position_price.organizer.id == organizer.id %}{{ position_price.price }}{% endif %}{% endfor %}"
                                      organizer-id="{{ organizer.id }}">
                                     {% with template_name=organizer.id|stringformat:"s"|add:".html" %}
                                         {% include ''|add:template_name %}

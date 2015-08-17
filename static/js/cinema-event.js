@@ -55,6 +55,9 @@ $(window).load(function () {
     var show_time_ids = [];
     var selected_organizer_id = $('#ticket').attr('organizer_id');
     var selected_show_time = $('#ticket').attr('show_time_id');
+    var selected_discount = 0;
+    if($('#ticket').attr('discount'))
+        selected_discount = parseInt($('#ticket').attr('discount'));
     var selected_cinemas = [];
     var selected_show_times = [];
     var bought_tickets = $('#bought-tickets');
@@ -295,11 +298,19 @@ $(window).load(function () {
         $(this).tooltip();
     });
     $('.map').each(function () {
+        set_map_prices($(this));
+    });
+
+    function set_map_prices(map) {
         var counter = 1;
-        var price = $(this).attr('price');
-        $(this).children().each(function () {
+        var main_str = '';
+        var price = map.attr('price');
+        map.children().each(function () {
             if ($(this).hasClass('free-seat')) {
-                $(this).attr('data-original-title', 'صندلی ' + counter + '، ' + price + ' هزار تومان');
+                main_str = 'صندلی ' + counter + '، ' + price + ' تومان';
+                if(parseInt(selected_discount))
+                    main_str += '/ با تخفیف' + parseInt((parseInt(price) * (100 - parseInt(selected_discount))) / 100) + 'تومان';
+                $(this).attr('data-original-title', main_str);
                 counter++;
             }
             else if ($(this).hasClass('sold-seat'))
@@ -307,7 +318,7 @@ $(window).load(function () {
             else if ($(this).hasClass('seat-row'))
                 counter = 1;
         });
-    });
+    }
 
     // user rating
 
