@@ -367,6 +367,11 @@ def buy_seats(request):
         price = request.POST.get('price')
         show_time = Showtime.objects.get(pk=show_time_id)
         show_time.capacity -= int(quantity)
+        promotion = show_time.promotion
+        if promotion:
+            if promotion.remaining - int(quantity) > 0:
+                promotion.remaining -= int(quantity)
+                promotion.save()
         show_time.save()
         ticket = PurchasedTicket.objects.create(user=request.user, quantity=int(quantity),
                                                 purchased_date=datetime.datetime.now(),
