@@ -8,8 +8,8 @@
 
                 {% if request.user.is_authenticated %}
                     <li class="dropdown">
-                        <i class="fa fa-user"></i><a href="#" class="dropdown-toggle"
-                           data-toggle="dropdown">حساب کاربری<strong
+                        <i class="fa fa-user"></i> <a href="#" class="dropdown-toggle"
+                           data-toggle="dropdown">حساب کاربری <strong
                                 class="caret"></strong></a>
                         <ul class="dropdown-menu" id="drop">
                             <li>
@@ -21,7 +21,7 @@
                                 <i class="fa fa-edit"></i><a href="/profile/{{ request.user.id }}">ویرایش حساب</a>
                             </li>
                             <li>
-                                <i class="fa fa-heart"></i><a href="/profile/{{ request.user.id }}/favorites">علاقه مندی ها</a>
+                                <i class="fa fa-heart"></i><a href="/profile/{{ request.user.id }}/favorites"> علاقه‌مندی‌ها</a>
                             </li>
                             <li>
                                 <i class="fa fa-sign-out"></i><a href="/logout/?next={{ request.path }}">خروج</a>
@@ -36,8 +36,8 @@
 
                 {% if request.user.is_superuser %}
                     <li class="dropdown">
-                        <i class="fa fa-user"></i><a href="#" class="dropdown-toggle"
-                           data-toggle="dropdown">مدیریت<strong
+                        <i class="fa fa-user"></i> <a href="#" class="dropdown-toggle"
+                           data-toggle="dropdown">مدیریت <strong
                                 class="caret"></strong></a>
                         <ul class="dropdown-menu" id="drop">
                             <li>
@@ -46,16 +46,16 @@
                             <li class="divider">
                             </li>
                             <li>
-                                <i class="fa fa-user"></i><a href="/users">مدیریت کاربران</a>
+                                <i class="fa fa-users"></i><a href="/users">مدیریت کاربران</a>
                             </li>
                             <li>
-                                <i class="fa fa-heart"></i><a href="/categories">مدیریت دسته ها</a>
+                                <i class="fa fa-sitemap"></i><a href="/categories">مدیریت دسته ها</a>
                             </li>
                             <li>
-                                <i class="fa fa-sign-out"></i><a href="/events">مدیریت رویدادها</a>
+                                <i class="fa fa-list"></i><a href="/events">مدیریت رویدادها</a>
                             </li>
                             <li>
-                                <i class="fa fa-sign-out"></i><a href="/promotions">مدیریت تخفیف ها</a>
+                                <i class="fa fa-area-chart"></i><a href="/promotions">مدیریت تخفیف ها</a>
                             </li>
                         </ul>
                     </li>
@@ -65,10 +65,10 @@
                     <li><a href="/events"><i class="fa fa-list"></i>رویدادها</a></li>
                 {% endif %}
 
-                <li><a href="/organizers"><i class="fa fa-ticket"></i>برگزارکنندگان</a></li>
+                <li><a href="/organizers"><i class="fa fa-building"></i>برگزارکنندگان</a></li>
 
                 {% if request.user.is_organizer and not request.user.is_superuser%}
-                    <li><a href="/promotions"><i class="fa fa-ticket"></i>تخفیف ها</a></li>
+                    <li><a href="/promotions"><i class="fa fa-smile-o"></i>تخفیف ها</a></li>
                 {% endif %}
 
 
