@@ -1,13 +1,15 @@
 (function ($) {
 
     $('.widget .small-event').hover(function () {
-        $(this).find('.date span').fadeOut(200, function () {
-            $(this).text($(this).attr('discount')).css('color', '#D6134E').fadeIn();
-        });
+        if($(this).find('.date span').attr('discount'))
+            $(this).find('.date span').fadeOut(200, function () {
+                $(this).text($(this).attr('discount')).css('color', '#D6134E').fadeIn();
+            });
     }, function () {
-        $(this).find('.date span').fadeOut(200, function () {
-            $(this).text($(this).attr('date')).css('color', '#337ab7').fadeIn();
-        });
+        if($(this).find('.date span').attr('discount'))
+            $(this).find('.date span').fadeOut(200, function () {
+                $(this).text($(this).attr('date')).css('color', '#337ab7').fadeIn();
+            });
     });
 
     $('.small-event .date .inner-text').each(function () {
