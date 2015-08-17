@@ -139,12 +139,20 @@
 
     var price = null;
 
+    var selected_discount = 0;
+    if($('#ticket').attr('discount'))
+        selected_discount = parseInt($('#ticket').attr('discount'));
+
     $('#seat-maps > div').each(function () {
         var counter = 1;
+        var main_str = '';
         $(this).children().each(function () {
             if ($(this).hasClass('free-seat')) {
                 price = parseInt($(this).parent().attr('price'));
-                $(this).attr('data-original-title', 'شماره ' + counter + '  ،  ' + parseInt($(this).parent().attr('price')) + ' تومان');
+                main_str = 'شماره ' + counter + '  ،  ' + parseInt($(this).parent().attr('price')) + ' تومان';
+                if(parseInt(selected_discount))
+                    main_str += '/ با تخفیف' + parseInt((parseInt(price) * (100 - parseInt(selected_discount))) / 100) + 'تومان';
+                $(this).attr('data-original-title', main_str);
                 counter++;
             }
             else if ($(this).hasClass('sold-seat'))

@@ -124,7 +124,8 @@ $(window).load(function () {
             seats += "C" + row + ',' + column + 'C';
         });
         var parent = $(this).parent();
-        parent.find('input[name="price"]').val(parseInt($(this).closest('.map').attr('price')) * quantity);
+        var actual_price = parseInt($(this).closest('.map').attr('price')) * quantity;
+        parent.find('input[name="price"]').val(actual_price*parseInt(selected_discount));
         parent.find('input[name="show_time_id"]').val(selected_show_time);
         parent.find('input[name="quantity"]').val(quantity);
         parent.find('input[name="seats"]').val(seats);
