@@ -18,16 +18,6 @@ function validateForm() {
             counter++;
         }
     }
-    //for (var user in users){
-    //    if(user.checked){
-    //        counter++;
-    //    }
-    //}
-    //for (var superuser in superusers){
-    //    if(superuser.checked){
-    //        counter++;
-    //    }
-    //}
     if (counter == 0) {
         alert("هیچ گزینه ای انتخاب نشده است");
         return false;

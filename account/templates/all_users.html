@@ -18,7 +18,7 @@
                                 <th>تاریخ ثبت نام</th>
                             </tr>
                             {% for user in users %}
-                                {% if request.user.is_organizer %}
+                                {% if request.user.is_superuser %}
                                     <tr>
                                        <td style="text-align: center"><input type="checkbox" name="users[]" value="{{user.id}}"></td>
                                        <td style="text-align: center"><input type="checkbox" name="superusers[]" value="{{ user.id }}"></td>
@@ -31,10 +31,9 @@
                                             <td>کاربر عادی</td>
                                         {% endif %}
                                     <td class="user-info">
-{#                                        <div class="date">{% with user.date_joined as date %}#}
-{#                                            {% include 'persian-date.html' %}{% endwith %}#}
-{#                                        </div>#}
-                                        {{ user.date_joined }}
+                                        {% with user.date_joined as date_time %}
+                                            {% include 'persian-date-time.html' %}
+                                        {% endwith %}
                                     </td>
                                     </tr>
                                 {% endif %}
