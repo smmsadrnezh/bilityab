@@ -1,18 +1,17 @@
 from datetime import datetime
 
-from django.http import HttpResponseRedirect
-
 from comment.models import Comment, CommentEvent
 from account.models import CustomUser
+from django.http import HttpResponse
 
 
 def add_comment(request):
-    if request.method == 'POST':
-        comment = Comment(text=request.POST.get('comment-text', None), user_id=request.POST.get(request.user.id, None),
+    if request.is_ajax():
+        comment = Comment(text=request.POST.get('comment-text', None), user_id=request.user.id,
                           time=datetime.now())
         comment.save()
-        CommentEvent(comment_id=comment.id, event_id=request.POST.get('event', None))
-        return HttpResponseRedirect()
+        CommentEvent(comment_id=comment.id, event_id=request.POST.get('event', None)).save()
+        return HttpResponse(request.user.username)
 
 
 def comments(event_id):
