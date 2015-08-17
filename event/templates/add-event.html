@@ -7,7 +7,7 @@
 
                 <h3>افزودن رویداد جدید</h3>
 
-                <form class="cd-form" id="add-event-form" enctype="multipart/form-data">{% csrf_token %}
+                <form class="cd-form" method="POST" action="/events/add/" id="add-event-form" enctype="multipart/form-data">{% csrf_token %}
 
                     <p class="fieldset">
                         <i class="fa fa-header"></i>
@@ -58,14 +58,14 @@
                     <p class="fieldset">
                         <i class="fa fa-file-image-o"></i>
                         <input class="full-width has-padding has-border" id="portrait-photo"
-                               name="event-photo"
+                               name="portrait-photo"
                                type="file">
                     </p>
 
                     <p class="fieldset">
                         <i class="fa fa-picture-o"></i>
                         <input class="full-width has-padding has-border" id="landscape-photo"
-                               name="event-photo"
+                               name="landscape-photo"
                                type="file">
                     </p>
 
@@ -174,7 +174,7 @@
 
 {% block js %}
     {{ block.super }}
-    <script src="{% static "js/add-event-ajax.js" %}"></script>
+{#    <script src="{% static "js/add-event-ajax.js" %}"></script>#}
     <script src="{% static "js/sport-event.js" %}"></script>
     <script src="{% static "js/category.js" %}"></script>
 {% endblock %}

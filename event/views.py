@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 import os
+from django.core.files.storage import default_storage
+from django.core.files.base import ContentFile
+from django.conf import settings
 import datetime
 from operator import itemgetter
 from comment.views import comments
@@ -23,11 +26,13 @@ def events(request):
 
 def add_event(request):
     if request.user.is_authenticated() and request.user.is_organizer:
-        if request.is_ajax():
+        if request.method == 'POST':
+            print("1")
             # insert event and it's additional information to database
             if (request.POST.get('event-title', '') != "" and request.POST.get('event-description',
                                                                                '') != "" and request.POST.get(
                     'event-type', '') != "" and request.POST.get('event-address', '') != ""):
+                print("1")
                 form = ImageUploadForm(request.POST, request.FILES)
                 cat_id = int(request.POST.get('event-type', ''))
                 category = Categories.objects.get(pk=cat_id)
@@ -35,6 +40,10 @@ def add_event(request):
                                              description=request.POST.get('event-description', ''),
                                              category=category,landscape = form.cleaned_data['landscape-photo'],portrait=form.cleaned_data['portrait-photo'], address=request.POST.get('event-address', ''))
                 event.event_organizers.add(EventOrganizer.objects.get(user=request.user))
+                print("2")
+                data = request.FILES['landscape-photo'] # or self.files['image'] in your form
+                path = default_storage.save('media/aaaaaa.jpg', ContentFile(data.read()))
+                tmp_file = os.path.join(settings.MEDIA_ROOT, path)
                 if request.POST.get('event-home-team', '') != "" and request.POST.get('event-away-team', '') != "":
                     Sport(
                         event_id=event.id,
@@ -60,12 +69,13 @@ def add_event(request):
                         vocalist=request.POST.get('event-vocalist', ''),
                         musicians=request.POST.get('event-musicians', '')
                     ).save()
+                print("3")
 
-                # redirect to site homepage
-                return HttpResponse(1)
-            else:
-                # raise exception to user
-                return HttpResponse(0)
+            #     # redirect to site homepage
+            #     return HttpResponse(1)
+            # else:
+            #     # raise exception to user
+            #     return HttpResponse(0)
         else:
             # add new event template for organizer
             return render(request, 'add-event.html', {
