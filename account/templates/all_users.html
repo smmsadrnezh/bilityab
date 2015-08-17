@@ -31,10 +31,9 @@
                                             <td>کاربر عادی</td>
                                         {% endif %}
                                     <td class="user-info">
-{#                                        <div class="date">{% with user.date_joined as date %}#}
-{#                                            {% include 'persian-date.html' %}{% endwith %}#}
-{#                                        </div>#}
-                                        {{ user.date_joined }}
+                                        {% with user.date_joined as date_time %}
+                                            {% include 'persian-date-time.html' %}
+                                        {% endwith %}
                                     </td>
                                     </tr>
                                 {% endif %}

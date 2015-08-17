@@ -78,9 +78,9 @@ class ChangeDate(object):
     def get_persian_date_time(self, date_time):
         persian_date = self.change(year=date_time.year, month=date_time.month, day=date_time.day)
         time_arr = str(date_time.time()).split(':')
-        time = time_arr[0] + ':' + time_arr[1] + ':' + str(int(float(time_arr[2])))
+        time = time_arr[0] + ':' + time_arr[1]
         return str(persian_date[2]) + ' ' + self.PERSIAN_MONTHS[persian_date[1] - 1] + ' ' + str(
-            persian_date[0]) + ' ، ' + time
+            persian_date[0]) + ' ، ساعت' + time
 
     def get_persian_date_week_day(self, date):
         persian_date = self.change(year=date.year, month=date.month, day=date.day)
