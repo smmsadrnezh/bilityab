@@ -216,13 +216,13 @@ a:hover {
         height: 4em;
     }
 
-    #top-header ul
+    #top-header .holder > ul
     {
         height: auto;
         text-align: center;
     }
 
-    #top-header ul li
+    #top-header .holder > ul > li
     {
         padding-bottom: 0.8em;
     }
