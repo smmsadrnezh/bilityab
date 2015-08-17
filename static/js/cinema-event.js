@@ -193,11 +193,14 @@ $(window).load(function () {
         step4.addClass('active');
         current_step = step4;
         selected_show_time = $(this).attr('time-id');
+        if($(this).attr('discount'))
+            selected_discount = parseInt($(this).attr('discount'));
         for (var i = 0; i < current_select.length; i++) {
             if (i == current_select.length - 1) {
                 current_select[i].fadeOut(function () {
                     current_select = [];
                     var temp = $('.map[organizer-id="' + selected_organizer_id + '"]');
+                    set_map_prices(temp);
                     set_sold_seats();
                     temp.fadeIn();
                     current_select.push(temp);
