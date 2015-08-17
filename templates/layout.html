@@ -8,8 +8,8 @@
 
                 {% if request.user.is_superuser %}
                     <li class="dropdown">
-                        <i class="fa fa-user"></i><a href="#" class="dropdown-toggle"
-                           data-toggle="dropdown">مدیریت<strong
+                        <i class="fa fa-lock"></i> <a href="#" class="dropdown-toggle"
+                           data-toggle="dropdown">مدیریت <strong
                                 class="caret"></strong></a>
                         <ul class="dropdown-menu" id="drop">
                             <li>
@@ -18,13 +18,13 @@
                             <li class="divider">
                             </li>
                             <li>
-                                <i class="fa fa-user"></i><a href="/users">مدیریت کاربران</a>
+                                <i class="fa fa-users"></i><a href="/users">مدیریت کاربران</a>
                             </li>
                             <li>
-                                <i class="fa fa-heart"></i><a href="/categories">مدیریت دسته ها</a>
+                                <i class="fa fa-sitemap"></i><a href="/categories">مدیریت دسته ها</a>
                             </li>
                             <li>
-                                <i class="fa fa-sign-out"></i><a href="/events">مدیریت رویدادها</a>
+                                <i class="fa fa-list"></i><a href="/events">مدیریت رویدادها</a>
                             </li>
                         </ul>
                     </li>
