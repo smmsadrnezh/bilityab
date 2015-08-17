@@ -8,6 +8,7 @@ from django.shortcuts import render
 from django.http import Http404, HttpResponseRedirect, HttpResponse, HttpResponseForbidden
 
 from bilityab.views import make_event_type_list1, get_type
+from event.forms import ImageUploadForm
 from event.models import Categories, Sport, Movie, Concert, EventRating, EventOrganizer
 from ticket.models import *
 import json
@@ -27,11 +28,12 @@ def add_event(request):
             if (request.POST.get('event-title', '') != "" and request.POST.get('event-description',
                                                                                '') != "" and request.POST.get(
                     'event-type', '') != "" and request.POST.get('event-address', '') != ""):
+                form = ImageUploadForm(request.POST, request.FILES)
                 cat_id = int(request.POST.get('event-type', ''))
                 category = Categories.objects.get(pk=cat_id)
                 event = Event.objects.create(title=request.POST.get('event-title', ''),
                                              description=request.POST.get('event-description', ''),
-                                             category=category, address=request.POST.get('event-address', ''))
+                                             category=category,landscape = form.cleaned_data['landscape-photo'],portrait=form.cleaned_data['portrait-photo'], address=request.POST.get('event-address', ''))
                 event.event_organizers.add(EventOrganizer.objects.get(user=request.user))
                 if request.POST.get('event-home-team', '') != "" and request.POST.get('event-away-team', '') != "":
                     Sport(

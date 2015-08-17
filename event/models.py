@@ -33,8 +33,8 @@ class Event(models.Model):
     category = models.ForeignKey(Categories, related_name='events')
     event_organizers = models.ManyToManyField(EventOrganizer)
     address = models.CharField(max_length=300)
-    landscape = models.ImageField(null=True, default="default.jpg")
-    portrait = models.ImageField(null=True, default="default.jpg")
+    landscape = models.ImageField(null=True, default="default.jpg",upload_to = '/media/')
+    portrait = models.ImageField(null=True, default="default.jpg",upload_to = '/media/')
     created_at = models.DateTimeField(default=datetime.now)
 
     class Meta:
