@@ -60,7 +60,10 @@
                             <dd>{{ organizer.address }}</dd>
                             {% for position in positions %}
                                 <dt>محل قرارگیری صندلی</dt>
-                                <dd>جایگاه {{ position.section }} ردیف {{ position.row }}
+                                <dd>{% if position.section %}
+                                    جایگاه {{ position.section }}
+                                    {% endif %}
+                                    ردیف {{ position.row }}
                                     ستون {{ position.column }}</dd>
                             {% endfor %}
                             <dt>تعداد خریداری شده</dt>

@@ -100,6 +100,20 @@
                                    aria-expanded="false">پاپ</a></li>
                         </ul>
                     </li>
+                        {% for category, subcategories in mainCategories %}
+                            <li role="presentation" class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-music"></i><br/>
+                                    <span>{{ category.title }}</span>
+                                </a>
+                                {% for subcategory in subcategories %}
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#" role="tab" data-toggle="tab" aria-expanded="false">{{ subcategory.title }}</a>
+                                        </li>
+                                    </ul>
+                                 {% endfor %}
+                            </li>
+                        {% endfor %}
                 </ul>
                     <div id="events-list" class="col col-md-12 col-xs-12 tab-content no-col-padding">
                         <div role="tabpanel" class="tab-pane fade in col col-md-12" id="action">
@@ -580,6 +594,10 @@
                                 {% endfor %}
                             {% endif %}
                         </div>
+                    {%  for category in mainCategories %}
+                        <div role="tabpanel" class="tab-pane active fade in col col-md-12 col-xs-12" id="comic">
+                        </div>
+                    {% endfor %}
                     </div>
                 </div>
                 <div class="col col-md-12 col-xs-12" id="suggestions">

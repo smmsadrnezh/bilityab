@@ -14,6 +14,7 @@ from bilityab.views import make_event_type_list1, get_type
 from event.forms import ImageUploadForm
 from event.models import Categories, Sport, Movie, Concert, EventRating, EventOrganizer
 from ticket.models import *
+from promotion.models import Promotion
 import json
 
 
@@ -34,16 +35,17 @@ def add_event(request):
                     'event-type', '') != "" and request.POST.get('event-address', '') != ""):
                 print("1")
                 form = ImageUploadForm(request.POST, request.FILES)
-                cat_id = int(request.POST.get('event-type', ''))
-                category = Categories.objects.get(pk=cat_id)
-                event = Event.objects.create(title=request.POST.get('event-title', ''),
-                                             description=request.POST.get('event-description', ''),
-                                             category=category,landscape=form.cleaned_data['landscape-photo'],portrait=form.cleaned_data['portrait-photo'], address=request.POST.get('event-address', ''))
-                event.event_organizers.add(EventOrganizer.objects.get(user=request.user))
-                print("2")
-                data = request.FILES['landscape-photo'] # or self.files['image'] in your form
-                path = default_storage.save('media/aaaaaa.jpg', ContentFile(data.read()))
-                tmp_file = os.path.join(settings.MEDIA_ROOT, path)
+                if form.is_valid():
+                    cat_id = int(request.POST.get('event-type', ''))
+                    category = Categories.objects.get(pk=cat_id)
+                    event = Event.objects.create(title=request.POST.get('event-title', ''),
+                                                 description=request.POST.get('event-description', ''),
+                                                 category=category,landscape=form.cleaned_data['landscape-photo'],portrait=form.cleaned_data['portrait-photo'], address=request.POST.get('event-address', ''))
+                    event.event_organizers.add(EventOrganizer.objects.get(user=request.user))
+                    print("2")
+                    data = request.FILES['landscape-photo'] # or self.files['image'] in your form
+                    path = default_storage.save('media/aaaaaa.jpg', ContentFile(data.read()))
+                    tmp_file = os.path.join(settings.MEDIA_ROOT, path)
                 if request.POST.get('event-home-team', '') != "" and request.POST.get('event-away-team', '') != "":
                     Sport(
                         event_id=event.id,
@@ -377,7 +379,9 @@ def buy_seats(request):
         price = request.POST.get('price')
         show_time = Showtime.objects.get(pk=show_time_id)
         show_time.capacity -= int(quantity)
-        promotion = show_time.promotion
+        promotion = Promotion.objects.filter(showtime_id=show_time.id)
+        if len(promotion) != 0:
+            promotion = show_time.promotion
         if promotion:
             if promotion.remaining - int(quantity) > 0:
                 promotion.remaining -= int(quantity)

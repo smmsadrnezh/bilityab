@@ -86,6 +86,11 @@ def get_best_seller_events():
 
 def home(request, *args):
     going_recovery = 0
+    categories = Categories.objects.filter(parent_id=0).exclude(title="ورزشی").exclude(title="سینمایی").exclude(title="گردشگری").exclude(title="موسیقی")
+    category_subcategories = []
+    for category in categories:
+        sub_categories = Categories.objects.filter(parent_id=category.id)
+        category_subcategories.append((category, sub_categories))
     if args:
         going_recovery = args[0]
     return render(request, 'home.html', {
@@ -106,6 +111,7 @@ def home(request, *args):
         'traditionalMusic': make_event_type_list1(Event.objects.filter(category__title='سنتی')),
         'popMusic': make_event_type_list1(Event.objects.filter(category__title='پاپ')),
         'bestSellerEvents': make_event_type_list1(get_best_seller_events()),
+        'mainCategories': category_subcategories,
         'pageTitle': " - سامانهٔ جامع خرید و فروش بلیط",
     })
 
