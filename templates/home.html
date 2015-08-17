@@ -639,7 +639,7 @@
                                         {% endif %}
                                     </div>
                                     <div class="date">
-                                         <span class="inner-text" discount="{{discount}}% تخفیف">{% spaceless %}
+                                         <span class="inner-text" {% if discount %}discount="%{{ discount }} تخفیف"{% endif %}>{% spaceless %}
                                                 {% with date.date as minimal_date %}
                                                     {% include 'minimal-date.html' %}{% endwith %}
                                         {% endspaceless %}</span>
@@ -663,7 +663,7 @@
                                         {{ event.category.title }}
                                     </div>
                                     <div class="date">
-                                        <span class="inner-text" discount="{{discount}}% تخفیف">{% spaceless %}
+                                        <span class="inner-text" {% if discount %}discount="%{{discount}} تخفیف"{% endif %}>{% spaceless %}
                                                 {% with date.date as minimal_date %}
                                                     {% include 'minimal-date.html' %}{% endwith %}
                                         {% endspaceless %}</span>
