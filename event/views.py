@@ -11,6 +11,7 @@ from bilityab.views import make_event_type_list1, get_type
 from event.forms import ImageUploadForm
 from event.models import Categories, Sport, Movie, Concert, EventRating, EventOrganizer
 from ticket.models import *
+from promotion.models import Promotion
 import json
 
 
@@ -28,6 +29,7 @@ def add_event(request):
             if (request.POST.get('event-title', '') != "" and request.POST.get('event-description',
                                                                                '') != "" and request.POST.get(
                     'event-type', '') != "" and request.POST.get('event-address', '') != ""):
+                print("1")
                 form = ImageUploadForm(request.POST, request.FILES)
                 cat_id = int(request.POST.get('event-type', ''))
                 category = Categories.objects.get(pk=cat_id)
@@ -369,7 +371,9 @@ def buy_seats(request):
         price = request.POST.get('price')
         show_time = Showtime.objects.get(pk=show_time_id)
         show_time.capacity -= int(quantity)
-        promotion = show_time.promotion
+        promotion = Promotion.objects.filter(showtime_id=show_time.id)
+        if len(promotion) != 0:
+            promotion = show_time.promotion
         if promotion:
             if promotion.remaining - int(quantity) > 0:
                 promotion.remaining -= int(quantity)
