@@ -25,11 +25,14 @@ def make_event_type_list(event_list):
 
 
 def all_promotion(request):
-    return render(request, 'all_promotion.html', {
-        'logged_in': request.user.is_authenticated(),
-        'events': make_event_type_list(Event.objects.all())
+    if request.user.is_authenticated():
+        return render(request, 'all_promotion.html', {
+            'logged_in': request.user.is_authenticated(),
+            'events': make_event_type_list(Event.objects.all())
 
-    })
+        })
+    else:
+        return HttpResponse("شما اجازه دسترسی به این صفحه را ندارید")
 
 
 def promotion(request, event_id):

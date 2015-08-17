@@ -466,11 +466,14 @@ def register_seats(map_id, seats, ticket):
 
 
 def categories(request):
-    return render(request, 'all_categories.html', {
-        'pageTitle': " - دسته‌ها",
-        'categories': Categories.objects.filter(parent_id=0),
-        'sub_categories': Categories.objects.all().exclude(parent_id=0)
-    })
+    if request.user.is_superuser:
+        return render(request, 'all_categories.html', {
+            'pageTitle': " - دسته‌ها",
+            'categories': Categories.objects.filter(parent_id=0),
+            'sub_categories': Categories.objects.all().exclude(parent_id=0)
+        })
+    else:
+        return HttpResponse("شما اجازه دسترسی به این صفحه را ندارید")
 
 
 def add_category(request):
