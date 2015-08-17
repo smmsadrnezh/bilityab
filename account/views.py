@@ -13,7 +13,7 @@ from django.template import loader, Context
 from .check_registration import CheckRegistration
 from account.models import CustomUser, RecoveryRequests
 from django.http import HttpResponseForbidden, HttpResponse, HttpResponseRedirect
-from event.models import Event
+from event.models import Event,UserFavoriteEvents
 
 
 def login(request):
@@ -108,12 +108,20 @@ def charge(request, user_id):
 
 def favorites(request, user_id):
     if request.user.is_authenticated():
-        if request.method == 'POST':
+        if request.user.id == int(user_id):
 
-            return render(request, 'favorites.html', {
-                'pageTitle': " - فهرست علاقه‌مندی‌ها",
-                'event_type_list': make_event_type_list1(Event.objects.filter())
-            })
+            if request.method == 'POST':
+                print("salam")
+            else:
+                events = Event.objects.filter(userfavoriteevents__user_id=user_id)
+                # for event in UserFavoriteEvents.objects.filter(user_id=):
+                #     Event.objects.get(id=event.event_id)
+                return render(request, 'favorites.html', {
+                    'pageTitle': " - فهرست علاقه‌مندی‌ها",
+                    'event_type_list': make_event_type_list1(events)
+                })
+        else:
+            return HttpResponseForbidden()
     else:
         return HttpResponseRedirect('/')
 
