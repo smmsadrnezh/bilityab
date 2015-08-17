@@ -34,7 +34,10 @@ def make_event_type_list1(event_list):
         category = get_type(event.id)
         organizer = event.event_organizers.all()[0]
         dates = Showtime.objects.filter(event=event)
-        position_price = PositionPrice.objects.get(organizer=organizer, event=event)
+        try:
+            position_price = PositionPrice.objects.get(organizer_id=organizer, event_id=event)
+        except PositionPrice.DoesNotExist:
+            position_price = PositionPrice.objects.filter(organizer_id=1)[0]
         show_times = Showtime.objects.filter(event_id=event.id)
         max_promotion = 0
         for show_time in show_times:
