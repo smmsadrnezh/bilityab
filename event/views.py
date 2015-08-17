@@ -36,6 +36,7 @@ def add_event(request):
                                              category=category,landscape = "./pic.png",portrait="./1.jpg", address=request.POST.get('event-address', ''))
                 event.event_organizers.add(EventOrganizer.objects.get(user=request.user))
                 PositionPrice(event_id=event.id,organizer_id=request.user.id,price="1000").save()
+                Showtime(date=datetime.datetime.now(),from_time="10:00:00",to_time="11:00:00",event_id=event.id,organizer_id=2,capacity=100).save()
                 if request.POST.get('event-home-team', '') != "" and request.POST.get('event-away-team', '') != "":
                     Sport(
                         event_id=event.id,
