@@ -13,11 +13,6 @@
                                 class="caret"></strong></a>
                         <ul class="dropdown-menu" id="drop">
                             <li>
-                                {{ request.user.first_name }} {{ request.user.last_name }}
-                            </li>
-                            <li class="divider">
-                            </li>
-                            <li>
                                 <i class="fa fa-users"></i><a href="/users">مدیریت کاربران</a>
                             </li>
                             <li>
@@ -61,11 +56,9 @@
                         <li><a href="/categories"><i class="fa fa-th-list"></i>دسته ها</a></li>
                     {% endif %}
                 {% endif %}
-                {% if not request.user.is_authenticated %}
                     <li><a href="/about"><i class="fa fa-info-circle"></i> دربارهٔ ما</a></li>
                     <li><a href="/terms"><i class="fa fa-flag"></i> شرایط و ضوابط</a></li>
                     <li><a href="/contact"><i class="fa fa-phone"></i> تماس با ما</a></li>
-                {% endif %}
 
             </ul>
             <div id="left-bar" class="col col-md-4 col-xs-12">
