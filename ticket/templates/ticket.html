@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% load staticfiles %}
 {% block pageBody %}
-    {% for ticket,event,type,showtime,positions in ticket_event_type_list %}
+    {% for ticket,event,type,showtime,positions,organizer in ticket_event_type_list %}
 
         <div class="holder">
             <div id="body-container" class="col col-md-12">
@@ -42,11 +42,22 @@
                             <dd>{{ ticket.id }}</dd>
                             <p>(کد فوق را هنگام ورود به محل برگزاری رویداد تحویل دهید.)</p>
                             <dt>تاریخ خرید</dt>
-                            <dd>{{ ticket.purchased_date }}</dd>
+                            <dd>
+                                {% with ticket.purchased_date as date_time %}
+                                    {% include 'persian-date-time.html' %}
+                                {% endwith %}
+                            </dd>
                             <dt>زمان برگزاری رویداد</dt>
-                            <dd>{{ showtime.date }} از ساعت {{ showtime.from_time }} تا {{ showtime.to_time }}</dd>
-                            <dt>مکان استفاده</dt>
-                            <dd>{{ event.address }}</dd>
+                            <dd>
+                                {% with showtime.date as date %}
+                                    {% include 'persian-date.html' %}
+                                {% endwith %}
+                                از ساعت {{ showtime.from_time }} تا {{ showtime.to_time }}
+                            </dd>
+                            <dt>برگزارکننده</dt>
+                            <dd>{{ organizer }}</dd>
+                            <dt>آدرس </dt>
+                            <dd>{{ organizer.address }}</dd>
                             {% for position in positions %}
                                 <dt>محل قرارگیری صندلی</dt>
                                 <dd>جایگاه {{ position.section }} ردیف {{ position.row }}

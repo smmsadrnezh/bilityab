@@ -8,8 +8,7 @@
                     <h1>بلیط‌های من</h1>
                 </div>
                 <div class="col col-md-12" id="ticket-info">
-                    {% for ticket in tickets %}
-
+                    {% for ticket,event,category in tickets %}
                         <div class="col col-md-2">
                             <a class="btn btn-primary btn-lg btn-block"
                                href="/ticket/{{ request.user.id }}/{{ ticket.id }}">
@@ -20,7 +19,8 @@
                             <i class="fa fa-ticket fa-3x"></i>
                         </div>
                         <a href="/ticket/{{ request.user.id }}/{{ ticket.id }}" class="event-info">
-                            مسابقه فوتبال ایران و آمریکا (تعداد: {{ ticket.quantity }})
+                      {{ category }}   {{ event.title }}
+                            ( تعداد: {{ ticket.quantity }})
                         </a>
                         <div class="event-info">
                             شماره بلیط: {{ ticket.id }}
