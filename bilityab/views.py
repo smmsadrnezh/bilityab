@@ -8,6 +8,13 @@ from event.models import Event, Categories, Showtime, PositionPrice
 from promotion.models import Promotion
 
 
+def get_category(event):
+    category = Categories.objects.get(id=event.category_id)
+    if Categories.objects.get(id=category.parent_id).title == "سینمایی"   :
+        return Categories.objects.get(id=category.parent_id)
+    return Categories.objects.get(id=event.category_id)
+
+
 def get_type(event_id):
     sub_category = Categories.objects.get(id=Event.objects.get(id=event_id).category_id)
     category = Categories.objects.get(id=sub_category.parent_id).title
@@ -50,9 +57,9 @@ def make_event_type_list1(event_list):
             total_capacity += show_time.capacity
         if dates:
             date = get_nearest_date(dates)
-            event_type_list.append((event, category, organizer, date, total_capacity, position_price.price, max_promotion))
+            event_type_list.append((event, category, organizer, date, total_capacity, position_price.price, max_promotion, get_category(event)))
         else:
-            event_type_list.append((event, category, organizer, total_capacity, position_price.price, max_promotion))
+            event_type_list.append((event, category, organizer, total_capacity, position_price.price, max_promotion,get_category(event)))
     return event_type_list
 
 

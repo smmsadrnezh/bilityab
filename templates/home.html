@@ -122,7 +122,7 @@
                                     برای این بخش رویدادی وجود ندارد
                                 </div>
                             {% else %}
-                                {% for event, type, organizer,date, capacity, price, discount in actionMovies %}
+                                {% for event, type, organizer,date, capacity, price, discount, category_title in actionMovies %}
                                     <div class="col col-md-6 col-xs-6 event" event_id="{{ event.id }}">
                                         <div class="image"
                                              style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
@@ -136,7 +136,7 @@
                                         <div class="description cinema">
                                             <div class="vertical-center">
                                                 <div class="title">
-                                                    {{ event.title }}
+                                                    {{ category_title }} {{ event.title }}
                                                 </div>
                                                 <div class="place">
                                                     {{ organizer.title }}
@@ -159,7 +159,7 @@
                                     برای این بخش رویدادی وجود ندارد
                                 </div>
                             {% else %}
-                                {% for event, type, organizer, date, capacity, price,discount in dramaticMovies %}
+                                {% for event, type, organizer, date, capacity, price,discount, category_title in dramaticMovies %}
                                     <div class="col col-md-6 col-xs-6 event" event_id="{{ event.id }}">
                                         <div class="image"
                                              style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
@@ -173,7 +173,7 @@
                                         <div class="description cinema">
                                             <div class="vertical-center">
                                                 <div class="title">
-                                                    {{ event.title }}
+                                                    {{ category_title }} {{ event.title }}
                                                 </div>
                                                 <div class="place">
                                                     {{ organizer.title }}
@@ -196,7 +196,7 @@
                                     برای این بخش رویدادی وجود ندارد
                                 </div>
                             {% else %}
-                                {% for event, type, organizer, date, capacity, price, discount in comicMovies %}
+                                {% for event, type, organizer, date, capacity, price, discount, category_title in comicMovies %}
                                     <div class="col col-md-6 col-xs-6 event" event_id="{{ event.id }}">
                                         <div class="image"
                                              style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
@@ -210,7 +210,7 @@
                                         <div class="description cinema">
                                             <div class="vertical-center">
                                                 <div class="title">
-                                                    {{ event.title }}
+                                                    {{ category_title }} {{ event.title }}
                                                 </div>
                                                 <div class="place">
                                                     {{ organizer.title }}
@@ -233,7 +233,7 @@
                                     برای این بخش رویدادی وجود ندارد
                                 </div>
                             {% else %}
-                                {% for event, type, organizer, date, capacity, price, discount in volleyballEvents %}
+                                {% for event, type, organizer, date, capacity, price, discount, category_title in volleyballEvents %}
                                     <div class="col col-md-6 col-xs-6 event " event_id="{{ event.id }}">
                                         <div class="image"
                                              style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
@@ -247,7 +247,7 @@
                                         <div class="description sport">
                                             <div class="vertical-center">
                                                 <div class="title">
-                                                    {{ event.title }}
+                                                    {{ category_title }} {{ event.title }}
                                                 </div>
                                                 <div class="place">
                                                     {{ organizer.title }}
@@ -269,7 +269,7 @@
                                 <div class="text-center text-info" style="margin:30px;">
                                     برای این بخش رویدادی وجود ندارد
                                 </div>
-                                {% else %}{% for event, type, organizer, date, capacity, price, discount in footballEvents %}
+                                {% else %}{% for event, type, organizer, date, capacity, price, discount, category_title in footballEvents %}
                                     <div class="col col-md-6 col-xs-6 event" event_id="{{ event.id }}">
                                         <div class="image"
                                              style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
@@ -283,7 +283,7 @@
                                         <div class="description sport">
                                             <div class="vertical-center">
                                                 <div class="title">
-                                                    {{ event.title }}
+                                                    {{ category_title }} {{ event.title }}
                                                 </div>
                                                 <div class="place">
                                                     {{ organizer.title }}
@@ -306,7 +306,7 @@
                                     برای این بخش رویدادی وجود ندارد
                                 </div>
                             {% else %}
-                                {% for event,type, organizer, date, capacity, price, discount in basketballEvents %}
+                                {% for event,type, organizer, date, capacity, price, discount, category_title in basketballEvents %}
                                     <div class="col col-md-6 col-xs-6 event" event_id="{{ event.id }}">
                                         <div class="image"
                                              style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
@@ -320,7 +320,7 @@
                                         <div class="description sport">
                                             <div class="vertical-center">
                                                 <div class="title">
-                                                    {{ event.title }}
+                                                    {{ category_title }} {{ event.title }}
                                                 </div>
                                                 <div class="place">
                                                     {{ organizer.title }}
@@ -343,7 +343,7 @@
                                     برای این بخش رویدادی وجود ندارد
                                 </div>
                             {% else %}
-                                {% for event,type, organizer, date, capacity, price, discount in wrestleEvents %}
+                                {% for event,type, organizer, date, capacity, price, discount, category_title in wrestleEvents %}
                                     <div class="col col-md-6 col-xs-6 event" event_id="{{ event.id }}">
                                         <div class="image"
                                              style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
@@ -357,7 +357,7 @@
                                         <div class="description sport">
                                             <div class="vertical-center">
                                                 <div class="title">
-                                                    {{ event.title }}
+                                                    {{ category_title }} {{ event.title }}
                                                 </div>
                                                 <div class="place">
                                                     {{ organizer.title }}
@@ -380,7 +380,7 @@
                                     برای این بخش رویدادی وجود ندارد
                                 </div>
                             {% else %}
-                                {% for event, type, organizer, date, capacity, price, discount in tourEvents %}
+                                {% for event, type, organizer, date, capacity, price, discount, category_title in tourEvents %}
                                     <div class="col col-md-6 col-xs-6 event" event_id="{{ event.id }}">
                                         <div class="image"
                                              style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
@@ -394,7 +394,7 @@
                                         <div class="description tourism">
                                             <div class="vertical-center">
                                                 <div class="title">
-                                                    {{ event.title }}
+                                                    {{ category_title }} {{ event.title }}
                                                 </div>
                                                 <div class="place">
                                                     {{ organizer.title }}
@@ -417,7 +417,7 @@
                                     برای این بخش رویدادی وجود ندارد
                                 </div>
                             {% else %}
-                                {% for event,type, organizer, date, capacity, price, discount in zooEvents %}
+                                {% for event,type, organizer, date, capacity, price, discount, category_title in zooEvents %}
                                     <div class="col col-md-6 col-xs-6 event" event_id="{{ event.id }}">
                                         <div class="image"
                                              style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
@@ -431,7 +431,7 @@
                                         <div class="description tourism">
                                             <div class="vertical-center">
                                                 <div class="title">
-                                                    {{ event.title }}
+                                                    {{ category_title }} {{ event.title }}
                                                 </div>
                                                 <div class="place">
                                                     {{ organizer.title }}
@@ -452,7 +452,7 @@
                                     برای این بخش رویدادی وجود ندارد
                                 </div>
                             {% else %}
-                                {% for event,type, organizer, date, capacity, price, discount in amusementEvents %}
+                                {% for event,type, organizer, date, capacity, price, discount, category_title in amusementEvents %}
                                     <div class="col col-md-6 col-xs-6 event" event_id="{{ event.id }}">
                                         <div class="image"
                                              style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
@@ -466,7 +466,7 @@
                                         <div class="description tourism">
                                             <div class="vertical-center">
                                                 <div class="title">
-                                                    {{ event.title }}
+                                                    {{ category_title }} {{ event.title }}
                                                 </div>
                                                 <div class="place">
                                                     {{ organizer.title }}
@@ -489,7 +489,7 @@
                                     برای این بخش رویدادی وجود ندارد
                                 </div>
                             {% else %}
-                                {% for event,type, organizer, date, capacity, price, discount in circusEvents %}
+                                {% for event,type, organizer, date, capacity, price, discount, category_title in circusEvents %}
                                     <div class="col col-md-6 col-xs-6 event" event_id="{{ event.id }}">
                                         <div class="image"
                                              style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
@@ -503,7 +503,7 @@
                                         <div class="description tourism">
                                             <div class="vertical-center">
                                                 <div class="title">
-                                                    {{ event.title }}
+                                                    {{ category_title }} {{ event.title }}
                                                 </div>
                                                 <div class="place">
                                                     {{ organizer.title }}
@@ -526,7 +526,7 @@
                                     برای این بخش رویدادی وجود ندارد
                                 </div>
                             {% else %}
-                                {% for event,type, organizer, date, capacity, price, discount in traditionalMusic %}
+                                {% for event,type, organizer, date, capacity, price, discount, category_titles in traditionalMusic %}
                                     <div class="col col-md-6 col-xs-6 event" event_id="{{ event.id }}">
                                         <div class="image"
                                              style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
@@ -540,7 +540,7 @@
                                         <div class="description music">
                                             <div class="vertical-center">
                                                 <div class="title">
-                                                    {{ event.title }}
+                                                    {{ category_title }} {{ event.title }}
                                                 </div>
                                                 <div class="place">
                                                     {{ organizer.title }}
@@ -563,7 +563,7 @@
                                     برای این بخش رویدادی وجود ندارد
                                 </div>
                             {% else %}
-                                {% for event,type, organizer, date, capacity, price, discount in popMusic %}
+                                {% for event,type, organizer, date, capacity, price, discount, category_title in popMusic %}
                                     <div class="col col-md-6 col-xs-6 event" event_id="{{ event.id }}">
                                         <div class="image"
                                              style="background-image: url('{{ MEDIA_URL }}{{ event.landscape }}')">
@@ -577,7 +577,7 @@
                                         <div class="description music">
                                             <div class="vertical-center">
                                                 <div class="title">
-                                                    {{ event.title }}
+                                                    {{ category_title }} {{ event.title }}
                                                 </div>
                                                 <div class="place">
                                                     {{ organizer.title }}
@@ -611,7 +611,7 @@
                                 برای این بخش رویدادی وجود ندارد
                             </div>
                         {% else %}
-                            {% for event, type, organizer, date, capacity, price, discount in bestSellerEvents %}
+                            {% for event, type, organizer, date, capacity, price, discount, category_title in bestSellerEvents %}
                                 <div class="medium-event col col-md-4 col-xs-6">
                                     <div class="image"
                                          style="background-image: url('{{ MEDIA_URL }}{{ event.portrait }}')"></div>
@@ -619,7 +619,7 @@
                                     <div class="discount-label"></div>
                                     <p class="discount-text">{{ discount }}%</p>
                                 {% endif %}
-                                    <div class="title"><a href="/events/{{ type }}/{{ event.id }}">{{ event.title }}</a>
+                                    <div class="title"><a href="/events/{{ type }}/{{ event.id }}">{{ category_title }} {{ event.title }}</a>
                                     </div>
                                     <div class="place"><a
                                             href="/organizer/{{ organizer.id }}/">{{ organizer.title }}</a></div>
@@ -646,7 +646,7 @@
                 <div id="most-popular" class="widget">
                     <div class="heading"><i class="fa fa-star"></i><span class="title">برترین رویدادها</span></div>
                     <div class="content">
-                        {% for event, type, organizer, date, capacity, price, discount in bestEvents %}
+                        {% for event, type, organizer, date, capacity, price, discount, category_title in bestEvents %}
                             <div class="small-event">
                                 <a href="events/{{ type }}/{{ event.id }}/">
                                     <div class="event-type">
@@ -674,11 +674,15 @@
                     <div class="heading"><i class="fa fa-newspaper-o"></i><span class="title">نزدیکترین رویدادها</span>
                     </div>
                     <div class="content">
-                        {% for event, type, organizer, date, capacity, price, discount in nearestEvents %}
+                        {% for event, type, organizer, date, capacity, price, discount, category_title in nearestEvents %}
                             <div class="small-event">
                                 <a href="events/{{ type }}/{{ event.id }}">
                                     <div class="event-type">
-                                        {{ event.category.title }}
+                                        {% if type == 'cinema' %}
+                                            سینمایی
+                                        {% else %}
+                                            {{ event.category.title }}
+                                        {% endif %}
                                     </div>
                                     <div class="date">
                                         <span class="inner-text" {% if discount %}discount="%{{discount}} تخفیف"{% endif %}>{% spaceless %}
