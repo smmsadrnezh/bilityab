@@ -107,18 +107,11 @@ def charge(request, user_id):
 
 def favorites(request, user_id):
     if request.user.is_authenticated():
-        return render(request, 'favorites.html', {
-            'pageTitle': " - شارژ حساب کاربری",
-        })
-    else:
-        return HttpResponseRedirect('/')
+        if request.method == 'POST':
 
-
-def favorites(request, user_id):
-    if request.user.is_authenticated():
-        return render(request, 'favorites.html', {
-            'pageTitle': " - شارژ حساب کاربری",
-        })
+            return render(request, 'favorites.html', {
+                'pageTitle': " - فهرست علاقه‌مندی‌ها",
+            })
     else:
         return HttpResponseRedirect('/')
 
