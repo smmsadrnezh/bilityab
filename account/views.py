@@ -4,7 +4,7 @@ import threading
 from datetime import datetime
 from datetime import timedelta
 from django.contrib import auth
-from bilityab.views import home
+from bilityab.views import home,make_event_type_list1
 from ticket.models import PurchasedTicket
 from smtplib import SMTPException
 from django.shortcuts import render
@@ -13,6 +13,7 @@ from django.template import loader, Context
 from .check_registration import CheckRegistration
 from account.models import CustomUser, RecoveryRequests
 from django.http import HttpResponseForbidden, HttpResponse, HttpResponseRedirect
+from event.models import Event,UserFavoriteEvents
 
 
 def login(request):
@@ -107,18 +108,20 @@ def charge(request, user_id):
 
 def favorites(request, user_id):
     if request.user.is_authenticated():
-        return render(request, 'favorites.html', {
-            'pageTitle': " - شارژ حساب کاربری",
-        })
-    else:
-        return HttpResponseRedirect('/')
+        if request.user.id == int(user_id):
 
-
-def favorites(request, user_id):
-    if request.user.is_authenticated():
-        return render(request, 'favorites.html', {
-            'pageTitle': " - شارژ حساب کاربری",
-        })
+            if request.method == 'POST':
+                print("salam")
+            else:
+                events = Event.objects.filter(userfavoriteevents__user_id=user_id)
+                # for event in UserFavoriteEvents.objects.filter(user_id=):
+                #     Event.objects.get(id=event.event_id)
+                return render(request, 'favorites.html', {
+                    'pageTitle': " - فهرست علاقه‌مندی‌ها",
+                    'event_type_list': make_event_type_list1(events)
+                })
+        else:
+            return HttpResponseForbidden()
     else:
         return HttpResponseRedirect('/')
 
