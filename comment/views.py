@@ -3,6 +3,7 @@ from datetime import datetime
 from comment.models import Comment, CommentEvent
 from account.models import CustomUser
 from django.http import HttpResponse
+import json
 
 
 def add_comment(request):
@@ -11,7 +12,16 @@ def add_comment(request):
                           time=datetime.now())
         comment.save()
         CommentEvent(comment_id=comment.id, event_id=request.POST.get('event', None)).save()
-        return HttpResponse(request.user.username)
+
+        results = []
+        comment_json = {}
+        comment_json['addedtime'] = datetime.now().strftime('%Y-%m-%dT%H:%M:%S')
+        comment_json['user'] = request.user.username
+        results.append(comment_json)
+        data = json.dumps(results)
+        mimetype = 'application/json'
+
+        return HttpResponse(data, mimetype)
 
 
 def comments(event_id):

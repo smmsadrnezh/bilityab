@@ -36,15 +36,19 @@
         $.ajax({
             type: "POST",
             url: "/add-comment/",
+            dataType: "json",
+            data: { get_param: 'value' },
             data: $("#comment-form").serialize(), // serializes the form's elements.
             success: function (data) {
-                var comment = $('<div class="comment col col-md-12"><div class="col col-md-11">' +
-                '<div class="name">' + data + '</div><div class="date">۲۵ خرداد ۱۳۹۴، ۲:۱۱ عصر</div>' +
+                $.each(data, function(index, element) {
+                                    var comment = $('<div class="comment col col-md-12"><div class="col col-md-11">' +
+                '<div class="name">' + element.user + '</div><div class="date">' + element.addedtime + '</div>' +
                 '<div class="text"></div></div><div class="col col-md-1 image"></div></div>');
                 comment.find('.text').text(your_comment.find('textarea').val());
                 comment.find('.image').css('background-image', your_comment.find('.image').css('background-image'));
                 $('#comments').append(comment);
                 your_comment.find('textarea').val('');
+                });
             }
         });
     });
