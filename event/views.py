@@ -33,7 +33,7 @@ def add_event(request):
                 category = Categories.objects.get(pk=cat_id)
                 event = Event.objects.create(title=request.POST.get('event-title', ''),
                                              description=request.POST.get('event-description', ''),
-                                             category=category,landscape = form.cleaned_data['landscape-photo'],portrait=form.cleaned_data['portrait-photo'], address=request.POST.get('event-address', ''))
+                                             category=category,landscape=form.cleaned_data['landscape-photo'],portrait=form.cleaned_data['portrait-photo'], address=request.POST.get('event-address', ''))
                 event.event_organizers.add(EventOrganizer.objects.get(user=request.user))
                 if request.POST.get('event-home-team', '') != "" and request.POST.get('event-away-team', '') != "":
                     Sport(

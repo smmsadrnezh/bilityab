@@ -29,7 +29,8 @@ def login(request):
 
 def logout(request):
     auth.logout(request)
-    return HttpResponseRedirect(request.REQUEST.get('next', ''))
+    return HttpResponseRedirect("/")
+    # return HttpResponseRedirect(request.REQUEST.get('next', ''))
 
 
 def register(request):
