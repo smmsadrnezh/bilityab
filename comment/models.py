@@ -1,13 +1,14 @@
-from django.db import models
 # -*- coding: utf-8 -*-
+from django.db import models
 from account.models import CustomUser
+from bilityab.change_date import ChangeDate
 from event.models import Event, EventOrganizer
 
 
 class Comment(models.Model):
-    user = models.ForeignKey(CustomUser)
-    time = models.DateTimeField()
-    text = models.CharField(max_length=300)
+    user = models.ForeignKey(CustomUser, verbose_name="کاربر")
+    time = models.DateTimeField(verbose_name="زمان و تاریخ")
+    text = models.CharField(max_length=300, verbose_name="متن نظر")
 
     class Meta:
         verbose_name = "نظر"
@@ -15,7 +16,7 @@ class Comment(models.Model):
         unique_together = (("user", "time"),)
 
     def __str__(self):
-        return "%s -- %s" % (self.text, self.user)
+        return "%s در تاریخ %s" % (self.user, ChangeDate().get_persian_date_time(self.time))
 
 
 class CommentEvent(models.Model):
