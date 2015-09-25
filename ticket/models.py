@@ -13,6 +13,8 @@ class PurchasedTicket(models.Model):
     receipt = models.CharField(max_length=50)
 
     class Meta:
+        verbose_name = "بلیط"
+        verbose_name_plural = "بلیط ها"
         unique_together = (("user", "purchased_date"),)
 
     def __str__(self):
@@ -24,6 +26,10 @@ class TicketPosition(models.Model):
     section = models.PositiveIntegerField(null=True, blank=True)
     row = models.PositiveSmallIntegerField()
     column = models.PositiveSmallIntegerField()
+
+    class Meta:
+        verbose_name = "صندلی"
+        verbose_name_plural = "صندلی ها"
 
     def __str__(self):
         return "row: %s column: %s" % (self.row, self.column)

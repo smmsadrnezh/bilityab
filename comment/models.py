@@ -10,6 +10,8 @@ class Comment(models.Model):
     text = models.CharField(max_length=300)
 
     class Meta:
+        verbose_name = "نظر"
+        verbose_name_plural = "نظرات"
         unique_together = (("user", "time"),)
 
     def __str__(self):

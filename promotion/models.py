@@ -11,5 +11,9 @@ class Promotion(models.Model):
     remaining = models.PositiveSmallIntegerField()
     issued_time = models.DateTimeField(default=datetime.now)
 
+    class Meta:
+        verbose_name = "تخفیف"
+        verbose_name_plural = "تخفیف ها"
+
     def __str__(self):
         return "%s" % self.showtime

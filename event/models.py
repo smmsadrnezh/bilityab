@@ -15,6 +15,10 @@ class EventOrganizer(models.Model):
     capacity = models.PositiveIntegerField()
     photo = models.ImageField(null=True)
 
+    class Meta:
+        verbose_name = "برگزارکننده"
+        verbose_name_plural = "برگزارکنندگان"
+
     def __str__(self):
         return "%s" % self.title
 
@@ -22,6 +26,10 @@ class EventOrganizer(models.Model):
 class Categories(models.Model):
     title = models.CharField(max_length=90)
     parent = models.ForeignKey('self', null=True)
+
+    class Meta:
+        verbose_name = "گروه"
+        verbose_name_plural = "گروه ها"
 
     def __str__(self):
         return "%s" % self.title
@@ -51,6 +59,7 @@ class PositionPrice(models.Model):
     price = models.IntegerField(default=0)
 
     class Meta:
+        verbose_name = "قیمت"
         verbose_name_plural = "قیمت ها"
 
     def __str__(self):
@@ -65,6 +74,10 @@ class Showtime(models.Model):
     to_time = models.TimeField()
     capacity = models.PositiveIntegerField()
 
+    class Meta:
+        verbose_name = "سانس"
+        verbose_name_plural = "سانس ها"
+
     def __str__(self):
         return "%s -> %s to %s -- %s -- %s" % (self.date, self.from_time, self.to_time,
                                                self.event.title, self.organizer.title)
@@ -75,6 +88,10 @@ class Concert(models.Model):
     group_name = models.CharField(unique=True, max_length=40)
     vocalist = models.CharField(null=True, max_length=30)
     musicians = models.CharField(max_length=1000)
+
+    class Meta:
+        verbose_name = "کنسرت"
+        verbose_name_plural = "کنسرت ها"
 
     def __str__(self):
         return "%s -> %s" % (self.group_name, self.vocalist)
@@ -92,6 +109,10 @@ class Movie(models.Model):
     producer = models.CharField(max_length=100)
     writers = models.CharField(max_length=200)
 
+    class Meta:
+        verbose_name = "فیلم"
+        verbose_name_plural = "فیلم ها"
+
     def __str__(self):
         return "%s (%s) \n %s" % (self.director, self.year, self.story_summary)
 
@@ -100,6 +121,10 @@ class Sport(models.Model):
     event = models.OneToOneField(Event, primary_key=True)
     home_team = models.CharField(max_length=30)
     away_team = models.CharField(max_length=30)
+
+    class Meta:
+        verbose_name = "ورزشی"
+        verbose_name_plural = "ورزشی"
 
     def __str__(self):
         return "%s %s" % (self.home_team, self.away_team)
@@ -110,6 +135,10 @@ class EventRating(models.Model):
     event = models.ForeignKey(Event, related_name='rates')
     user = models.ForeignKey(CustomUser, default=1)
 
+    class Meta:
+        verbose_name = "امتیاز"
+        verbose_name_plural = "امتیازها"
+
     def __str__(self):
         return "%f" % self.rate
 
@@ -117,6 +146,10 @@ class EventRating(models.Model):
 class GalleryPhoto(models.Model):
     event = models.ForeignKey(Event, related_name='gallery_photos')
     pic = models.ImageField()
+
+    class Meta:
+        verbose_name = "گالری"
+        verbose_name_plural = "گالری"
 
 
 class UserFavoriteEvents(models.Model):

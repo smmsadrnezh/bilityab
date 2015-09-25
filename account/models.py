@@ -17,5 +17,9 @@ class RecoveryRequests(models.Model):
     user = models.OneToOneField(CustomUser)
     random_num = models.CharField(max_length=30)
 
+    class Meta:
+        verbose_name = "درخواست بازیابی"
+        verbose_name_plural = "درخواست های بازیابی"
+
     def __str__(self):
         return str(self.user) + ': ' + self.random_num
