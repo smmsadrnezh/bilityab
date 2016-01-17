@@ -241,13 +241,17 @@ a:hover {
 }
 
 .toast {
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .toast-title {
     font-family: 'BYekan', sans-serif;
 }
 
-#toast-container > .toast-info {
+#toast-container > .toast {
     background-position: 95% 45%;
+}
+
+.toast-bottom-full-width .toast {
+    background-position: 99% 45% !important;
 }

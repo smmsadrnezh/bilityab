@@ -361,4 +361,18 @@ $(window).load(function () {
             });
 
     });
+
+    if ($('body').attr('data-logged-in') == 'true') {
+
+        toastr.success("آزمایش", "ورود");
+
+    }
+    else {
+
+        toastr.info("برای خرید بلیط باید ابتدا وارد سامانه شوید.", "ورود به سامانه");
+
+    }
+
+
+
 });

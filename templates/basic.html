@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="{% static "css/toastr.min.css" %}"/>
     {% block css %}{% endblock %}
 </head>
-<body>
+<body data-logged-in="{% if request.user.is_authenticated  %}true{% else %}false{% endif %}">
 {% block render_blocking_js %}{% endblock %}
 <script src="{% static "js/resize_text.js" %}"></script>
 
