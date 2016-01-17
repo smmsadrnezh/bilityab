@@ -1,0 +1,11 @@
+.panel-group .panel-title {
+    font-family: 'BYekan', sans-serif;
+}
+
+a:focus {
+    text-decoration: none !important;
+}
+
+.panel-group .panel-body {
+    font-size: 90%;
+}

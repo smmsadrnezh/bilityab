@@ -132,6 +132,11 @@ def terms(request):
     })
 
 
+def FAQ(request):
+    return render(request, 'FAQ.html', {
+        'pageTitle': "سوالات متداول",
+    })
+
 def about(request):
     return render(request, 'about.html', {
         'pageTitle': " - درباره",

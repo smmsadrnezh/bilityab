@@ -75,6 +75,8 @@
                      <li><a href="/ticket/{{ request.user.id }}"><i class="fa fa-ticket"></i>بلیط‌های من</a></li>
                 {% endif %}
 
+                <li><a href="/FAQ"><i class="fa fa-question-circle"></i>سوالات متداول</a></li>
+
             </ul>
             <div id="left-bar" class="col col-md-4 col-xs-12">
                 <form style="height: 100%;" action="/search/" method="POST" id="search-form">{% csrf_token %}
