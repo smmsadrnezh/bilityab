@@ -39,5 +39,7 @@
     music_events.on('click', function () {
         window.location.href = "events/music/" + $(this).attr('event_id');
     });
-    
+
+    toastr.info("سلام", "عنوان");
+
 })(jQuery);

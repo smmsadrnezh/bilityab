@@ -239,3 +239,15 @@ a:hover {
 #top-header ul {
     color: #ffffff;
 }
+
+.toast {
+    font-size: 14px;
+}
+
+.toast-title {
+    font-family: 'BYekan', sans-serif;
+}
+
+#toast-container > .toast-info {
+    background-position: 95% 45%;
+}
