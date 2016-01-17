@@ -39,5 +39,5 @@
     music_events.on('click', function () {
         window.location.href = "events/music/" + $(this).attr('event_id');
     });
-
+    
 })(jQuery);

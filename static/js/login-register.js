@@ -1,4 +1,7 @@
 jQuery(document).ready(function ($) {
+
+    /*global webkitSpeechRecognition */
+
     var $form_modal = $('.cd-user-modal'),
         $form_login = $form_modal.find('#cd-login'),
         $form_signup = $form_modal.find('#cd-signup'),
@@ -83,6 +86,7 @@ jQuery(document).ready(function ($) {
     });
 
     function login_selected() {
+        console.log('login selected');
         is_registering = false;
         $form_login.addClass('is-selected');
         $form_signup.removeClass('is-selected');
@@ -252,9 +256,6 @@ jQuery(document).ready(function ($) {
         });
 
     });
-
-
-
 
 });
 
