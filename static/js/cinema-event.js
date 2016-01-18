@@ -364,17 +364,17 @@ $(window).load(function () {
         });
         $(this).find('span').css('width', (user_rate + initial_rate * num) / (num + 1) + '%');
         var event_id = $(this).closest('#ticket').attr('event_id');
-        toastr.success("امتیازشما با موفقیت ثبت شد.", "امتیازدهی");
         $.ajax('/events/rate/', {
             type: 'POST', data: {
                 rate: user_rate / 20, event_id: event_id
             }, dataType: 'json'
         })
             .done(function (data) {
+
             })
             .fail(function () {
             });
-
+        toastr.success("امتیازشما با موفقیت ثبت شد.", "امتیازدهی");
     });
 
     if ($('body').attr('data-logged-in') == 'true') {
