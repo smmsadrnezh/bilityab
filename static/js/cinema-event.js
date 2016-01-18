@@ -188,6 +188,11 @@ $(window).load(function () {
         }
     });
     $('.show-time').on('click', function () {
+
+        if ($('body').attr('data-logged-in') != 'true') {
+            toastr.info("برای خرید بلیط وارد حساب کاربری خود شوید.", "ورود به سامانه");
+        }
+
         step3.removeClass('active').addClass('done');
         step3.next().removeClass('active').addClass('done');
         step4.addClass('active');
@@ -338,8 +343,17 @@ $(window).load(function () {
             $(this).find('span').css('width', $(this).attr('initial-rate')).end().fadeIn(200);
         });
     }).on('click', function () {
-        if (!$(this).hasClass('not-rated'))
+        if (!$(this).hasClass('not-rated')) {
+
+            if ($('body').attr('data-logged-in') == 'true') {
+                toastr.info("امتیاز شما به این رویداد قبلا ثبت شده است", "امتیازدهی");
+            }
+            else {
+                toastr.error("برای ثبت امتیاز، وارد حساب کاربری خود شوید.", "امتیازدهی");
+            }
+
             return false;
+        }
         $(this).removeClass('not-rated');
         var user_rate = parseFloat($(this).find('span')[0].style.width);
         var initial_rate = parseFloat($(this).attr('initial-rate'));
@@ -350,6 +364,7 @@ $(window).load(function () {
         });
         $(this).find('span').css('width', (user_rate + initial_rate * num) / (num + 1) + '%');
         var event_id = $(this).closest('#ticket').attr('event_id');
+        toastr.success("امتیازشما با موفقیت ثبت شد.", "امتیازدهی");
         $.ajax('/events/rate/', {
             type: 'POST', data: {
                 rate: user_rate / 20, event_id: event_id
@@ -363,8 +378,6 @@ $(window).load(function () {
     });
 
     if ($('body').attr('data-logged-in') == 'true') {
-
-        toastr.success("آزمایش", "ورود");
 
     }
     else {

@@ -17,6 +17,7 @@
     $('#for-comments').on('click', function () {
         if (user_comments.css('display') != 'block') {
             active_panel.fadeOut(function () {
+                toastr.info("برای ثبت نظر وارد حساب کاربری خود شوید.", "ثبت نظر");
                 user_comments.fadeIn();
                 active_panel = user_comments;
             });
@@ -48,6 +49,7 @@
                 comment.find('.image').css('background-image', your_comment.find('.image').css('background-image'));
                 $('#comments').append(comment);
                 your_comment.find('textarea').val('');
+                    toastr.success("نظر شما با موفقیت ثبت شد.", "ثبت نظر");
                 });
             }
         });

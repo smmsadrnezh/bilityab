@@ -112,7 +112,7 @@ def favorites(request, user_id):
         if request.user.id == int(user_id):
 
             if request.method == 'POST':
-                UserFavoriteEvents(event_id=request.POST.get('event',None),user_id=user_id).save()
+                UserFavoriteEvents(event_id=request.POST.get('event', None), user_id=user_id).save()
                 return HttpResponseRedirect('/profile/' + user_id + '/favorites/')
             else:
                 events = Event.objects.filter(userfavoriteevents__user_id=user_id)
