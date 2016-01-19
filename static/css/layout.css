@@ -134,7 +134,7 @@ a:hover {
 
 .dropdown-menu > li:not(.divider)
 {
-    padding: 0.5em 0;
+    margin: 0.5em 0;
 }
 
 #left-bar {

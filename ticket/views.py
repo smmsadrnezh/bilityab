@@ -6,6 +6,8 @@ from event.models import Event, Showtime, Categories, EventOrganizer
 from ticket.models import TicketPosition
 from bilityab.views import get_type
 from datetime import datetime
+import calendar
+
 
 def get_category(event):
     category = Categories.objects.get(id=event.category_id)
@@ -52,6 +54,112 @@ def ticket(request, user_id, purchased_id):
         return HttpResponseRedirect('/')
 
 
+def num_to_month(date):
+
+    if date == 13:
+        date = 12
+
+    return{
+        1: 'Jan',
+        2: 'Feb',
+        3: 'Mar',
+        4: 'Apr',
+        5: 'May',
+        6: 'Jun',
+        7: 'Jul',
+        8: 'Aug',
+        9: 'Sep',
+        10: 'Oct',
+        11: 'Nov',
+        12: 'Dec'
+    }[date]
+
+
+def add_months(sourcedate,months):
+    month = sourcedate.month - 1 + months
+    year = int(sourcedate.year + month / 12)
+    month = month % 12 + 1
+    day = calendar.monthrange(year, month)[1]
+    return datetime(year, month, day)
+
+
+def chart(request):
+    if not request.user.is_superuser:
+        return HttpResponseRedirect('/')
+    else:
+        start = request.GET.get('start-date', None)
+        end = request.GET.get('end-date', None)
+
+        tickets = PurchasedTicket.objects.all().order_by('purchased_date')
+
+        send_start_date = datetime.now()
+        send_end_date = datetime.now()
+
+        if tickets.last() is not None:
+            send_start_date = tickets.first().purchased_date
+            send_end_date = tickets.last().purchased_date
+
+        if start is not None:
+            send_start_date = datetime.strptime(start, "%Y-%m-%d")
+        if end is not None:
+            send_end_date = datetime.strptime(end, "%Y-%m-%d")
+
+        months = []
+        sales = []
+        flag = True
+        temp = send_start_date
+        counter = 0
+
+        while flag:
+            if counter == 0:
+                next_month = datetime(temp.year, temp.month, calendar.monthrange(temp.year, temp.month)[1])
+            else:
+                next_month = add_months(temp, 1)
+            if next_month > send_end_date:
+                next_month = send_end_date
+                flag = False
+            if counter == 0:
+                months.append({"start": temp, "end": next_month, "str": num_to_month(temp.month)})
+            else:
+                months.append({"start": temp, "end": next_month, "str": num_to_month(temp.month+1)})
+            counter += 1
+            temp = next_month
+
+        counter = 0
+
+        print(months, len(months))
+
+        for i in range(len(months)):
+            sales.append(0)
+
+        for ticket in tickets:
+            if counter < len(months):
+                flag = True
+                while flag and counter < len(months):
+                    if ticket.purchased_date >= months[counter]['start'] and ticket.purchased_date < months[counter]['end']:
+                        flag = False
+                        sales[counter] += ticket.price
+                    else:
+                        counter += 1
+            else:
+                break
+
+        return render(
+            request,
+            'ticket-report.html',
+            {
+                'pageTitle': " - گزارش فروش ها",
+                'start_date_day': send_start_date.day,
+                'start_date_month': send_start_date.month,
+                'start_date_year': send_start_date.year,
+                'end_date_day': send_end_date.day,
+                'end_date_month': send_end_date.month,
+                'end_date_year': send_end_date.year,
+                'sales': sales,
+                'months': months
+            })
+
+
 def all_ticket(request, user_id):
     if int(user_id) == request.user.id:
         start = request.GET.get('start-date', None)
@@ -71,10 +179,10 @@ def all_ticket(request, user_id):
         input_end_date = None
 
         if start is not None:
-            input_start_date = datetime.strptime(start, "%Y/%m/%d")
+            input_start_date = datetime.strptime(start, "%Y-%m-%d")
             send_start_date = input_start_date
         if end is not None:
-            input_end_date = datetime.strptime(end, "%Y/%m/%d")
+            input_end_date = datetime.strptime(end, "%Y-%m-%d")
             send_end_date = input_end_date
 
         for ticket in tickets:
