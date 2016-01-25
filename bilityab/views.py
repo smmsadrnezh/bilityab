@@ -137,6 +137,13 @@ def FAQ(request):
         'pageTitle': " - سوالات متداول",
     })
 
+
+def Help(request):
+    return render(request, 'help.html', {
+        'pageTitle': " - راهنمای سامانه",
+    })
+
+
 def about(request):
     return render(request, 'about.html', {
         'pageTitle': " - درباره",

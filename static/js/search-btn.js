@@ -12,4 +12,10 @@ jQuery(document).ready(function ($) {
 
     });
 
+    $("#help-link").on('click', function () {
+
+        window.location = "/Help";
+
+    });
+
 });

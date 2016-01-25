@@ -67,6 +67,10 @@ a:hover {
     height: 100%;
 }
 
+#top-header .holder {
+    position: relative;
+}
+
 #top-header .holder > ul {
     font-family: 'BYekan', sans-serif;
     font-size: 0.65em;
@@ -104,6 +108,15 @@ a:hover {
 #top-header li > ul
 {
     color: #000000;
+}
+
+#help-link {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate(-100%, -50%);
+    cursor: pointer;
+    font-size: 1.5em;
 }
 
 .dropdown-menu

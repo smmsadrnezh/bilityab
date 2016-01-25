@@ -1,0 +1,101 @@
+{% extends "layout.html" %}
+{% load staticfiles %}
+{% block pageBody %}
+
+    <div class="holder">
+        <div id="body-container" class="col col-md-12">
+            <div class="col col-md-12">
+                <div class="col col-md-12" id="box-head">
+                    <div id="center-head">
+                        راهنمای سامانه
+                    </div>
+                </div>
+                <div class="col col-md-12">
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                      <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                          <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                              هدف از ایجاد این سامانه چه بوده است؟
+                            </a>
+                          </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                          <div class="panel-body">
+                              هدف از طراحی و پیاده‌سازی سامانه خرید بلیط رویدادهای تفریحی و سرگرمی، تجمیع و یک‌پارچه‌سازی سامانه‌های پراکنده موجود می‌باشد تا در بستر این سامانه کاربران بتوانند به طور جامع از رویداد‌های تفریحی-سرگرمی آگاه شده و بلیط آن‌ها را تهیه کنند. برگزارکنندگان رویدادها نیز از طریق این سامانه بلیط‌های خود را به فروش می‌رسانند.
+                          </div>
+                        </div>
+                      </div>
+                      <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingTwo">
+                          <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                              نحوه خرید بلیط چگونه است؟
+                            </a>
+                          </h4>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                          <div class="panel-body">
+                              برای خرید بلیط، ابتدا باید در سامانه عضو شوید. برای این کار از آیکون های حاشیه چپ صفحه استفاده کنید. بعد از ثبت نام، لینک فعال سازی برای حساب شما ارسال می شود. بعد از تایید لینک، می توانید وارد سامانه شوید و به صفحه رویداد موردنظرتان بروید. سپس در آن صفحه با توجه به نوع رویداد، می توانید سالن، سانس و صندلی خود را انتخاب کنید و به صفحه خرید منتقل شوید.
+                          </div>
+                        </div>
+                      </div>
+                      <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingThree">
+                          <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                یک برگزارکننده جدید چگونه باید خود را به فهرست برگزارکنندگان اضافه کند؟
+                            </a>
+                          </h4>
+                        </div>
+                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                          <div class="panel-body">
+                              برای ثبت سینما و یا مجموعه خود در لیست برگزارکنندگان، ابتدا باید از طریق لینک تماس با ما درخواست خود را به قسمت پشتیبانی ارسال کنید. سپس برای تایید هویت با شما تماس گرفته خواهد شد. بعد از تایید، می توانید رویدادهای خود را در سامانه وارد کنید.
+                          </div>
+                        </div>
+                      </div>
+                      <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingFour">
+                          <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+در صورت لغو شدن یک رویداد تکلیف بلیطهای خریداری شده چه می شود؟
+                            </a>
+                          </h4>
+                        </div>
+                        <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                          <div class="panel-body">
+                              در صورت لغو شدن یک رویداد، حداکثر تا ۲۴ ساعت هزینه پرداخت شده به حساب کاربران در وبگاه بازگردانده خواهد شد. در غیر این صورت می توانید با قسمت پشتیبانی تماس بگیرید.
+                          </div>
+                        </div>
+                      </div>
+                      <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingThree">
+                          <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseThree">
+                                آیا می توان بلیط خریداری شده را بازگرداند؟
+                            </a>
+                          </h4>
+                        </div>
+                        <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                          <div class="panel-body">
+                              امکان استرداد بلیط پس از خرید آن وجود ندارد. بنابراین هنگام خرید بلیط دقت کافی را مبذول نمایید.
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+    {{ block.super }}
+{% endblock %}
+
+{% block css %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static "css/about.css" %}"/>
+    <link rel="stylesheet" href="{% static "css/FAQ.css" %}"/>
+{% endblock %}
