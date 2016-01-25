@@ -129,6 +129,13 @@
         }
     });
 
+
+    $('area[title="فروش اینترنتی ندارد"]').on('click', function () {
+
+        toastr.info("این قسمت فروش اینترنتی ندارد.", "خرید بلیط");
+
+    });
+
     $('.map form').submit(function (e) {
 
         e.preventDefault();
