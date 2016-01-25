@@ -38,7 +38,7 @@
                             {% endif %}
                         {% endfor %}
                     </div>
-                    <div class="col col-md-12" style="margin-top: 20px;">
+                    <div class="col col-md-12" style="margin-top: 20px; margin-bottom: 25px;">
                         <div class="col col-md-2 txt-centered faded2 byekan">شماره بلیط</div>
                         <div class="col col-md-2 txt-centered faded2 byekan">کد بلیط</div>
                         <div class="col col-md-2 txt-centered faded2 byekan">ساعت</div>
@@ -55,20 +55,16 @@
                         <div class="col col-md-2 txt-centered">{{ ticket.price }} تومان</div>
                         <div class="col col-md-2 txt-centered">{{ request.user.first_name }} {{ request.user.last_name }}</div>
                     </div>
-                    <div class="col col-md-12">
+                    <hr/>
+                    <div class="col col-md-12 notes">
                         <p>کد بلیط را به هنگام ورود به محل برگزاری رویداد به همراه داشته باشید.</p>
                         <p>بلیط‌های خریداری شده قابل استرداد نمی‌باشد.</p>
                         <p>حتما ۲۰ دقیقه قبل از شروع رویداد در محل حضور داشته باشید.</p>
                     </div>
-                    <div class="col col-md-6">
-                        <dl class="dl-horizontal">
-                            <dt>تاریخ خرید</dt>
-                            <dd>
-                                {% with ticket.purchased_date as date_time %}
-                                    {% include 'persian-date-time.html' %}
-                                {% endwith %}
-                            </dd>
-                        </dl>
+                    <div class="col col-md-12 txt-centered" style="margin-top: 15px; color: #B8BABB; font-family: 'BYekan', sans-serif">
+                        {% with ticket.purchased_date as date_time %}
+                            {% include 'persian-date-time.html' %}
+                        {% endwith %}
                     </div>
                 </div>
             </div>

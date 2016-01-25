@@ -75,3 +75,14 @@
     background-color: #ABABAB;
     transform: translate(50%, 0);
 }
+
+.ticket-box .notes {
+    text-align: center;
+    margin-top: 20px;
+    font-family: 'BYekan', sans-serif;
+    font-size: 18px;
+}
+
+.notes p {
+    margin-bottom: 5px;
+}
