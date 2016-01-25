@@ -110,17 +110,36 @@
         step3.removeClass('active');
     });
 
+    var num_of_selected_seats = 0;
+
     $('.seat').on('click', function () {
-        if ($(this).hasClass('free-seat'))
+        if ($(this).hasClass('free-seat')) {
+            num_of_selected_seats++;
             $(this).fadeOut(function () {
                 $(this).css('background-image', 'url("http://127.0.0.1:8000/static/img/seat_selected.png")')
                     .removeClass('free-seat').addClass('selected-seat').fadeIn();
             });
-        else if ($(this).hasClass('selected-seat'))
+        }
+        else if ($(this).hasClass('selected-seat')) {
+            num_of_selected_seats--;
             $(this).fadeOut(function () {
                 $(this).css('background-image', 'url("http://127.0.0.1:8000/static/img/seat_available.png")')
                     .removeClass('selected-seat').addClass('free-seat').fadeIn();
             });
+        }
+    });
+
+    $('.map form').submit(function (e) {
+
+        e.preventDefault();
+
+        if (num_of_selected_seats == 0) {
+            toastr.error("هیچ صندلی ای انتخاب نشده است.", "انتخاب صندلی");
+        }
+        else {
+            $(this).unbind('submit').submit();
+        }
+
     });
 
     $('.seat').each(function () {

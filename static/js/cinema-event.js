@@ -299,11 +299,16 @@ $(window).load(function () {
         }
     });
 
-    console.log($('.map form'))
-
     $('.map form').submit(function (e) {
 
         e.preventDefault();
+
+        if (num_of_selected_seats == 0) {
+            toastr.error("هیچ صندلی ای انتخاب نشده است.", "انتخاب صندلی");
+        }
+        else {
+            $(this).unbind('submit').submit();
+        }
 
     });
 
