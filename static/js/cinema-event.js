@@ -83,7 +83,6 @@ $(window).load(function () {
 
     if (selected_show_time)
         music_page = true;
-
     if (music_page)
         set_sold_seats();
 
@@ -281,18 +280,33 @@ $(window).load(function () {
         step4.removeClass('active');
     });
 
+    var num_of_selected_seats = 0;
+
     $('.seat').on('click', function () {
-        if ($(this).hasClass('free-seat'))
+        if ($(this).hasClass('free-seat')) {
+            num_of_selected_seats++;
             $(this).fadeOut(function () {
                 $(this).css('background-image', 'url("http://127.0.0.1:8000/static/img/seat_selected.png")')
                     .removeClass('free-seat').addClass('selected-seat').fadeIn();
             });
-        else if ($(this).hasClass('selected-seat'))
+        }
+        else if ($(this).hasClass('selected-seat')) {
+            num_of_selected_seats--;
             $(this).fadeOut(function () {
                 $(this).css('background-image', 'url("http://127.0.0.1:8000/static/img/seat_available.png")')
                     .removeClass('selected-seat').addClass('free-seat').fadeIn();
             });
+        }
     });
+
+    console.log($('.map form'))
+
+    $('.map form').submit(function (e) {
+
+        e.preventDefault();
+
+    });
+
     $('.seat').each(function () {
         $(this).attr({
             'data-toggle': 'tooltip',
