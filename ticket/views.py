@@ -163,8 +163,22 @@ def all_ticket(request, user_id):
         start = request.GET.get('start-date', None)
         end = request.GET.get('end-date', None)
 
+        num_of_tickets = PurchasedTicket.objects.filter(user_id=request.user.id).count()
+
+        page_id = request.GET.get('page_id', 1)
+
+        page_id = int(page_id)
+
+        num_of_pages = int(num_of_tickets/5)
+
+        if num_of_tickets % 5 != 0:
+            num_of_pages += 1
+
+        if page_id > num_of_pages:
+            page_id = 1
+
         tickets_events = []
-        tickets = PurchasedTicket.objects.filter(user_id=request.user.id).order_by('-purchased_date')
+        tickets = PurchasedTicket.objects.filter(user_id=request.user.id).order_by('-purchased_date')[(page_id-1)*5:page_id*5]
 
         send_start_date = datetime.now()
         send_end_date = datetime.now()
@@ -182,6 +196,11 @@ def all_ticket(request, user_id):
         if end is not None:
             input_end_date = datetime.strptime(end, "%Y-%m-%d")
             send_end_date = input_end_date
+
+        num_of_pages_str = ''
+
+        for i in range(num_of_pages):
+            num_of_pages_str += str((i+1))
 
         for ticket in tickets:
             show_time = Showtime.objects.get(id=ticket.showtime_id)
@@ -202,6 +221,8 @@ def all_ticket(request, user_id):
             'end_date_day': send_end_date.day,
             'end_date_month': send_end_date.month,
             'end_date_year': send_end_date.year,
+            'num_of_pages': num_of_pages_str,
+            'current_page': str(page_id)
         })
     else:
         return HttpResponseRedirect('/')

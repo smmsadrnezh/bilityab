@@ -70,6 +70,15 @@
 
                         <div class="my-divider"></div>
                     {% endfor %}
+
+                <div class="col col-md-12" id="paginate" style="text-align: center">
+                    <ul class="pagination" style="margin: 6px 0 -10px 0; font-family: 'BYekan', sans-serif;">
+                        {% for i in num_of_pages %}
+                        <li {% if i == current_page %}class="active"{% endif %}><a href="?page_id={{ i }}">{{ i }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
                 </div>
             </div>
 
@@ -79,7 +88,6 @@
 
 {% block js %}
     {{ block.super }}
-    <script src="{% static "js/sport-event.js" %}"></script>
     <script src="{% static "js/all-tickets.js" %}"></script>
 {% endblock %}
 
