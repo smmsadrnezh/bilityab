@@ -232,6 +232,7 @@ jQuery(document).ready(function ($) {
                                 }, 3000);
                                 break;
                             case 'invalid_email':
+                                console.log('googogo')
                                 $('#signup-email').toggleClass('has-error').next('span').text('پست الکترونیکی نامعتبر').toggleClass('is-visible');
                                 setTimeout(function () {
                                     hide_error($('#signup-email'));
@@ -244,7 +245,13 @@ jQuery(document).ready(function ($) {
                                 }, 3000);
                                 break;
                             case 'taken_username':
-                                $('#signup-username').toggleClass('has-error').next('span').toggleClass('is-visible');
+                                $('#signup-username').toggleClass('has-error').next('span').text('این نام کاربری قبلا گرفته شده است').toggleClass('is-visible');
+                                setTimeout(function () {
+                                    hide_error($('#signup-username'));
+                                }, 3000);
+                                break;
+                            case 'invalid_username':
+                                $('#signup-username').toggleClass('has-error').next('span').text('نام کاربری نامعتبر').toggleClass('is-visible');
                                 setTimeout(function () {
                                     hide_error($('#signup-username'));
                                 }, 3000);

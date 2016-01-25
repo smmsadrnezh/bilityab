@@ -52,6 +52,8 @@ class CheckRegistration(object):
 
     @staticmethod
     def check_email(email):
+        if not email:
+            return 'invalid_email'
         if email:
             if not re.match(r'^([a-zA-Z0-9_.+-])+@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$', email):
                 return 'invalid_email'
@@ -63,6 +65,8 @@ class CheckRegistration(object):
 
     @staticmethod
     def check_username(username):
+        if not username:
+            return 'invalid_username'
         try:
             CustomUser.objects.get(username=username)
             return 'taken_username'

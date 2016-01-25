@@ -42,7 +42,8 @@ def register(request):
         username = request.POST.get('signup-username', None)
         password = request.POST.get('signup-password', None)
         email = request.POST.get('signup-email', None)
-        email = email.lower()
+        if email:
+            email = email.lower()
         errors += CheckRegistration.check_first_name(first_name) + ' '
         errors += CheckRegistration.check_last_name(last_name) + ' '
         errors += CheckRegistration.check_date(birth_date) + ' '
