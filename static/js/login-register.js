@@ -232,7 +232,6 @@ jQuery(document).ready(function ($) {
                                 }, 3000);
                                 break;
                             case 'invalid_email':
-                                console.log('googogo')
                                 $('#signup-email').toggleClass('has-error').next('span').text('پست الکترونیکی نامعتبر').toggleClass('is-visible');
                                 setTimeout(function () {
                                     hide_error($('#signup-email'));

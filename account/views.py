@@ -42,6 +42,9 @@ def register(request):
         username = request.POST.get('signup-username', None)
         password = request.POST.get('signup-password', None)
         email = request.POST.get('signup-email', None)
+        post_gender = 1
+        if request.POST.get('gender', None) == 'زن':
+            post_gender = 0
         if email:
             email = email.lower()
         errors += CheckRegistration.check_first_name(first_name) + ' '
@@ -51,11 +54,12 @@ def register(request):
         errors += CheckRegistration.check_pass(password) + ' '
         errors += CheckRegistration.check_email(email)
         if not errors.strip():
-            birth_date = birth_date.split('/')
+            birth_date = birth_date.split('-')
             CustomUser.objects.create_user(username=username, first_name=first_name, last_name=last_name, email=email,
                                            password=password, birth_date=datetime(int(birth_date[0]),
                                                                                   int(birth_date[1]),
-                                                                                  int(birth_date[2])))
+                                                                                  int(birth_date[2])),
+                                           gender=True if post_gender == 1 else False)
             user = auth.authenticate(username=username, password=password)
             auth.login(request, user)
             return HttpResponse('success')

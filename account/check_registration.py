@@ -27,7 +27,7 @@ class CheckRegistration(object):
     def check_date(date):
         if date:
             try:
-                date = date.split('/')
+                date = date.split('-')
                 year, month, day = int(date[0]), int(date[1]), int(date[2])
                 if year < 1000 or year > datetime.now().year:
                     return 'date'
