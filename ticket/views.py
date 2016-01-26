@@ -57,7 +57,7 @@ def ticket(request, user_id, purchased_id):
 def num_to_month(date):
 
     if date == 13:
-        date = 12
+        date = 1
 
     return{
         1: 'Jan',
@@ -89,6 +89,8 @@ def chart(request):
     else:
         start = request.GET.get('start-date', None)
         end = request.GET.get('end-date', None)
+
+        print(end)
 
         tickets = PurchasedTicket.objects.all().order_by('purchased_date')
 
@@ -126,6 +128,8 @@ def chart(request):
             temp = next_month
 
         counter = 0
+
+        print(months)
 
         for i in range(len(months)):
             sales.append(0)

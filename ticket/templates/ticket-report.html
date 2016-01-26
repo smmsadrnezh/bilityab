@@ -56,7 +56,7 @@
                         var barChartData = {
                             labels : [
                                 {% for month in months %}
-                                    "{{ month.str }} {{ month.start.year }}"{% if not forloop.last %},{% endif %}
+                                    "{{ month.str }} {{ month.end.year }}"{% if not forloop.last %},{% endif %}
                                 {% endfor %}
                             ],
                             datasets : [
