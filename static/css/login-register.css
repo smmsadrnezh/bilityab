@@ -384,3 +384,13 @@
     right: 18px;
     font-size: 1.2em;
 }
+
+.signup-width-height{
+    width: 32%;
+    height: 30px;
+}
+
+.semi-full-width{
+    width: 67%;
+    height: 30px;
+}

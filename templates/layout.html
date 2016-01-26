@@ -167,71 +167,125 @@
                     <form class="cd-form" id="signup-form" action="/register/" method="POST">{% csrf_token %}
                         <p class="fieldset">
                             <i class="fa fa-user"></i>
-                            <input class="full-width has-padding has-border" id="signup-first-name"
+                            <input class="signup-width-height has-padding has-border" id="signup-first-name"
                                    name="signup-first-name"
                                    type="text"
-                                   placeholder="نام">
+                                   value="نام"
+                                   disabled="disabled">
+                            <input class="semi-full-width has-padding has-border" id="signup-first-name"
+                                   name="signup-first-name"
+                                   type="text"
+                                   >
                             <span class="cd-error-message">نام نامعتبر</span>
                         </p>
 
                         <p class="fieldset">
                             <i class="fa fa-user"></i>
-                            <input class="full-width has-padding has-border" id="signup-last-name"
+                            <input class="signup-width-height has-padding has-border" id="signup-last-name"
                                    name="signup-last-name"
                                    type="text"
-                                   placeholder="نام خانوادگی">
+                                   value="نام خانوادگی"
+                                    disabled="disabled">
+                            <input class="semi-full-width has-padding has-border" id="signup-last-name"
+                                   name="signup-last-name"
+                                   type="text"
+                                   >
                             <span class="cd-error-message">نام خانوادگی نامعتبر</span>
                         </p>
 
                         <p class="fieldset">
                             <i class="fa fa-calendar"></i>
-                            <input class="full-width has-padding has-border" id="signup-birth-date"
+                            <input class="signup-width-height has-padding has-border" id="signup-birth-date"
                                    name="signup-birth-date"
                                    type="text"
-                                   placeholder="تاریخ تولد">
+                                   disabled="disabled"
+                                   value="تاریخ تولد">
+
+                            <input class="semi-full-width has-padding has-border" id="signup-birth-date"
+                                   name="signup-birth-date"
+                                   type="date"
+                                   value="2016-01-01"
+                                   >
                             <span class="cd-error-message">تاریخ تولد نامعتبر</span>
                         </p>
 
                         <p class="fieldset">
                             <i class="fa fa-transgender"></i>
-                            <input class="full-width has-padding has-border" id="signup-gender"
+                            <input class="signup-width-height has-padding has-border" id="signup-gender"
                                    name="signup-gender"
                                    type="text"
-                                   placeholder="جنسیت">
+                                   disabled="disabled"
+                                   value="جنسیت">
+                              <label style="margin-right: 10px;">
+                                مرد
+                            </label>
+                            <input  id="male"
+                                   name="gender"
+                                   type="radio"
+                                   value="مرد"
+                                   checked="checked"
+                                   >
+                            <label style="margin-right: 10px;">
+زن
+                            </label>
+                            <input id="female"
+                                   name="gender"
+                                   type="radio"
+                                   >
                             <span class="cd-error-message">جنسیت نامعتبر</span>
                         </p>
 
                         <p class="fieldset">
                             <i class="fa fa-phone"></i>
-                            <input class="full-width has-padding has-border" id="signup-phone"
+                            <input class="signup-width-height has-padding has-border" id="signup-gender"
+                                   name="signup-gender"
+                                   type="text"
+                                   disabled="disabled"
+                                   value="شماره تماس">
+                            <input class="semi-full-width has-padding has-border" id="signup-phone"
                                    name="signup-phone"
                                    type="text"
-                                   placeholder="شماره تماس">
+                                   placeholder="مثال: 09121234567">
                             <span class="cd-error-message">شماره تماس</span>
+                        </p>
+
+                         <p class="fieldset">
+                            <i class="fa fa-envelope"></i>
+                            <input class="signup-width-height has-padding has-border" id="signup-email" name="signup-email"
+                                   type="text"
+                                  value="پست الکترونیکی"
+                                    disabled="disabled">
+                            <input class="semi-full-width has-padding has-border" id="email"
+                                   name="email"
+                                   type="email"
+                                   placeholder="مثال: bilityab@gmail.com">
+                            <span class="cd-error-message">پست الکترونیکی نامعتبر</span>
                         </p>
 
                         <p class="fieldset">
                             <i class="fa fa-user"></i>
-                            <input class="full-width has-padding has-border" id="signup-username" name="signup-username"
+                            <input class="signup-width-height has-padding has-border" id="signup-username" name="signup-username"
                                    type="text"
-                                   placeholder="نام کاربری">
+                                   value="نام کاربری"
+                                    disabled="disabled">
+                             <input class="semi-full-width has-padding has-border" id="username"
+                                   name="username"
+                                   type="text"
+                                   >
                             <span class="cd-error-message">این نام کاربری قبلا گرفته شده است</span>
-                        </p>
-
-                        <p class="fieldset">
-                            <i class="fa fa-envelope"></i>
-                            <input class="full-width has-padding has-border" id="signup-email" name="signup-email"
-                                   type="email"
-                                   placeholder="پست الکترونیکی">
-                            <span class="cd-error-message">پست الکترونیکی نامعتبر</span>
                         </p>
 
 
                         <p class="fieldset">
                             <i class="fa fa-key"></i>
-                            <input class="full-width has-padding has-border" id="signup-password" name="signup-password"
+                            <input class="signup-width-height has-padding has-border" id="password" name="password"
+                                   type="text"
+                                   value="رمز عبور"
+                                   disabled="disabled">
+                            <input class="semi-full-width has-padding has-border" id="signup-password"
+                                   name="signup-password"
                                    type="password"
-                                   placeholder="رمز عبور">
+                                   >
                             <a href="#0" class="hide-password">نمایش</a>
                             <span class="cd-error-message">رمز عبور نامعتبر</span>
                         </p>
