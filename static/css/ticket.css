@@ -2,3 +2,87 @@
     padding-top: 25px;
     padding-bottom: 25px;
 }
+
+.ticket-box .btn-primary {
+    color: #000;
+    background-color: rgba(0, 0, 0, 0.11);
+    border-color: transparent;
+}
+
+.ticket-box .ticket-head {
+    text-align: center;
+    margin-top: 40px;
+    font-family: 'BYekan', sans-serif;
+}
+
+.ticket-box .header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 15;
+}
+
+.ticket-box .event-title {
+    font-size: 43px;
+    font-family: 'BYekan', sans-serif;
+    padding-right: 0;
+}
+
+.ticket-box .txt-centered {
+    text-align: center;
+}
+
+.heading {
+    font-size: 200%;
+}
+
+.faded {
+    color: rgba(0, 0, 0, 0.18);
+}
+
+.faded2 {
+    color: rgba(0, 0, 0, 0.23);
+}
+
+.byekan {
+    font-family: 'BYekan', sans-serif;
+}
+
+.ticket-box hr {
+    width: 80%;
+    float: none;
+    border-top: 1px solid rgb(224, 220, 218);
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.ticket-row,
+.ticket-column,
+.ticket-section {
+    font-size: 200%;
+    font-family: 'BYekan', sans-serif;
+}
+
+.ticket-box .address {
+    text-align: center;
+    font-family: 'BYekan', sans-serif;
+    font-size: 16px;
+    padding: 7px;
+    position: absolute;
+    border-radius: 0 0 13px 13px;
+    right: 50%;
+    color: #FFFFFF;
+    background-color: #ABABAB;
+    transform: translate(50%, 0);
+}
+
+.ticket-box .notes {
+    text-align: center;
+    margin-top: 20px;
+    font-family: 'BYekan', sans-serif;
+    font-size: 18px;
+}
+
+.notes p {
+    margin-bottom: 5px;
+}

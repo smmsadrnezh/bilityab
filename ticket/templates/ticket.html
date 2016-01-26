@@ -2,76 +2,69 @@
 {% load staticfiles %}
 {% block pageBody %}
     {% for ticket,event,type,showtime,positions,organizer in ticket_event_type_list %}
-
         <div class="holder">
             <div id="body-container" class="col col-md-12">
-                <div class="col col-md-12">
+
+                <div class="col col-md-12 ticket-box">
+                <div class="col col-md-12 header">
+                    <div class="address">
+                        {{ organizer.address }}
+                    </div>
                     <div class="col col-md-2">
                         <br/>
                         <a class="btn btn-primary btn-lg btn-block" onClick="window.print();return false" href="#print">
                             <i class="fa fa-print"></i> پرینت
                         </a><a class="btn btn-primary btn-lg btn-block" href="/events/{{ type }}/{{ event.id }}/">
                         <i class="fa fa-info-circle"></i> صفحه رویداد</a></div>
-                    <div class="col col-md-9">
-
-                        <h1 class="">بلـــــــــــیط‌یاب</h1>
-
-                        <h2>{{ event.title }}</h2>
+                    <div class="col col-md-1" style="float: right;">
+                        <i class="fa fa-ticket fa-3x" style="padding: 0.5em 0 0 0"></i>
                     </div>
-                    <div class="col col-md-1">
-                        <i class="fa fa-ticket fa-3x" style="padding: 0.5em 0.2em 0  0 "></i>
-                    </div>
-
-
                 </div>
-                <div class="col col-md-12 ticket-box">
-                    <div class="col col-md-6">
-                        <h3>نکات قابل توجه: </h3>
+                <div class="col col-md-12">
+                    <div class="col col-md-12 ticket-head">{{ organizer }}</div>
+                    <div class="col col-md-12 event-title">{{ event.title }}</div>
+                </div>
 
+                    <div class="col col-md-12 txt-centered">
+                        <div class="col col-md-4 heading faded byekan">ستون</div>
+                        <div class="col col-md-4 heading faded byekan">ردیف</div>
+                        <div class="col col-md-4 heading faded byekan">جایگاه</div>
+                        {% for position in positions %}
+                            <div class="col col-md-4 ticket-row">{{ position.column }}</div>
+                            <div class="col col-md-4 ticket-column">{{ position.row }}</div>
+                            <div class="col col-md-4 ticket-section">{% if position.section %}{{ position.section }}{% else %}--{% endif %}</div>
+                            {% if not forloop.last %}
+                            <hr class="col col-md-12"/>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="col col-md-12" style="margin-top: 20px; margin-bottom: 25px;">
+                        <div class="col col-md-2 txt-centered faded2 byekan">شماره بلیط</div>
+                        <div class="col col-md-2 txt-centered faded2 byekan">کد بلیط</div>
+                        <div class="col col-md-2 txt-centered faded2 byekan">ساعت</div>
+                        <div class="col col-md-2 txt-centered faded2 byekan">تاریخ</div>
+                        <div class="col col-md-2 txt-centered faded2 byekan">قیمت کل</div>
+                        <div class="col col-md-2 txt-centered faded2 byekan">خریدار</div>
+                        <div class="col col-md-2 txt-centered">{{ ticket.id }}</div>
+                        <div class="col col-md-2 txt-centered">{{ ticket.receipt }}</div>
+                        <div class="col col-md-2 txt-centered">{{ showtime.from_time }}</div>
+                        <div class="col col-md-2 txt-centered">
+                            {% with showtime.date as date %}
+                                {% include 'persian-date.html' %}
+                            {% endwith %}</div>
+                        <div class="col col-md-2 txt-centered">{{ ticket.price }} تومان</div>
+                        <div class="col col-md-2 txt-centered">{{ request.user.first_name }} {{ request.user.last_name }}</div>
+                    </div>
+                    <hr/>
+                    <div class="col col-md-12 notes">
+                        <p>کد بلیط را به هنگام ورود به محل برگزاری رویداد به همراه داشته باشید.</p>
                         <p>بلیط‌های خریداری شده قابل استرداد نمی‌باشد.</p>
-
                         <p>حتما ۲۰ دقیقه قبل از شروع رویداد در محل حضور داشته باشید.</p>
                     </div>
-                    <div class="col col-md-6">
-                        <dl class="dl-horizontal">
-                            <dt>خریدار</dt>
-                            <dd>{{ request.user.first_name }} {{ request.user.last_name }}</dd>
-                            <dt>کد رهگیری بانک</dt>
-                            <dd>{{ ticket.receipt }}</dd>
-                            <dt>شماره بلیط</dt>
-                            <dd>{{ ticket.id }}</dd>
-                            <p>(کد فوق را هنگام ورود به محل برگزاری رویداد تحویل دهید.)</p>
-                            <dt>تاریخ خرید</dt>
-                            <dd>
-                                {% with ticket.purchased_date as date_time %}
-                                    {% include 'persian-date-time.html' %}
-                                {% endwith %}
-                            </dd>
-                            <dt>زمان برگزاری رویداد</dt>
-                            <dd>
-                                {% with showtime.date as date %}
-                                    {% include 'persian-date.html' %}
-                                {% endwith %}
-                                از ساعت {{ showtime.from_time }} تا {{ showtime.to_time }}
-                            </dd>
-                            <dt>برگزارکننده</dt>
-                            <dd>{{ organizer }}</dd>
-                            <dt>آدرس </dt>
-                            <dd>{{ organizer.address }}</dd>
-                            {% for position in positions %}
-                                <dt>محل قرارگیری صندلی</dt>
-                                <dd>{% if position.section %}
-                                    جایگاه {{ position.section }}
-                                    {% endif %}
-                                    ردیف {{ position.row }}
-                                    ستون {{ position.column }}</dd>
-                            {% endfor %}
-                            <dt>تعداد خریداری شده</dt>
-                            <dd>{{ ticket.quantity }}</dd>
-                            <dt>قیمت کل</dt>
-                            <dd>{{ ticket.price }} تومان</dd>
-
-                        </dl>
+                    <div class="col col-md-12 txt-centered" style="margin-top: 15px; color: #B8BABB; font-family: 'BYekan', sans-serif">
+                        {% with ticket.purchased_date as date_time %}
+                            {% include 'persian-date-time.html' %}
+                        {% endwith %}
                     </div>
                 </div>
             </div>

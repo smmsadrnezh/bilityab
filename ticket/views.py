@@ -127,8 +127,6 @@ def chart(request):
 
         counter = 0
 
-        print(months, len(months))
-
         for i in range(len(months)):
             sales.append(0)
 
