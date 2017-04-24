@@ -55,7 +55,7 @@ class CheckRegistration(object):
         if not email:
             return 'invalid_email'
         if email:
-            if not re.match(r'^([a-zA-Z0-9_.+-])+@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$', email):
+            if not re.match(r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)", email):
                 return 'invalid_email'
             if CustomUser.objects.filter(email=email).exists():
                 return 'registered_email'
